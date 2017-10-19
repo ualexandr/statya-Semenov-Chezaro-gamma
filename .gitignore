@@ -1,0 +1,23 @@
+*~
+*.aux
+*.log
+*.out
+*.toc
+
+# Не храним бинарики в репозитории
+*.pdf
+
+node_modules
+dumps/*
+dumps
+dumps.bak
+logs
+temp
+found/*
+states/*
+
+# Временные файлы мёржа
+*.orig
+
+# Временные файлы LibreOffice
+.~lock.*
