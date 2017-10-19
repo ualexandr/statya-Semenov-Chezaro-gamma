@@ -70,7 +70,58 @@ $$
 	S(\{1,2,3,4,5,6, ...\}) = \{1,2,3,3,4,4,4,4,5,5,5,5,5,5,5,5,6...\}
 $$
 
+Возможно, кто-то где-то уже вводил такой оператор и исследовал его свойства,
+но где такое искать - я не знаю.
 
+
+Теперь нам потребуются некоторые свойства оператора $S$.
+
+\paragraph{Утверждение.}
+\begin{equation}\label{alpha_S}
+	\alpha(Sx) = \varlimsup_{k\to\infty} |x_{k+1} - x_{k}|
+\end{equation}
+
+\paragraph{Доказательство.}
+Возможно, это очевидно и не стоит переводить бумагу, но пусть пока будет.
+
+\begin{equation*}
+	\alpha(Sx) =
+	\varlimsup_{i\to\infty} \sup_{i < j \leq 2i} | (Sx)_i - (Sx)_j | = ...
+\end{equation*}
+Положим для каждого $i$ число $m_i$ так,
+что $m_i = 2^{k_i}$, $i \leq m_i < 2i$
+(очевидно, это всегда можно сделать и есть даже формула с логарифмом).
+\begin{equation*}
+	... =
+	\varlimsup_{i\to\infty} \max \left\{
+		\max_{i   < j \leq m_i} | (Sx)_i - (Sx)_j |,
+		\max_{m_i < j \leq 2i } | (Sx)_i - (Sx)_j |
+	\right\} =
+	...
+\end{equation*}
+Но при $2^{k_i - 1} < i < j \leq m_i = 2^{k_i}$
+имеем $(Sx)_i = (Sx)_j$, и первый модуль обнуляется.
+
+\begin{equation*}
+	... =
+	\varlimsup_{i\to\infty}
+		\max_{m_i < j \leq 2i } | (Sx)_i - (Sx)_j |
+	=
+	...
+\end{equation*}
+Но при $2^{k_i - 1} < i \leq m_i = 2^{k_i} < j \leq 2^{k_i+1}$
+имеем $(Sx)_i = x_{k_i+1}$, $(Sx)_j = x_{k_i+2}$, откуда
+\begin{equation}\label{alpha_S_sosedi}
+	... =
+	\varlimsup_{k\to\infty}
+		| x_{k+1} - x_k |
+\end{equation}
+
+Утверждение доказано.
+
+
+%\begin{multline*}
+%\end{multline*}
 
 
 \end{document}
