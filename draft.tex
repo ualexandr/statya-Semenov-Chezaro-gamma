@@ -209,7 +209,7 @@ $$
 	\right\}
 \end{equation}
 так, что
-\begin{equation}
+\begin{equation}\label{T_y}
 	T^{5p}y = y
 \end{equation}
 (0 повторяется $3p+1$ раз или около того, надо будет ещё очень аккуратно пересчитать).
@@ -217,5 +217,170 @@ $$
 Вообще, конечно, здесь надо красивое равенство со скобочкой, но на это заморочимся,
 если доказательство верно.
 
-\end{document}
+Положим $x = Sy$.
+Тогда с учётом (\ref{alpha_S})
+\begin{equation}\label{alpha_x}
+	\alpha (x) = \alpha (Sy) = \frac{1}{p}
+\end{equation}
 
+
+Оценим $\alpha(Cx)$:
+
+\begin{multline*}
+	\alpha (Cx) \mathop{\geq}^{(\ref{alpha_greater_k_b})}
+	\varlimsup_{b\to \infty} k_b(x) =
+	\varlimsup_{b\to \infty}\frac{1}{2b}\left|
+		\sum_{k=1}^{b}x_k - \sum_{k=b+1}^{2b}x_k
+	\right| \geq
+	\\ \geq
+	\varlimsup_{
+		i\to \infty,~
+		b=2^i~
+	}\frac{1}{2^{i+1}}\left|
+		\sum_{k=1}^{2^i}(Sy)_k - \sum_{k=2^i+1}^{2^{i+1}}(Sy)_k
+	\right| =
+	\\=
+	\varlimsup_{i\to \infty}\frac{1}{2^{i+1}}\left|
+		\sum_{k=1}^{2^i}(Sy)_k - 2^i y_{i+2}
+	\right| =
+	\varlimsup_{i\to \infty}\left|
+		\frac{1}{2^{i+1}}\sum_{k=1}^{2^i}(Sy)_k - \frac{y_{i+2}}{2}
+	\right| \geq
+	\\ \geq
+	\varlimsup_{
+		m\to \infty,~
+		i=5pm+p~
+	}\left|
+		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm+p}}(Sy)_k - \frac{y_{5pm+p+2}}{2}
+	\right| =
+	\\=
+	\varlimsup_{m\to \infty}\left|
+		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm+p}}(Sy)_k - \frac{1}{2}
+	\right| =
+	\\=
+	\varlimsup_{m\to \infty}\left|
+		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm}}(Sy)_k
+		+
+		\frac{1}{2^{5pm+p+1}}\sum_{k=2^{5pm}+1}^{2^{5pm+p}}(Sy)_k
+		- \frac{1}{2}
+	\right|
+	\mathop{=}^{(\ref{summa_S})}
+	\\=
+	\varlimsup_{m\to \infty}\left|
+		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm}}(Sy)_k
+		+
+		\frac{1}{2^{5pm+p+1}} \cdot 2^{5pm} \cdot \sum_{k=2}^{2^p}(ST^{5pm}y)_k
+		- \frac{1}{2}
+	\right|
+	\mathop{=}^{(\ref{T_y})}
+	\\=
+	\varlimsup_{m\to \infty}\left|
+		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm}}(Sy)_k
+		+
+		\frac{1}{2^{5pm+p+1}} \cdot 2^{5pm} \cdot \sum_{k=2}^{2^p}(Sy)_k
+		- \frac{1}{2}
+	\right| =
+\end{multline*}
+\begin{multline*}
+	\\=
+	\varlimsup_{m\to \infty}\left|
+		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm}}(Sy)_k
+		+
+		\frac{1}{2^{p+1}} \sum_{k=2}^{2^p}(Sy)_k
+		- \frac{1}{2}
+	\right|
+	\mathop{=}^{(\ref{summa_S_less})}
+	\\=
+	\varlimsup_{m\to \infty}\left|
+		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm}}(Sy)_k
+		+
+		\frac{1}{2^{p+1}} \sum_{i=0}^{p-1}2^i y_{i+2}
+		- \frac{1}{2}
+	\right| =
+	\\=
+	\varlimsup_{m\to \infty}\left|
+		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm}}(Sy)_k
+		+
+		\frac{1}{2^{p+1}} \sum_{i=0}^{p-1}2^i \cdot \frac{i}{p}
+		- \frac{1}{2}
+	\right|
+	\mathop{=}^{(\ref{summa_drobey})}
+	\\=
+	\varlimsup_{m\to \infty}\left|
+		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm}}(Sy)_k
+		+
+		\frac{1}{2^{p+1}} \cdot \frac{2^p(p-2)+2}{p}
+		- \frac{1}{2}
+	\right| =
+	\\=
+	\varlimsup_{m\to \infty}\left|
+		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm}}(Sy)_k
+		+
+		\frac{1}{2} \cdot \frac{p-2}{p} + \frac{1}{p 2^p}
+		- \frac{1}{2}
+	\right| =
+	\\=
+	\varlimsup_{m\to \infty}\left|
+		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm}}(Sy)_k
+		-
+		\frac{1}{p} + \frac{1}{p 2^p}
+	\right| =
+	\\=
+	\varlimsup_{m\to \infty}\left|
+		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm-2p}}(Sy)_k
+		+
+		\frac{1}{2^{5pm+p+1}}\sum_{k=2^{5pm-2p}+1}^{2^{5pm}}(Sy)_k
+		-\frac{1}{p} + \frac{1}{p 2^p}
+	\right| =
+	\\\mbox{но во второй сумме все $(Sy)_k$ --- нули по построению (доказать?)}
+	\\=
+	\varlimsup_{m\to \infty}\left|
+		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm-2p}}(Sy)_k
+		-\frac{1}{p} + \frac{1}{p 2^p}
+	\right| = h
+\end{multline*}
+
+Но $0 \leq (Sy)_k \leq 1$,
+значит,
+$$
+	\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm-2p}}(Sy)_k
+	\leq
+	\frac{1}{2^{5pm+p+1}} \cdot 2^{5pm-2p}
+	=
+	\frac{1}{2^{3p+1}}
+$$
+Модуль раскрываем со знаком ``-''
+
+\begin{multline*}
+	h=
+	\varlimsup_{m\to \infty} \left(
+		\frac{1}{p} (1-2^{-p})
+		- \frac{1}{2^{3p+1}}
+	\right) =
+	\frac{1}{p} (1-2^{-p})
+	- \frac{1}{2^{3p+1}}
+	= \\ =
+	\frac{1}{p} (1-2^{-p})
+	- \frac{1}{2^{2p+1}} \cdot 2^{-p}
+	>
+	\frac{1}{p} (1-2^{-p})
+	- \frac{1}{p} \cdot 2^{-p}
+	=
+	\frac{1}{p} (1-2^{-p+1})
+\end{multline*}
+
+
+Таким образом,
+$$
+	\frac{\alpha(Cx)}{\alpha(x)} \geq
+	\frac{	\frac{1}{p} (1-2^{-p+1}) }{\frac{1}{p}} =
+	1-2^{-p+1}
+$$
+
+Рассматривая $x$ как функцию от $p$, имеем:
+$$
+	\sup_{p\in\mathbb{N}} \frac{\alpha(Cx(p))}{\alpha(x(p))} \geq
+	\sup_{p\in\mathbb{N}} (1-2^{-p+1}) \geq
+	1
+$$
+\end{document}
