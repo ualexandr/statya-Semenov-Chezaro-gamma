@@ -159,6 +159,40 @@ $$
 
 Утверждение доказано.
 
+\subsection{Вспомогательная функция $k_b$}
+
+Введём функцию
+\begin{equation}\label{def_k_b}
+	k_b(x) = \frac{1}{2b}\left|
+		\sum_{k=1}^{b}x_k - \sum_{k=b+1}^{2b}x_k
+	\right|
+\end{equation}
+
+\paragraph{Утверждение.}
+\begin{equation}\label{alpha_greater_k_b}
+	\alpha (Cx) \geq \varlimsup_{i\to \infty} k_i(x)
+\end{equation}
+
+\paragraph{Доказательство.}
+
+\begin{multline*}
+	\alpha (Cx) \mathop{=}\limits^{def}
+	\varlimsup_{i\to \infty} \sup_{i<j\leq 2i} |(Cx)_i - (Cx)_j| \geq
+	\varlimsup_{i\to \infty} |(Cx)_i - (Cx)_{2i}| =
+	\\ =
+	\varlimsup_{i\to \infty} \left|\frac{1}{i}\sum_{k=1}^i  - \frac{1}{2i}\sum_{k=1}^{2i} \right| =
+	\varlimsup_{i\to \infty} \left|\frac{1}{i}\sum_{k=1}^i  - \frac{1}{2i}\sum_{k=1}^{i}- \frac{1}{2i}\sum_{k=i+1}^{2i}\right| =
+	\\=
+	\varlimsup_{i\to \infty} \left|\frac{1}{2i}\sum_{k=1}^i - \frac{1}{2i}\sum_{k=i+1}^{2i}\right| =
+	\varlimsup_{i\to \infty} k_i(x)
+\end{multline*}
+
+\paragraph{Примечание.}
+Введение функции $k_b(x)$ позволит нам в дальнейшем лихо уйти от работы с оператором Чезаро
+и заняться тихим небуйным расписыванием сумм.
+
+
+
 \section{Основные построения}
 
 Построим вектор $y\in l_\infty$ следующим образом:
