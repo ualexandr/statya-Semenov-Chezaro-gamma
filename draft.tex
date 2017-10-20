@@ -120,6 +120,24 @@ $$
 Утверждение доказано.
 
 \paragraph{Утверждение.}
+\begin{equation}\label{summa_S_less}
+	\sum_{k=2}^{2^p} (Sy)_k =
+	\sum_{i=0}^{p-1} 2^i y_{i+2}
+\end{equation}
+
+\paragraph{Доказательство.}
+
+\begin{equation*}
+	\sum_{k=2}^{2^p} (Sy)_k =
+	\sum_{i=0}^{p-1} \sum_{k=2^i+1}^{2^{i+1}} (Sy)_k =
+	\sum_{i=0}^{p-1} \sum_{k=2^i+1}^{2^{i+1}} y_{i+2} =
+	\sum_{i=0}^{p-1} 2^i y_{i+2}
+\end{equation*}
+
+Утверждение доказано.
+
+
+\paragraph{Утверждение.}
 \begin{equation}\label{summa_S}
 	\sum_{k=2^i+1}^{2^{i+j+1}} (Sx)_k =
 	2^i\sum_{k=2}^{2^{j+1}} (ST^ix)_k
