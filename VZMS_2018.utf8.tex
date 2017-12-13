@@ -110,56 +110,36 @@ $$
 }
 
 Для доказательства теоремы~1 потребуются вспомогательные построения.
-
-
-\textbf{Утверждение 2.}
 \begin{equation}\label{summa_drobey}
 	\sum_{i=0}^{p-1} \frac{i \cdot 2^i}{p} = \frac{2^p(p-2) + 2}{p}
 \end{equation}
-
-
-\textbf{Вспомогательный оператор $S$}.
-Пусть $y\in l_\infty$.
-Определим оператор $S:l_\infty \to l_\infty$ следующим образом:
+Введём вспомогательный оператор $S:l_\infty \to l_\infty$:
 \begin{equation}\label{operator_S}
 	(Sy)_k = y_{i+2}, \mbox{ где } 2^i < k \leq 2^i+1
 \end{equation}
 
 Этот оператор вводится исключительно для упрощения изложения конструкции.
 Нам потребуются следующие свойства оператора $S$.
-
-\textbf{Свойство 3.}
-%\vspace{-2.28em}
 \begin{equation}\label{alpha_S}
 	\alpha(Sx) = \varlimsup_{k\to\infty} |x_{k+1} - x_{k}|
 \end{equation}
-
-%\vspace{0.6em}
-\textbf{Свойство 4.}
-%\vspace{-3.1415em}
 \begin{equation}\label{summa_S_less}
 	\sum_{k=2}^{2^p} (Sy)_k =
 	\sum_{i=0}^{p-1} 2^i y_{i+2}
 \end{equation}
-
-
-\textbf{Свойство 5.} (Здесь и далее $(Tx)_n = x_{n+1}$.)
+(Здесь и далее $(Tx)_n = x_{n+1}$.)
 \begin{equation}\label{summa_S}
 	\sum_{k=2^i+1}^{2^{i+j+1}} (Sx)_k =
 	2^i\sum_{k=2}^{2^{j+1}} (ST^ix)_k
 \end{equation}
-
-\textbf{Вспомогательная функция $k_b$}.
-Введём функцию
+Введём вспомогательную функцию
 %\vspace{-2.28em}
 \begin{equation}\label{def_k_b}
 	k_b(x) = (2b)^{-1} \left|
 		\sum\nolimits_{k=1}^{b}x_k - \sum\nolimits_{k=b+1}^{2b}x_k
 	\right|
 \end{equation}
-
-\paragraph{Утверждение 6.}
-%\vspace{-2.28em}
+Тогда
 \begin{equation}\label{alpha_greater_k_b}
 	\alpha (Cx) \geq \varlimsup_{i\to \infty} k_i(x)
 \end{equation}
