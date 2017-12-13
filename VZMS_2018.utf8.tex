@@ -77,7 +77,7 @@ $$
 	\alpha(x) = \varlimsup_{i\to\infty}\sup_{i < j \leqslant 2i} |x_i - x_j|.
 $$
 
-Пусть $A = {x\in l_\infty | 0 \leqslant x_n \leqslant 1}$.
+Пусть $A = \{x\in l_\infty | 0 \leqslant x_n \leqslant 1\}$.
 Асимптотические свойства оператора Чезаро удобнее сначала изучать на множестве $A$,
 а затем перенормировкой распространять на всё $l_\infty$.
 
@@ -134,14 +134,14 @@ $$
 Нам потребуются следующие свойства оператора $S$.
 
 \textbf{Свойство 3.}
-\vspace{-2.28em}
+%\vspace{-2.28em}
 \begin{equation}\label{alpha_S}
 	\alpha(Sx) = \varlimsup_{k\to\infty} |x_{k+1} - x_{k}|
 \end{equation}
 
-\vspace{0.6em}
+%\vspace{0.6em}
 \textbf{Свойство 4.}
-\vspace{-3.1415em}
+%\vspace{-3.1415em}
 \begin{equation}\label{summa_S_less}
 	\sum_{k=2}^{2^p} (Sy)_k =
 	\sum_{i=0}^{p-1} 2^i y_{i+2}
@@ -156,13 +156,15 @@ $$
 
 \textbf{Вспомогательная функция $k_b$}.
 Введём функцию
+%\vspace{-2.28em}
 \begin{equation}\label{def_k_b}
-	k_b(x) = \frac{1}{2b}\left|
-		\sum_{k=1}^{b}x_k - \sum_{k=b+1}^{2b}x_k
+	k_b(x) = (2b)^{-1} \left|
+		\sum\nolimits_{k=1}^{b}x_k - \sum\nolimits_{k=b+1}^{2b}x_k
 	\right|
 \end{equation}
 
 \paragraph{Утверждение 6.}
+%\vspace{-2.28em}
 \begin{equation}\label{alpha_greater_k_b}
 	\alpha (Cx) \geq \varlimsup_{i\to \infty} k_i(x)
 \end{equation}
@@ -198,24 +200,19 @@ $$
 Оценим $\alpha(Cx)$:
 \begin{multline*}
 	\alpha (Cx) \mathop{\geqslant}^{(\ref{alpha_greater_k_b})}
-	\varlimsup_{b\to \infty} k_b(x) =
-	\\ \geq
+	\varlimsup_{b\to \infty} k_b(x) \geq
 	\varlimsup_{
 		i\to \infty,~
 		b=2^i~
 	}\frac{1}{2^{i+1}}\left|
 		\sum_{k=1}^{2^i}(Sy)_k - \sum_{k=2^i+1}^{2^{i+1}}(Sy)_k
-	\right| =
+	\right| \geq
 	\\ \geq
 	\varlimsup_{
 		m\to \infty,~
 		i=5pm+p~
 	}\left|
 		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm+p}}(Sy)_k - \frac{y_{5pm+p+2}}{2}
-	\right| =
-	\\=
-	\varlimsup_{m\to \infty}\left|
-		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm+p}}(Sy)_k - \frac{1}{2}
 	\right| =
 	\\=
 	\varlimsup_{m\to \infty}\left|
@@ -237,26 +234,10 @@ $$
 	\varlimsup_{m\to \infty}\left|
 		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm}}(Sy)_k
 		+
-		\frac{1}{2^{5pm+p+1}} \cdot 2^{5pm} \cdot \sum_{k=2}^{2^p}(Sy)_k
-		- \frac{1}{2}
-	\right| =
-\end{multline*}
-\begin{multline*}
-	\\=
-	\varlimsup_{m\to \infty}\left|
-		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm}}(Sy)_k
-		+
 		\frac{1}{2^{p+1}} \sum_{k=2}^{2^p}(Sy)_k
 		- \frac{1}{2}
 	\right|
 	\mathop{=}^{(\ref{summa_S_less})}
-	\\=
-	\varlimsup_{m\to \infty}\left|
-		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm}}(Sy)_k
-		+
-		\frac{1}{2^{p+1}} \sum_{i=0}^{p-1}2^i y_{i+2}
-		- \frac{1}{2}
-	\right| =
 	\\=
 	\varlimsup_{m\to \infty}\left|
 		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm}}(Sy)_k
@@ -272,27 +253,6 @@ $$
 		\frac{1}{2^{p+1}} \cdot \frac{2^p(p-2)+2}{p}
 		- \frac{1}{2}
 	\right| =
-	\\=
-	\varlimsup_{m\to \infty}\left|
-		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm}}(Sy)_k
-		+
-		\frac{1}{2} \cdot \frac{p-2}{p} + \frac{1}{p 2^p}
-		- \frac{1}{2}
-	\right| =
-	\\=
-	\varlimsup_{m\to \infty}\left|
-		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm}}(Sy)_k
-		-
-		\frac{1}{p} + \frac{1}{p 2^p}
-	\right| =
-	\\=
-	\varlimsup_{m\to \infty}\left|
-		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm-2p}}(Sy)_k
-		+
-		\frac{1}{2^{5pm+p+1}}\sum_{k=2^{5pm-2p}+1}^{2^{5pm}}(Sy)_k
-		-\frac{1}{p} + \frac{1}{p 2^p}
-	\right| =
-	\\\mbox{но во второй сумме все $(Sy)_k$ --- нули по построению (доказать?)}
 	\\=
 	\varlimsup_{m\to \infty}\left|
 		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm-2p}}(Sy)_k
@@ -331,18 +291,12 @@ $$
 
 
 Таким образом,
-$$
+$
 	\frac{\alpha(Cx)}{\alpha(x)} \geq
-	\frac{	\frac{1}{p} (1-2^{-p+1}) }{\frac{1}{p}} =
 	1-2^{-p+1}
-$$
+$.
+Полученное противоречие завершает доказательство.
 
-Рассматривая $x$ как функцию от $p$, имеем:
-$$
-	\sup_{p\in\mathbb{N}} \frac{\alpha(Cx(p))}{\alpha(x(p))} \geq
-	\sup_{p\in\mathbb{N}} (1-2^{-p+1}) \geq
-	1
-$$
 
 
 Объем статей --- 3 страницы (для лекторов --- до 5 стр.),
