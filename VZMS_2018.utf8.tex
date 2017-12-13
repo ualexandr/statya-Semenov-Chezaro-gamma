@@ -35,6 +35,22 @@
 \addcontentsline{toc}{section}{Авдеев Н.Н., Семёнов Е.М.}
 %Или тут раздельно?
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Немного магии
+% Мне ОЧЕНЬ хочется использовать автонумерацию формул.
+% Если причина только в том, что при автонумерации
+% номера формул в статье будут начинаться не с 1,
+% то это можно побороть вот так:
+
+\setcounter{equation}{1}
+
+% Достаточно включить предыдушую строчку в образец оформления,
+% и автонумерацией формул можно будет смело пользоваться.
+% С теоремами это тоже делается при желании,
+% но перед набором тезисов автор обычно знает,
+% сколько теорем будет в тексте. А с формулами это не так :(
+% Библиографию не трогаю, это вообще отдельная песня с непотребным припевом.
+
 
 Обозначим через $\mathbb{N}$ множество натуральных чисел,
 через $l_\infty$ --- пространство ограниченных последовательностей $\{x_n\}_{n\in\mathbb{N}}$,
@@ -101,7 +117,232 @@ $$
 Для доказательства теоремы~1' потребуются вспомогательные построения.
 
 
-\textbf{Доказательство теоремы~1.}
+\textbf{Утверждение 2.}
+\begin{equation}\label{summa_drobey}
+	\sum_{i=0}^{p-1} \frac{i \cdot 2^i}{p} = \frac{2^p(p-2) + 2}{p}
+\end{equation}
+
+
+\textbf{Вспомогательный оператор $S$}.
+Пусть $y\in l_\infty$.
+Определим оператор $S:l_\infty \to l_\infty$ следующим образом:
+\begin{equation}\label{operator_S}
+	(Sy)_k = y_{i+2}, \mbox{ где } 2^i < k \leq 2^i+1
+\end{equation}
+
+Этот оператор вводится исключительно для упрощения изложения конструкции.
+Нам потребуются следующие свойства оператора $S$.
+
+\textbf{Свойство 3.}
+\vspace{-2.28em}
+\begin{equation}\label{alpha_S}
+	\alpha(Sx) = \varlimsup_{k\to\infty} |x_{k+1} - x_{k}|
+\end{equation}
+
+\vspace{0.6em}
+\textbf{Свойство 4.}
+\vspace{-3.1415em}
+\begin{equation}\label{summa_S_less}
+	\sum_{k=2}^{2^p} (Sy)_k =
+	\sum_{i=0}^{p-1} 2^i y_{i+2}
+\end{equation}
+
+
+\textbf{Свойство 5.} (Здесь и далее $(Tx)_n = x_{n+1}$.)
+\begin{equation}\label{summa_S}
+	\sum_{k=2^i+1}^{2^{i+j+1}} (Sx)_k =
+	2^i\sum_{k=2}^{2^{j+1}} (ST^ix)_k
+\end{equation}
+
+\textbf{Вспомогательная функция $k_b$}.
+Введём функцию
+\begin{equation}\label{def_k_b}
+	k_b(x) = \frac{1}{2b}\left|
+		\sum_{k=1}^{b}x_k - \sum_{k=b+1}^{2b}x_k
+	\right|
+\end{equation}
+
+\paragraph{Утверждение 6.}
+\begin{equation}\label{alpha_greater_k_b}
+	\alpha (Cx) \geq \varlimsup_{i\to \infty} k_i(x)
+\end{equation}
+
+Введение функции $k_b(x)$ позволит нам в дальнейшем заменить работу с оператором Чезаро
+на оценки и преобразование сумм.
+
+\textbf{Доказательство теоремы~1'.}
+Зафиксируем $p$ и построим вектор $y\in l_\infty$ следующим образом:
+
+\begin{equation}\label{y_construction}
+	y = \left\{
+		0, 0, \frac{1}{p}, \frac{2}{p}, %\frac{3}{p},
+		...,
+		\frac{p-1}{p}, 1, \frac{p-1}{p},
+		...,
+		\frac{1}{p},
+		0, ..., 0,
+		\frac{1}{p}, ...
+	\right\}
+\end{equation}
+так, что
+\begin{equation}\label{T_y}
+	T^{5p}y = y
+\end{equation}
+(0 повторяется $3p+1$ раз).
+
+Положим $x = Sy$, тогда с учётом (\ref{alpha_S})
+\begin{equation}\label{alpha_x}
+	\alpha (x) = \alpha (Sy) = \frac{1}{p}
+\end{equation}
+
+Оценим $\alpha(Cx)$:
+\begin{multline*}
+	\alpha (Cx) \mathop{\geqslant}^{(\ref{alpha_greater_k_b})}
+	\varlimsup_{b\to \infty} k_b(x) =
+	\\ \geq
+	\varlimsup_{
+		i\to \infty,~
+		b=2^i~
+	}\frac{1}{2^{i+1}}\left|
+		\sum_{k=1}^{2^i}(Sy)_k - \sum_{k=2^i+1}^{2^{i+1}}(Sy)_k
+	\right| =
+	\\ \geq
+	\varlimsup_{
+		m\to \infty,~
+		i=5pm+p~
+	}\left|
+		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm+p}}(Sy)_k - \frac{y_{5pm+p+2}}{2}
+	\right| =
+	\\=
+	\varlimsup_{m\to \infty}\left|
+		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm+p}}(Sy)_k - \frac{1}{2}
+	\right| =
+	\\=
+	\varlimsup_{m\to \infty}\left|
+		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm}}(Sy)_k
+		+
+		\frac{1}{2^{5pm+p+1}}\sum_{k=2^{5pm}+1}^{2^{5pm+p}}(Sy)_k
+		- \frac{1}{2}
+	\right|
+	\mathop{=}^{(\ref{summa_S})}
+	\\=
+	\varlimsup_{m\to \infty}\left|
+		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm}}(Sy)_k
+		+
+		\frac{1}{2^{5pm+p+1}} \cdot 2^{5pm} \cdot \sum_{k=2}^{2^p}(ST^{5pm}y)_k
+		- \frac{1}{2}
+	\right|
+	\mathop{=}^{(\ref{T_y})}
+	\\=
+	\varlimsup_{m\to \infty}\left|
+		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm}}(Sy)_k
+		+
+		\frac{1}{2^{5pm+p+1}} \cdot 2^{5pm} \cdot \sum_{k=2}^{2^p}(Sy)_k
+		- \frac{1}{2}
+	\right| =
+\end{multline*}
+\begin{multline*}
+	\\=
+	\varlimsup_{m\to \infty}\left|
+		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm}}(Sy)_k
+		+
+		\frac{1}{2^{p+1}} \sum_{k=2}^{2^p}(Sy)_k
+		- \frac{1}{2}
+	\right|
+	\mathop{=}^{(\ref{summa_S_less})}
+	\\=
+	\varlimsup_{m\to \infty}\left|
+		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm}}(Sy)_k
+		+
+		\frac{1}{2^{p+1}} \sum_{i=0}^{p-1}2^i y_{i+2}
+		- \frac{1}{2}
+	\right| =
+	\\=
+	\varlimsup_{m\to \infty}\left|
+		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm}}(Sy)_k
+		+
+		\frac{1}{2^{p+1}} \sum_{i=0}^{p-1}2^i \cdot \frac{i}{p}
+		- \frac{1}{2}
+	\right|
+	\mathop{=}^{(\ref{summa_drobey})}
+	\\=
+	\varlimsup_{m\to \infty}\left|
+		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm}}(Sy)_k
+		+
+		\frac{1}{2^{p+1}} \cdot \frac{2^p(p-2)+2}{p}
+		- \frac{1}{2}
+	\right| =
+	\\=
+	\varlimsup_{m\to \infty}\left|
+		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm}}(Sy)_k
+		+
+		\frac{1}{2} \cdot \frac{p-2}{p} + \frac{1}{p 2^p}
+		- \frac{1}{2}
+	\right| =
+	\\=
+	\varlimsup_{m\to \infty}\left|
+		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm}}(Sy)_k
+		-
+		\frac{1}{p} + \frac{1}{p 2^p}
+	\right| =
+	\\=
+	\varlimsup_{m\to \infty}\left|
+		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm-2p}}(Sy)_k
+		+
+		\frac{1}{2^{5pm+p+1}}\sum_{k=2^{5pm-2p}+1}^{2^{5pm}}(Sy)_k
+		-\frac{1}{p} + \frac{1}{p 2^p}
+	\right| =
+	\\\mbox{но во второй сумме все $(Sy)_k$ --- нули по построению (доказать?)}
+	\\=
+	\varlimsup_{m\to \infty}\left|
+		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm-2p}}(Sy)_k
+		-\frac{1}{p} + \frac{1}{p 2^p}
+	\right| = h
+\end{multline*}
+
+Но $0 \leq (Sy)_k \leq 1$,
+значит,
+$$
+	\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm-2p}}(Sy)_k
+	\leq
+	\frac{1}{2^{5pm+p+1}} \cdot 2^{5pm-2p}
+	=
+	\frac{1}{2^{3p+1}}
+$$
+Модуль раскрываем со знаком ``-''
+
+\begin{multline*}
+	h=
+	\varlimsup_{m\to \infty} \left(
+		\frac{1}{p} (1-2^{-p})
+		- \frac{1}{2^{3p+1}}
+	\right) =
+	\frac{1}{p} (1-2^{-p})
+	- \frac{1}{2^{3p+1}}
+	= \\ =
+	\frac{1}{p} (1-2^{-p})
+	- \frac{1}{2^{2p+1}} \cdot 2^{-p}
+	>
+	\frac{1}{p} (1-2^{-p})
+	- \frac{1}{p} \cdot 2^{-p}
+	=
+	\frac{1}{p} (1-2^{-p+1})
+\end{multline*}
+
+
+Таким образом,
+$$
+	\frac{\alpha(Cx)}{\alpha(x)} \geq
+	\frac{	\frac{1}{p} (1-2^{-p+1}) }{\frac{1}{p}} =
+	1-2^{-p+1}
+$$
+
+Рассматривая $x$ как функцию от $p$, имеем:
+$$
+	\sup_{p\in\mathbb{N}} \frac{\alpha(Cx(p))}{\alpha(x(p))} \geq
+	\sup_{p\in\mathbb{N}} (1-2^{-p+1}) \geq
+	1
+$$
 
 
 Объем статей --- 3 страницы (для лекторов --- до 5 стр.),
