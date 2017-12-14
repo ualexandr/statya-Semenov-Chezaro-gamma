@@ -25,11 +25,14 @@
 
 
 
-\begin{center}{ \bf  Об асимптотических свойствах оператора Чезаро }\\
+\begin{center}{ \bf  Об асимптотических свойствах оператора Чезаро }
+\footnote{Работа выполнена при поддержке гранта такого-то (вписать!!!)}
+%TODO: данные о гранте
+\\
 {\it Н.Н. Авдеев } \\
-(Воронежский госуниверситет; {\it nickkolok@mail.ru} ) \\
+(Воронеж, ВГУ; {\it nickkolok@mail.ru} ) \\
 {\it Е.М. Семёнов } \\
-(Воронежский госуниверситет; %{\it mail@mail.ru}
+(Воронеж, ВГУ; {\it nadezhka\_ssm@geophys.vsu.ru}
 )
 \end{center}
 \addcontentsline{toc}{section}{Авдеев Н.Н., Семёнов Е.М.}
@@ -44,7 +47,7 @@
 
 \setcounter{equation}{1}
 
-% Достаточно включить предыдушую строчку в образец оформления,
+% Достаточно включить предыдущую строчку в образец оформления,
 % и автонумерацией формул можно будет смело пользоваться.
 % С теоремами это тоже делается при желании,
 % но перед набором тезисов автор обычно знает,
@@ -68,12 +71,12 @@ $$
 а затем перенормировкой распространять на всё $l_\infty$.
 Можно легко доказать, что для $x\in A$ выполнено соотношение $\alpha(Cx) \leqslant 1/2$.
 Значительно сложнее доказывается, что для $x\in A$ выполнена оценка
-$$
+\begin{equation}\label{ocenka_Semenov}
 	\alpha(Cx) \leqslant \alpha(x) \cdot
 	\left(
 		1 - 2 ^ {-\frac{1}{\alpha(x)} - 4}
 	\right)
-$$ 
+\end{equation}
 %TODO: проверить, -4 ли там
 
 \textbf{Теорема~1.}
@@ -85,7 +88,7 @@ $$
 	,
 	$$
 или, что то же самое, не существует такого $p\in \mathbb{N}$,
-	что для любого $x\in A$ выполнено 
+	что для любого $x\in A$ выполнено
 	$
 		\alpha(Cx) \leqslant (1-2^{-p+1})\cdot \alpha(x).
 	$
@@ -142,10 +145,9 @@ $$
 	T^{5p}y = y
 \end{equation}
 Положим $x = Sy$, тогда с учётом (\ref{alpha_S})
-\begin{equation}\label{alpha_x}
+$
 	\alpha (x) = \alpha (Sy) = \frac{1}{p}
-\end{equation}
-
+$.
 Оценим $\alpha(Cx)$:
 \begin{multline*}
 	\alpha (Cx) \mathop{\geqslant}^{(\ref{alpha_greater_k_b})}
@@ -213,17 +215,17 @@ $$
 
 Таким образом,
 $
-	\alpha(Cx) >  
+	\alpha(Cx) >
 	(1-2^{-p+1}) \cdot \alpha(x)
 $.
 Полученное противоречие завершает доказательство.
+Обратим внимание на структурное сходство этой оценки и оценки (\ref{ocenka_Semenov}).
 
 
 %%%%  ОФОРМЛЕНИЕ СПИСКА ЛИТЕРАТУРЫ %%%
 \smallskip \centerline{\bf Литература}\nopagebreak
 
-1. {\it Крейн С.Г.} Линейные дифференциальные уравнения в банаховом пространстве. М.: Наука, 1987. 408 с.
+1. {\it Evgenii M. Semenov, Fedor A. Sukochev} Invariant Banach limits and applications.
+ Journal of Functional Analysis 259 (2010) pp. 1517–1541.
 
-2. {\it Львовский С. М.} Набор и верстка в системе LATEX. М.: МЦНМО, 2003. — 448 с.
-
-\end{document} 
+\end{document}
