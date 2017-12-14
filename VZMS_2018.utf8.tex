@@ -93,9 +93,9 @@ $$
 	\sum_{i=0}^{p-1} \frac{i \cdot 2^i}{p} = \frac{2^p(p-2) + 2}{p}
 \end{equation}
 Введём вспомогательный оператор $S:l_\infty \to l_\infty$:
-\begin{equation}\label{operator_S}
+\begin{equation*}\label{operator_S}
 	(Sy)_k = y_{i+2}, \mbox{ где } 2^i < k \leq 2^i+1
-\end{equation}
+\end{equation*}
 Нам потребуются следующие свойства оператора $S$.
 \begin{equation}\label{alpha_S}
 	\alpha(Sx) = \varlimsup_{k\to\infty} |x_{k+1} - x_{k}|
@@ -111,11 +111,11 @@ $$
 \end{equation}
 Введём вспомогательную функцию
 %\vspace{-2.28em}
-\begin{equation}\label{def_k_b}
+\begin{equation*}\label{def_k_b}
 	k_b(x) = (2b)^{-1} \left|
 		\sum\nolimits_{k=1}^{b}x_k - \sum\nolimits_{k=b+1}^{2b}x_k
 	\right|
-\end{equation}
+\end{equation*}
 Тогда
 \begin{equation}\label{alpha_greater_k_b}
 	\alpha (Cx) \geq \varlimsup_{i\to \infty} k_i(x)
@@ -123,7 +123,7 @@ $$
 
 \textbf{Схема доказательства теоремы~1.}
 Зафиксируем $p$ и построим $y\in l_\infty$:
-\begin{equation}\label{y_construction}
+\begin{equation*}\label{y_construction}
 	y = \left\{
 		0, 0, \frac{1}{p}, \frac{2}{p}, %\frac{3}{p},
 		...,
@@ -133,7 +133,7 @@ $$
 		0, ..., 0,
 		\frac{1}{p}, ...
 	\right\}
-\end{equation}
+\end{equation*}
 так, что
 \begin{equation}\label{T_y}
 	T^{5p}y = y
