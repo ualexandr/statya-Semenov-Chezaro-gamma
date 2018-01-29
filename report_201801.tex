@@ -1,0 +1,81 @@
+\documentclass[a4paper,12pt,openbib]{report}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{amsfonts}
+\usepackage{amsfonts,amssymb}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{euscript}
+\usepackage{enumerate}
+\usepackage{graphics}
+\usepackage[dvips]{graphicx}
+\usepackage{geometry}
+\usepackage{wrapfig}
+\usepackage{cite}
+
+\usepackage{etoolbox}
+\patchcmd{\thebibliography}{\chapter*}{\section*}{}{}
+
+\geometry{verbose,a4paper,tmargin=1.75cm,bmargin=2.1cm,lmargin=1.75cm,rmargin=1.75cm}
+
+\righthyphenmin=2
+
+
+\begin{document}
+
+\clubpenalty=10000
+\widowpenalty=10000
+
+
+
+\begin{center}{ \bf \Large Отчёт}%
+\end{center}
+
+С целью получения и систематизации базовых знаний по функциональному анализу,
+а также развития навыков работы с литературой на иностранном (английском) языке изучалась монография~\cite{banachspaces}.
+
+С целью получения специальных знаний по теме научной деятельности (асимпотические свойства оператора Чезаро)
+изучалась статья~\cite{JFA}.
+
+Полученные результаты опубликованы в~\cite{VZMS2018}.
+
+%%%%  ОФОРМЛЕНИЕ СПИСКА ЛИТЕРАТУРЫ %%%
+%\smallskip \centerline{\bf Литература}\nopagebreak
+\begin{thebibliography}{99}
+
+	\bibitem{banachspaces}
+		\textit{Wojtaszczyk P.}
+		Banach spaces for analysts. – Cambridge University Press, 1996. – Т. 25.
+
+	\bibitem{JFA}
+		{\it Semenov E. M., Sukochev F. A.}
+		Invariant Banach limits and applications // Journal of Functional Analysis. – 2010. – Т. 259. – №. 6. – С. 1517-1541.
+	 
+	\bibitem{VZMS2018}
+		\textit{Авдеев Н.Н., Семенов Е.М.}
+		Об асимптотических свойствах оператора Чезаро
+		// 
+		Материалы Международной конференции «Воронежская зимняя математическая школа С. Г. Крейна – 2018»
+		/ под ред. В. А. Костина. – Воронеж : Издательско"=полиграфический центр «Научная книга», 2018. – 396 с.
+		ISBN 978-5-4446-1094-7
+		
+		
+\end{thebibliography}
+
+<<26>> января 2018г.
+
+\vspace{2em}
+
+Магистрант \hfill \underline{~~~~~~~~~~~}\,\,\,\,Авдеев Н.Н.\newline
+
+\vspace{2em}
+
+Рекомендую оценку <<отлично>>
+
+\vspace{2em}
+
+Научный руководитель \hfill \underline{~~~~~~~~~~~}\,\,\,\,д.ф.-м.н., проф. Семенов Е.М.\newline
+
+
+\end{document}
