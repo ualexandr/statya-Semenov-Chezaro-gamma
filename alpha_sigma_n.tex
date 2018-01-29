@@ -1,0 +1,118 @@
+\documentclass[a4paper,14pt]{article} %размер бумаги устанавливаем А4, шрифт 12пунктов
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel} %используем русский и английский языки с переносами
+\usepackage{amssymb,amsfonts,amsmath,mathtext,cite,enumerate,float,amsthm} %подключаем нужные пакеты расширений
+\usepackage[unicode,colorlinks=true,citecolor=black,linkcolor=black]{hyperref}
+%\usepackage[pdftex,unicode,colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{indentfirst} % включить отступ у первого абзаца
+\usepackage[dvips]{graphicx} %хотим вставлять рисунки?
+\graphicspath{{illustr/}}%путь к рисункам
+
+\makeatletter
+\renewcommand{\@biblabel}[1]{#1.} % Заменяем библиографию с квадратных скобок на точку:
+\makeatother %Смысл этих трёх строчек мне непонятен, но поверим "Запискам дебианщика"
+
+\usepackage{geometry} % Меняем поля страницы.
+\geometry{left=2cm}% левое поле
+\geometry{right=1cm}% правое поле
+\geometry{top=2cm}% верхнее поле
+\geometry{bottom=2cm}% нижнее поле
+
+\renewcommand{\theenumi}{\arabic{enumi}}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\labelenumi}{\arabic{enumi}}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\theenumii}{.\arabic{enumii}}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}.}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\theenumiii}{.\arabic{enumiii}}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}.}% Меняем везде перечисления на цифра.цифра
+
+\sloppy
+
+
+\renewcommand\normalsize{\fontsize{14}{25.2pt}\selectfont}
+
+\begin{document}
+% !!!
+% Здесь начинается реальный ТеХ-код
+% Всё, что выше - беллетристика
+
+\paragraph{Теорема.}
+$$
+	\forall(x\in l_\infty) \forall(n\in\mathbb{N})
+	[
+		\alpha(\sigma_n x) = \alpha(x)
+	]
+$$
+
+\paragraph{Доказательство.}
+По определению
+\begin{equation}
+	\alpha(x) = \varlimsup_{i\to\infty} \max_{i<j\leqslant 2i} |x_i - x_j|
+\end{equation}
+
+Положим
+\begin{equation}
+	\alpha_i(x) =
+	\max_{i<j\leqslant 2i} |x_i - x_j| =
+	\max_{i\leqslant j\leqslant 2i} |x_i - x_j|
+\end{equation}
+
+Тогда
+\begin{equation}
+	\alpha(x) = \varlimsup_{i\to\infty} \alpha_i(x)
+\end{equation}
+
+Пусть $y = \sigma_n x$.
+Тогда для $k=1, ..., n-1$, $a\in\mathbb{N}$ имеем
+\begin{multline}
+	\alpha_{an-k}(y) =
+	\max_{an-k \leqslant j \leqslant 2an-2k} |y_{an-k} - y_j| =
+	\\=
+	(\mbox{т.к.}~y_{an-(n-1)}=y_{an-(n-2)}=...=y_{an-k}=...=y_{an-1}=y_{an})=
+	\\=
+	\max_{an \leqslant j \leqslant 2an-2k} |y_{an} - y_j| \leqslant
+	\\ \leqslant
+	(\mbox{переходим к максимуму по большему множеству}) \leqslant
+	\\ \leqslant
+	\max_{an \leqslant j \leqslant 2an} |y_{an} - y_j| =
+	\alpha_{an}(y)
+\end{multline}
+
+С другой стороны,
+\begin{multline}
+	\alpha_{an}(y) =
+	\max_{an \leqslant j \leqslant 2an} |y_{an} - y_j| =
+	\\ =
+	(\mbox{т.к.}~y=\sigma_n x,~\mbox{можем рассматривать только}~j=kn)=
+	\\ =
+	\max_{an \leqslant kn \leqslant 2an} |y_{an} - y_{kn}| =
+	\max_{a \leqslant k \leqslant 2a} |y_{an} - y_{kn}| =
+	\max_{a \leqslant k \leqslant 2a} |x_a - x_k| =
+	\alpha_a(x)
+\end{multline}
+
+Таким образом, для $k=1, ..., n-1$, $a\in\mathbb{N}$ имеем соотношения:
+\begin{gather}
+	\alpha_{an}(y) = \alpha_a(x),
+\\
+	\alpha_{an-k}(y) \leqslant \alpha_a(x),
+\end{gather}
+откуда немедленно следует, что
+\begin{equation}
+	\varlimsup_{i\to\infty} \alpha_i(y) =
+	\varlimsup_{i\to\infty} \alpha_i(x),
+\end{equation}
+т.е.
+\begin{equation}
+	\alpha(\sigma_n x) = \alpha(x),
+\end{equation}
+что и требовалось доказать.
+
+\paragraph{Следствие.}
+$$
+	\alpha(C\sigma_2 x) =
+	\alpha(\sigma_2 Cx) =
+	\alpha(Cx)
+$$
+
+\end{document}
