@@ -73,4 +73,39 @@
 Пришли к противоречию, следовательно, банаховых пределов, инвариантных относительно $A$, не существует.
 
 
+\paragraph{Пример.}
+
+ПЕРЕПИСАТЬ!!!
+
+\begin{equation}
+	(Qx)_k =
+	\begin{cases}
+		0,~\mbox{если}~ k = 2^n, n \in\mathbb{N},
+		\\
+		x_k~\mbox{иначе.}
+	\end{cases}
+\end{equation}
+
+Очевидно, что $\dim \ker Q = \infty$.
+
+Покажем, что любой банахов предел $B\in\mathfrak{B}$ инвариантен относительно $Q$.
+Заметим сначала, что
+\begin{equation}
+	\sum_{k=m+1}^{m+n} x_k - \sum_{k=m+1}^{m+n} (Qx)_k \leqslant (2 + \log_2 n) \|x\|,
+\end{equation}
+(это очевидно??)\\
+откуда немедленно
+\begin{equation}
+	\frac{1}{n}\sum_{k=m+1}^{m+n} x_k - \frac{1}{n}\sum_{k=m+1}^{m+n} (Qx)_k \leqslant \frac{(2 + \log_2 n) \|x\|}{n} \to 0.
+\end{equation}
+
+Тогда по теореме Лоренца
+\begin{equation}
+	BQx =
+	\lim_{n\to\infty} \frac{1}{n}\sum_{k=m+1}^{m+n} (Qx)_k =
+	\lim_{n\to\infty} \frac{1}{n}\sum_{k=m+1}^{m+n} x_k =
+	Bx,
+\end{equation}
+что и требовалось показать.
+
 \end{document}
