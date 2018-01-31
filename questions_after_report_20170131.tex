@@ -1,0 +1,79 @@
+\documentclass[a4paper,14pt]{article} %размер бумаги устанавливаем А4, шрифт 12пунктов
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel} %используем русский и английский языки с переносами
+\usepackage{amssymb,amsfonts,amsmath,mathtext,cite,enumerate,float,amsthm} %подключаем нужные пакеты расширений
+\usepackage[unicode,colorlinks=true,citecolor=black,linkcolor=black]{hyperref}
+%\usepackage[pdftex,unicode,colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{indentfirst} % включить отступ у первого абзаца
+\usepackage[dvips]{graphicx} %хотим вставлять рисунки?
+\graphicspath{{illustr/}}%путь к рисункам
+
+\makeatletter
+\renewcommand{\@biblabel}[1]{#1.} % Заменяем библиографию с квадратных скобок на точку:
+\makeatother %Смысл этих трёх строчек мне непонятен, но поверим "Запискам дебианщика"
+
+\usepackage{geometry} % Меняем поля страницы.
+\geometry{left=2cm}% левое поле
+\geometry{right=1cm}% правое поле
+\geometry{top=2cm}% верхнее поле
+\geometry{bottom=2cm}% нижнее поле
+
+\renewcommand{\theenumi}{\arabic{enumi}}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\labelenumi}{\arabic{enumi}}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\theenumii}{.\arabic{enumii}}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}.}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\theenumiii}{.\arabic{enumiii}}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}.}% Меняем везде перечисления на цифра.цифра
+
+\sloppy
+
+
+\renewcommand\normalsize{\fontsize{14}{25.2pt}\selectfont}
+
+\begin{document}
+% !!!
+% Здесь начинается реальный ТеХ-код
+% Всё, что выше - беллетристика
+
+{\center\bf
+	Вопросы, возникшие по итогам доклада
+}
+
+\begin{enumerate}
+	\item
+		(У меня)
+		\\
+		Нужно ли аккуратное доказательство того, что $l_1 \cap \mathfrak{B} = \varnothing$ ?
+		Этот вопрос возник при попытке рассказать,
+		почему я не могу выписать формулу какого-нибудь банахова предела в явном виде.
+	\item
+		(У проф. В.А. Костина)
+		\\
+		Что будет, если вместо оператора Чезаро использовать оператор
+		\begin{equation}
+			(Kx)_n = \frac{1}{n(n+1)}\sum_{m=1}^n mx_m ~~~ \mbox{?}
+		\end{equation}
+	\item
+		(Кажется, у А.И. Корчагина, Санкт-Петербург --- надо уточнять?)
+		\\
+		Существуют ли банаховы пределы $B$ такие, что
+		\begin{equation}
+			B(x_1,x_2,...) \cdot B(y_1,y_2,...) = B(x_1\cdot y_1, x_2\cdot y_2, ...)  ~~~ \mbox{?}
+		\end{equation}
+		Автор вопроса пояснил, что это было бы естественно с точки зрения $C^*$--алгебр,
+		поскольку дистрибутивность относительно умножения верна для <<обычных>> пределов.
+		\\
+		Сужение задачи от меня:
+		Существуют ли банаховы пределы $B$ такие, что для $n\in\mathbb{Z}$ или хотя бы для $n\in\mathbb{N}$
+		\begin{equation}
+			(B(x_1,x_2,...))^n = B(x_1^n, x_2^n, ...)  ~~~ \mbox{?}
+		\end{equation}
+		Тут явно намечаются проблемы, вызванные инвариантностью относительно сдвига.
+		Имею смелость предположить, что если такие банаховы пределы существуют,
+		то они инварианты относительно оператора Чезаро
+		(но это пока абсолютно необоснованная гипотеза).
+\end{enumerate}
+
+
+\end{document}
