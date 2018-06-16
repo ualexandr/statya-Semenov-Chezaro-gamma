@@ -1,0 +1,60 @@
+\documentclass[a5paper,12pt,openbib]{report}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{amsfonts}
+\usepackage{amsfonts,amssymb}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{euscript}
+\usepackage{enumerate}
+\usepackage{graphics}
+\usepackage[dvips]{graphicx}
+\usepackage{geometry}
+\usepackage{wrapfig}
+
+\geometry{verbose,a5paper,tmargin=1.75cm,bmargin=2.1cm,lmargin=1.75cm,rmargin=1.75cm}
+
+\righthyphenmin=2
+
+
+\begin{document}
+
+\clubpenalty=10000
+\widowpenalty=10000
+
+Пусть $n_i$~--- строго возрастающая последовательность натуральных чисел,
+\begin{equation}
+	C_j = \liminf_{i\to\infty} n_{i+j} - n_i
+\end{equation}
+
+Тогда для любых $i$, $j$ имеет место быть
+\begin{equation}\label{C_j_addit}
+	C_{i+j} \geq C_i + C_j
+	.
+\end{equation}
+\paragraph{Доказательство.}
+По определению нижнего предела существует лишь конечное число номеров $k$
+таких, что $n_{k+i} - n_k < C_i$ или $n_{k+j} - n_k < C_j$.
+Зафиксируем $p$, большее всех таких $k$.
+
+По определению нижнего предела и с учётом того, что выражение под знаком предела
+принимает лишь натуральные значения,
+существует бесконечное количество номеров $q$ таких, что $n_{q+i+j} - n_q = C_{i+j}$.
+
+Обозначим через $s$ некоторый такой номер, больший $p$.
+Тогда
+\begin{multline}
+	C_{i+j} = n_{s+i+j} - n_s = n_{s+i+j} - n_{s+i} + n_{s+i} - n_s
+	\geq \\
+	\geq C_j + n_{s+i} - n_s \geq C_j + C_i,
+\end{multline}
+так как из $s>p$ следует, что $n_{s+i+j} - n_{s+i} \geq C_j$ и $n_{s+i} - n_s \geq C_i$.
+
+\paragraph{Пример.}
+Последовательность $C_j = j+1$ не удовлетворяет условию \eqref{C_j_addit}:
+действительно, $3=C_2 < C_1+C_1 = 2+2 = 4$.
+
+\paragraph{Примечание.}
+Условие \eqref{C_j_addit} является необходимым, но неизвестно, является ли оно достаточным.
+\end{document}
