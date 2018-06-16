@@ -1,0 +1,83 @@
+\documentclass{article}
+\usepackage[russian]{babel}
+\usepackage[cp1251]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\pagestyle{empty} \textwidth=108mm \textheight=165mm
+\usepackage{calc,ifthen}
+
+\input{style.tex}
+
+\begin{document}
+
+
+
+
+
+
+\tezis{ОПЕРАТОР С КОНЕЧНОМЕРНЫМ ЯДРОМ, ДЛЯ КОТОРОГО НЕ СУЩЕСТВУЕТ ИНВАРИАНТНОГО БАНАХОВА ПРЕДЕЛА}
+{Работа выполнена за счёт гранта РНФ, проект 16-11-10125}%
+{Н.Н. Авдеев}
+{\me{Авдеев Н.Н.}}
+{ (Воронеж, ВГУ)}
+{nickkolok@mail.ru}
+{Оператор с конечномерным ядром, для которого не существует инвариантного банахова предела}
+{Авдеев Н.Н.}
+
+
+%\keywords
+Ключевые слова:
+{банахов предел, инвариантный банахов предел}
+
+Название на английском:
+An operator which finite-dimensional kernel, for which there are no invariant Banach limits
+
+%%%%%% Текст тезисов  %%%%%%%
+
+В работе [1] изучаются условия,
+при которых для оператора $H:\ell_\infty\to \ell_\infty$ существует банаховы пределы,
+инваринатные относительно данного оператора, то есть такие $B\in\mathfrak{B}$,
+что $B(Hx) = Bx$ дл любого $x\in\ell_\infty$,
+а также приводятся примеры операторов, дл которых инвариантные банаховы пределы существуют: операторы $\sigma_n$ и оператор Чезаро $C$.
+
+Заметим, что операторы $\sigma_n$ и $C$ имеют вырожденное ядро,
+однако не для любого оператора с вырожденным ядром существует инвариантный банахов предел.
+
+\textbf{Пример.}
+Пусть для $x = (x_1, x_2, ..., x_n, ...)\in \ell_\infty$
+\begin{equation*}
+	Ax = (x_1, 0, x_2, 0, x_3, 0, x_4, 0, ...).
+\end{equation*}
+Очевидно, что $\ker A = \{0\}$.
+
+Пусть $B\in\mathfrak{B}$, $BA = B$.
+Очевидно, что
+\begin{equation*}
+	\frac{n-1}{2}\leqslant \sum_{k=m+1}^{m+n} (A\mathbb{I})_k \leqslant \frac{n+1}{2},
+\end{equation*}
+где $\mathbb{I} = (1, 1, 1, 1, 1, 1, ...)$.
+Тогда по теореме Лоренца
+\begin{equation*}
+	BA\mathbb{I} =
+	\lim_{n\to\infty} \frac{1}{n}\sum_{k=m+1}^{m+n} (A\mathbb{I})_k = \frac{1}{2}
+\end{equation*}
+Однако по определению банахова предела
+\begin{equation*}
+	B\mathbb{I} = 1 \neq \frac{1}{2} = BA\mathbb{I}.
+\end{equation*}
+Пришли к противоречию, следовательно, банаховых пределов, инвариантных относительно $A$, не существует.
+
+
+
+%%%%  ОФОРМЛЕНИЕ СПИСКА ЛИТЕРАТУРЫ %%%
+\liter
+
+1.
+Semenov E. M., Sukochev F. A. Invariant Banach limits and applications
+//Journal of Functional Analysis. – 2010. – Т. 259. – №. 6. – С. 1517-1541.
+
+
+
+\end{document}
