@@ -1,0 +1,69 @@
+\documentclass[a4paper,12pt,openbib]{report}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{amsfonts}
+\usepackage{amsfonts,amssymb}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{euscript}
+\usepackage{enumerate}
+\usepackage{graphics}
+\usepackage[dvips]{graphicx}
+\usepackage{geometry}
+\usepackage{wrapfig}
+
+
+\geometry{verbose,a4paper,tmargin=1.75cm,bmargin=2.1cm,lmargin=1.75cm,rmargin=1.75cm}
+
+\righthyphenmin=2
+
+\usepackage[backend=biber,style=gost-numeric,sorting=none]{biblatex}
+\addbibresource{bib/Semenov.bib}
+\addbibresource{bib/my.bib}
+\addbibresource{bib/ext.bib}
+
+\usepackage{etoolbox}
+\patchcmd{\thebibliography}{\chapter*}{\section*}{}{}
+
+
+\begin{document}
+
+\clubpenalty=10000
+\widowpenalty=10000
+
+
+
+\begin{center}{ \bf \Large Отчёт по НИР \\ за весенний семестр 2017/18 у.г.}%
+\end{center}
+
+С целью получения и систематизации базовых знаний по функциональному анализу,
+а также развития навыков работы с литературой на иностранном (английском) языке изучалась монография~\cite{wojtaszczyk1996banach}.
+
+С целью получения специальных знаний по теме научной деятельности (банаховы пределы, инвариантные оносительно операторов)
+изучалась статья~\cite{Semenov2010invariant}.
+
+Полученные результаты опубликованы в~\cite{our-vvmsh-2018}.
+
+\begingroup
+\renewcommand{\cleardoublepage}{}
+\renewcommand{\clearpage}{}
+\printbibliography
+\endgroup
+
+<< \underline{~~~} >> июня 2018г.
+
+\vspace{2em}
+
+Магистрант \hfill \underline{~~~~~~~~~~~}\,\,\,\,Авдеев Н.Н.\newline
+
+\vspace{2em}
+
+Рекомендую оценку <<отлично>>
+
+\vspace{2em}
+
+Научный руководитель \hfill \underline{~~~~~~~~~~~}\,\,\,\,д.ф.-м.н., проф. Семенов Е.М.\newline
+
+
+\end{document}
