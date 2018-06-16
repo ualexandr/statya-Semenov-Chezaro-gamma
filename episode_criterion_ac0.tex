@@ -1,0 +1,141 @@
+\documentclass[a4paper,12pt,openbib]{report}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{amsfonts}
+\usepackage{amsfonts,amssymb}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{euscript}
+\usepackage{enumerate}
+\usepackage{graphics}
+\usepackage[dvips]{graphicx}
+\usepackage{geometry}
+\usepackage{wrapfig}
+
+\geometry{verbose,a4paper,tmargin=1.75cm,bmargin=2.1cm,lmargin=1.75cm,rmargin=1.75cm}
+
+\righthyphenmin=2
+
+
+\begin{document}
+
+\clubpenalty=10000
+\widowpenalty=10000
+
+\paragraph{Теорема.}
+(Критерий почти сходимости к нулю для неотрицательной последовательности).
+Пусть $x\in\ell_{\infty}$,
+$\forall(i\in\mathbb{N})[x_i\geq 0]$.
+
+$x\in ac_0$ тогда и только тогда, когда
+\begin{equation}\label{crit_pos_ac0}
+	\forall(A_0\in\mathbb{N})
+	\exists(n_0\in\mathbb{N})
+	\exists(m_0\in\mathbb{N})
+	\forall(n\geq n_0)
+	\forall(m\geq m_0)
+	\\
+	\left[
+		\frac{1}{n}
+		\sum_{k=m+1}^{m+n} x_k
+		<
+		\frac{1}{A_0}
+	\right]
+	.
+\end{equation}
+
+\paragraph{Доказательство.}
+По теореме Лоренца $x\in ac_0$ тогда и только тогда, когда
+\begin{equation}\label{Lorencz_ac0}
+	\lim_{n\to\infty} \frac{1}{n} \sum_{k=m+1}^{m+n} x_k = 0
+\end{equation}
+равномерно по $m$.
+
+Или, переводя на язык кванторов,
+\begin{equation}\label{crit_ac0}
+	\forall(A_1\in\mathbb{N})
+	\exists(n_1\in\mathbb{N})
+	\forall(n\geq n_0)
+	\forall(m \in \mathbb{N})
+	\\
+	\left[
+		\frac{1}{n}
+		\sum_{k=m+1}^{m+n} x_k
+		<
+		\frac{1}{A_1}
+	\right]
+	.
+\end{equation}
+Очевидно, что из \eqref{crit_ac0} следует \eqref{crit_pos_ac0} (например, положив $m_0 = 1$),
+тем самым необходимость \eqref{crit_pos_ac0} доказана.
+
+\paragraph{Достаточность.}
+Пусть выполнено \eqref{crit_pos_ac0}.
+Покажем, что выполнено \eqref{crit_ac0}.
+Зафиксируем $A_1$.
+Положим $A_0 = 2A_1$ и отыщем $n_0$ и $m_0$ в соотвествии с \eqref{crit_pos_ac0}.
+Положим $n_1 = 2A_0(n_0+m_0)\|x\|$.
+Покажем, что \eqref{crit_ac0} верно для любых $n\geq n_1$, $m\in \mathbb{N}$.
+Зафиксируем $n$ и рассмотрим $m$.
+
+Пусть сначала $m\geq m_0$.
+Тогда в силу того, что $n\geq n_1 = 2A_0(n_0+m_0)\|x\| > n_0$ имеем $n>n_0$.
+Применим \eqref{crit_pos_ac0}:
+\begin{equation}
+	\frac{1}{n}
+	\sum_{k=m+1}^{m+n} x_k
+	<
+	\frac{1}{A_0}
+	=
+	\frac{1}{2A_1}
+	<
+	\frac{1}{A_1}
+	,
+\end{equation}
+т.е. \eqref{crit_ac0} выполнено.
+
+Пусть теперь $m < m_0$.
+Тогда
+\begin{multline}
+	\frac{1}{n} \sum_{k=m+1}^{m+n} x_k
+	<
+	\frac{1}{n} \sum_{k=1}^{m_0+n} x_k
+	=
+	\frac{1}{n} \sum_{k=1}^{m_0} x_k + \frac{1}{n} \sum_{k=m_0+1}^{m_0+n} x_k
+	%\leq
+	\mathop{\leq}^{\mbox{~~в силу \eqref{crit_pos_ac0}~~}}
+	\frac{1}{n} \sum_{k=1}^{m_0} x_k + \frac{1}{A_0}
+	\leq
+	\\ \leq
+	\frac{1}{n} \sum_{k=1}^{m_0} \|x\| + \frac{1}{A_0}
+	\leq
+	\frac{1}{n_1} \sum_{k=1}^{m_0} \|x\| + \frac{1}{A_0}
+	=
+	\frac{1}{2A_0(n_0+m_0)\|x\|} \sum_{k=1}^{m_0} \|x\| + \frac{1}{A_0}
+	=
+	\\=
+	\frac{m_0\|x\|}{2A_0(n_0+m_0)\|x\|} + \frac{1}{A_0}
+	=
+	\frac{m_0}{2A_0(n_0+m_0)} + \frac{1}{A_0}
+	\leq
+	\frac{m_0}{2A_0m_0} + \frac{1}{A_0}
+	=
+	\frac{1}{2A_0} + \frac{1}{A_0}
+	=
+	\frac{3}{2A_0}
+	=
+	\frac{3}{4A_1}
+	<
+	\frac{1}{A_1},
+\end{multline}
+т.е. \eqref{crit_ac0} тоже выполнено.
+
+\paragraph{Примечание.}
+Для знакопеременных последовательностей условие \eqref{crit_pos_ac0} является необходимым,
+но неизвестно, является ли оно достаточным.
+
+\paragraph{Примечание.}
+Удобство критерия \eqref{crit_pos_ac0} в том,
+что можно выбирать $m_0$ в зависимости от $A_0$.
+\end{document}
