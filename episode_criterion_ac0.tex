@@ -138,4 +138,90 @@ $x\in ac_0$ тогда и только тогда, когда
 \paragraph{Примечание.}
 Удобство критерия \eqref{crit_pos_ac0} в том,
 что можно выбирать $m_0$ в зависимости от $A_0$.
+
+\paragraph{Задача о пасьянсе из нулей и единиц.}
+Пусть $n_i$~--- строго возрастающая последовательность натуральных чисел,
+\begin{equation}
+	M(j) = \liminf_{i\to\infty} n_{i+j} - n_i,
+\end{equation}
+\begin{equation}
+	x_k = \left\{\begin{array}{ll}
+		1, & \mbox{~если~} k = n_i
+		\\
+		0  & \mbox{~иначе~}
+	\end{array}\right.
+\end{equation}
+
+\paragraph{Замечание.}
+Так как $M(j)$ есть нижний предел последовательности натуральных чисел,
+то он всегда досигается,
+т.е. $M(j)\in\mathbb{N}$.
+
+Более того, для любого $j$ существует лишь конечное количество отрезков длины $M(j)$,
+содержащих более $j$ единиц,
+и бесконечное количество отрезков длины $M(j)$,
+содержащих ровно $j$ единиц.
+
+\paragraph{Утверждение.}
+Если $x \in ac_0$, то
+\begin{equation}\label{lim_M(j)/j}
+	\lim_{j \to \infty} \frac{M(j)}{j} = +\infty
+	.
+\end{equation}
+
+\paragraph{Доказательство.}
+Очевидно, что если
+\begin{equation}
+	\liminf_{j \to \infty} \frac{M(j)}{j} = +\infty
+	,
+\end{equation}
+то выполнено \eqref{lim_M(j)/j}.
+Предположим противное:
+\begin{equation}
+	\liminf_{j \to \infty} \frac{M(j)}{j} = с < +\infty
+	.
+\end{equation}
+Очеивдно, что в таком случае $c>0$.
+
+По определению нижнего предела найдётся счётное множество
+$J\subset\mathbb{N}$ такое, что
+\begin{equation}
+	\forall(j\in J)\left[c \leq \frac{M(j)}{j} \leq c+1 \right],
+\end{equation}
+т.е. для любого $j\in J$ существует бесконечно много отрезков длины $j\cdot(c+1)$,
+на каждом из которых не менее $j$ единиц.
+
+Т.к. $x\in ac_0$, то
+\begin{equation}\label{Lorencz_ac0_epsilon}
+	\forall(\varepsilon>0)
+	\exists(n_0\in\mathbb{N})
+	\forall(n \geq n_0)
+	\forall(m\in\mathbb{N})
+	\left[
+		\frac{1}{n} \sum_{k=m+1}^{m+n}x_k < \varepsilon
+	\right]
+	.
+\end{equation}
+
+Положим $\varepsilon = 1/(c+2)$ и отыщем $n_0$.
+Положим $n\in J$, $n\geq n_0$.
+(Такое $n$ всегда найдётся, т.к. $J$ счётно и $J\subset\mathbb{N}$.)
+Выберем $m$ так, чтобы отрезок длины $n\cdot(c+1)$,
+содержащий не менее $n$ единиц,
+начинался с $m+1$.
+Тогда
+\begin{equation}
+	\frac{1}{n\cdot(c+1)}\sum_{k=m+1}^{m+n\cdot(c+1)}x_k
+	\geq
+	\frac{1}{n\cdot(c+1)} \cdot n
+	=
+	\frac{1}{c+1}
+	>
+	\frac{1}{c+2}
+	=
+	\varepsilon,
+\end{equation}
+что противоречит \eqref{Lorencz_ac0_epsilon}.
+
+Полученное противоречие завершает доказательство.
 \end{document}
