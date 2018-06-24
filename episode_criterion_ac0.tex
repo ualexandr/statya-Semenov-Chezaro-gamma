@@ -162,6 +162,9 @@ $x\in ac_0$ тогда и только тогда, когда
 и бесконечное количество отрезков длины $M(j)$,
 содержащих ровно $j$ единиц.
 
+Через $E_j$ будем обозначать конец последнего отрезка длины $M(j)$,
+содержащего более $j$ единиц.
+
 \paragraph{Утверждение.}
 Если $x \in ac_0$, то
 \begin{equation}\label{lim_M(j)/j}
@@ -224,4 +227,75 @@ $J\subset\mathbb{N}$ такое, что
 что противоречит \eqref{Lorencz_ac0_epsilon}.
 
 Полученное противоречие завершает доказательство.
+
+
+\paragraph{Утверждение.}
+Если
+\begin{equation}\label{lim_M(j)/j_dost}
+	\lim_{j \to \infty} \frac{M(j)}{j} = +\infty
+	,
+\end{equation}
+то $x \in ac_0$.
+
+\paragraph{Доказательство.}
+
+По определению предела \eqref{lim_M(j)/j_dost} означает, что
+\begin{equation}\label{lim_M(j)/j_ifty_def}
+	\forall(C  \in\mathbb{N})
+	\exists(j_0\in\mathbb{N})
+	\forall(j \geq j_0)
+	\left[
+		\frac{M(j)}{j}>C
+	\right]
+	.
+\end{equation}
+Покажем, что выполнен критерий почти сходимости к нулю неотрицательной последовательности
+\eqref{crit_pos_ac0}, т.е.
+\begin{equation}
+	\forall(B  \in\mathbb{N})
+	\exists(n_0\in\mathbb{N})
+	\exists(m_0\in\mathbb{N})
+	\forall(n\geq n_0)
+	\forall(m\geq m_0)
+	\\
+	\left[
+		\frac{1}{n}
+		\sum_{k=m+1}^{m+n} x_k
+		<
+		\frac{1}{B}
+	\right]
+	.
+\end{equation} Действительно, зафиксируем $B$.
+Используя \eqref{lim_M(j)/j_ifty_def} и положив $C=2B$,
+отыщем $j_0$ такое, что для любого $j\geq j_0$ выполнено
+$M(j)>2Bj$.
+Положим $n_0 = 2Bj_0$.
+Выберем
+$$
+	m_0 = 2+\max_{1\leq j \leq j_0} E_j
+	.
+$$
+
+Тогда для любых $m\geq m_0$ и $n\geq n_0$ имеем
+\begin{equation}
+	\frac{1}{n} \sum_{k=m+1}^{m+n} x_k
+	<
+	\frac{1}{n} \cdot \left( \frac{n}{M(j_0)} + 1 \right) j_0
+	=
+	\frac{j_0}{M(j_0)} + \frac{j_0}{n}
+	\leq
+	\frac{1}{2B} + \frac{j_0}{n}
+	\leq
+	\frac{1}{2B} + \frac{j_0}{n_0}
+	=
+	\frac{1}{2B} + \frac{1}{2B}
+	=
+	\frac{1}{B}
+	,
+\end{equation}
+т.е. условие критерия выполнено
+и $x\in ac_0$,
+что и требовалось доказать.
+
+
 \end{document}
