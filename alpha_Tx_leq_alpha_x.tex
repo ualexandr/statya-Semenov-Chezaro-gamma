@@ -1,0 +1,140 @@
+\documentclass[a4paper,12pt,openbib]{report}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{amsfonts}
+\usepackage{amsfonts,amssymb}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{euscript}
+\usepackage{enumerate}
+\usepackage{graphics}
+\usepackage[dvips]{graphicx}
+\usepackage{geometry}
+\usepackage{wrapfig}
+
+\geometry{verbose,a4paper,tmargin=1.75cm,bmargin=2.1cm,lmargin=1.75cm,rmargin=1.75cm}
+
+\righthyphenmin=2
+
+
+\begin{document}
+
+\clubpenalty=10000
+\widowpenalty=10000
+
+Напомним, что на пространстве ограниченных последовательностей $\ell_\infty$
+определяется $\alpha$--функция равенством
+\begin{equation}
+	\alpha(x) = \varlimsup_{i\to\infty}\max_{i < j \leqslant 2i} |x_i - x_j|.
+\end{equation}
+
+Однако, как выясняется, $\alpha$--функция не инвариантна относительно оператора сдвига
+\begin{equation}
+	T(x_1,x_2,x_3,...) = (x_2, x_3, ...).
+\end{equation}
+
+\paragraph{Пример.}
+Пусть
+\begin{equation}
+	x_k = \begin{cases}
+		(-1)^n, & \mbox{~если~} k = 2^n
+		\\
+		0 & \mbox{~иначе~}
+	\end{cases}
+\end{equation}
+
+Вычислим $\alpha(x)$.
+Заметим сначала, что из принадлежности $x_k\in\{-1,0,1\}$
+немедленно следует, что $\alpha(x) \leq 2$.
+Оценим теперь $\alpha(x)$ снизу:
+\begin{multline}
+	\alpha(x)
+	=
+	\varlimsup_{i\to\infty}\max_{i < j \leqslant 2i} |x_i - x_j|
+	\geq
+	\\\geq
+	\mbox{(переход к частичному верхнему пределу по индексам специального вида $i=2^n$)}
+	\geq
+	\\\geq
+	\varlimsup_{n\to\infty}\max_{2^n < j \leqslant 2^{n+1}} |x_{2^n} - x_j|
+	=
+	\varlimsup_{n\to\infty}\max_{2^n < j \leqslant 2^{n+1}} |(-1)^n - x_j|
+	\geq
+	\varlimsup_{n\to\infty} |(-1)^n - x_{2^{n+1}}|
+	=
+	\\=
+	\varlimsup_{n\to\infty} |(-1)^n - (-1)^{n+1}|
+	=
+	2
+\end{multline}
+
+Итак, $\alpha(x) = 2$.
+Вычислим теперь $\alpha(Tx)$:
+\begin{multline}
+	\alpha(Tx)
+	=
+	\varlimsup_{i\to\infty}~\max_{i < j \leqslant 2i} |(Tx)_i - (Tx)_j|
+	=
+	\varlimsup_{i\to\infty}~\max_{i < j \leqslant 2i} |x_{i+1} - x_{j+1}|
+	=
+	\varlimsup_{i\to\infty}~\max_{i < j \leqslant 2i} |x_{i+1} - x_{j+1}|
+	=
+	\\=
+	(\mbox{замена}~k:=i+1, m:=j+1)
+	=
+	\varlimsup_{k\to\infty}~~\max_{k-1 < m-1 \leqslant 2k-2} |x_k - x_m|
+	=
+	\varlimsup_{k\to\infty}~~\max_{k < m \leqslant 2k-1} |x_k - x_m|
+	=
+	\\=
+	\max\left\{
+		\varlimsup_{k\to\infty, k  =   2^n}~~\max_{k < m \leqslant 2k-1} |x_k - x_m|
+		,~~
+		\varlimsup_{k\to\infty, k \neq 2^n}~~\max_{k < m \leqslant 2k-1} |x_k - x_m|
+	\right\}
+	=
+	\\=
+	\max\left\{
+		\varlimsup_{n\to\infty}~~\max_{2^n < m \leqslant 2^{n+1}-1} |x_{2^n} - x_m|
+		,~~
+		\varlimsup_{k\to\infty, k \neq 2^n}~~\max_{k < m \leqslant 2k-1} |x_k - x_m|
+	\right\}
+	=
+	\\=
+	\max\left\{
+		\varlimsup_{n\to\infty}~~\max_{2^n < m \leqslant 2^{n+1}-1} |(-1)^n - x_m|
+		,~~
+		\varlimsup_{k\to\infty, k \neq 2^n}~~\max_{k < m \leqslant 2k-1} |x_k - x_m|
+	\right\}
+	=
+	\\=
+	\max\left\{
+		\varlimsup_{n\to\infty}~~\max_{2^n < m \leqslant 2^{n+1}-1} |(-1)^n - 0|
+		,~~
+		\varlimsup_{k\to\infty, k \neq 2^n}~~\max_{k < m \leqslant 2k-1} |x_k - x_m|
+	\right\}
+	=
+	\\=
+	\max\left\{
+		1
+		,~
+		\varlimsup_{k\to\infty, k \neq 2^n}~~\max_{k < m \leqslant 2k-1} |x_k - x_m|
+	\right\}
+	=
+	\\=
+	\mbox{(если $k \neq 2^n$, то $x_k = 0$)}
+	=
+	\\=
+	\max\left\{
+		1
+		,~
+		\varlimsup_{k\to\infty, k \neq 2^n}~~\max_{k < m \leqslant 2k-1} |0 - x_m|
+	\right\}
+	=
+	1
+	.
+\end{multline}
+Таким образом, $\alpha(Tx) = 1 \neq 2 = \alpha(x)$,
+что и требовалось показать.
+\end{document}
