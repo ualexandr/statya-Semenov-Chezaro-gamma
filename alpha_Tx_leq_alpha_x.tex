@@ -135,4 +135,34 @@
 \end{multline}
 Таким образом, $\alpha(Tx) = 1 \neq 2 = \alpha(x)$,
 что и требовалось показать.
+
+Верна следующая
+\paragraph{Теорема.}
+Для любого $x \in \ell_\infty$ выполнено неравенство $\alpha(Tx)\leq \alpha(x)$.
+
+\paragraph{Доказательство.}
+\begin{multline}
+	\alpha(Tx)
+	=
+	\varlimsup_{i\to\infty}~\max_{i < j \leqslant 2i} |(Tx)_i - (Tx)_j|
+	=
+	\varlimsup_{i\to\infty}~\max_{i < j \leqslant 2i} |x_{i+1} - x_{j+1}|
+	=
+	\\=
+	(\mbox{замена}~k:=i+1, m:=j+1)
+	=
+	\\=
+	\varlimsup_{k\to\infty}~~\max_{k-1 < m-1 \leqslant 2k-2} |x_k - x_m|
+	=
+	\varlimsup_{k\to\infty}~~\max_{k < m \leqslant 2k-1} |x_k - x_m|
+	\leq
+	\\ \leq
+	\mbox{(переход к максимуму по большему множеству)}
+	\leq
+	\\ \leq
+	\varlimsup_{k\to\infty}~~\max_{k < m \leqslant 2k} |x_k - x_m|
+	=
+	\alpha(x)
+\end{multline}
+
 \end{document}
