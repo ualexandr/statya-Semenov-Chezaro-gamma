@@ -163,6 +163,76 @@
 	\varlimsup_{k\to\infty}~~\max_{k < m \leqslant 2k} |x_k - x_m|
 	=
 	\alpha(x)
+	.
 \end{multline}
+
+Более интересна, однако, следующая оценка.
+\paragraph{Теорема.}
+Для любого $n\in\mathbb{N}$
+\begin{equation}
+	\alpha(T^n x) \geq \frac{1}{2} \alpha(x)
+	.
+\end{equation}
+
+\paragraph{Доказательство.}
+\begin{multline}
+	\alpha(x)
+	=
+	\varlimsup_{i\to\infty}~~\max_{i < j \leqslant 2i} |x_i - x_j|
+	\leq
+	\varlimsup_{i\to\infty} \left(\max_{i < j \leqslant 2i-n} |x_i - x_j| + \max_{2i-n < j \leqslant 2i} |x_i - x_j|\right)
+	\leq
+	\\ \leq
+	\varlimsup_{i\to\infty} ~~\max_{i < j \leqslant 2i-n} |x_i - x_j| + \varlimsup_{i\to\infty} ~~\max_{2i-n < j \leqslant 2i} |x_i - x_j|
+	=
+	\\=
+	(\mbox{замена}~k:=i-n, m:=j-n ~\mbox{в первом пределе})
+	=
+	\\=
+	\varlimsup_{k\to\infty} ~~\max_{k+n < m+n \leqslant 2k+2n-n} |x_{k+n} - x_{m+n}| + \varlimsup_{i\to\infty} ~~\max_{2i-n < j \leqslant 2i} |x_i - x_j|
+	=
+	\\=
+	\varlimsup_{k\to\infty} ~~\max_{k < m \leqslant 2k} |x_{k+n} - x_{m+n}| + \varlimsup_{i\to\infty} ~~\max_{2i-n < j \leqslant 2i} |x_i - x_j|
+	=
+	\\=
+	\varlimsup_{k\to\infty} ~~\max_{k < m \leqslant 2k} |(T^n x)_k - (T^n x)_m| + \varlimsup_{i\to\infty} ~~\max_{2i-n < j \leqslant 2i} |x_i - x_j|
+	=
+	\\=
+	\alpha(T^n x) + \varlimsup_{i\to\infty} ~~\max_{2i-n < j \leqslant 2i} |x_i - x_j|
+	=
+	\\=
+	(\mbox{замена}~k:=i-n, m:=j-n ~\mbox{в оставшемся пределе})
+	=
+	\\=
+	\alpha(T^n x) + \varlimsup_{k\to\infty} ~~\max_{2k+n < m+n \leqslant 2k+2n} |x_{k+n} - x_{m+n}|
+	=
+	\alpha(T^n x) + \varlimsup_{k\to\infty} ~~\max_{2k < m \leqslant 2k+n} |x_{k+n} - x_{m+n}|
+	=
+	\\=
+	\alpha(T^n x) + \varlimsup_{k\to\infty} ~~\max_{2k < m \leqslant 2k+n} |(T^n x)_k - (T^n x)_m|
+\end{multline}
+
+XXXXXXXXXXXXXXXX
+
+\begin{multline}
+	\varlimsup_{i\to\infty}\max_{i < j \leqslant 2i} |x_i - x_{j-n} + x_{j-n} - x_j|
+	\leq
+	\varlimsup_{i\to\infty}\max_{i < j \leqslant 2i} (|x_i - x_{j-n}| + |x_{j-n} - x_j|)
+	\leq
+	\\ \leq
+	\varlimsup_{i\to\infty} ( \max_{i < j \leqslant 2i} |x_i - x_{j-n}| + \max_{i < j \leqslant 2i}  |x_{j-n} - x_j|)
+	\leq
+	\varlimsup_{i\to\infty} \max_{i < j \leqslant 2i} |x_i - x_{j-n}| + \varlimsup_{i\to\infty} \max_{i < j \leqslant 2i}  |x_{j-n} - x_j|
+	=
+	\\=
+	(\mbox{замена}~k:=i-n, m:=j-n ~\mbox{в первом пределе})
+	=
+	\\=
+	\varlimsup_{k\to\infty} \max_{k+n < m+n \leqslant 2k+2n} |x_{k+n} - x_{m}| + \varlimsup_{i\to\infty} \max_{i < j \leqslant 2i}  |x_{j-n} - x_j|
+	=
+	\\=
+	\varlimsup_{k\to\infty} \max_{k < m \leqslant 2k+n} |x_{k+n} - x_{m}| + \varlimsup_{i\to\infty} \max_{i < j \leqslant 2i}  |x_{j-n} - x_j|
+\end{multline}
+
 
 \end{document}
