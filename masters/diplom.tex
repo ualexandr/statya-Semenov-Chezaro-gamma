@@ -1,0 +1,50 @@
+\documentclass[a4paper,openbib]{report}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{amsfonts,amssymb}
+\usepackage{latexsym}
+\usepackage{euscript}
+\usepackage{enumerate}
+\usepackage{graphics}
+\usepackage[dvips]{graphicx}
+\usepackage{geometry}
+\usepackage{wrapfig}
+\usepackage[colorlinks=true,allcolors=black]{hyperref}
+
+
+
+\righthyphenmin=2
+
+\usepackage[14pt]{extsizes}
+
+\geometry{left=3cm}% левое поле
+\geometry{right=1cm}% правое поле
+\geometry{top=2cm}% верхнее поле
+\geometry{bottom=2cm}% нижнее поле
+
+\renewcommand{\baselinestretch}{1.3}
+
+\begin{document}
+\clubpenalty=10000
+\widowpenalty=10000
+\setcounter{page}{2}
+\tableofcontents
+
+\chapter{$\alpha$--функция как асимптотическая характеристика ограниченной последовательности}
+
+	\section{$\alpha$--функция и оператор сдвига}
+	\input{../alpha_Tx_leq_alpha_x.tex}
+
+	\section{$\alpha$--функция и семейство операторов $\sigma_n$}
+	\input{../alpha_sigma_n.tex}
+
+	\section{$\alpha$--функция оператор Чезаро $C$}
+	\input{../alpha_Cx.tex}
+
+
+\chapter{Последовательности, почти сходящиеся к нулю (пространство $ac_0$)}
+	\input{../episode_criterion_ac0.tex}
+	\input{../episode_C_j.tex}
+
+\end{document}
