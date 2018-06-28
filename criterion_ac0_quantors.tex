@@ -3,9 +3,8 @@
 
 
 \paragraph{Теорема.}
-(Критерий почти сходимости к нулю для неотрицательной последовательности).
-Пусть $x\in\ell_{\infty}$,
-$\forall(i\in\mathbb{N})[x_i\geq 0]$.
+(Модифицированный критерий Лоренца).
+Пусть $x\in\ell_{\infty}$.
 
 $x\in ac_0$ тогда и только тогда, когда
 \begin{equation}\label{crit_pos_ac0}
@@ -16,8 +15,10 @@ $x\in ac_0$ тогда и только тогда, когда
 	\forall(m\geq m_0)
 	\\
 	\left[
+		\left|
 		\frac{1}{n}
 		\sum_{k=m+1}^{m+n} x_k
+		\right|
 		<
 		\frac{1}{A_0}
 	\right]
@@ -39,8 +40,10 @@ $x\in ac_0$ тогда и только тогда, когда
 	\forall(m \in \mathbb{N})
 	\\
 	\left[
+		\left|
 		\frac{1}{n}
 		\sum_{k=m+1}^{m+n} x_k
+		\right|
 		<
 		\frac{1}{A_1}
 	\right]
@@ -62,8 +65,10 @@ $x\in ac_0$ тогда и только тогда, когда
 Тогда в силу того, что $n\geq n_1 = 2A_0(n_0+m_0)\|x\| > n_0$ имеем $n>n_0$.
 Применим \eqref{crit_pos_ac0}:
 \begin{equation}
+	\left|
 	\frac{1}{n}
 	\sum_{k=m+1}^{m+n} x_k
+	\right|
 	<
 	\frac{1}{A_0}
 	=
@@ -75,46 +80,49 @@ $x\in ac_0$ тогда и только тогда, когда
 т.е. \eqref{crit_ac0} выполнено.
 
 Пусть теперь $m < m_0$.
+Заметим, что
+\begin{equation}
+	\left|
+		\sum_{k=m+1}^{m+n} x_k
+		-
+		\sum_{k=m_0+1}^{m_0+n} x_k
+	\right|
+	\leq 2(m_0 - m) \|x\|
+	,
+\end{equation}
+откуда
+\begin{equation}
+	\left| \sum_{k=m+1}^{m+n} x_k \right|
+	\leq
+	2(m_0 - m) \|x\| + \left| \sum_{k=m_0+1}^{m_0+n} x_k \right|
+	\leq
+	2 m_0 \|x\| + \left| \sum_{k=m_0+1}^{m_0+n} x_k \right|
+	.
+\end{equation}
+
+
 Тогда
 \begin{multline}
-	\frac{1}{n} \sum_{k=m+1}^{m+n} x_k
-	<
-	\frac{1}{n} \sum_{k=1}^{m_0+n} x_k
-	=
-	\\=
-	\frac{1}{n} \sum_{k=1}^{m_0} x_k + \frac{1}{n} \sum_{k=m_0+1}^{m_0+n} x_k
-	%\leq
+	\left| \frac{1}{n} \sum_{k=m+1}^{m+n} x_k \right|
+	\leq
+	\frac{2 m_0 \|x\|}{n} \left| \sum_{k=m_0+1}^{m_0+n} x_k \right|
 	\mathop{\leq}^{\mbox{~~в силу \eqref{crit_pos_ac0}~~}}
-	\frac{1}{n} \sum_{k=1}^{m_0} x_k + \frac{1}{A_0}
+	\frac{2 m_0 \|x\|}{n} + \frac{1}{A_0}
 	\leq
 	\\ \leq
-	\frac{1}{n} \sum_{k=1}^{m_0} \|x\| + \frac{1}{A_0}
+	\frac{2 m_0 \|x\|}{n_1} + \frac{1}{A_0}
 	\leq
-	\frac{1}{n_1} \sum_{k=1}^{m_0} \|x\| + \frac{1}{A_0}
-	=
-	\frac{1}{2A_0(n_0+m_0)\|x\|} \sum_{k=1}^{m_0} \|x\| + \frac{1}{A_0}
+	\frac{2 m_0 \|x\|}{2A_0(n_0+m_0)\|x\|} + \frac{1}{A_0}
 	=
 	\\=
-	\frac{m_0\|x\|}{2A_0(n_0+m_0)\|x\|} + \frac{1}{A_0}
-	=
-	\frac{m_0}{2A_0(n_0+m_0)} + \frac{1}{A_0}
-	\leq
-	\\ \leq
-	\frac{m_0}{2A_0m_0} + \frac{1}{A_0}
-	=
-	\frac{1}{2A_0} + \frac{1}{A_0}
-	=
-	\frac{3}{2A_0}
-	=
-	\frac{3}{4A_1}
+	\frac{m_0}{A_0(n_0+m_0)} + \frac{1}{A_0}
 	<
-	\frac{1}{A_1},
+	\frac{1}{A_0} + \frac{1}{A_0}
+	=
+	\frac{1}{A_1}
+	,
 \end{multline}
 т.е. \eqref{crit_ac0} тоже выполнено.
-
-\paragraph{Примечание.}
-Для знакопеременных последовательностей условие \eqref{crit_pos_ac0} является необходимым,
-но неизвестно, является ли оно достаточным.
 
 \paragraph{Примечание.}
 Удобство критерия \eqref{crit_pos_ac0} в том,
