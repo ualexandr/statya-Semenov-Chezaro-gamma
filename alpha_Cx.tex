@@ -1,0 +1,347 @@
+Дальнейшее излагается неакадемическим (а местами - прямо-таки антиакадемическим языком)
+с целью упрощения как написания, так и чтения текста.
+Кроме того, в тексте много пометок и комментариев.
+
+\section{Вспомогательные построения}
+
+\subsection{}
+\begin{equation}\label{summa_drobey}
+	\sum_{i=0}^{p-1} \frac{i \cdot 2^i}{p} = \frac{2^p(p-2) + 2}{p}
+\end{equation}
+
+Как это посчитать вручную --- не знаю.
+Мне это считал компьютер.
+В принципе, вполне доказывавается индукцией,
+но, скорее всего, тут можно поставить ссылку на какой-нибудь уважаемый задачник типа Демидовича.
+Или справочник по суммам и рядам.
+
+
+\subsection{Вспомогательный оператор $S$}
+Пусть $y\in l_\infty$.
+Определим оператор $S:l_\infty \to l_\infty$ следующим образом:
+\begin{equation}\label{operator_S}
+	(Sy)_k = y_{i+2}, \mbox{ где } 2^i < k \leq 2^i+1
+\end{equation}
+Этот оператор вводится исключительно для упрощения изложения конструкции
+(а она достаточно изощрённая).
+Никакая высокая тёмная магия типа теоремы Хана-Банаха не используется.
+Даже линейность не используется.
+
+\paragraph{Пример.}
+$$
+	S(\{1,2,3,4,5,6, ...\}) = \{1,2,3,3,4,4,4,4,5,5,5,5,5,5,5,5,6...\}
+$$
+
+Возможно, кто-то где-то уже вводил такой оператор и исследовал его свойства,
+но где такое искать --- я не знаю.
+
+
+Теперь нам потребуются некоторые свойства оператора $S$.
+
+\paragraph{Утверждение.}
+\begin{equation}\label{alpha_S}
+	\alpha(Sx) = \varlimsup_{k\to\infty} |x_{k+1} - x_{k}|
+\end{equation}
+
+\paragraph{Доказательство.}
+Возможно, это очевидно и не стоит переводить бумагу, но пусть пока будет.
+
+\begin{equation*}
+	\alpha(Sx) =
+	\varlimsup_{i\to\infty} \sup_{i < j \leq 2i} | (Sx)_i - (Sx)_j | = ...
+\end{equation*}
+Положим для каждого $i$ число $m_i$ так,
+что $m_i = 2^{k_i}$, $i \leq m_i < 2i$
+(очевидно, это всегда можно сделать и есть даже формула с логарифмом).
+\begin{equation*}
+	... =
+	\varlimsup_{i\to\infty} \max \left\{
+		\max_{i   < j \leq m_i} | (Sx)_i - (Sx)_j |,
+		\max_{m_i < j \leq 2i } | (Sx)_i - (Sx)_j |
+	\right\} =
+	...
+\end{equation*}
+Но при $2^{k_i - 1} < i < j \leq m_i = 2^{k_i}$
+имеем $(Sx)_i = (Sx)_j$, и первый модуль обнуляется.
+
+\begin{equation*}
+	... =
+	\varlimsup_{i\to\infty}
+		\max_{m_i < j \leq 2i } | (Sx)_i - (Sx)_j |
+	=
+	...
+\end{equation*}
+Но при $2^{k_i - 1} < i \leq m_i = 2^{k_i} < j \leq 2^{k_i+1}$
+имеем $(Sx)_i = x_{k_i+1}$, $(Sx)_j = x_{k_i+2}$, откуда
+\begin{equation}\label{alpha_S_sosedi}
+	... =
+	\varlimsup_{k\to\infty}
+		| x_{k+1} - x_k |
+\end{equation}
+
+Утверждение доказано.
+
+\paragraph{Утверждение.}
+\begin{equation}\label{summa_S_less}
+	\sum_{k=2}^{2^p} (Sy)_k =
+	\sum_{i=0}^{p-1} 2^i y_{i+2}
+\end{equation}
+
+\paragraph{Доказательство.}
+
+\begin{equation*}
+	\sum_{k=2}^{2^p} (Sy)_k =
+	\sum_{i=0}^{p-1} \sum_{k=2^i+1}^{2^{i+1}} (Sy)_k =
+	\sum_{i=0}^{p-1} \sum_{k=2^i+1}^{2^{i+1}} y_{i+2} =
+	\sum_{i=0}^{p-1} 2^i y_{i+2}
+\end{equation*}
+
+Утверждение доказано.
+
+
+\paragraph{Утверждение.}
+\begin{equation}\label{summa_S}
+	\sum_{k=2^i+1}^{2^{i+j+1}} (Sx)_k =
+	2^i\sum_{k=2}^{2^{j+1}} (ST^ix)_k
+\end{equation}
+
+Здесь и далее $(Tx)_n = x_{n+1}$.
+
+\paragraph{Доказательство.}
+
+\begin{multline*}
+	\sum_{k=2^i+1}^{2^{i+j+1}} (Sx)_k =
+	\sum_{m = i}^{i+j}\sum_{k=2^m+1}^{2^{m+1}} (Sx)_k =
+	\sum_{m = i}^{i+j}2^m \cdot x_{m+2} =
+	\\=
+	2^i \cdot \sum_{n = 0}^{j}2^n \cdot x_{n+2+i} =
+	2^i \cdot \sum_{n = 0}^{j}2^n (T^i x)_{n+2} =
+	2^i \cdot \sum_{k=2}^{2^{j+1}} (ST^i x)_k
+\end{multline*}
+
+Утверждение доказано.
+
+\subsection{Вспомогательная функция $k_b$}
+
+Введём функцию
+\begin{equation}\label{def_k_b}
+	k_b(x) = \frac{1}{2b}\left|
+		\sum_{k=1}^{b}x_k - \sum_{k=b+1}^{2b}x_k
+	\right|
+\end{equation}
+
+\paragraph{Утверждение.}
+\begin{equation}\label{alpha_greater_k_b}
+	\alpha (Cx) \geq \varlimsup_{i\to \infty} k_i(x)
+\end{equation}
+
+\paragraph{Доказательство.}
+
+\begin{multline*}
+	\alpha (Cx) \mathop{=}\limits^{def}
+	\varlimsup_{i\to \infty} \sup_{i<j\leq 2i} |(Cx)_i - (Cx)_j| \geq
+	\varlimsup_{i\to \infty} |(Cx)_i - (Cx)_{2i}| =
+	\\ =
+	\varlimsup_{i\to \infty} \left|\frac{1}{i}\sum_{k=1}^i  - \frac{1}{2i}\sum_{k=1}^{2i} \right| =
+	\varlimsup_{i\to \infty} \left|\frac{1}{i}\sum_{k=1}^i  - \frac{1}{2i}\sum_{k=1}^{i}- \frac{1}{2i}\sum_{k=i+1}^{2i}\right| =
+	\\=
+	\varlimsup_{i\to \infty} \left|\frac{1}{2i}\sum_{k=1}^i - \frac{1}{2i}\sum_{k=i+1}^{2i}\right| =
+	\varlimsup_{i\to \infty} k_i(x)
+\end{multline*}
+
+\paragraph{Примечание.}
+Введение функции $k_b(x)$ позволит нам в дальнейшем лихо уйти от работы с оператором Чезаро
+и заняться тихим небуйным расписыванием сумм.
+
+
+
+\section{Основные построения}
+
+Построим вектор $y\in l_\infty$ следующим образом:
+
+\begin{equation}\label{y_construction}
+	y = \left\{
+		0, 0, \frac{1}{p}, \frac{2}{p}, \frac{3}{p},
+		...,
+		\frac{p-1}{p}, 1, \frac{p-1}{p},
+		...,
+		\frac{1}{p},
+		0, 0, 0, ..., 0,
+		\frac{1}{p}, ...
+	\right\}
+\end{equation}
+так, что
+\begin{equation}\label{T_y}
+	T^{5p}y = y
+\end{equation}
+(0 повторяется $3p+1$ раз или около того, надо будет ещё очень аккуратно пересчитать).
+
+Вообще, конечно, здесь надо красивое равенство со скобочкой, но на это заморочимся,
+если доказательство верно.
+
+Положим $x = Sy$.
+Тогда с учётом (\ref{alpha_S})
+\begin{equation}\label{alpha_x}
+	\alpha (x) = \alpha (Sy) = \frac{1}{p}
+\end{equation}
+
+
+Оценим $\alpha(Cx)$:
+
+\begin{multline*}
+	\alpha (Cx) \mathop{\geq}^{(\ref{alpha_greater_k_b})}
+	\varlimsup_{b\to \infty} k_b(x) =
+	\varlimsup_{b\to \infty}\frac{1}{2b}\left|
+		\sum_{k=1}^{b}x_k - \sum_{k=b+1}^{2b}x_k
+	\right| \geq
+	\\ \geq
+	\varlimsup_{
+		i\to \infty,~
+		b=2^i~
+	}\frac{1}{2^{i+1}}\left|
+		\sum_{k=1}^{2^i}(Sy)_k - \sum_{k=2^i+1}^{2^{i+1}}(Sy)_k
+	\right| =
+	\\=
+	\varlimsup_{i\to \infty}\frac{1}{2^{i+1}}\left|
+		\sum_{k=1}^{2^i}(Sy)_k - 2^i y_{i+2}
+	\right| =
+	\varlimsup_{i\to \infty}\left|
+		\frac{1}{2^{i+1}}\sum_{k=1}^{2^i}(Sy)_k - \frac{y_{i+2}}{2}
+	\right| \geq
+	\\ \geq
+	\varlimsup_{
+		m\to \infty,~
+		i=5pm+p~
+	}\left|
+		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm+p}}(Sy)_k - \frac{y_{5pm+p+2}}{2}
+	\right| =
+	\\=
+	\varlimsup_{m\to \infty}\left|
+		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm+p}}(Sy)_k - \frac{1}{2}
+	\right| =
+	\\=
+	\varlimsup_{m\to \infty}\left|
+		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm}}(Sy)_k
+		+
+		\frac{1}{2^{5pm+p+1}}\sum_{k=2^{5pm}+1}^{2^{5pm+p}}(Sy)_k
+		- \frac{1}{2}
+	\right|
+	\mathop{=}^{(\ref{summa_S})}
+	\\=
+	\varlimsup_{m\to \infty}\left|
+		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm}}(Sy)_k
+		+
+		\frac{1}{2^{5pm+p+1}} \cdot 2^{5pm} \cdot \sum_{k=2}^{2^p}(ST^{5pm}y)_k
+		- \frac{1}{2}
+	\right|
+	\mathop{=}^{(\ref{T_y})}
+	\\=
+	\varlimsup_{m\to \infty}\left|
+		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm}}(Sy)_k
+		+
+		\frac{1}{2^{5pm+p+1}} \cdot 2^{5pm} \cdot \sum_{k=2}^{2^p}(Sy)_k
+		- \frac{1}{2}
+	\right| =
+\end{multline*}
+\begin{multline*}
+	\\=
+	\varlimsup_{m\to \infty}\left|
+		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm}}(Sy)_k
+		+
+		\frac{1}{2^{p+1}} \sum_{k=2}^{2^p}(Sy)_k
+		- \frac{1}{2}
+	\right|
+	\mathop{=}^{(\ref{summa_S_less})}
+	\\=
+	\varlimsup_{m\to \infty}\left|
+		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm}}(Sy)_k
+		+
+		\frac{1}{2^{p+1}} \sum_{i=0}^{p-1}2^i y_{i+2}
+		- \frac{1}{2}
+	\right| =
+	\\=
+	\varlimsup_{m\to \infty}\left|
+		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm}}(Sy)_k
+		+
+		\frac{1}{2^{p+1}} \sum_{i=0}^{p-1}2^i \cdot \frac{i}{p}
+		- \frac{1}{2}
+	\right|
+	\mathop{=}^{(\ref{summa_drobey})}
+	\\=
+	\varlimsup_{m\to \infty}\left|
+		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm}}(Sy)_k
+		+
+		\frac{1}{2^{p+1}} \cdot \frac{2^p(p-2)+2}{p}
+		- \frac{1}{2}
+	\right| =
+	\\=
+	\varlimsup_{m\to \infty}\left|
+		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm}}(Sy)_k
+		+
+		\frac{1}{2} \cdot \frac{p-2}{p} + \frac{1}{p 2^p}
+		- \frac{1}{2}
+	\right| =
+	\\=
+	\varlimsup_{m\to \infty}\left|
+		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm}}(Sy)_k
+		-
+		\frac{1}{p} + \frac{1}{p 2^p}
+	\right| =
+	\\=
+	\varlimsup_{m\to \infty}\left|
+		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm-2p}}(Sy)_k
+		+
+		\frac{1}{2^{5pm+p+1}}\sum_{k=2^{5pm-2p}+1}^{2^{5pm}}(Sy)_k
+		-\frac{1}{p} + \frac{1}{p 2^p}
+	\right| =
+	\\\mbox{но во второй сумме все $(Sy)_k$ --- нули по построению (доказать?)}
+	\\=
+	\varlimsup_{m\to \infty}\left|
+		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm-2p}}(Sy)_k
+		-\frac{1}{p} + \frac{1}{p 2^p}
+	\right| = h
+\end{multline*}
+
+Но $0 \leq (Sy)_k \leq 1$,
+значит,
+$$
+	\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm-2p}}(Sy)_k
+	\leq
+	\frac{1}{2^{5pm+p+1}} \cdot 2^{5pm-2p}
+	=
+	\frac{1}{2^{3p+1}}
+$$
+Модуль раскрываем со знаком ``-''
+
+\begin{multline*}
+	h=
+	\varlimsup_{m\to \infty} \left(
+		\frac{1}{p} (1-2^{-p})
+		- \frac{1}{2^{3p+1}}
+	\right) =
+	\frac{1}{p} (1-2^{-p})
+	- \frac{1}{2^{3p+1}}
+	= \\ =
+	\frac{1}{p} (1-2^{-p})
+	- \frac{1}{2^{2p+1}} \cdot 2^{-p}
+	>
+	\frac{1}{p} (1-2^{-p})
+	- \frac{1}{p} \cdot 2^{-p}
+	=
+	\frac{1}{p} (1-2^{-p+1})
+\end{multline*}
+
+
+Таким образом,
+$$
+	\frac{\alpha(Cx)}{\alpha(x)} \geq
+	\frac{	\frac{1}{p} (1-2^{-p+1}) }{\frac{1}{p}} =
+	1-2^{-p+1}
+$$
+
+Рассматривая $x$ как функцию от $p$, имеем:
+$$
+	\sup_{p\in\mathbb{N}} \frac{\alpha(Cx(p))}{\alpha(x(p))} \geq
+	\sup_{p\in\mathbb{N}} (1-2^{-p+1}) \geq
+	1
+$$
