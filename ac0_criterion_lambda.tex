@@ -1,0 +1,176 @@
+\documentclass[a4paper,14pt]{article} %размер бумаги устанавливаем А4, шрифт 12пунктов
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel} %используем русский и английский языки с переносами
+\usepackage{amssymb,amsfonts,amsmath,mathtext,cite,enumerate,float,amsthm} %подключаем нужные пакеты расширений
+\usepackage[unicode,colorlinks=true,citecolor=black,linkcolor=black]{hyperref}
+%\usepackage[pdftex,unicode,colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{indentfirst} % включить отступ у первого абзаца
+\usepackage[dvips]{graphicx} %хотим вставлять рисунки?
+\graphicspath{{illustr/}}%путь к рисункам
+
+\makeatletter
+\renewcommand{\@biblabel}[1]{#1.} % Заменяем библиографию с квадратных скобок на точку:
+\makeatother %Смысл этих трёх строчек мне непонятен, но поверим "Запискам дебианщика"
+
+\usepackage{geometry} % Меняем поля страницы.
+\geometry{left=2cm}% левое поле
+\geometry{right=1cm}% правое поле
+\geometry{top=2cm}% верхнее поле
+\geometry{bottom=2cm}% нижнее поле
+
+\renewcommand{\theenumi}{\arabic{enumi}}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\labelenumi}{\arabic{enumi}}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\theenumii}{.\arabic{enumii}}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}.}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\theenumiii}{.\arabic{enumiii}}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}.}% Меняем везде перечисления на цифра.цифра
+
+\sloppy
+
+
+\renewcommand\normalsize{\fontsize{14}{25.2pt}\selectfont}
+
+\begin{document}
+% !!!
+% Здесь начинается реальный ТеХ-код
+% Всё, что выше - беллетристика
+
+Определим (нелинейный) оператор $\lambda$--срезки $A_\lambda$ на пространстве $\ell_\infty$.
+Для $x = (x_1, x_2, ...) \in \ell_\infty$ положим
+\begin{equation}
+	(A_\lambda x)_k = \begin{cases}
+		1, & \mbox{~если~} x_k \geq \lambda
+		\\
+		0  & \mbox{~иначе.~}
+	\end{cases}
+\end{equation}
+
+\paragraph{Теорема.}
+(Срезочный критерий почти сходимости к нулю неотрицательной последовательности.)
+Пусть $x\in\ell_\infty$, $x\geq 0$.
+Тогда
+\begin{equation}
+	x\in ac_0 \Leftrightarrow
+	\forall(\lambda>0)[A_\lambda x \in ac_0]
+	.
+\end{equation}
+
+\paragraph{Необходимость.}
+Пусть $x\in ac_0$.
+Зафиксируем $\lambda > 0$.
+Пусть $y=A_\lambda x$, тогда
+\begin{equation}
+	(\lambda y)_k = \begin{cases}
+		\lambda, & \mbox{~если~} x_k \geq \lambda
+		\\
+		0  & \mbox{~иначе~}
+	\end{cases}
+\end{equation}
+Таким образом, $0 \leq \lambda y \leq x$.
+Следовательно, если $x \in ac_0$,
+то $\lambda y \in ac_0$ и $y \in ac_0$,
+что и требовалось доказать.
+
+\paragraph{Достаточность.}
+Очевидно, что
+\begin{equation}
+	x\in ac_0 \Leftrightarrow
+	\frac{x}{\|x\|}\in ac_0
+	.
+\end{equation}
+Поэтому, не теряя общности, будем полагать $\|x\|\leq 1$.
+Более того,
+\begin{equation}
+	A_\lambda x \in ac_0 \Leftrightarrow
+	(1-\lambda)A_\lambda x \in ac_0
+	.
+\end{equation}
+
+Преположим противное, т.е. $x\notin ac_0$,
+но $\forall(\lambda>0)[(1-\lambda))A_\lambda x \in ac_0]$.
+Запишем покванторное отрицание критерия Лоренца:
+\begin{equation}\label{ac0_lambda_Lorencz_neg}
+	\exists(\varepsilon_0 > 0)
+	\forall(n_0 \in \mathbb{N})
+	\exists(n > n_0)
+	\exists(m \in \mathbb{N})
+	\left[
+		\frac{1}{n}\sum_{k=m+1}^{m+n} x_k \geq \varepsilon_0
+	\right]
+	.
+\end{equation}
+Найдём такое $\varepsilon_0$ и положим
+\begin{equation}
+	\varepsilon = \min\left\{ \frac{\varepsilon_0}{2}, \frac{1}{2} \right\}
+	.
+\end{equation}
+Легко видеть, что
+\begin{equation}\label{ac0_lambda_Lorencz_neg_epsilon}
+	\forall(n_0 \in \mathbb{N})
+	\exists(n > n_0)
+	\exists(m \in \mathbb{N})
+	\left[
+		\frac{1}{n}\sum_{k=m+1}^{m+n} x_k > \varepsilon
+	\right]
+	.
+\end{equation}
+(знак неравенства сменился на строгий, это будет играть ключевую роль в дальнейших выкладках).
+
+Построим последовательность
+\begin{equation}
+	y = \left( 1 - \frac{\varepsilon}{2} \right) A_{\varepsilon/2} x
+	.
+\end{equation}
+Заметим, что $y\in ac_0$, т.е. по критерию Лоренца
+\begin{equation}\label{ac0_lambda_Lorencz}
+	\forall(\varepsilon_1 > 0)
+	\exists(n_1 \in \mathbb{N})
+	\forall(n' > n_1)
+	\forall(m' \in \mathbb{N})
+	\left[
+		\frac{1}{n}\sum_{k=m+1}^{m+n} y_k < \varepsilon_1
+	\right]
+	.
+\end{equation}
+
+Положим в \eqref{ac0_lambda_Lorencz} $\varepsilon_1 = \varepsilon/2$
+и отыщем $n_1$.
+Положим в \eqref{ac0_lambda_Lorencz_neg_epsilon}
+$n_0 = n_1$ и отыщем $n$ и $m$.
+Положим в \eqref{ac0_lambda_Lorencz} $n' = n$, $m' = m$.
+Тогда получим, что по \eqref{ac0_lambda_Lorencz_neg_epsilon}
+\begin{equation}
+	\frac{1}{n}\sum_{k=m+1}^{m+n} x_k > \varepsilon
+	.
+\end{equation}
+С другой стороны, по \eqref{ac0_lambda_Lorencz}
+\begin{equation}
+	\frac{1}{n}\sum_{k=m+1}^{m+n} y_k < \varepsilon/2
+	.
+\end{equation}
+Вычитая, получим
+\begin{equation}
+	\frac{1}{n}\sum_{k=m+1}^{m+n} (x_k - y_k) > \varepsilon/2
+	.
+\end{equation}
+Если среднее арифметическое чисел вида $x_k - y_k$ больше $\varepsilon/2$,
+то существует хотя бы один индекс $k$ такой, что $x_k - y_k > \varepsilon/2$.
+
+Предположим, что $k$ таково, что $x_k < \varepsilon/2$.
+Тогда $y_k = 0$ и $x_k - y_k < \varepsilon/2$.
+Значит, предположение неверно и $x_k \geq \varepsilon/2$
+Тогда $y_k = 1-\varepsilon/2$ и с учётом $\|x\|\leq 1$ имеем
+\begin{equation}
+	x_k - y_k \leq 1- y_k = 1 - (1-\varepsilon/2) = \varepsilon/2
+	.
+\end{equation}
+Следовательно, требуемого индекса $k$ не существует,
+и \eqref{ac0_lambda_Lorencz_neg} не выполнено.
+
+Полученное противоречие завершает доказательство.
+
+
+TODO: сформулировать критерий в терминах $M_\lambda(j)$.
+
+\end{document}
