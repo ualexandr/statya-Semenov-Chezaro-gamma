@@ -85,9 +85,7 @@
 \end{keywords}
 
 
-\footnotetext{Данная работа была проделана при частичной
-поддержке гранта INTAS No. 4297F и гранта CGEPI
-IPN Мексика.}
+\footnotetext{Работа выполнена в Воронежском университете при поддержке РНФ, грант 16-11-10125.}
 
 
 
@@ -179,14 +177,16 @@ $x\in ac_0$ тогда и только тогда, когда
 	2 m_0 \|x\| + \left| \sum_{k=m_0+1}^{m_0+n} x_k \right|
 	.
 \end{equation}
-и, следовательно,
+и, следовательно, \eqref{crit_ac0} тоже выполнено.
+Действительно,
 \begin{multline}
 	\left| \frac{1}{n} \sum_{k=m+1}^{m+n} x_k \right|
 	\leq
-	\frac{2 m_0 \|x\|}{n} + \left| \sum_{k=m_0+1}^{m_0+n} x_k \right|
+	\frac{2 m_0 \|x\|}{n} + \left| \frac{1}{n} \sum_{k=m_0+1}^{m_0+n} x_k \right|
 	\mathop{\leq}^{\eqref{crit_pos_ac0}}
 	\frac{2 m_0 \|x\|}{n} + \frac{1}{A_0}
 	\leq
+	%\\ \leq
 	\frac{2 m_0 \|x\|}{2A_0(n_0+m_0)\|x\|} + \frac{1}{A_0}
 	=
 	\\=
@@ -195,29 +195,35 @@ $x\in ac_0$ тогда и только тогда, когда
 	\frac{1}{A_0} + \frac{1}{A_0}
 	=
 	\frac{1}{A_1}
-	,
+	.
 \end{multline}
-т.е. \eqref{crit_ac0} тоже выполнено.
 
 \paragraph{Примечание.}
 Удобство критерия \eqref{crit_pos_ac0} в
 выборе $m_0$ в зависимости от $A_0$.
 
 
-\paragraph{Задача о пасьянсе из нулей и единиц.}
+\begin{lemma}
+(О пасьянсе из нулей и единиц.)
 Пусть $n_i$~--- строго возрастающая последовательность натуральных чисел,
 \begin{equation}
 	M(j) = \liminf_{i\to\infty} n_{i+j} - n_i,
-\end{equation}
-\begin{equation}
+\qquad
 	x_k = \left\{\begin{array}{ll}
 		1, & \mbox{~если~} k = n_i
 		\\
-		0  & \mbox{~иначе~}
+		0  & \mbox{~иначе.~}
 	\end{array}\right.
 \end{equation}
+Для того, чтобы $x\in ac_0$,
+необходимо и достаточно, чтобы
+\begin{equation}\label{lim_M(j)/j}
+	\lim_{j \to \infty} \frac{M(j)}{j} = +\infty
+	.
+\end{equation}
+\end{lemma}
 
-\paragraph{Замечание.}
+\paragraph{Замечание}
 Понятно, что $M(j)\in\mathbb{N}$.
 Более того, для любого $j$ существует лишь конечное количество отрезков длины $M(j)$,
 содержащих более $j$ единиц,
@@ -226,26 +232,19 @@ $x\in ac_0$ тогда и только тогда, когда
 Через $E_j$ будем обозначать конец последнего отрезка длины $M(j)$,
 содержащего более $j$ единиц.
 
-\paragraph{Утверждение.}
-Если $x \in ac_0$, то
-\begin{equation}\label{lim_M(j)/j}
-	\lim_{j \to \infty} \frac{M(j)}{j} = +\infty
-	.
-\end{equation}
-
-\paragraph{Доказательство.}
+\paragraph{Необходимость}
 Предположим противное:
 \begin{equation}
 	\liminf_{j \to \infty} \frac{M(j)}{j} = c < +\infty
 	.
 \end{equation}
-Очевидно, что $c>0$.
-По определению нижнего предела найдётся счётное множество
+Очевидно, $c>0$.
+Т.к. $c$~--- нижний предел, то найдётся счётное множество
 $J\subset\mathbb{N}$ такое, что
 $
 	\forall(j\in J)\left[c \leq {M(j)}/{j} \leq c+1 \right],
 $
-т.е. для любого $j\in J$ существует бесконечно много отрезков длины $j\cdot(c+1)$,
+т.е. для любого $j\in J$ существует бесконечно много отрезков длины $j(c+1)$,
 на каждом из которых не менее $j$ единиц.
 %
 Т.к. $x\in ac_0$, то
@@ -281,18 +280,9 @@ $
 что противоречит \eqref{Lorencz_ac0_epsilon}.
 Полученное противоречие завершает доказательство.
 
+\paragraph{Достаточность}
 
-\paragraph{Утверждение.}
-Если
-\begin{equation}\label{lim_M(j)/j_dost}
-	\lim_{j \to \infty} \frac{M(j)}{j} = +\infty
-	,
-\end{equation}
-то $x \in ac_0$.
-
-\paragraph{Доказательство.}
-
-По определению предела \eqref{lim_M(j)/j_dost} означает, что
+По определению предела \eqref{lim_M(j)/j} означает, что
 \begin{equation}\label{lim_M(j)/j_ifty_def}
 	\forall(C  \in\mathbb{N})
 	\exists(j_0\in\mathbb{N})
@@ -495,7 +485,7 @@ $
 
 
 Тогда для того, чтобы $x\in ac_0$, необходимо и достаточно, чтобы
-для любого $\lambda>0$ было выполнено
+для любого $\lambda>0$
 \begin{equation}
 	\lim_{j \to \infty} \frac{M^{(\lambda)}(j)}{j} = +\infty
 	.
