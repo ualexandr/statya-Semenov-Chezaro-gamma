@@ -99,7 +99,6 @@ IPN Мексика.}
 \paragraph{Теорема.}
 (Модифицированный критерий Лоренца).
 Пусть $x\in\ell_{\infty}$.
-
 $x\in ac_0$ тогда и только тогда, когда
 \begin{equation}\label{crit_pos_ac0}
 	\forall(A_0\in\mathbb{N})
@@ -125,7 +124,6 @@ $x\in ac_0$ тогда и только тогда, когда
 	\lim_{n\to\infty} \frac{1}{n} \sum_{k=m+1}^{m+n} x_k = 0
 \end{equation}
 равномерно по $m$.
-
 Или, переводя на язык кванторов,
 \begin{equation}\label{crit_ac0}
 	\forall(A_1\in\mathbb{N})
@@ -143,20 +141,19 @@ $x\in ac_0$ тогда и только тогда, когда
 	\right]
 	.
 \end{equation}
-Очевидно, что из \eqref{crit_ac0} следует \eqref{crit_pos_ac0} (например, положив $m_0 = 1$),
-тем самым необходимость \eqref{crit_pos_ac0} доказана.
+Очевидно, что из \eqref{crit_ac0} следует \eqref{crit_pos_ac0} (например, $m_0 = 1$),
+что даёт необходимость \eqref{crit_pos_ac0}.
 
 \paragraph{Достаточность.}
-Пусть выполнено \eqref{crit_pos_ac0}.
-Покажем, что выполнено \eqref{crit_ac0}.
+Пусть верно \eqref{crit_pos_ac0}.
+Покажем, что верно \eqref{crit_ac0}.
 Зафиксируем $A_1$.
 Положим $A_0 = 2A_1$ и отыщем $n_0$ и $m_0$ в соотвествии с \eqref{crit_pos_ac0}.
 Положим $n_1 = 2A_0(n_0+m_0)\|x\|$.
 Покажем, что \eqref{crit_ac0} верно для любых $n\geq n_1$, $m\in \mathbb{N}$.
 Зафиксируем $n$ и рассмотрим $m$.
-
 Пусть сначала $m\geq m_0$.
-Тогда в силу того, что $n\geq n_1 = 2A_0(n_0+m_0)\|x\| > n_0$ имеем $n>n_0$.
+Т.к. $n\geq n_1 = 2A_0(n_0+m_0)\|x\| > n_0$, то $n>n_0$.
 Применим \eqref{crit_pos_ac0}:
 \begin{equation}
 	\left|
@@ -172,19 +169,8 @@ $x\in ac_0$ тогда и только тогда, когда
 	,
 \end{equation}
 т.е. \eqref{crit_ac0} выполнено.
-
 Пусть теперь $m < m_0$.
-Заметим, что
-\begin{equation}
-	\left|
-		\sum_{k=m+1}^{m+n} x_k
-		-
-		\sum_{k=m_0+1}^{m_0+n} x_k
-	\right|
-	\leq 2(m_0 - m) \|x\|
-	,
-\end{equation}
-откуда
+Тогда
 \begin{equation}
 	\left| \sum_{k=m+1}^{m+n} x_k \right|
 	\leq
@@ -193,18 +179,13 @@ $x\in ac_0$ тогда и только тогда, когда
 	2 m_0 \|x\| + \left| \sum_{k=m_0+1}^{m_0+n} x_k \right|
 	.
 \end{equation}
-
-
-Тогда
+и, следовательно,
 \begin{multline}
 	\left| \frac{1}{n} \sum_{k=m+1}^{m+n} x_k \right|
 	\leq
-	\frac{2 m_0 \|x\|}{n} \left| \sum_{k=m_0+1}^{m_0+n} x_k \right|
-	\mathop{\leq}^{\mbox{~~в силу \eqref{crit_pos_ac0}~~}}
+	\frac{2 m_0 \|x\|}{n} + \left| \sum_{k=m_0+1}^{m_0+n} x_k \right|
+	\mathop{\leq}^{\eqref{crit_pos_ac0}}
 	\frac{2 m_0 \|x\|}{n} + \frac{1}{A_0}
-	\leq
-	\\ \leq
-	\frac{2 m_0 \|x\|}{n_1} + \frac{1}{A_0}
 	\leq
 	\frac{2 m_0 \|x\|}{2A_0(n_0+m_0)\|x\|} + \frac{1}{A_0}
 	=
@@ -219,8 +200,8 @@ $x\in ac_0$ тогда и только тогда, когда
 т.е. \eqref{crit_ac0} тоже выполнено.
 
 \paragraph{Примечание.}
-Удобство критерия \eqref{crit_pos_ac0} в том,
-что можно выбирать $m_0$ в зависимости от $A_0$.
+Удобство критерия \eqref{crit_pos_ac0} в
+выборе $m_0$ в зависимости от $A_0$.
 
 
 \paragraph{Задача о пасьянсе из нулей и единиц.}
@@ -237,15 +218,11 @@ $x\in ac_0$ тогда и только тогда, когда
 \end{equation}
 
 \paragraph{Замечание.}
-Так как $M(j)$ есть нижний предел последовательности натуральных чисел,
-то он всегда достигается,
-т.е. $M(j)\in\mathbb{N}$.
-
+Понятно, что $M(j)\in\mathbb{N}$.
 Более того, для любого $j$ существует лишь конечное количество отрезков длины $M(j)$,
 содержащих более $j$ единиц,
 и бесконечное количество отрезков длины $M(j)$,
 содержащих ровно $j$ единиц.
-
 Через $E_j$ будем обозначать конец последнего отрезка длины $M(j)$,
 содержащего более $j$ единиц.
 
@@ -257,27 +234,20 @@ $x\in ac_0$ тогда и только тогда, когда
 \end{equation}
 
 \paragraph{Доказательство.}
-Очевидно, что если
-\begin{equation}
-	\liminf_{j \to \infty} \frac{M(j)}{j} = +\infty
-	,
-\end{equation}
-то выполнено \eqref{lim_M(j)/j}.
 Предположим противное:
 \begin{equation}
-	\liminf_{j \to \infty} \frac{M(j)}{j} = с < +\infty
+	\liminf_{j \to \infty} \frac{M(j)}{j} = c < +\infty
 	.
 \end{equation}
-Очеивдно, что в таком случае $c>0$.
-
+Очевидно, что $c>0$.
 По определению нижнего предела найдётся счётное множество
 $J\subset\mathbb{N}$ такое, что
-\begin{equation}
-	\forall(j\in J)\left[c \leq \frac{M(j)}{j} \leq c+1 \right],
-\end{equation}
+$
+	\forall(j\in J)\left[c \leq {M(j)}/{j} \leq c+1 \right],
+$
 т.е. для любого $j\in J$ существует бесконечно много отрезков длины $j\cdot(c+1)$,
 на каждом из которых не менее $j$ единиц.
-
+%
 Т.к. $x\in ac_0$, то
 \begin{equation}\label{Lorencz_ac0_epsilon}
 	\forall(\varepsilon>0)
@@ -309,7 +279,6 @@ $J\subset\mathbb{N}$ такое, что
 	\varepsilon,
 \end{equation}
 что противоречит \eqref{Lorencz_ac0_epsilon}.
-
 Полученное противоречие завершает доказательство.
 
 
@@ -333,7 +302,7 @@ $J\subset\mathbb{N}$ такое, что
 	\right]
 	.
 \end{equation}
-Покажем, что выполнен модификированный критерий Лоренца почти сходимости последовательности к нулю
+Покажем, что выполнен модификированный критерий Лоренца
 \eqref{crit_pos_ac0}, т.е.
 \begin{equation}
 	\forall(B  \in\mathbb{N})
@@ -364,13 +333,10 @@ $$
 \begin{multline}
 	\frac{1}{n} \sum_{k=m+1}^{m+n} x_k
 	<
-	\frac{1}{n} \cdot \left( \frac{n}{M(j_0)} + 1 \right) j_0
+	\frac{1}{n} \left( \frac{n}{M(j_0)} + 1 \right) j_0
 	=
 	\frac{j_0}{M(j_0)} + \frac{j_0}{n}
 	\leq
-	\frac{1}{2B} + \frac{j_0}{n}
-	\leq
-	\\ \leq
 	\frac{1}{2B} + \frac{j_0}{n_0}
 	=
 	\frac{1}{2B} + \frac{1}{2B}
@@ -397,11 +363,11 @@ $$
 (Срезочный критерий почти сходимости к нулю неотрицательной последовательности.)
 Пусть $x\in\ell_\infty$, $x\geq 0$.
 Тогда
-\begin{equation}
+$
 	x\in ac_0 \Leftrightarrow
 	\forall(\lambda>0)[A_\lambda x \in ac_0]
 	.
-\end{equation}
+$
 
 \paragraph{Необходимость.}
 Пусть $x\in ac_0$.
@@ -420,22 +386,21 @@ $$
 что и требовалось доказать.
 
 \paragraph{Достаточность.}
-Очевидно, что
-\begin{equation}
+Т.к.
+$
 	x\in ac_0 \Leftrightarrow
-	\frac{x}{\|x\|}\in ac_0
-	.
-\end{equation}
-Поэтому, не теряя общности, будем полагать $\|x\|\leq 1$.
+	{x}/{\|x\|}\in ac_0
+$,
+то будем полагать $\|x\|\leq 1$.
 Более того,
-\begin{equation}
+$
 	A_\lambda x \in ac_0 \Leftrightarrow
 	(1-\lambda)A_\lambda x \in ac_0
 	.
-\end{equation}
+$
 
-Преположим противное, т.е. $x\notin ac_0$,
-но $\forall(\lambda>0)[(1-\lambda))A_\lambda x \in ac_0]$.
+Предположим противное, т.е. $x\notin ac_0$,
+но $\forall(\lambda>0)[(1-\lambda)A_\lambda x \in ac_0]$.
 Запишем покванторное отрицание критерия Лоренца:
 \begin{equation}\label{ac0_lambda_Lorencz_neg}
 	\exists(\varepsilon_0 > 0)
@@ -448,10 +413,10 @@ $$
 	.
 \end{equation}
 Найдём такое $\varepsilon_0$ и положим
-\begin{equation}
-	\varepsilon = \min\left\{ \frac{\varepsilon_0}{2}, \frac{1}{2} \right\}
+$
+	\varepsilon = \min\left\{ {\varepsilon_0}/{2}, {1}/{2} \right\}
 	.
-\end{equation}
+$
 Легко видеть, что
 \begin{equation}\label{ac0_lambda_Lorencz_neg_epsilon}
 	\forall(n_0 \in \mathbb{N})
@@ -462,13 +427,12 @@ $$
 	\right]
 	.
 \end{equation}
-(знак неравенства сменился на строгий, это будет играть ключевую роль в дальнейших выкладках).
-
+(знак неравенства стал строгим).
 Построим последовательность
-\begin{equation}
-	y = \left( 1 - \frac{\varepsilon}{2} \right) A_{\varepsilon/2} x
+$
+	y = \left( 1 - {\varepsilon}/{2} \right) A_{\varepsilon/2} x
 	.
-\end{equation}
+$
 Заметим, что $y\in ac_0$, т.е. по критерию Лоренца
 \begin{equation}\label{ac0_lambda_Lorencz}
 	\forall(\varepsilon_1 > 0)
@@ -503,18 +467,17 @@ $n_0 = n_1$ и отыщем $n$ и $m$.
 \end{equation}
 Если среднее арифметическое чисел вида $x_k - y_k$ больше $\varepsilon/2$,
 то существует хотя бы один индекс $k$ такой, что $x_k - y_k > \varepsilon/2$.
-
+%
 Предположим, что $k$ таково, что $x_k < \varepsilon/2$.
 Тогда $y_k = 0$ и $x_k - y_k < \varepsilon/2$.
 Значит, предположение неверно и $x_k \geq \varepsilon/2$
 Тогда $y_k = 1-\varepsilon/2$ и с учётом $\|x\|\leq 1$ имеем
-\begin{equation}
+$
 	x_k - y_k \leq 1- y_k = 1 - (1-\varepsilon/2) = \varepsilon/2
 	.
-\end{equation}
+$
 Следовательно, требуемого индекса $k$ не существует,
 и \eqref{ac0_lambda_Lorencz_neg} не выполнено.
-
 Полученное противоречие завершает доказательство.
 
 Сформулируем теперь этот критерий в терминах функций $M^{(\lambda)}(j)$.
