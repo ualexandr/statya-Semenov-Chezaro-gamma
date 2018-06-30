@@ -87,12 +87,13 @@
 
 
 
-Дадим переформулировку критерия Лоренца почти сходимости последовательности,
-которая иногда позволяет упростить доказательство.
+Дадим без доказательства незначительную переформулировку
+критерия Лоренца почти сходимости последовательности,
+которая потребуется в дальнейшем.
 
 
-\paragraph{Теорема.}
-(Модифицированный критерий Лоренца).
+\begin{theorem}
+(Модифицированный критерий Лоренца.)
 Пусть $x\in\ell_{\infty}$.
 $x\in ac_0$ тогда и только тогда, когда
 \begin{equation}\label{crit_pos_ac0}
@@ -112,93 +113,12 @@ $x\in ac_0$ тогда и только тогда, когда
 	\right]
 	.
 \end{equation}
+\end{theorem}
 
-\paragraph{Доказательство.}
-По теореме Лоренца $x\in ac_0$ тогда и только тогда, когда
-\begin{equation}\label{Lorencz_ac0}
-	\lim_{n\to\infty} \frac{1}{n} \sum_{k=m+1}^{m+n} x_k = 0
-\end{equation}
-равномерно по $m$.
-Или, переводя на язык кванторов,
-\begin{equation}\label{crit_ac0}
-	\forall(A_1\in\mathbb{N})
-	\exists(n_1\in\mathbb{N})
-	\forall(n\geq n_0)
-	\forall(m \in \mathbb{N})
-	\\
-	\left[
-		\left|
-		\frac{1}{n}
-		\sum_{k=m+1}^{m+n} x_k
-		\right|
-		<
-		\frac{1}{A_1}
-	\right]
-	.
-\end{equation}
-Очевидно, что из \eqref{crit_ac0} следует \eqref{crit_pos_ac0} (например, $m_0 = 1$),
-что даёт необходимость \eqref{crit_pos_ac0}.
-
-\paragraph{Достаточность.}
-Пусть верно \eqref{crit_pos_ac0}.
-Покажем, что верно \eqref{crit_ac0}.
-Зафиксируем $A_1$.
-Положим $A_0 = 2A_1$ и отыщем $n_0$ и $m_0$ в соотвествии с \eqref{crit_pos_ac0}.
-Положим $n_1 = 2A_0(n_0+m_0)\|x\|$.
-Покажем, что \eqref{crit_ac0} верно для любых $n\geq n_1$, $m\in \mathbb{N}$.
-Зафиксируем $n$ и рассмотрим $m$.
-Пусть сначала $m\geq m_0$.
-Т.к. $n\geq n_1 = 2A_0(n_0+m_0)\|x\| > n_0$, то $n>n_0$.
-Применим \eqref{crit_pos_ac0}:
-\begin{equation}
-	\left|
-	\frac{1}{n}
-	\sum_{k=m+1}^{m+n} x_k
-	\right|
-	<
-	\frac{1}{A_0}
-	=
-	\frac{1}{2A_1}
-	<
-	\frac{1}{A_1}
-	,
-\end{equation}
-т.е. \eqref{crit_ac0} выполнено.
-Пусть теперь $m < m_0$.
-Тогда
-\begin{equation}
-	\left| \sum_{k=m+1}^{m+n} x_k \right|
-	\leq
-	2(m_0 - m) \|x\| + \left| \sum_{k=m_0+1}^{m_0+n} x_k \right|
-	\leq
-	2 m_0 \|x\| + \left| \sum_{k=m_0+1}^{m_0+n} x_k \right|
-	.
-\end{equation}
-и, следовательно, \eqref{crit_ac0} тоже выполнено.
-Действительно,
-\begin{multline}
-	\left| \frac{1}{n} \sum_{k=m+1}^{m+n} x_k \right|
-	\leq
-	\frac{2 m_0 \|x\|}{n} + \left| \frac{1}{n} \sum_{k=m_0+1}^{m_0+n} x_k \right|
-	\mathop{\leq}^{\eqref{crit_pos_ac0}}
-	\frac{2 m_0 \|x\|}{n} + \frac{1}{A_0}
-	\leq
-	%\\ \leq
-	\frac{2 m_0 \|x\|}{2A_0(n_0+m_0)\|x\|} + \frac{1}{A_0}
-	=
-	\\=
-	\frac{m_0}{A_0(n_0+m_0)} + \frac{1}{A_0}
-	<
-	\frac{1}{A_0} + \frac{1}{A_0}
-	=
-	\frac{1}{A_1}
-	.
-\end{multline}
-
-\paragraph{Примечание.}
+\begin{remark}
 Удобство критерия \eqref{crit_pos_ac0} в
 выборе $m_0$ в зависимости от $A_0$.
-
+\end{remark}
 
 \begin{lemma}
 (О пасьянсе из нулей и единиц.)
