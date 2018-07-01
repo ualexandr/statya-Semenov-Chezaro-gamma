@@ -1,0 +1,54 @@
+Конечномерность ядра оператора не является необходимым условием существования
+банахова предела, инвариантного относительно данного оператора.
+
+Приведём сначала несложную лемму, а потом соответствующий пример.
+
+\paragraph{Лемма.}
+%TODO: а не баян ли?
+%\textit{Скорее всего, это настолько очевидно, что это никто не пишет и не доказывает.}
+
+Пусть $Q:l_\infty \to l_\infty$.
+\begin{equation}
+	\forall(B\in\mathfrak{B})[QB = B]
+\end{equation}
+тогда и только тогда, когда
+\begin{equation}\label{I-Q_to_ac_0}
+	I-Q : l_\infty \to ac_0,
+\end{equation}
+где $I$~--- тождественный оператор на $l_\infty$.
+
+Надо ли это доказывать?
+Схема примерно такая:
+\begin{equation}
+	B(Qx) = B((I-(I-Q))x) =
+	B(Ix)-B((I-Q)x) =
+	B(x) - 0 = B(x).
+\end{equation}
+
+
+\paragraph{Пример.}
+
+\begin{equation}
+	(Qx)_k =
+	\begin{cases}
+		0,~\mbox{если}~ k = 2^n, n \in\mathbb{N},
+		\\
+		x_k~\mbox{иначе.}
+	\end{cases}
+\end{equation}
+
+Очевидно, что $\dim \ker Q = \infty$.
+
+Покажем, что $Q$ удовлетворяет условию (\ref{I-Q_to_ac_0}).
+\begin{equation}
+	\sum_{k=m+1}^{m+n} x_k - \sum_{k=m+1}^{m+n} (Qx)_k \leqslant (2 + \log_2 n) \|x\|,
+\end{equation}
+(это очевидно??)\\
+откуда немедленно
+\begin{equation}
+	\frac{1}{n}\sum_{k=m+1}^{m+n} x_k - \frac{1}{n}\sum_{k=m+1}^{m+n} (Qx)_k \leqslant \frac{(2 + \log_2 n) \|x\|}{n} \to 0.
+\end{equation}
+
+По предыдущему утверждению отсюда следует, что относительно $Q$ инвариантен любой банахов предел.
+
+\end{document}
