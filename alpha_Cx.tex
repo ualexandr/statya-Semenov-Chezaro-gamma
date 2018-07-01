@@ -1,19 +1,64 @@
-Дальнейшее излагается неакадемическим (а местами - прямо-таки антиакадемическим языком)
-с целью упрощения как написания, так и чтения текста.
-Кроме того, в тексте много пометок и комментариев.
-
-\section{Вспомогательные построения}
-
-\subsection{}
+\subsection{Вспомогательная сумма специального вида}
+\paragraph{Лемма.}
+Если $p\geq 2$, то
 \begin{equation}\label{summa_drobey}
 	\sum_{i=0}^{p-1} \frac{i \cdot 2^i}{p} = \frac{2^p(p-2) + 2}{p}
 \end{equation}
 
-Как это посчитать вручную --- не знаю.
-Мне это считал компьютер.
-В принципе, вполне доказывавается индукцией,
-но, скорее всего, тут можно поставить ссылку на какой-нибудь уважаемый задачник типа Демидовича.
-Или справочник по суммам и рядам.
+% В Демидовиче этого не нашёл
+
+\paragraph{Доказательство.}
+Равенство \eqref{summa_drobey} равносильно равенству
+\begin{equation}\label{summa_drobey_multiplied}
+	\sum_{i=0}^{p-1} i \cdot 2^i = 2^p(p-2) + 2
+	.
+\end{equation}
+Докажем это равенство методом математической индукции.
+
+\paragraph{База индукции.}
+Для $p=2$ имеем
+\begin{equation}
+	\sum_{i=0}^{2-1} i \cdot 2^i = 0 \cdot 2^0 + 1 \cdot 2^1 = 2
+\end{equation}
+и
+\begin{equation}
+	2^2(2-2) + 2 = 2
+	.
+\end{equation}
+Видим, что для $p=2$ соотношение \eqref{summa_drobey_multiplied} выполняется.
+
+\paragraph{Шаг индукции.}
+Пусть соотношение \eqref{summa_drobey_multiplied} выполняется для $p=m$, $m\geq 2$, т.е.
+\begin{equation}\label{summa_drobey_multiplied_m}
+	\sum_{i=0}^{m-1} i \cdot 2^i = 2^m(m-2) + 2
+	.
+\end{equation}
+
+Покажем, что тогда соотношение \eqref{summa_drobey_multiplied} выполняется и для $p=m+1$.
+Действительно,
+\begin{multline}
+	\sum_{i=0}^{(m+1)-1} i \cdot 2^i
+	=
+	\sum_{i=0}^{m} i \cdot 2^i
+	=
+	\sum_{i=0}^{m - 1} i \cdot 2^i + m\cdot 2 ^m
+	\mathop{=}^{\eqref{summa_drobey_multiplied_m}}
+	\\=
+	2^m(m-2) + 2 + m\cdot 2 ^m
+	=
+	m\cdot2^m-2\cdot2^m  + 2 + m\cdot 2 ^m
+	=
+	m\cdot2^{m+1}-2^{m+1}  + 2
+	=
+	\\=
+	2^{m+1}(m-1)  + 2
+	=
+	2^{m+1}((m+1)-1)  + 2
+	,
+\end{multline}
+т.е. соотношение \eqref{summa_drobey_multiplied} выполняется и для $p=m+1$,
+что и требовалось доказать.
+
 
 
 \subsection{Вспомогательный оператор $S$}
