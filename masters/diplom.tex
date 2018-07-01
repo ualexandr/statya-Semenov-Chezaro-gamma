@@ -27,6 +27,12 @@
 
 \newcommand{\longcomment}[1]{}
 
+\usepackage[backend=biber,style=gost-numeric,sorting=none]{biblatex}
+\addbibresource{../bib/Semenov.bib}
+\addbibresource{../bib/my.bib}
+\addbibresource{../bib/ext.bib}
+
+
 \begin{document}
 \clubpenalty=10000
 \widowpenalty=10000
@@ -58,5 +64,7 @@
 
 	\section{Срезочный критерий почти сходимости к нулю неотрицательной последовательности}
 	\input{../ac0_criterion_lambda.tex}
+
+\printbibliography{}
 
 \end{document}
