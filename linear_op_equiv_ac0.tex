@@ -1,0 +1,37 @@
+\paragraph{Лемма.}
+
+Пусть $P,Q:\ell_\infty \to \ell_\infty$~--- линейные операторы и
+\begin{equation}\label{P-Q:ell_infty_to_ac0}
+	P-Q : \ell_\infty \to ac_0
+	.
+\end{equation}
+Тогда
+\begin{equation}
+	\mathfrak{B}(P)=\mathfrak{B}(Q)
+	.
+\end{equation}
+
+\paragraph{Доказательство.}
+Пусть $B\in \mathfrak{B}(P)$.
+Тогда
+\begin{equation}
+	B(Qx) = B((Q-P+P)x) =
+	B((Q-P)x)+B(Px) =
+	0 + B(Px) =
+	Bx
+	.
+\end{equation}
+Значит, $\mathfrak{B}(P) \subset \mathfrak{B}(Q)$
+В силу симметричности утверждения леммы получаем $\mathfrak{B}(Q) \subset \mathfrak{B}(P)$,
+откуда и следует требуемое утверждение.
+
+Только что доказанная лемма означает, что множество всех линейных операторов,
+действующих из $\ell_\infty$ в $\ell_\infty$, можно разбить на классы по отношению эквивалентности,
+задаваемому условием \eqref{P-Q:ell_infty_to_ac0},
+и тогда для операторов из одного класса множества инвариантных банаховых пределов будут совпадать.
+
+TODO:
+Неизвестно, верно ли обратное утверждение.
+Скорее всего, существует контпример для $\mathfrak{B}(Q) = \mathfrak{B}(P) = \varnothing$.
+Существует ли более содержательный контрпример --- пока неизвестно.
+
