@@ -1,0 +1,39 @@
+На пространстве $\ell_\infty$ определяется $\alpha$--функция следующим равенством:
+\begin{equation}
+	\alpha(x) = \varlimsup_{i\to\infty} \max_{i<j\leqslant 2i} |x_i - x_j|
+	.
+\end{equation}
+Иногда удобнее использовать одно из нижеследующих равносильных определений:
+\begin{equation}
+	\alpha(x) = \varlimsup_{i\to\infty} \max_{i \leqslant j\leqslant 2i} |x_i - x_j|
+	,
+\end{equation}
+\begin{equation}
+	\alpha(x) = \varlimsup_{i\to\infty} \sup_{i<j\leqslant 2i} |x_i - x_j|
+	,
+\end{equation}
+\begin{equation}
+	\alpha(x) = \varlimsup_{i\to\infty} \sup_{i \leqslant j\leqslant 2i} |x_i - x_j|
+	.
+\end{equation}
+
+Легко видеть, что $\alpha$--функция неотрицательна.
+Более того, $\alpha$--функция удовлетворяет неравенству треугольника:
+\begin{equation}
+	\alpha(x+y) \leq \alpha(x) + \alpha(y)
+	.
+\end{equation}
+TODO: доказывать нужно или очевидно?
+
+На пространстве $\ell_\infty$ $\alpha$--функция удовлетворяет условию Липшица:
+\begin{equation}
+	|\alpha(x) - \alpha(y)| \leq 2 \|x-y\|
+	.
+\end{equation}
+(и эта оценка точна).
+TODO: доказывать нужно или очевидно?
+
+TODO: структурировать на утверждения-свойства или не нужно, достаточно номеров формул?
+
+Если $y\in c$, то $\alpha(y) = 0$ и $\alpha(x+y) = \alpha(x)$ для любого $x \in \ell_\infty$.
+
