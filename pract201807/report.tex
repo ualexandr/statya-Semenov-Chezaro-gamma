@@ -1,0 +1,89 @@
+\documentclass[a4paper,openbib]{report}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{amsfonts,amssymb}
+\usepackage{latexsym}
+\usepackage{euscript}
+\usepackage{enumerate}
+\usepackage{graphics}
+\usepackage[dvips]{graphicx}
+\usepackage{geometry}
+\usepackage{wrapfig}
+\usepackage[colorlinks=true,allcolors=black]{hyperref}
+
+
+
+\righthyphenmin=2
+
+\usepackage[14pt]{extsizes}
+
+\geometry{left=3cm}% левое поле
+\geometry{right=1cm}% правое поле
+\geometry{top=2cm}% верхнее поле
+\geometry{bottom=2cm}% нижнее поле
+
+\renewcommand{\baselinestretch}{1.3}
+
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant} % И делись оно всё нулём!
+
+\newcommand{\longcomment}[1]{}
+
+\usepackage[backend=biber,style=gost-numeric,sorting=none]{biblatex}
+\addbibresource{../bib/Semenov.bib}
+\addbibresource{../bib/my.bib}
+\addbibresource{../bib/ext.bib}
+
+\begin{document}
+\clubpenalty=10000
+\widowpenalty=10000
+
+\begin{center}
+	\begin{tabular}{|c|l|}
+	\hline
+	\textbf{Дни практики} & \textbf{Содержание} \\
+	\hline
+	25.06--26.06 & Изучение главы II.C. монографии \cite{wojtaszczyk1996banach}  \\
+	\hline
+	27.06--28.06 & Изучение главы II.D. монографии \cite{wojtaszczyk1996banach} \\
+	\hline
+	29.06, 02.07 & Изучение главы II.E. монографии \cite{wojtaszczyk1996banach} \\
+	\hline
+	03.07--06.07 & Изучение статьи \cite{Semenov2010invariant} \\
+	\hline
+	09.07--11.07 & Доказательство оценки $\alpha(\sigma_n x) \geq \alpha(x)$ \\
+	\hline
+	12.07--13.07 & Доказательство оценки $\alpha(\sigma_n x) \leq \alpha(x)$ \\
+	\hline
+	16.07--18.07 & Доказательство оценки $\alpha(T x) \leq \alpha(x)$ \\
+	\hline
+	19.07--20.07 & Доказательство оценки $\alpha(T^n x) \geq \frac{1}{2}\alpha(x)$ \\
+	\hline
+	23.07--24.07 & Построение примеров, показывающих точность \\ & обеих оценок на $\alpha(T^n x)$ \\
+	\hline
+	23.07--24.07 & Исследование характера сходимости \\ & последовательности $\alpha(T^n x)/\alpha(x)$ \\
+	\hline
+	\end{tabular}
+\end{center}
+
+\begingroup
+	\let\clearpage\relax
+	\printbibliography[title={\large Список литературы}]
+\endgroup
+
+\vspace{1em}
+
+Студент \underline{~~~~~~~~~} Авдеев Н.Н.
+
+\vspace{2em}
+
+По результатам практики рекомендую оценку <<отлично>>.
+
+\vspace{1em}
+
+Научный руководитель \underline{~~~~~~~~~} д.ф.-м.н., проф. Каменский М.И.
+
+
+
+\end{document}
