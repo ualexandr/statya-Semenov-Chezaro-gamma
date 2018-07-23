@@ -264,6 +264,8 @@ $$
 	\varlimsup_{i\to \infty}\left|
 		\frac{1}{2^{i+1}}\sum_{k=1}^{2^i}(Sy)_k - \frac{y_{i+2}}{2}
 	\right| \geq
+\end{multline*}
+\begin{multline*}
 	\\ \geq
 	\varlimsup_{
 		m\to \infty,~
@@ -298,8 +300,6 @@ $$
 		\frac{1}{2^{5pm+p+1}} \cdot 2^{5pm} \cdot \sum_{k=2}^{2^p}(Sy)_k
 		- \frac{1}{2}
 	\right| =
-\end{multline*}
-\begin{multline*}
 	\\=
 	\varlimsup_{m\to \infty}\left|
 		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm}}(Sy)_k
@@ -351,6 +351,8 @@ $$
 		-\frac{1}{p} + \frac{1}{p 2^p}
 	\right| =
 	\\\mbox{но во второй сумме все $(Sy)_k$ --- нули по построению}
+\end{multline*}
+\begin{multline*}
 	\\=
 	\varlimsup_{m\to \infty}\left|
 		\frac{1}{2^{5pm+p+1}}\sum_{k=1}^{2^{5pm-2p}}(Sy)_k
@@ -400,14 +402,12 @@ $$
 	\sup_{p\in\mathbb{N}} \frac{\alpha(Cx(p))}{\alpha(x(p))} \geq
 	\sup_{p\in\mathbb{N}} (1-2^{-p+1}) =
 	1
-	,
+	.
 $$
-откуда немедленно следует
+Таким образом, может быть сформулирована следующая
 
 \paragraph{Теорема.}
-Не существует такого $\gamma < 1$,
-что для любого $x\in \ell_\infty$ выполнена мультипликативная оценка
-$$
-	\alpha(Cx) \leqslant \gamma \cdot \alpha(x)
-.
-$$
+\begin{equation}
+	\sup_{x\in\ell_\infty, \alpha(x)\neq 0} \frac{\alpha(Cx)}{\alpha(x)}=1
+	.
+\end{equation}
