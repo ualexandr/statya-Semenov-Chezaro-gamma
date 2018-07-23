@@ -1,0 +1,84 @@
+Докажем теперь ещё одну теорему,
+раскрывающую связь между сходимостью, почти сходимостью и $\alpha$--функцией.
+
+\paragraph{Теорема.}
+Пусть $x\in ac_0$ и $\alpha(x)=0$.
+Тогда $x \in c_0$.
+
+\paragraph{Доказательство.}
+
+Предположим противное, т.е. $x\notin c_0$.
+Тогда
+\begin{equation}
+	\varlimsup_{k\to\infty} x_k \neq 0 ~~\mbox{или}~~ \varliminf_{k\to\infty} x_k \neq 0
+	.
+\end{equation}
+
+Не теряя общности, положим
+\begin{equation}
+	\varepsilon = \varlimsup_{k\to\infty} x_k > 0
+\end{equation}
+(иначе домножим всю последовательность на $-1$, что, очевидно, не повлияет на сходимость к нулю).
+
+Тогда существует бесконечно много таких $n$, что
+\begin{equation}\label{alpha_ac0_c0_limsup}
+	x_n > \varlimsup_{k\to\infty} x_k - \frac{\varepsilon}{4} = \frac{3\varepsilon}{4}
+	.
+\end{equation}
+
+Так как
+\begin{equation}
+	\alpha(x) = \varlimsup_{i\to\infty} \max_{i \leq j \leq 2i} |x_i-x_j| = 0
+	,
+\end{equation}
+то
+\begin{equation}
+	\exists(N_1\in\mathbb{N})\forall(n > N_1)\left[\max_{n \leq j \leq 2n} |x_n-x_j| < \frac{\varepsilon}{4}\right]
+	,
+\end{equation}
+или, что то же самое,
+\begin{equation}\label{alpha_ac0_c0_alpha}
+	\exists(N_1\in\mathbb{N})\forall(n > N_1)\forall(j: n \leq j \leq 2n)\left[ |x_n-x_j| < \frac{\varepsilon}{4}\right]
+	.
+\end{equation}
+
+Поскольку $x \in ac_0$, то  по критерию Лоренца
+\begin{equation}
+	\exists(N_2 \in\mathbb{N})\forall(n > N_2)\forall(m\in\mathbb{N})
+	\left[ \left| \frac{1}{n}\sum_{k=m+1}^{m+n}x_k\right| < \frac{\varepsilon}{4} \right]
+	,
+\end{equation}
+в частности,
+\begin{equation}\label{alpha_ac0_c0_Lorencz}
+	\exists(N_2 \in\mathbb{N})\forall(n > N_2)
+	\left[ \left| \frac{1}{n}\sum_{k=n+1}^{2n}x_k\right| < \frac{\varepsilon}{4} \right]
+	,
+\end{equation}
+
+Выберем $n$ так, чтобы оно удовлетворяло \eqref{alpha_ac0_c0_limsup} и \eqref{alpha_ac0_c0_alpha}.
+Тогда
+\begin{multline}
+	\left| \frac{1}{n}\sum_{k=n+1}^{2n}x_k\right|
+	=
+	\\=
+	\mbox{(по \eqref{alpha_ac0_c0_alpha} имеем $x_k \geq 3\varepsilon/4 > 0$)}
+	=
+	\\=
+	\frac{1}{n}\sum_{k=n+1}^{2n}x_k
+	\geq
+	\frac{3\varepsilon}{4}
+	>
+	\frac{\varepsilon}{4}
+	,
+\end{multline}
+что противоречит \eqref{alpha_ac0_c0_Lorencz}.
+
+Полученное противоречие завершает доказательство.
+
+
+
+\paragraph{Следствие.}
+Пусть $x\in ac$ и $\alpha(x)=0$.
+Тогда $x \in c$.
+
+TODO: доказывать нужно или очевидно?
