@@ -1,0 +1,142 @@
+Пусть $\rho(x,c)$~--- расстояние от $x$ до пространства сходящихся последовательностей $c$.
+
+Из условия Липшица на $\alpha$--функцию \eqref{alpha_Lipshitz}
+и того, что на пространстве $c$
+$\alpha$--функция обращается в нуль следует
+
+\begin{lemma}
+\label{thm:alpha_x_leq_2_rho_x_c}
+	Для любого $x\in\ell_\infty$
+	\begin{equation}
+		\alpha(x) \leq 2\rho(x, c)
+		.
+	\end{equation}
+\end{lemma}
+
+TODO: доказывать или очевидно?
+
+Эта оценка точна.
+\begin{example}
+\label{ex:alpha_ac_rho_x_c}
+	\begin{equation}
+	\label{eq:alpha_ac_distance_example_y}
+		y_k = \begin{cases}
+			(-1)^n, &\mbox{~если~} k = 2^n,
+			\\
+			0 &\mbox{~иначе.}
+		\end{cases}
+	\end{equation}
+\end{example}
+
+Как выясняется, верна и оценка с другой стороны.
+
+\begin{lemma}
+\label{thm:rho_x_c_leq_alpha_t_s_x}
+	Для любого $x\in ac$ и для любого натурального $s$
+	\begin{equation}
+		\rho(x,c)\leq \alpha(T^s x)
+		.
+	\end{equation}
+\end{lemma}
+\paragraph{Доказательство.}
+Пусть $x\in ac$, $\alpha(x)=\varepsilon$.
+Зафиксируем $s$.
+Так как $x\in ac$, то по критерию Лоренца существует такое число $t$,
+что
+\begin{equation}
+	\lim_{n\to\infty} \frac{1}{n} \sum_{k=m+1}^{m+n} x_k = t
+\end{equation}
+равномерно по $m$.
+Иначе говоря,
+\begin{equation}
+	\forall(p\in\mathbb{N})
+	\exists(n_p \in\mathbb{N})\forall(n>n_p)\forall(m\in\mathbb{N})
+	\left[
+		\left|
+			\frac{1}{n}\sum_{k=m+1}^{m+n} x_k
+			-t
+		\right|
+		<\frac{\varepsilon}{p}
+	\right]
+	.
+\end{equation}
+
+Так как
+\begin{equation}
+	\alpha(T^s x) = \varlimsup_{k\to\infty} \max_{k<j\leq 2k-s} |x_k-x_j| = \varepsilon
+	,
+\end{equation}
+то
+\begin{equation}
+	\forall(p\in\mathbb{N})
+	\exists(k_p \in\mathbb{N})\forall(k>k_p)
+	\forall(j: k< j \leq 2k-s)
+	\left[
+		|x_k - x_j|<\varepsilon + \frac{\varepsilon}{p}
+	\right]
+	.
+\end{equation}
+Положив $q_p = \max{n_p, k_p}$, имеем
+\begin{multline}
+	\forall(p\in\mathbb{N})
+	\exists(q_p \in\mathbb{N})
+	\forall(q>q_p)
+	\left[
+		\left|
+			\frac{1}{n}\sum_{k=m+1}^{m+n} x_k
+			-t
+		\right|
+		<\frac{\varepsilon}{p}
+		\right.\\ \left. \phantom{\sum_0^0}
+		\mbox{~~и~~}
+		\forall(k:q<k \leq 2q-s)
+		\left[
+			|x_q - x_k|<\varepsilon + \frac{\varepsilon}{p}
+		\right]
+	\right]
+	.
+\end{multline}
+Т.е. среднее арифметическое чисел $x_q$, $x_{q+1}$, ... , $x_{2q-s}$ отличается от $t$
+не более, чем на $\varepsilon$, причём разница любых двух из этих чисел меньше $\varepsilon + \varepsilon/p$.
+Следовательно, любое из чисел $x_q$, $x_{q+1}$, ... , $x_{2q-s}$
+отличается от $t$ менее, чем на $\varepsilon + 2\varepsilon/p$.
+В частности,
+\begin{equation}
+	|x_q - t| < \varepsilon + \frac{2\varepsilon}{p}
+	.
+\end{equation}
+Таким образом,
+\begin{equation}
+	\forall(p\in\mathbb{N})
+	\exists(q_p \in\mathbb{N})
+	\forall(q>q_p)
+	\left[
+		|x_q - t| < \varepsilon + \frac{2\varepsilon}{p}
+	\right]
+	,
+\end{equation}
+откуда немедленно следует, что $\rho(x,c) \leq \varepsilon$,
+что и требовалось доказать.
+
+Из лемм \ref{thm:alpha_x_leq_2_rho_x_c} и \ref{thm:rho_x_c_leq_alpha_t_s_x}
+незамедлительно следует
+\begin{theorem}
+\label{thm:rho_x_c_leq_alpha_t_s_x}
+	Для любого $x\in ac$
+	\begin{equation}
+		\frac{1}{2} \alpha(x) \leq \rho(x,c)\leq \lim_{s\to\infty} \alpha(T^s x)
+		.
+	\end{equation}
+\end{theorem}
+
+Обе оценки точны, см. пример \ref{ex:alpha_ac_rho_x_c} или следующий
+\begin{example}
+	\begin{equation}
+		x_k = \begin{cases}
+			1, &\mbox{~если~} k = 2^n,
+			\\
+			0 &\mbox{~иначе.}
+		\end{cases}
+	\end{equation}
+\end{example}
+Здесь $\alpha(T^s x) = 1$ для любого $s\in\mathbb{N}$, $\rho(x,c) = 1/2$, $\rho(x, c_0) = 1$.
