@@ -1,4 +1,5 @@
-Пусть $\rho(x,c)$~--- расстояние от $x$ до пространства сходящихся последовательностей $c$.
+Пусть $\rho(x,c)$ и $\rho(x,c_0)$~--- расстояния от $x$ до пространства сходящихся последовательностей $c$
+и пространства сходящихся к нулю последовательностей $c_0$ соответственно.
 
 Из условия Липшица на $\alpha$--функцию \eqref{alpha_Lipshitz}
 и того, что на пространстве $c$
@@ -20,13 +21,14 @@ TODO: доказывать или очевидно?
 \label{ex:alpha_ac_rho_x_c}
 	\begin{equation}
 	\label{eq:alpha_ac_distance_example_y}
-		y_k = \begin{cases}
+		x_k = \begin{cases}
 			(-1)^n, &\mbox{~если~} k = 2^n,
 			\\
 			0 &\mbox{~иначе.}
 		\end{cases}
 	\end{equation}
 \end{example}
+Здесь $\alpha(x) = 2$, $\alpha(T^s x) = 1$ для любого $s\in\mathbb{N}$, $\rho(x,c) = \rho(x, c_0) = 1$.
 
 Как выясняется, верна и оценка с другой стороны.
 
@@ -76,7 +78,7 @@ TODO: доказывать или очевидно?
 	\right]
 	.
 \end{equation}
-Положив $q_p = \max{n_p, k_p}$, имеем
+Положив $q_p = \max\{n_p, k_p\}$, имеем
 \begin{multline}
 	\forall(p\in\mathbb{N})
 	\exists(q_p \in\mathbb{N})
@@ -97,7 +99,7 @@ TODO: доказывать или очевидно?
 	.
 \end{multline}
 Т.е. среднее арифметическое чисел $x_q$, $x_{q+1}$, ... , $x_{2q-s}$ отличается от $t$
-не более, чем на $\varepsilon$, причём разница любых двух из этих чисел меньше $\varepsilon + \varepsilon/p$.
+не более, чем на $\varepsilon/p$, причём разница любых двух из этих чисел меньше $\varepsilon + \varepsilon/p$.
 Следовательно, любое из чисел $x_q$, $x_{q+1}$, ... , $x_{2q-s}$
 отличается от $t$ менее, чем на $\varepsilon + 2\varepsilon/p$.
 В частности,
@@ -129,7 +131,15 @@ TODO: доказывать или очевидно?
 	\end{equation}
 \end{theorem}
 
-Обе оценки точны, см. пример \ref{ex:alpha_ac_rho_x_c} или следующий
+\begin{corollary}
+	Для любого $x\in ac_0$
+	\begin{equation}
+		\frac{1}{2} \alpha(x) \leq \rho(x,c_0)\leq \lim_{s\to\infty} \alpha(T^s x)
+		.
+	\end{equation}
+\end{corollary}
+
+Точность оценок показывают пример \ref{ex:alpha_ac_rho_x_c} и следующие примеры.
 \begin{example}
 	\begin{equation}
 		x_k = \begin{cases}
@@ -140,3 +150,16 @@ TODO: доказывать или очевидно?
 	\end{equation}
 \end{example}
 Здесь $\alpha(T^s x) = 1$ для любого $s\in\mathbb{N}$, $\rho(x,c) = 1/2$, $\rho(x, c_0) = 1$.
+
+\begin{example}
+	\begin{equation}
+		x_k = \begin{cases}
+			1, &\mbox{~если~} k = 2^n,
+			\\
+			-1, &\mbox{~если~} k = 2^n + 1 > 2
+			\\
+			0 &\mbox{~иначе.}
+		\end{cases}
+	\end{equation}
+\end{example}
+Здесь $\alpha(T^s x) = 2$ для любого $s\in\mathbb{N}$, $\rho(x,c) = \rho(x, c_0) = 1$.
