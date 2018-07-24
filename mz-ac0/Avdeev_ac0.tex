@@ -135,7 +135,7 @@ $x\in ac_0$ тогда и только тогда, когда
 Для того, чтобы $x\in ac_0$,
 необходимо и достаточно, чтобы
 \begin{equation}\label{lim_M(j)/j}
-	\lim_{j \to \infty} \frac{M(j)}{j} = +\infty
+	\lim_{j \to \infty} {M(j)}/{j} = +\infty
 	.
 \end{equation}
 \end{lemma}
@@ -207,11 +207,11 @@ $
 	\exists(j_0\in\mathbb{N})
 	\forall(j \geq j_0)
 	\left[
-		\frac{M(j)}{j}>C
+		{M(j)}/{j}>C
 	\right]
 	.
 \end{equation}
-Покажем, что выполнен модификированный критерий Лоренца
+Покажем, что выполнен модифицированный критерий Лоренца
 \eqref{crit_pos_ac0}, т.е.
 \begin{equation}
 	\forall(B  \in\mathbb{N})
@@ -219,7 +219,6 @@ $
 	\exists(m_0\in\mathbb{N})
 	\forall(n\geq n_0)
 	\forall(m\geq m_0)
-	\\
 	\left[
 		\frac{1}{n}
 		\sum_{k=m+1}^{m+n} x_k
@@ -259,8 +258,8 @@ $$
 что и требовалось доказать.
 %\end{proof}
 
-Определим (нелинейный) оператор $\lambda$--срезки $A_\lambda$ на пространстве $\ell_\infty$.
-Для $x = (x_1, x_2, ...) \in \ell_\infty$ положим
+Определим (нелинейный) оператор $\lambda$--срезки $A_\lambda$
+для $x = (x_1, x_2, ...)\in\ell_\infty$ как
 \begin{equation}
 	(A_\lambda x)_k = \begin{cases}
 		1, & \mbox{~если~} x_k \geq \lambda
@@ -421,11 +420,11 @@ $
 	.
 \end{equation}
 
-Пусть $\rho(x,c)$ и $\rho(x,c_0)$~--- расстояния от $x$ до пространства сходящихся последовательностей $c$
-и пространства сходящихся к нулю последовательностей $c_0$ соответственно.
+Пусть $\rho(x,c)$ и $\rho(x,c_0)$~--- расстояния от $x$ до пространств $c$
+и $c_0$ соотв.
 Из условия Липшица на $\alpha$--функцию
-и того, что на пространстве $c$
-$\alpha$--функция обращается в нуль следует
+и того, что для $x\in c$
+$\alpha(x)=0$ следует
 
 \begin{lemma}
 \label{thm:alpha_x_leq_2_rho_x_c}
@@ -483,27 +482,8 @@ $\alpha$--функция обращается в нуль следует
 	\right]
 	.
 \end{equation}
-Положив $q_p = \max\{n_p, k_p\}$, имеем
-\begin{multline}
-	\forall(p\in\mathbb{N})
-	\exists(q_p \in\mathbb{N})
-	\forall(q>q_p)
-	\left[
-		\left|
-			\frac{1}{n}\sum_{k=m+1}^{m+n} x_k
-			-t
-		\right|
-		<\frac{\varepsilon}{p}
-		\right.\\ \left. \phantom{\sum_0^0}
-		\mbox{~~и~~}
-		\forall(k:q<k \leq 2q-s)
-		\left[
-			|x_q - x_k|<\varepsilon + {\varepsilon}/{p}
-		\right]
-	\right]
-	.
-\end{multline}
-Т.е. среднее арифметическое чисел $x_q$, $x_{q+1}$, ... , $x_{2q-s}$ отличается от $t$
+Положив $q_p = \max\{n_p, k_p\}$, получим, что для любого $q>q_p$
+среднее арифметическое чисел $x_q$, $x_{q+1}$, ... , $x_{2q-s}$ отличается от $t$
 не более, чем на $\varepsilon/p$, причём разница любых двух из этих чисел меньше $\varepsilon + \varepsilon/p$.
 Следовательно, любое из этих чисел отличается от $t$ менее, чем на $\varepsilon + 2\varepsilon/p$.
 В частности,
@@ -523,13 +503,14 @@ $.
 откуда немедленно следует, что $\rho(x,c) \leq \varepsilon$.
 \end{proof}
 
-Из лемм \ref{thm:alpha_x_leq_2_rho_x_c} и \ref{thm:rho_x_c_leq_alpha_t_s_x}
+Из лемм \ref{thm:alpha_x_leq_2_rho_x_c} и \ref{thm:rho_x_c_leq_alpha_t_s_x},
+а также соотношения $\alpha(T^s x)\leq \alpha(x)$
 незамедлительно следует
 \begin{theorem}
 \label{thm:rho_x_c_leq_alpha_t_s_x}
 	Для любого $x\in ac$
 	\begin{equation}
-		\frac{1}{2} \alpha(x) \leq \rho(x,c)\leq \lim_{s\to\infty} \alpha(T^s x)
+		\frac{1}{2} \alpha(x) \leq \rho(x,c)\leq \lim_{s\to\infty} \alpha(T^s x) \leq \alpha(x)
 		.
 	\end{equation}
 \end{theorem}
@@ -537,7 +518,7 @@ $.
 \begin{corollary}
 	Для любого $x\in ac_0$
 	\begin{equation}
-		\frac{1}{2} \alpha(x) \leq \rho(x,c_0)\leq \lim_{s\to\infty} \alpha(T^s x)
+		\frac{1}{2} \alpha(x) \leq \rho(x,c_0)\leq \lim_{s\to\infty} \alpha(T^s x) \leq \alpha(x)
 		.
 	\end{equation}
 \end{corollary}
