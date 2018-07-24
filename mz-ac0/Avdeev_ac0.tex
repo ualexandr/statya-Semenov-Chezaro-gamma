@@ -421,70 +421,134 @@ $
 	.
 \end{equation}
 
-\begin{theorem}
-Пусть $x\in ac_0$ и $\alpha(x)=0$.
-Тогда $x \in c_0$.
-\end{theorem}
-\paragraph{Доказательство}
+Пусть $\rho(x,c)$ и $\rho(x,c_0)$~--- расстояния от $x$ до пространства сходящихся последовательностей $c$
+и пространства сходящихся к нулю последовательностей $c_0$ соответственно.
 
-Предположим противное, т.е. $x\notin c_0$.
-Тогда
+Из условия Липшица на $\alpha$--функцию \eqref{alpha_Lipshitz}
+и того, что на пространстве $c$
+$\alpha$--функция обращается в нуль следует
+
+\begin{lemma}
+\label{thm:alpha_x_leq_2_rho_x_c}
+	Для любого $x\in\ell_\infty$
+	\begin{equation}
+		\alpha(x) \leq 2\rho(x, c)
+		.
+	\end{equation}
+\end{lemma}
+
+TODO: доказывать или очевидно?
+
+Эта оценка точна.
+Как выясняется, верна и оценка с другой стороны.
+
+\begin{lemma}
+\label{thm:rho_x_c_leq_alpha_t_s_x}
+	Для любого $x\in ac$ и для любого натурального $s$
+	\begin{equation}
+		\rho(x,c)\leq \alpha(T^s x)
+		.
+	\end{equation}
+\end{lemma}
+\paragraph{Доказательство.}
+Пусть $x\in ac$, $\alpha(x)=\varepsilon$.
+Зафиксируем $s$.
+Так как $x\in ac$, то по критерию Лоренца существует такое число $t$,
+что
 \begin{equation}
-	\varlimsup_{k\to\infty} x_k \neq 0 \mbox{~~~или~~} \varliminf_{k\to\infty} x_k \neq 0
-	.
+	\lim_{n\to\infty} \frac{1}{n} \sum_{k=m+1}^{m+n} x_k = t
 \end{equation}
-
-Не теряя общности, положим
+равномерно по $m$.
+Иначе говоря,
 \begin{equation}
-	\varepsilon = \varlimsup_{k\to\infty} x_k > 0
-\end{equation}
-(иначе домножим всю последовательность на $-1$, что, очевидно, не повлияет на сходимость к нулю).
-
-Тогда существует бесконечно много таких $n$, что
-\begin{equation}\label{alpha_ac0_c0_limsup}
-	x_n > \varlimsup_{k\to\infty} x_k - \frac{\varepsilon}{4} = \frac{3\varepsilon}{4}
+	\forall(p\in\mathbb{N})
+	\exists(n_p \in\mathbb{N})\forall(n>n_p)\forall(m\in\mathbb{N})
+	\left[
+		\left|
+			\frac{1}{n}\sum_{k=m+1}^{m+n} x_k
+			-t
+		\right|
+		<\frac{\varepsilon}{p}
+	\right]
 	.
 \end{equation}
 
 Так как
 \begin{equation}
-	\alpha(x) = \varlimsup_{i\to\infty} \max_{i \leq j \leq 2i} |x_i-x_j| = 0
+	\alpha(T^s x) = \varlimsup_{k\to\infty} \max_{k<j\leq 2k-s} |x_k-x_j| = \varepsilon
 	,
 \end{equation}
 то
-\begin{equation}\label{alpha_ac0_c0_alpha}
-	\exists(N_1\in\mathbb{N})\forall(n > N_1)\forall(j: n \leq j \leq 2n)\left[ |x_n-x_j| < \frac{\varepsilon}{4}\right]
-	.
-\end{equation}
-
-Поскольку $x \in ac_0$, то из критерия Лоренца
-\begin{equation}\label{alpha_ac0_c0_Lorencz}
-	\exists(N_2 \in\mathbb{N})\forall(n > N_2)
-	\left[ \left| \frac{1}{n}\sum_{k=n+1}^{2n}x_k\right| < \frac{\varepsilon}{4} \right]
-	.
-\end{equation}
-
-Выберем $n$ так, чтобы оно удовлетворяло \eqref{alpha_ac0_c0_limsup} и \eqref{alpha_ac0_c0_alpha}.
-Тогда
 \begin{equation}
-	\left| \frac{1}{n}\sum_{k=n+1}^{2n}x_k\right|
-	=
-	\frac{1}{n}\sum_{k=n+1}^{2n}x_k
-	\geq
-	\frac{3\varepsilon}{4}
-	>
-	\frac{\varepsilon}{4}
+	\forall(p\in\mathbb{N})
+	\exists(k_p \in\mathbb{N})\forall(k>k_p)
+	\forall(j: k< j \leq 2k-s)
+	\left[
+		|x_k - x_j|<\varepsilon + \frac{\varepsilon}{p}
+	\right]
+	.
+\end{equation}
+Положив $q_p = \max\{n_p, k_p\}$, имеем
+\begin{multline}
+	\forall(p\in\mathbb{N})
+	\exists(q_p \in\mathbb{N})
+	\forall(q>q_p)
+	\left[
+		\left|
+			\frac{1}{n}\sum_{k=m+1}^{m+n} x_k
+			-t
+		\right|
+		<\frac{\varepsilon}{p}
+		\right.\\ \left. \phantom{\sum_0^0}
+		\mbox{~~и~~}
+		\forall(k:q<k \leq 2q-s)
+		\left[
+			|x_q - x_k|<\varepsilon + \frac{\varepsilon}{p}
+		\right]
+	\right]
+	.
+\end{multline}
+Т.е. среднее арифметическое чисел $x_q$, $x_{q+1}$, ... , $x_{2q-s}$ отличается от $t$
+не более, чем на $\varepsilon/p$, причём разница любых двух из этих чисел меньше $\varepsilon + \varepsilon/p$.
+Следовательно, любое из чисел $x_q$, $x_{q+1}$, ... , $x_{2q-s}$
+отличается от $t$ менее, чем на $\varepsilon + 2\varepsilon/p$.
+В частности,
+\begin{equation}
+	|x_q - t| < \varepsilon + \frac{2\varepsilon}{p}
+	.
+\end{equation}
+Таким образом,
+\begin{equation}
+	\forall(p\in\mathbb{N})
+	\exists(q_p \in\mathbb{N})
+	\forall(q>q_p)
+	\left[
+		|x_q - t| < \varepsilon + \frac{2\varepsilon}{p}
+	\right]
 	,
 \end{equation}
-что противоречит \eqref{alpha_ac0_c0_Lorencz}.
+откуда немедленно следует, что $\rho(x,c) \leq \varepsilon$,
+что и требовалось доказать.
 
-
+Из лемм \ref{thm:alpha_x_leq_2_rho_x_c} и \ref{thm:rho_x_c_leq_alpha_t_s_x}
+незамедлительно следует
+\begin{theorem}
+\label{thm:rho_x_c_leq_alpha_t_s_x}
+	Для любого $x\in ac$
+	\begin{equation}
+		\frac{1}{2} \alpha(x) \leq \rho(x,c)\leq \lim_{s\to\infty} \alpha(T^s x)
+		.
+	\end{equation}
+\end{theorem}
 
 \begin{corollary}
-Пусть $x\in ac$ и $\alpha(x)=0$.
-Тогда $x \in c$.
+	Для любого $x\in ac_0$
+	\begin{equation}
+		\frac{1}{2} \alpha(x) \leq \rho(x,c_0)\leq \lim_{s\to\infty} \alpha(T^s x)
+		.
+	\end{equation}
 \end{corollary}
-
+Несложно показать, что все оценки точны, т.е. на некоторых элементах достигается равенство.
 
 
 Автор выражает благодарность проф. Е.М. Семенову за ценные советы и плодотворное обсуждение.
