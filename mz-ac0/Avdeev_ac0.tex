@@ -381,7 +381,7 @@ $n_0 = n_1$ и отыщем $n$ и $m$.
 %
 Предположим, что $k$ таково, что $x_k < \varepsilon/2$.
 Тогда $y_k = 0$ и $x_k - y_k < \varepsilon/2$.
-Значит, предположение неверно и $x_k \geq \varepsilon/2$
+Значит, предположение неверно и $x_k \geq \varepsilon/2$.
 Тогда $y_k = 1-\varepsilon/2$ и с учётом $\|x\|\leq 1$ имеем
 $
 	x_k - y_k \leq 1- y_k = 1 - (1-\varepsilon/2) = \varepsilon/2
@@ -423,21 +423,17 @@ $
 
 Пусть $\rho(x,c)$ и $\rho(x,c_0)$~--- расстояния от $x$ до пространства сходящихся последовательностей $c$
 и пространства сходящихся к нулю последовательностей $c_0$ соответственно.
-
-Из условия Липшица на $\alpha$--функцию \eqref{alpha_Lipshitz}
+Из условия Липшица на $\alpha$--функцию
 и того, что на пространстве $c$
 $\alpha$--функция обращается в нуль следует
 
 \begin{lemma}
 \label{thm:alpha_x_leq_2_rho_x_c}
 	Для любого $x\in\ell_\infty$
-	\begin{equation}
+	$
 		\alpha(x) \leq 2\rho(x, c)
-		.
-	\end{equation}
+	$.
 \end{lemma}
-
-TODO: доказывать или очевидно?
 
 Эта оценка точна.
 Как выясняется, верна и оценка с другой стороны.
@@ -445,14 +441,13 @@ TODO: доказывать или очевидно?
 \begin{lemma}
 \label{thm:rho_x_c_leq_alpha_t_s_x}
 	Для любого $x\in ac$ и для любого натурального $s$
-	\begin{equation}
+	$
 		\rho(x,c)\leq \alpha(T^s x)
-		.
-	\end{equation}
+	$.
 \end{lemma}
-\paragraph{Доказательство.}
-Пусть $x\in ac$, $\alpha(x)=\varepsilon$.
+\begin{proof}
 Зафиксируем $s$.
+Пусть $x\in ac$, $\alpha(T^s x)=\varepsilon$.
 Так как $x\in ac$, то по критерию Лоренца существует такое число $t$,
 что
 \begin{equation}
@@ -484,7 +479,7 @@ TODO: доказывать или очевидно?
 	\exists(k_p \in\mathbb{N})\forall(k>k_p)
 	\forall(j: k< j \leq 2k-s)
 	\left[
-		|x_k - x_j|<\varepsilon + \frac{\varepsilon}{p}
+		|x_k - x_j|<\varepsilon + {\varepsilon}/{p}
 	\right]
 	.
 \end{equation}
@@ -503,32 +498,30 @@ TODO: доказывать или очевидно?
 		\mbox{~~и~~}
 		\forall(k:q<k \leq 2q-s)
 		\left[
-			|x_q - x_k|<\varepsilon + \frac{\varepsilon}{p}
+			|x_q - x_k|<\varepsilon + {\varepsilon}/{p}
 		\right]
 	\right]
 	.
 \end{multline}
 Т.е. среднее арифметическое чисел $x_q$, $x_{q+1}$, ... , $x_{2q-s}$ отличается от $t$
 не более, чем на $\varepsilon/p$, причём разница любых двух из этих чисел меньше $\varepsilon + \varepsilon/p$.
-Следовательно, любое из чисел $x_q$, $x_{q+1}$, ... , $x_{2q-s}$
-отличается от $t$ менее, чем на $\varepsilon + 2\varepsilon/p$.
+Следовательно, любое из этих чисел отличается от $t$ менее, чем на $\varepsilon + 2\varepsilon/p$.
 В частности,
-\begin{equation}
-	|x_q - t| < \varepsilon + \frac{2\varepsilon}{p}
-	.
-\end{equation}
+$
+	|x_q - t| < \varepsilon + {2\varepsilon}/{p}
+$.
 Таким образом,
 \begin{equation}
 	\forall(p\in\mathbb{N})
 	\exists(q_p \in\mathbb{N})
 	\forall(q>q_p)
 	\left[
-		|x_q - t| < \varepsilon + \frac{2\varepsilon}{p}
+		|x_q - t| < \varepsilon + {2\varepsilon}/{p}
 	\right]
 	,
 \end{equation}
-откуда немедленно следует, что $\rho(x,c) \leq \varepsilon$,
-что и требовалось доказать.
+откуда немедленно следует, что $\rho(x,c) \leq \varepsilon$.
+\end{proof}
 
 Из лемм \ref{thm:alpha_x_leq_2_rho_x_c} и \ref{thm:rho_x_c_leq_alpha_t_s_x}
 незамедлительно следует
