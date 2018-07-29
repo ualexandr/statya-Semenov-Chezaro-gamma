@@ -30,8 +30,38 @@
 задаваемому условием \eqref{P-Q:ell_infty_to_ac0},
 и тогда для операторов из одного класса множества инвариантных банаховых пределов будут совпадать.
 
+Обратное, однако, неверно.
+
+\begin{example}
+	Пусть
+	\begin{equation}
+		P(x_1,x_2,x_3) = (x_1, 0, x_3, 0, x_5, 0, ...)
+	\end{equation}
+	и
+	\begin{equation}
+		Q(x_1,x_2,x_3) = (0, -x_2, 0, -x_4, 0, -x_6, 0, ...)
+		.
+	\end{equation}
+	Легко видеть, что для любого банахова предела $B\in\mathfrak{B}$ выполнено
+	\begin{equation}
+		B(P\mathbb{I}) = \frac{1}{2}
+	\end{equation}
+	и
+	\begin{equation}
+		B(Q\mathbb{I}) = -\frac{1}{2}
+		,
+	\end{equation}
+	откуда
+	\begin{equation}
+		\mathfrak{B}(Q) = \mathfrak{B}(P) = \varnothing
+		.
+	\end{equation}
+	Однако разность $P-Q$ есть не что иное, как тождественный оператор $I$,
+	который переводит пространство $\ell_\infty$ само в себя,
+	а не в пространсво $ac_0$.
+\end{example}
+
+
 TODO:
-Неизвестно, верно ли обратное утверждение.
-Скорее всего, существует контпример для $\mathfrak{B}(Q) = \mathfrak{B}(P) = \varnothing$.
 Существует ли более содержательный контрпример --- пока неизвестно.
 
