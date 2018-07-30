@@ -93,10 +93,11 @@ $\alpha(Cx) \leqslant \alpha(x)$.
 
 Теперь нам потребуются некоторые свойства оператора $S$.
 
-\paragraph{Утверждение.}
-\begin{equation}\label{alpha_S}
-	\alpha(Sx) = \varlimsup_{k\to\infty} |x_{k+1} - x_{k}|
-\end{equation}
+\begin{lemma}
+	\begin{equation}\label{alpha_S}
+		\alpha(Sx) = \varlimsup_{k\to\infty} |x_{k+1} - x_{k}|
+	\end{equation}
+\end{lemma}
 
 \paragraph{Доказательство.}
 
@@ -133,13 +134,14 @@ $\alpha(Cx) \leqslant \alpha(x)$.
 		| x_{k+1} - x_k |
 \end{equation}
 
-Утверждение доказано.
+Лемма доказана.
 
-\paragraph{Утверждение.}
-\begin{equation}\label{summa_S_less}
-	\sum_{k=2}^{2^p} (Sy)_k =
-	\sum_{i=0}^{p-1} 2^i y_{i+2}
-\end{equation}
+\begin{lemma}
+	\begin{equation}\label{summa_S_less}
+		\sum_{k=2}^{2^p} (Sy)_k =
+		\sum_{i=0}^{p-1} 2^i y_{i+2}
+	\end{equation}
+\end{lemma}
 
 \paragraph{Доказательство.}
 
@@ -150,16 +152,17 @@ $\alpha(Cx) \leqslant \alpha(x)$.
 	\sum_{i=0}^{p-1} 2^i y_{i+2}
 \end{equation*}
 
-Утверждение доказано.
+Лемма доказана.
 
 
-\paragraph{Утверждение.}
-\begin{equation}\label{summa_S}
-	\sum_{k=2^i+1}^{2^{i+j+1}} (Sx)_k =
-	2^i\sum_{k=2}^{2^{j+1}} (ST^ix)_k
-\end{equation}
+\begin{lemma}
+	\begin{equation}\label{summa_S}
+		\sum_{k=2^i+1}^{2^{i+j+1}} (Sx)_k =
+		2^i\sum_{k=2}^{2^{j+1}} (ST^ix)_k
+	\end{equation}
 
-Здесь и далее $(Tx)_n = x_{n+1}$.
+	Здесь и далее $(Tx)_n = x_{n+1}$.
+\end{lemma}
 
 \paragraph{Доказательство.}
 
@@ -173,7 +176,7 @@ $\alpha(Cx) \leqslant \alpha(x)$.
 	2^i \cdot \sum_{k=2}^{2^{j+1}} (ST^i x)_k
 \end{multline*}
 
-Утверждение доказано.
+Лемма доказана.
 
 \subsection{Вспомогательная функция $k_b$}
 
@@ -184,10 +187,11 @@ $\alpha(Cx) \leqslant \alpha(x)$.
 	\right|
 \end{equation}
 
-\paragraph{Утверждение.}
-\begin{equation}\label{alpha_greater_k_b}
-	\alpha (Cx) \geq \varlimsup_{i\to \infty} k_i(x)
-\end{equation}
+\begin{lemma}
+	\begin{equation}\label{alpha_greater_k_b}
+		\alpha (Cx) \geq \varlimsup_{i\to \infty} k_i(x)
+	\end{equation}
+\end{lemma}
 
 \paragraph{Доказательство.}
 
