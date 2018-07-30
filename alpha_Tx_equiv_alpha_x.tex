@@ -1,0 +1,88 @@
+В данном пункте обсуждаются некоторые свойства множеств
+\begin{equation}
+	\label{eq:alpha_T^n_x_equiv_alpha_x}
+	\{x \in \ell_\infty : \alpha(T^n x) = \alpha(x) \}, ~n\in\mathbb{N},
+\end{equation}
+\begin{equation}
+	\label{eq:cap_alpha_T^n_x_equiv_alpha_x}
+	\bigcap\limits_{n\in\mathbb{N}}\{x \in \ell_\infty : \alpha(T^n x) = \alpha(x) \}
+	,
+\end{equation}
+\begin{equation}
+	\label{eq:cup_alpha_T^n_x_equiv_alpha_x}
+	\bigcup_{n\in\mathbb{N}}\{x \in \ell_\infty : \alpha(T^n x) = \alpha(x) \}
+	.
+\end{equation}
+
+\subsection{Незамкнутость относительно сложения}
+
+\begin{theorem}
+	Ни одно из множеств
+	\eqref{eq:alpha_T^n_x_equiv_alpha_x}, \eqref{eq:cap_alpha_T^n_x_equiv_alpha_x}, \eqref{eq:cup_alpha_T^n_x_equiv_alpha_x}
+	не замкнуто по сложению и, следовательно, не является пространством.
+\end{theorem}
+
+\paragraph{Доказательство.}
+Построим два таких элемента, принадлежащих множеству \eqref{eq:alpha_T^n_x_equiv_alpha_x} при любых $n\in\mathbb{N}$,
+сумма которых не принадлежит множеству \eqref{eq:alpha_T^n_x_equiv_alpha_x} ни при каких $n\in\mathbb{N}$.
+Пусть $m\in\mathbb{N}$, $m \geq 3$.
+Положим
+
+\begin{equation}
+	x_k = \begin{cases}
+		\dfrac{1}{2}(-1)^m,  & \mbox{если } k = 2^m     \\
+		1,                   & \mbox{если } k = 2^m + 1 \\
+		-1,                  & \mbox{если } k = 2^m + 2 \\
+		0                    & \mbox{иначе }
+	\end{cases}
+\end{equation}
+
+и
+
+\begin{equation}
+	y_k = \begin{cases}
+		\dfrac{1}{2}(-1)^m,  & \mbox{если } k = 2^m     \\
+		-1,                  & \mbox{если } k = 2^m + 1 \\
+		1,                   & \mbox{если } k = 2^m + 2 \\
+		0                    & \mbox{иначе }
+	\end{cases}
+\end{equation}
+
+Так как
+\begin{equation}
+	(T^n x)_{2^m-n+1} - (Т^n x)_{2^m-n+2} = 2
+\end{equation}
+и
+\begin{equation}
+	(T^n y)_{2^m-n+1} - (Т^n y)_{2^m-n+2} = 2
+	,
+\end{equation}
+то
+\begin{equation}
+	\alpha(x) = \alpha(T^n x) = \alpha(y) = \alpha(T^n y) = 2
+	.
+\end{equation}
+С другой стороны,
+\begin{equation}
+	(x+y)_k = \begin{cases}
+		(-1)^m,  & \mbox{если } k = 2^m     \\
+		0        & \mbox{иначе }
+	\end{cases}
+\end{equation}
+и
+\begin{equation}
+	\alpha(x+y) = 2
+	,
+\end{equation}
+но в то же время
+\begin{equation}
+	\alpha(T^n(x+y)) = 2
+\end{equation}
+(см. пример \ref{ex:alpha_x_neq_alpha_Tx}),
+следовательно, $x+y$ не принадлежит ни одному из множеств
+\eqref{eq:alpha_T^n_x_equiv_alpha_x}, \eqref{eq:cap_alpha_T^n_x_equiv_alpha_x}, \eqref{eq:cup_alpha_T^n_x_equiv_alpha_x}.
+
+Теорема доказана.
+
+
+
