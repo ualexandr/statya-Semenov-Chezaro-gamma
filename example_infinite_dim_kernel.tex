@@ -40,24 +40,23 @@
 \end{equation}
 
 
-\paragraph{Пример.}
-
-\begin{equation}
-	(Qx)_k =
-	\begin{cases}
-		0,~\mbox{если}~ k = 2^n, n \in\mathbb{N},
-		\\
-		x_k~\mbox{иначе.}
-	\end{cases}
-\end{equation}
-
+\begin{example}
+	\begin{equation}
+		(Qx)_k =
+		\begin{cases}
+			0,~\mbox{если}~ k = 2^n, n \in\mathbb{N},
+			\\
+			x_k~\mbox{иначе.}
+		\end{cases}
+	\end{equation}
+\end{example}
 Очевидно, что $\dim \ker Q = \infty$.
 
 Покажем, что $Q$ удовлетворяет условию (\ref{I-Q_to_ac_0}).
 \begin{equation}
 	\sum_{k=m+1}^{m+n} x_k - \sum_{k=m+1}^{m+n} (Qx)_k \leqslant (2 + \log_2 n) \|x\|,
 \end{equation}
-(это очевидно??)\\
+(TODO:это очевидно??)\\
 откуда немедленно
 \begin{equation}
 	\frac{1}{n}\sum_{k=m+1}^{m+n} x_k - \frac{1}{n}\sum_{k=m+1}^{m+n} (Qx)_k \leqslant \frac{(2 + \log_2 n) \|x\|}{n} \to 0.
