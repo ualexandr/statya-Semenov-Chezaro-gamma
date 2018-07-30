@@ -8,15 +8,16 @@
 	\end{cases}
 \end{equation}
 
-\paragraph{Теорема.}
-(Срезочный критерий почти сходимости к нулю неотрицательной последовательности.)
-Пусть $x\in\ell_\infty$, $x\geq 0$.
-Тогда
-\begin{equation}
-	x\in ac_0 \Leftrightarrow
-	\forall(\lambda>0)[A_\lambda x \in ac_0]
-	.
-\end{equation}
+\begin{theorem}
+	[Срезочный критерий почти сходимости к нулю неотрицательной последовательности]
+	Пусть $x\in\ell_\infty$, $x\geq 0$.
+	Тогда
+	\begin{equation}
+		x\in ac_0 \Leftrightarrow
+		\forall(\lambda>0)[A_\lambda x \in ac_0]
+		.
+	\end{equation}
+\end{theorem}
 
 \paragraph{Необходимость.}
 Пусть $x\in ac_0$.
@@ -134,21 +135,22 @@ $n_0 = n_1$ и отыщем $n$ и $m$.
 
 Сформулируем теперь этот критерий в терминах функций $M^{(\lambda)}(j)$.
 
-\paragraph{Теорема.}
-Пусть $x\in\ell_\infty$, $x \geq 0$, $\lambda>0$.
-Обозначим через $n^{(\lambda)}_i$ возрастающую последовательность
-индексов таких элементов $x$, что $x_k \geq \lambda$ тогда и только тогда,
-когда $k=n^{(\lambda)}_i$ для некоторого $i$.
-Обозначим
-\begin{equation}
-	M^{(\lambda)}(j) = \liminf_{i\to\infty} n^{(\lambda)}_{i+j} - n^{(\lambda)}_i
-	.
-\end{equation}
+\begin{theorem}
+	Пусть $x\in\ell_\infty$, $x \geq 0$, $\lambda>0$.
+	Обозначим через $n^{(\lambda)}_i$ возрастающую последовательность
+	индексов таких элементов $x$, что $x_k \geq \lambda$ тогда и только тогда,
+	когда $k=n^{(\lambda)}_i$ для некоторого $i$.
+	Обозначим
+	\begin{equation}
+		M^{(\lambda)}(j) = \liminf_{i\to\infty} n^{(\lambda)}_{i+j} - n^{(\lambda)}_i
+		.
+	\end{equation}
 
 
-Тогда для того, чтобы $x\in ac_0$, необходимо и достаточно, чтобы
-для любого $\lambda>0$ было выполнено
-\begin{equation}
-	\lim_{j \to \infty} \frac{M^{(\lambda)}(j)}{j} = +\infty
-	.
-\end{equation}
+	Тогда для того, чтобы $x\in ac_0$, необходимо и достаточно, чтобы
+	для любого $\lambda>0$ было выполнено
+	\begin{equation}
+		\lim_{j \to \infty} \frac{M^{(\lambda)}(j)}{j} = +\infty
+		.
+	\end{equation}
+\end{theorem}

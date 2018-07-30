@@ -2,28 +2,30 @@
 которая иногда позволяет упростить доказательство.
 
 
-\paragraph{Теорема.}
-(Модифицированный критерий Лоренца).
-Пусть $x\in\ell_\infty$.
+\begin{theorem}
+	[Модифицированный критерий Лоренца]
+	Пусть $x\in\ell_\infty$.
 
-$x\in ac_0$ тогда и только тогда, когда
-\begin{equation}\label{crit_pos_ac0}
-	\forall(A_0\in\mathbb{N})
-	\exists(n_0\in\mathbb{N})
-	\exists(m_0\in\mathbb{N})
-	\forall(n\geq n_0)
-	\forall(m\geq m_0)
-	\\
-	\left[
-		\left|
-		\frac{1}{n}
-		\sum_{k=m+1}^{m+n} x_k
-		\right|
-		<
-		\frac{1}{A_0}
-	\right]
-	.
-\end{equation}
+	$x\in ac_0$ тогда и только тогда, когда
+	\begin{equation}\label{crit_pos_ac0}
+		\forall(A_0\in\mathbb{N})
+		\exists(n_0\in\mathbb{N})
+		\exists(m_0\in\mathbb{N})
+		\forall(n\geq n_0)
+		\forall(m\geq m_0)
+		\\
+		\left[
+			\left|
+			\frac{1}{n}
+			\sum_{k=m+1}^{m+n} x_k
+			\right|
+			<
+			\frac{1}{A_0}
+		\right]
+		.
+	\end{equation}
+
+\end{theorem}
 
 \paragraph{Доказательство.}
 По теореме Лоренца $x\in ac_0$ тогда и только тогда, когда
