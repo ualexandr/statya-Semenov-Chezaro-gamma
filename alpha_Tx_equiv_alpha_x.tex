@@ -86,3 +86,74 @@
 
 
 
+\subsection{Незамкнутость относительно умножения}
+
+\begin{theorem}
+	Ни одно из множеств
+	\eqref{eq:alpha_T^n_x_equiv_alpha_x}, \eqref{eq:cap_alpha_T^n_x_equiv_alpha_x}, \eqref{eq:cup_alpha_T^n_x_equiv_alpha_x}
+	не замкнуто по умножению.
+\end{theorem}
+
+\paragraph{Доказательство.}
+Снова построим два таких элемента, принадлежащих множеству \eqref{eq:alpha_T^n_x_equiv_alpha_x} при любых $n\in\mathbb{N}$,
+произведение которых не принадлежит множеству \eqref{eq:alpha_T^n_x_equiv_alpha_x} ни при каких $n\in\mathbb{N}$.
+Пусть $m\in\mathbb{N}$, $m \geq 3$.
+Положим
+
+\begin{equation}
+	x_k = \begin{cases}
+		(-1)^m,  & \mbox{если } k = 2^m     \\
+		1,                   & \mbox{если } k = 2^m + 1 \\
+		0                    & \mbox{иначе }
+	\end{cases}
+\end{equation}
+
+и
+
+\begin{equation}
+	y_k = \begin{cases}
+		(-1)^{m+1},  & \mbox{если } k = 2^m     \\
+		1,                   & \mbox{если } k = 2^m + 2 \\
+		0                    & \mbox{иначе }
+	\end{cases}
+\end{equation}
+
+Так как
+\begin{equation}
+	(T^n x)_{2^{2m+1}-n} - (T^n x)_{2^{2m+1}-n+1} = -2
+\end{equation}
+и
+\begin{equation}
+	(T^n y)_{2^{2m}-n} - (T^n y)_{2^{2m}-n+2} = -2
+	,
+\end{equation}
+то
+\begin{equation}
+	\alpha(x) = \alpha(T^n x) = \alpha(y) = \alpha(T^n y) = 2
+	.
+\end{equation}
+С другой стороны,
+\begin{equation}
+	(x\cdot y)_k = \begin{cases}
+		(-1)^m,  & \mbox{если } k = 2^m     \\
+		0        & \mbox{иначе }
+	\end{cases}
+\end{equation}
+и
+\begin{equation}
+	\alpha(x+y) = 2
+	,
+\end{equation}
+но в то же время
+\begin{equation}
+	\alpha(T^n(x \cdot y)) = 1
+\end{equation}
+(см. пример \ref{ex:alpha_x_neq_alpha_Tx}),
+следовательно, $x \cdot y$ не принадлежит ни одному из множеств
+\eqref{eq:alpha_T^n_x_equiv_alpha_x}, \eqref{eq:cap_alpha_T^n_x_equiv_alpha_x}, \eqref{eq:cup_alpha_T^n_x_equiv_alpha_x}.
+
+Теорема доказана.
+
+
+
+
