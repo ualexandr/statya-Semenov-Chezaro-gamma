@@ -45,7 +45,64 @@
 \newtheorem{property}[lemma]{Свойство}
 \newtheorem{corollary}{Следствие}[lemma]
 
-\newtheorem{hypothesis}[lemma]{Гипотеза}
+\newtheorem{hhypothesis}[lemma]{Гипотеза}
+
+
+% initialise macro
+\newcommand\hypotlist{ }
+
+% command for defining \hypotlist macro globally
+\newcommand{\gdefHypotlist}[1]
+  {\global\edef\hypotlist{#1}}
+
+
+
+
+\edef\history{ }
+\newcommand{\historyAdd}[1]{\edef\history{\history{}#1 }}
+\newcommand{\historyAddEcho}[1]{#1\historyAdd{#1}}
+
+%\global\def\hypotlist{ }
+
+\newcommand{\textstring}{Hello}
+
+\newcommand{\hypot}[1]{
+    \begin{hhypothesis}
+		#1%
+    \end{hhypothesis}
+    \gdefHypotlist{\hypotlist{} #1}
+}
+
+\makeatletter
+\usepackage{environ}
+\NewEnviron{hypothesis}{%
+	\expandafter\g@addto@macro\expandafter\hypotlist\expandafter
+	{\BODY}
+	%\protected@edef\tmphypot{\BODY}
+	%\hypot{\tmphypot}
+	%\xdef{\hypotlist}{\hypotlist{} www}
+    %\begin{hhypothesis}
+	%	\BODY%
+		%\BODY%
+    %\end{hhypothesis}
+    %global\edef\gBODY{\BODY}
+    %\edef\tmphypot{\BODY}
+    %\gdefHypotlist{\hypotlist{} www}
+    %\global\edef\hypotlist{\hypotlist{} www \hypotlist{}}
+    %\global\def\hypotlist{\expandafter\hypotlist{}\BODY}
+    %\let\textstring={\textstring w}
+    %\global\renewcommand{\textstring}{\protect\textstring{}\BODY}
+    textstring:
+    \textstring
+    %\edef\hypotlist{
+	%	\hypotlist{}
+		%\begin{hhypothesis}
+	%		\BODY%
+		%\end{hhypothesis}
+	%}
+%	\historyAdd{fixtest}
+}
+\makeatother
 
 
 \begin{document}
@@ -105,6 +162,21 @@
 
 	\section{О классах линейных операторов, для которых множества инвариантных банаховых пределов совпадают}
 	\input{../linear_op_equiv_ac0.tex}
+
+\chapter*{Список сформулированных гипотез}
+\addcontentsline{toc}{chapter}{Список сформулированных гипотез}
+
+\textstring
+
+%\historyAddEcho{Hi brian}
+%\historyAdd{you idiot}
+%\historyAddEcho{how are you?}
+
+
+%The real history was: \history
+
+\hypotlist
+
 
 \addcontentsline{toc}{chapter}{Список литературы}
 \printbibliography{}
