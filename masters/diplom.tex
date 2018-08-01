@@ -49,17 +49,41 @@
 
 
 \newcommand\hypotlist{ }
+\newcounter{hypcount}
 
 \makeatletter
 \usepackage{environ}
 \NewEnviron{hypothesis}{%
 
+	\edef\curlabel{hhypothesis\thehypcount}
+    \begin{hhypothesis}
+		\label{\curlabel}
+		\BODY%
+    \end{hhypothesis}
+	\edef\curref{\noexpand\ref{\curlabel}}
+	%\edef\curcaption{\paragraph{Гипотеза \protect\curref.}}
+
+	%\expandafter\g@addto@macro\expandafter\hypotlist\expandafter
+	%{\paragraph\noexpand\bgroup Гипотеза \ref\noexpand\bgroup}}
+	%\g@addto@macro\expandafter\hypotlist%\expandafter
+	%{\paragraph{Гипотеза \ref{\curlabel}}}
+	%\expandafter\g@addto@macro\expandafter\hypotlist\expandafter
+	%{\noexpand\egroup\noexpand\egroup}
+
+	\expandafter\g@addto@macro\expandafter\hypotlist\expandafter
+	{\paragraph{Гипотеза}}
+
+
+	\expandafter\g@addto@macro\expandafter\hypotlist\expandafter
+	{\expandafter\textbf\expandafter{\curref}}
+
+	\expandafter\g@addto@macro\expandafter\hypotlist\expandafter
+	{.~~}
+
 	\expandafter\g@addto@macro\expandafter\hypotlist\expandafter
 	{\BODY}
 
-    \begin{hhypothesis}
-		\BODY%
-    \end{hhypothesis}
+	\addtocounter{hypcount}{1}
 }
 \makeatother
 
@@ -125,7 +149,7 @@
 \chapter*{Список сформулированных гипотез}
 \addcontentsline{toc}{chapter}{Список сформулированных гипотез}
 
-
+\renewcommand\label[1]{}
 \hypotlist
 
 
