@@ -135,10 +135,9 @@ $x\in ac_0$ тогда и только тогда, когда
 \end{remark}
 
 \begin{lemma}
-(О пасьянсе из нулей и единиц.)
 Пусть $n_i$~--- строго возрастающая последовательность натуральных чисел,
 \begin{equation}
-	M(j) = \liminf_{i\to\infty} n_{i+j} - n_i,
+	M(j) = \liminf_{i\to\infty} (n_{i+j} - n_i),
 \qquad
 	x_k = \left\{\begin{array}{ll}
 		1, & \mbox{~если~} k = n_i
@@ -154,7 +153,7 @@ $x\in ac_0$ тогда и только тогда, когда
 \end{equation}
 \end{lemma}
 
-\begin{remark}
+\paragraph{Необходимость}
 Понятно, что $M(j)\in\mathbb{N}$.
 Более того, для любого $j$ существует лишь конечное количество отрезков длины $M(j)$,
 содержащих более $j$ единиц,
@@ -162,10 +161,8 @@ $x\in ac_0$ тогда и только тогда, когда
 содержащих ровно $j$ единиц.
 Через $E_j$ будем обозначать конец последнего отрезка длины $M(j)$,
 содержащего более $j$ единиц.
-\end{remark}
 
 %\begin{proof}
-\paragraph{Необходимость}
 Предположим противное:
 \begin{equation}
 	\liminf_{j \to \infty} {M(j)}/{j} = c < +\infty
@@ -215,7 +212,7 @@ $
 
 \paragraph{Достаточность}
 
-По определению предела \eqref{lim_M(j)/j} означает, что
+Из равенства \eqref{lim_M(j)/j} вытекает, что
 \begin{equation}\label{lim_M(j)/j_ifty_def}
 	\forall(C  \in\mathbb{N})
 	\exists(j_0\in\mathbb{N})
@@ -225,22 +222,8 @@ $
 	\right]
 	.
 \end{equation}
-Покажем, что выполнен модифицированный критерий Лоренца
-\eqref{crit_pos_ac0}, т.е.
-\begin{equation}
-	\forall(B  \in\mathbb{N})
-	\exists(n_0\in\mathbb{N})
-	\exists(m_0\in\mathbb{N})
-	\forall(n\geq n_0)
-	\forall(m\geq m_0)
-	\left[
-		\frac{1}{n}
-		\sum_{k=m+1}^{m+n} x_k
-		<
-		\frac{1}{B}
-	\right]
-	.
-\end{equation}
+Покажем, что выполнено
+\eqref{crit_pos_ac0}.
 Действительно, зафиксируем $B$.
 Используя \eqref{lim_M(j)/j_ifty_def} и положив $C=2B$,
 отыщем $j_0$ такое, что для любого $j\geq j_0$ выполнено
@@ -283,7 +266,6 @@ $$
 \end{equation}
 
 \begin{theorem}
-(Срезочный критерий почти сходимости к нулю неотрицательной последовательности.)
 Пусть $x\in\ell_\infty$, $x\geq 0$.
 Тогда
 $
@@ -325,7 +307,7 @@ $
 
 Предположим противное, т.е. $x\notin ac_0$,
 но $\forall(\lambda>0)[(1-\lambda)A_\lambda x \in ac_0]$.
-Запишем покванторное отрицание критерия Лоренца:
+Тогда
 \begin{equation}\label{ac0_lambda_Lorencz_neg}
 	\exists(\varepsilon_0 > 0)
 	\forall(n_0 \in \mathbb{N})
@@ -336,7 +318,7 @@ $
 	\right]
 	.
 \end{equation}
-Найдём такое $\varepsilon_0$ и положим
+Найдём такое $\varepsilon_0$. Положим
 $
 	\varepsilon = \min\left\{ {\varepsilon_0}/{2}, {1}/{2} \right\}
 	.
@@ -357,7 +339,7 @@ $
 	y = \left( 1 - {\varepsilon}/{2} \right) A_{\varepsilon/2} x
 	.
 $
-Заметим, что $y\in ac_0$, т.е. по критерию Лоренца
+Заметим, что $y\in ac_0$, т.е. в силу \eqref{eq:intro_ac}
 \begin{equation}\label{ac0_lambda_Lorencz}
 	\forall(\varepsilon_1 > 0)
 	\exists(n_1 \in \mathbb{N})
@@ -426,11 +408,9 @@ $
 \end{equation}
 \end{theorem}
 
-Докажем теперь ещё одну теорему,
-раскрывающую связь между сходимостью, почти сходимостью и $\alpha$--функцией,
-определяемой как
+Рассмотрим функцию, определяемую как
 \begin{equation}
-	\alpha(x) = \varlimsup_{i\to\infty} \max_{i \leq j \leq 2i} |x_i-x_j|
+	\alpha(x) = \limsup_{i\to\infty} \max_{i \leq j \leq 2i} |x_i-x_j|
 	.
 \end{equation}
 
@@ -449,7 +429,7 @@ $\alpha(x)=0$ следует
 \end{lemma}
 
 Эта оценка точна.
-Как выясняется, верна и оценка с другой стороны.
+Как выясняется, верна и противоположная оценка.
 
 \begin{lemma}
 \label{thm:rho_x_c_leq_alpha_t_s_x}
@@ -479,7 +459,7 @@ $\alpha(x)=0$ следует
 
 Так как
 \begin{equation}
-	\alpha(T^s x) = \varlimsup_{k\to\infty} \max_{k<j\leq 2k-s} |x_k-x_j| = \varepsilon
+	\alpha(T^s x) = \limsup_{k\to\infty} \max_{k<j\leq 2k-s} |x_k-x_j| = \varepsilon
 	,
 \end{equation}
 то
@@ -539,7 +519,7 @@ $.
 \end{corollary}
 
 \begin{remark}
-	Для $x\notin ac$ оценка леммы \ref{thm:rho_x_c_leq_alpha_t_s_x} неверна.
+	Условие $x\in ac$ в лемме \ref{thm:rho_x_c_leq_alpha_t_s_x} существенно.
 	Так, в \cite{VZMS} для любого $p\in\mathbb{N}$ строится элемент $x=Sy\notin ac$,
 	для которого $\alpha(x) = 1/p$ и $\rho(x,c)=1/2$.
 \end{remark}
