@@ -159,16 +159,17 @@
 %\begin{proof}
 Предположим противное:
 \begin{equation}
-	\liminf_{j \to \infty} {M(j)}/{j} = c < +\infty
+	\liminf_{j \to \infty} {M(j)}/{j} = q < +\infty
 	.
 \end{equation}
-Очевидно, $c>0$.
-Т.к. $c$~--- нижний предел, то найдётся счётное множество
+Очевидно, $q>0$.
+Т.к. $q$~--- нижний предел, то найдётся счётное множество
 $J\subset\mathbb{N}$ такое, что
 $
-	\forall(j\in J)\left[c \leq {M(j)}/{j} \leq c+1 \right],
+	\forall(j\in J)\left[q \leq {M(j)}/{j} \leq Q \right],
 $
-т.е. для любого $j\in J$ существует бесконечно много отрезков длины $j(c+1)$,
+где $Q$~--- наименьшее натуральное число, превосходящее $q$.
+Для любого $j\in J$ существует бесконечно много отрезков длины $jQ$,
 на каждом из которых не менее $j$ единиц.
 %
 Т.к. $x\in ac_0$, то
@@ -183,21 +184,21 @@ $
 	.
 \end{equation}
 
-Положим $\varepsilon = 1/(c+2)$ и отыщем $n_0$.
+Положим $\varepsilon = 1/(Q+1)$ и отыщем $n_0$.
 Положим $n\in J$, $n\geq n_0$.
 (Такое $n$ всегда найдётся, т.к. $J$ счётно и $J\subset\mathbb{N}$.)
-Выберем $m$ так, чтобы отрезок длины $n\cdot(c+1)$,
+Выберем $m$ так, чтобы отрезок длины $nQ$,
 содержащий не менее $n$ единиц,
 начинался с $m+1$.
 Тогда
 \begin{equation}
-	\frac{1}{n\cdot(c+1)}\sum_{k=m+1}^{m+n\cdot(c+1)}x_k
+	\frac{1}{nQ}\sum_{k=m+1}^{m+nQ}x_k
 	\geq
-	\frac{1}{n\cdot(c+1)} \cdot n
+	\frac{1}{nQ} \cdot n
 	=
-	\frac{1}{c+1}
+	\frac{1}{Q}
 	>
-	\frac{1}{c+2}
+	\frac{1}{Q+1}
 	=
 	\varepsilon,
 \end{equation}
