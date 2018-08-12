@@ -237,7 +237,7 @@ $$
 $$
 
 Тогда для любых $m\geq m_0$ и $n\geq n_0$ имеем
-\begin{multline}
+\begin{multline*}
 	\frac{1}{n} \sum_{k=m+1}^{m+n} x_k
 	<
 	\frac{1}{n} \left( \frac{n}{M(j_0)+1} + 1 \right) (j_0 + 1)
@@ -250,7 +250,7 @@ $$
 	%=
 	\frac{1}{B}
 	,
-\end{multline}
+\end{multline*}
 т.е. условие критерия \eqref{crit_pos_ac0} выполнено
 и $x\in ac_0$,
 что и требовалось доказать.
@@ -311,11 +311,14 @@ $,
 то будем полагать $\|x\|\leq 1$.
 Более того,
 $
-	A_\lambda x \in ac_0 \Leftrightarrow
+	A_\lambda x \in ac_0
+$
+если и только если
+$% \Leftrightarrow
 	(1-\lambda)A_\lambda x \in ac_0
 	.
 $
-%
+
 Предположим противное, т.е. $x\notin ac_0$,
 но $\forall(\lambda>0)[(1-\lambda)A_\lambda x \in ac_0]$.
 Тогда
