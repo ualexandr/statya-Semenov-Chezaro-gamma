@@ -402,16 +402,16 @@ $
 %Полученное противоречие завершает доказательство.
 %\endproof
 
-Сформулируем теперь этот критерий в терминах функций $M^{(\lambda)}(j)$.
+Сформулируем теперь этот критерий в терминах функций $M_{\lambda}(j)$.
 
 \begin{theorem}
 Пусть $x\in\ell_\infty$, $x \geq 0$, $\lambda>0$.
-Обозначим через $n^{(\lambda)}_i$ возрастающую последовательность
+Обозначим через $n(\lambda,i)$ возрастающую последовательность
 индексов таких элементов $x$, что $x_k \geq \lambda$ тогда и только тогда,
-когда $k=n^{(\lambda)}_i$ для некоторого $i$.
+когда $k=n(\lambda,i)$ для некоторого $i$.
 Обозначим
 \begin{equation}
-	M^{(\lambda)}(j) = \liminf_{i\to\infty} n^{(\lambda)}_{i+j} - n^{(\lambda)}_i
+	M_{\lambda}(j) = \liminf_{i\to\infty} n(\lambda,i+j) - n(\lambda,i)
 	.
 \end{equation}
 
@@ -419,7 +419,7 @@ $
 Тогда для того, чтобы $x\in ac_0$, необходимо и достаточно, чтобы
 для любого $\lambda>0$
 \begin{equation}
-	\lim_{j \to \infty} {M^{(\lambda)}(j)}/{j} = +\infty
+	\lim_{j \to \infty} {M_{\lambda}(j)}/{j} = +\infty
 	.
 \end{equation}
 \end{theorem}
