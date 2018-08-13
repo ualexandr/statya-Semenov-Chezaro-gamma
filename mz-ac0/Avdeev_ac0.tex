@@ -146,7 +146,7 @@ $T(x_1,x_2,...) = (x_2,x_3,...)$.
 Для того, чтобы $x\in ac_0$,
 необходимо и достаточно, чтобы
 \begin{equation}\label{lim_M(j)/j}
-	\lim_{j \to \infty} {M(j)}/{j} = +\infty
+	\lim_{j \to \infty} \frac{M(j)}{j} = +\infty
 	.
 \end{equation}
 \end{lemma}
@@ -165,14 +165,14 @@ $T(x_1,x_2,...) = (x_2,x_3,...)$.
 %\begin{proof}
 Предположим противное, т.е.
 \begin{equation}
-	\liminf_{j \to \infty} {M(j)}/{j} = q < +\infty
+	\liminf_{j \to \infty} \frac{M(j)}{j} = q < +\infty
 	.
 \end{equation}
 Очевидно, $q>0$.
 Найдётся счётное множество
 $J\subset\mathbb{N}$ такое, что
 $
-	\forall(j\in J)\left[q \leq {M(j)}/{j} \leq Q \right],
+	\forall(j\in J)\left[q \leq {M(j)}/{j} \leq Q \right]\!\!,
 $
 где $Q$~--- наименьшее натуральное число, превосходящее $q$.
 Для любого $j\in J$ существует бесконечно много отрезков из $jQ$ элементов,
@@ -219,7 +219,7 @@ $
 	\exists(j_0\in\mathbb{N})
 	\forall(j \geq j_0)
 	\left[
-		{(M(j)+1)}/{(j+1)}>C
+		\frac{M(j)+1}{j+1}>C
 	\right]
 	.
 \end{equation}
@@ -378,12 +378,12 @@ $n_0 = n_1$ и отыщем $n$ и $m$.
 	\qquad
 	\mbox{и}
 	\qquad
-	\frac{1}{n}\sum_{k=m+1}^{m+n} y_k < \varepsilon/2
+	\frac{1}{n}\sum_{k=m+1}^{m+n} y_k < \frac{\varepsilon}{2}
 	.
 \end{equation}
 Вычитая, получим
 \begin{equation}
-	\frac{1}{n}\sum_{k=m+1}^{m+n} (x_k - y_k) > \varepsilon/2
+	\frac{1}{n}\sum_{k=m+1}^{m+n} (x_k - y_k) > \frac{\varepsilon}{2}
 	.
 \end{equation}
 Если среднее арифметическое чисел вида $x_k - y_k$ больше $\varepsilon/2$,
@@ -419,7 +419,7 @@ $
 Тогда для того, чтобы $x\in ac_0$, необходимо и достаточно, чтобы
 для любого $\lambda>0$
 \begin{equation}
-	\lim_{j \to \infty} {M_{\lambda}(j)}/{j} = +\infty
+	\lim_{j \to \infty} \frac{M_{\lambda}(j)}{j} = +\infty
 	.
 \end{equation}
 \end{theorem}
@@ -491,7 +491,7 @@ $\alpha(x)=0$ следует
 	\exists(k_p \in\mathbb{N})\forall(k>k_p)
 	\forall(j: k< j \leq 2k-s)
 	\left[
-		|x_k - x_j|<\varepsilon + {\varepsilon}/{p}
+		|x_k - x_j|<\varepsilon + \frac{\varepsilon}{p}
 	\right]
 	.
 \end{equation}
@@ -509,7 +509,7 @@ $.
 	\exists(q_p \in\mathbb{N})
 	\forall(q>q_p)
 	\left[
-		|x_q - t| < \varepsilon + {2\varepsilon}/{p}
+		|x_q - t| < \varepsilon + \frac{2\varepsilon}{p}
 	\right]
 	,
 \end{equation}
