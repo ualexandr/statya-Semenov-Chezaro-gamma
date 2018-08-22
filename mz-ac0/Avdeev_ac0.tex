@@ -54,7 +54,7 @@
 \udk{517.521.2}
 
 \date{\\
-Исправленный вариант\\ }
+}%Исправленный вариант\\ }
 
 \author{Н.\,Н.~Авдеев}
 \address{
@@ -140,13 +140,14 @@ $T(x_1,x_2,...) = (x_2,x_3,...)$.
 		\\
 		0  & \mbox{~иначе.~}
 	\end{array}\right.
-\qquad
-	M(j) = \liminf_{i\to\infty} (n_{i+j} - n_i),
 \end{equation}
 Для того, чтобы $x\in ac_0$,
 необходимо и достаточно, чтобы
 \begin{equation}\label{lim_M(j)/j}
-	\lim_{j \to \infty} \frac{M(j)}{j} = +\infty
+	\lim_{j \to \infty} \frac{M(j)}{j} = \infty
+	,
+	\quad\mbox{~где~\quad}
+	M(j) = \liminf_{i\to\infty} (n_{i+j} - n_i)
 	.
 \end{equation}
 \end{lemma}
@@ -155,17 +156,17 @@ $T(x_1,x_2,...) = (x_2,x_3,...)$.
 Понятно, что $M(j)\in\mathbb{N}$
 и для любого $j$ существует лишь конечное количество отрезков из $M(j)+1$ элементов,
 содержащих более $j+1$ единиц.
-Кроме того, существует бесконечное количество отрезков из $M(j)+1$ элементов,
-содержащих ровно $j+1$ единиц.
-Отбросив от каждого отрезка конец, получим бесконечное количество отрезков из $M(j)$ элементов,
-содержащих ровно $j$ единиц.
 Через $E_j$ будем обозначать конец последнего отрезка из $M(j)+1$ элементов,
 содержащего более $j+1$ единиц.
+Кроме того, существует бесконечное количество отрезков из $M(j)+1$ элементов,
+содержащих ровно $j+1$ единиц.
+Рассмотрев каждый отрезок без последнего элемента, получим бесконечное количество отрезков из $M(j)$ элементов,
+содержащих ровно $j$ единиц.
 
 %\begin{proof}
 Предположим противное, т.е.
 \begin{equation}
-	\liminf_{j \to \infty} \frac{M(j)}{j} = q < +\infty
+	\liminf_{j \to \infty} \frac{M(j)}{j} = q < \infty
 	.
 \end{equation}
 Очевидно, $q>0$.
@@ -176,7 +177,7 @@ $
 $
 где $Q$~--- наименьшее натуральное число, превосходящее $q$.
 Для любого $j\in J$ существует бесконечно много отрезков из $jQ$ элементов,
-на каждом из которых не менее $j$ единиц.
+в каждом из которых содержится не менее $j$ единиц.
 %
 Т.к. $x\in ac_0$, то
 \begin{equation}\label{Lorencz_ac0_epsilon}
@@ -191,7 +192,7 @@ $
 \end{equation}
 
 Положим $\varepsilon = 1/(Q+1)$ и отыщем $n_0$, удовлетворяющее \eqref{Lorencz_ac0_epsilon}.
-Положим $n\in J$, $n\geq n_0$.
+Рассмотрим $n\in J$, $n\geq n_0$.
 Такое $n$ всегда найдётся, т.к. $J$ счётно и $J\subset\mathbb{N}$.
 Выберем $m$ так, чтобы отрезок из $nQ$ элементов,
 содержащий не менее $n$ единиц,
@@ -309,18 +310,24 @@ $
 	{x}/{\|x\|}\in ac_0
 $,
 то будем полагать $\|x\|\leq 1$.
-Более того,
-$
-	A_\lambda x \in ac_0
-$
-если и только если
-$% \Leftrightarrow
-	(1-\lambda)A_\lambda x \in ac_0
-	.
-$
+
+%Более того,
+%$
+%	A_\lambda x \in ac_0
+%$
+%если и только если
+%$% \Leftrightarrow
+%	(1-\lambda)A_\lambda x \in ac_0
+%	.
+%$
 
 Предположим противное, т.е. $x\notin ac_0$,
-но $\forall(\lambda>0)[(1-\lambda)A_\lambda x \in ac_0]$.
+но
+\begin{equation}
+	\label{A_lambda_x_in_ac0}
+	\forall(\lambda>0)[A_\lambda x \in ac_0]
+	.
+\end{equation}
 Тогда
 \begin{equation}\label{ac0_lambda_Lorencz_neg}
 	\exists(\varepsilon_0 > 0)
@@ -348,13 +355,12 @@ $
 	\right]
 	.
 \end{equation}
-%(знак неравенства стал строгим).
-Построим последовательность
-$
-	y = \left( 1 - {\varepsilon}/{2} \right) A_{\varepsilon/2} x
-	.
-$
-Заметим, что $y\in ac_0$, т.е. в силу \eqref{eq:intro_ac}
+В силу предположения~\eqref{A_lambda_x_in_ac0} выполнено
+$A_{\varepsilon/2} x \in ac_0$.
+Т.к. $\varepsilon < 1$, то $1-\varepsilon/2 > 0$.
+Положим $y=(1-\varepsilon/2)A_{\varepsilon/2}x$.
+Тогда $y\in ac_0$ и $y \geq 0$.
+В силу \eqref{eq:intro_ac}
 \begin{equation}\label{ac0_lambda_Lorencz}
 	\forall(\varepsilon_1 > 0)
 	\exists(n_1 \in \mathbb{N})
@@ -399,7 +405,7 @@ $
 $
 Следовательно, требуемого индекса $k$ не существует,
 и \eqref{ac0_lambda_Lorencz_neg} не выполнено.
-%Полученное противоречие завершает доказательство.
+Полученное противоречие завершает доказательство.
 %\endproof
 
 Сформулируем теперь этот критерий в терминах функций $M_{\lambda}(j)$.
@@ -416,10 +422,10 @@ $
 \end{equation}
 
 
-Тогда для того, чтобы $x\in ac_0$, необходимо и достаточно, чтобы
+Для того, чтобы $x\in ac_0$, необходимо и достаточно, чтобы
 для любого $\lambda>0$
 \begin{equation}
-	\lim_{j \to \infty} \frac{M_{\lambda}(j)}{j} = +\infty
+	\lim_{j \to \infty} \frac{M_{\lambda}(j)}{j} = \infty
 	.
 \end{equation}
 \end{theorem}
@@ -430,7 +436,8 @@ $
 Например, для $x_k = 1$ и $\lambda = 2$ имеем $A_\lambda x = 0 \in ac_0$,
 но $x\notin ac_0$.
 \end{remark}
-Рассмотрим функцию, определяемую как
+
+Рассмотрим на $\ell_\infty$ функцию, определяемую как
 \begin{equation}
 	\alpha(x) = \limsup_{i\to\infty} \max_{i \leq j \leq 2i} |x_i-x_j|
 	.
@@ -438,19 +445,49 @@ $
 
 Пусть $\rho(x,c)$ и $\rho(x,c_0)$~--- расстояния от $x$ до пространств $c$
 и $c_0$ соотв.
-Из условия Липшица на $\alpha$--функцию
-и того, что для $x\in c$
-$\alpha(x)=0$ следует
+Легко видеть, что функция $\alpha(x)$ удовлетворяет условию Липшица с константой 2
+и для $x\in c$ выполнено
+$\alpha(x)=0$.
 
 \begin{lemma}
 \label{thm:alpha_x_leq_2_rho_x_c}
 	Для любого $x\in\ell_\infty$
+	выполнено
 	$
 		\alpha(x) \leq 2\rho(x, c)
 	$.
 \end{lemma}
+\begin{proof}
+	Пусть $\beta = \rho(x,c)$,
+	т.е.
+	\begin{equation*}
+		\beta = \inf_{y\in c}\|x-y\|
+		.
+	\end{equation*}
+	Тогда
+	$
+		\forall(\varepsilon > 0)
+		\exists(y_\varepsilon \in c)
+		[\|x-y_\varepsilon\| < \beta + \varepsilon]
+		.
+	$
+	Поскольку $y_\varepsilon \in c$, то $\alpha(y_\varepsilon)=0$.
+	Значит,
+	\begin{equation*}
+		\alpha(x) = |\alpha(x)-\alpha(y_\varepsilon)| \leq 2 \|x-y_\varepsilon\| < 2\beta+2\varepsilon = 2\rho(x,c)+2\varepsilon
+		.
+	\end{equation*}
+	Итак,
+	$
+		\forall(\varepsilon > 0)[\alpha(x) \leq 2 \rho(x,c)+2\varepsilon]
+		,
+	$
+	откуда немедленно получаем, что $\alpha(x)\leq 2\rho(x,c)$.
+	Лемма доказана.
+\end{proof}
 
-Эта оценка точна.
+
+Оценка леммы~\ref{thm:alpha_x_leq_2_rho_x_c} точна.
 Как выясняется, верна и противоположная оценка.
 
 \begin{lemma}
@@ -514,10 +551,13 @@ $.
 	,
 \end{equation}
 откуда немедленно следует, что $\rho(x,c) \leq \varepsilon$.
+Лемма доказана.
 \end{proof}
 
-Из лемм \ref{thm:alpha_x_leq_2_rho_x_c} и \ref{thm:rho_x_c_leq_alpha_t_s_x},
-а также соотношения $\alpha(T^s x)\leq \alpha(x)$
+
+Нетрудно заметить, что последовательность $\alpha(T^s x)$ монотонно убывает по $s$,
+оставаясь при этом неотрицательной, следовательно, имеет предел.
+Из этого наблюдения, а также лемм \ref{thm:alpha_x_leq_2_rho_x_c} и \ref{thm:rho_x_c_leq_alpha_t_s_x}
 незамедлительно следует
 \begin{theorem}
 %\label{thm:rho_x_c_leq_alpha_t_s_x}
@@ -538,7 +578,7 @@ $.
 Все оценки точны, т.е. на некоторых элементах достигается равенство.
 \begin{corollary}
 	Пусть $x\in ac$.
-	$x\in c$ тогда и только тогда, когда $\alpha(x) = 0$.
+	Тогда $x\in c$ если и только если $\alpha(x) = 0$.
 \end{corollary}
 
 \begin{remark}
