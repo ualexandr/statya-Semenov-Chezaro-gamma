@@ -146,13 +146,13 @@ $T(x_1,x_2,...) = (x_2,x_3,...)$.
 
 \begin{lemma}
 Пусть $n_i$~--- строго возрастающая последовательность чисел из $\mathbb{N}$,
-\begin{equation}
+\begin{equation*}
 	x_k = \left\{\begin{array}{ll}
 		1, & \mbox{~если~} k = n_i
 		\\
 		0  & \mbox{~иначе.~}
 	\end{array}\right.
-\end{equation}
+\end{equation*}
 Для того, чтобы $x\in ac_0$,
 необходимо и достаточно, чтобы
 \begin{equation}\label{lim_M(j)/j}
@@ -180,10 +180,10 @@ $T(x_1,x_2,...) = (x_2,x_3,...)$.
 
 %\begin{proof}
 Предположим противное, т.е.
-\begin{equation}
+\begin{equation*}
 	\liminf_{j \to \infty} \frac{M(j)}{j} = q < \infty
 	.
-\end{equation}
+\end{equation*}
 Очевидно, $q>0$.
 Найдётся счётное множество
 $J\subset\mathbb{N}$ такое, что
@@ -213,7 +213,7 @@ $
 содержащий не менее $n$ единиц,
 начинался с $(m+1)$-го элемента.
 Тогда
-\begin{equation}
+\begin{equation*}
 	\frac{1}{nQ}\sum_{k=m+1}^{m+nQ}x_k
 	\geq
 	\frac{1}{nQ} \cdot n
@@ -223,7 +223,7 @@ $
 	\frac{1}{Q+1}
 	=
 	\varepsilon,
-\end{equation}
+\end{equation*}
 что противоречит \eqref{Lorencz_ac0_epsilon}.
 Полученное противоречие  доказывает необходимость.
 
@@ -275,13 +275,13 @@ $$
 
 Определим нелинейный оператор $\lambda$--срезки $A_\lambda$
 для $x = (x_1, x_2, ...)\in\ell_\infty$ как
-\begin{equation}
+\begin{equation*}
 	(A_\lambda x)_k = \begin{cases}
 		1, & \mbox{~если~} x_k \geq \lambda
 		\\
 		0  & \mbox{~иначе.~}
 	\end{cases}
-\end{equation}
+\end{equation*}
 
 \begin{theorem}
 \label{thm:lambda_prelim}
@@ -303,13 +303,13 @@ $
 Пусть $x\in ac_0$.
 Зафиксируем $\lambda > 0$.
 Пусть $y=A_\lambda x$, тогда
-\begin{equation}
+\begin{equation*}
 	(\lambda y)_k = \begin{cases}
 		\lambda, & \mbox{~если~} x_k \geq \lambda
 		\\
 		0  & \mbox{~иначе~}
 	\end{cases}
-\end{equation}
+\end{equation*}
 Таким образом, $0 \leq \lambda y \leq x$.
 Следовательно, если $x \in ac_0$,
 то $\lambda y \in ac_0$ и $y \in ac_0$.%,
@@ -396,19 +396,19 @@ $n_0 = n_1$ и отыщем $n$ и $m$.
 Положим в \eqref{ac0_lambda_Lorencz} $n_2 = n$, $m_2 = m$.
 Тогда по \eqref{ac0_lambda_Lorencz_neg_epsilon} и \eqref{ac0_lambda_Lorencz}
 соответственно
-\begin{equation}
+\begin{equation*}
 	\frac{1}{n}\sum_{k=m+1}^{m+n} x_k > \varepsilon
 	\qquad
 	\mbox{и}
 	\qquad
 	\frac{1}{n}\sum_{k=m+1}^{m+n} y_k < \frac{\varepsilon}{2}
 	.
-\end{equation}
+\end{equation*}
 Вычитая, получим
-\begin{equation}
+\begin{equation*}
 	\frac{1}{n}\sum_{k=m+1}^{m+n} (x_k - y_k) > \frac{\varepsilon}{2}
 	.
-\end{equation}
+\end{equation*}
 Если среднее арифметическое чисел вида $x_k - y_k$ больше $\varepsilon/2$,
 то существует хотя бы один индекс $k$ такой, что $x_k - y_k > \varepsilon/2$.
 %
@@ -435,16 +435,16 @@ $
 \end{equation*}
 Пусть $\{k: x_k \geq \lambda \} = \{n(\lambda,1),n(\lambda,2),...\}$.
 Обозначим
-\begin{equation}
+\begin{equation*}
 	M_{\lambda}(j) = \liminf_{i\to\infty} n(\lambda,i+j) - n(\lambda,i)
 	.
-\end{equation}
+\end{equation*}
 Для того, чтобы $x\in ac_0$, необходимо и достаточно, чтобы
 для любого $\lambda>0$
-\begin{equation}
+\begin{equation*}
 	\lim_{j \to \infty} \frac{M_{\lambda}(j)}{j} = \infty
 	.
-\end{equation}
+\end{equation*}
 \end{theorem}
 
 
@@ -515,7 +515,7 @@ $\alpha(x)=0$.
 Пусть $x\in ac$, $\alpha(T^s x)=\varepsilon$.
 Т.к. $x\in ac$, то в силу \eqref{eq:intro_ac} существует такое число $t$,
 что
-\begin{equation}
+\begin{equation*}
 	\forall(p\in\mathbb{N})
 	\exists(n_p \in\mathbb{N})\forall(n>n_p)\forall(m\in\mathbb{N})
 	\left[
@@ -526,7 +526,7 @@ $\alpha(x)=0$.
 		<\frac{\varepsilon}{p}
 	\right]
 	.
-\end{equation}
+\end{equation*}
 
 Так как
 \begin{equation}
@@ -535,7 +535,7 @@ $\alpha(x)=0$.
 	,
 \end{equation}
 то
-\begin{equation}
+\begin{equation*}
 	\forall(p\in\mathbb{N})
 	\exists(k_p \in\mathbb{N})\forall(k>k_p)
 	\forall(j: k< j \leq 2k-s)
@@ -543,7 +543,7 @@ $\alpha(x)=0$.
 		|x_k - x_j|<\varepsilon + \frac{\varepsilon}{p}
 	\right]
 	.
-\end{equation}
+\end{equation*}
 Положив $q_p = \max\{n_p, k_p\}$, получим, что для любого $q>q_p$
 среднее арифметическое чисел $x_q$, $x_{q+1}$, ... , $x_{2q-s}$ отличается от $t$
 не более, чем на $\varepsilon/p$, причём разница любых двух из этих чисел меньше $\varepsilon + \varepsilon/p$.
@@ -553,7 +553,7 @@ $
 	|x_q - t| < \varepsilon + {2\varepsilon}/{p}
 $.
 Таким образом,
-\begin{equation}
+\begin{equation*}
 	\forall(p\in\mathbb{N})
 	\exists(q_p \in\mathbb{N})
 	\forall(q>q_p)
@@ -561,7 +561,7 @@ $.
 		|x_q - t| < \varepsilon + \frac{2\varepsilon}{p}
 	\right]
 	,
-\end{equation}
+\end{equation*}
 откуда немедленно следует, что $\rho(x,c) \leq \varepsilon$.
 Лемма доказана.
 \end{proof}
@@ -574,18 +574,18 @@ $.
 \begin{theorem}
 %\label{thm:rho_x_c_leq_alpha_t_s_x}
 	Для любого $x\in ac$
-	\begin{equation}
+	\begin{equation*}
 		\frac{1}{2} \alpha(x) \leq \rho(x,c)\leq \lim_{s\to\infty} \alpha(T^s x) \leq \alpha(x)
 		.
-	\end{equation}
+	\end{equation*}
 \end{theorem}
 
 \begin{corollary}
 	Для любого $x\in ac_0$
-	\begin{equation}
+	\begin{equation*}
 		\frac{1}{2} \alpha(x) \leq \rho(x,c_0)\leq \lim_{s\to\infty} \alpha(T^s x) \leq \alpha(x)
 		.
-	\end{equation}
+	\end{equation*}
 \end{corollary}
 Все оценки точны, т.е. на некоторых элементах достигается равенство.
 \begin{corollary}
