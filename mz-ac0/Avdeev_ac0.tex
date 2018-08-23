@@ -53,6 +53,10 @@
 
 \udk{517.521.2}
 
+УДК 517.521.2
+
+\vspace{5cm}
+
 \date{\\
 }%Исправленный вариант\\ }
 
@@ -84,7 +88,11 @@
 
 \footnotetext{Работа выполнена в Воронежском университете при поддержке РНФ, грант 16-11-10125.}
 
-Через $\ell_\infty$ будем обозначать пространство ограниченных последовательностей с обычной нормой,
+Через $\ell_\infty$ будем обозначать пространство ограниченных последовательностей с обычной нормой
+\begin{equation*}
+	\|x\| = \max_{k\in\mathbb{N}} |x_k|
+	,
+\end{equation*}
 через $c$ и $c_0$~--- пространства сходящихся и сходящихся к нулю последовательностей соотв.,
 через $\mathbb{N}$~--- множество натуральных чисел,
 через $T$~--- оператор сдвига влево, т.е.
@@ -120,15 +128,19 @@ $T(x_1,x_2,...) = (x_2,x_3,...)$.
 	\right]
 	.
 \end{equation}
-Удобство соотношения \eqref{crit_pos_ac0} в
+Удобство соотношения \eqref{crit_pos_ac0} состоит в
 выборе $m_0$ в зависимости от $B$.
 В \cite[теорема 7 и следствие 12]{Alekhno_ac0} доказано, что пространство $ac_0$ замкнуто, недополняемо в $\ell_\infty$ и несепарабельно.
 В силу соотношения $ac = ac_0 \oplus \mathbb{R}^1$ этими же тремя свойствами обладает $ac$.
 
 В первой части настоящей статьи приводится критерий почти сходимости неотрицательной последовательности к нулю,
 основанный на идеях \cite[\S 5]{SemSukUsa14}.
-Во второй части изучается для почти сходящихся последовательностей связь $\alpha$--функции [TODO] с расстоянием до пространства $c$
-и приводится критерий сходимости почти сходящейся последовательности, основанный на $\alpha$--функции.
+Во второй части работы рассматривается на $\ell_\infty$ функция
+\begin{equation*}
+	\alpha(x) = \limsup_{i\to\infty} \max_{i \leq j \leq 2i} |x_i-x_j|
+\end{equation*}
+и изучается её связь с расстоянием до пространства $c$ для почти сходящихся последовательностей,
+а также приводится критерий сходимости почти сходящейся последовательности, основанный на этой функции.
 
 
 
@@ -146,10 +158,13 @@ $T(x_1,x_2,...) = (x_2,x_3,...)$.
 \begin{equation}\label{lim_M(j)/j}
 	\lim_{j \to \infty} \frac{M(j)}{j} = \infty
 	,
-	\quad\mbox{~где~\quad}
+\end{equation}
+где
+\begin{equation*}
+	%\quad\mbox{~где~\quad}
 	M(j) = \liminf_{i\to\infty} (n_{i+j} - n_i)
 	.
-\end{equation}
+\end{equation*}
 \end{lemma}
 
 \paragraph{Необходимость}
@@ -210,7 +225,7 @@ $
 	\varepsilon,
 \end{equation}
 что противоречит \eqref{Lorencz_ac0_epsilon}.
-%Полученное противоречие  доказательство необходимости.
+Полученное противоречие  доказывает необходимость.
 
 \paragraph{Достаточность}
 
@@ -255,6 +270,7 @@ $$
 т.е. условие критерия \eqref{crit_pos_ac0} выполнено
 и $x\in ac_0$,
 что и требовалось доказать.
+Лемма доказана.
 %\end{proof}
 
 Определим нелинейный оператор $\lambda$--срезки $A_\lambda$
@@ -268,6 +284,7 @@ $$
 \end{equation}
 
 \begin{theorem}
+\label{thm:lambda_prelim}
 Пусть $x\in\ell_\infty$, $x\geq 0$.
 Тогда
 $
@@ -364,8 +381,8 @@ $A_{\varepsilon/2} x \in ac_0$.
 \begin{equation}\label{ac0_lambda_Lorencz}
 	\forall(\varepsilon_1 > 0)
 	\exists(n_1 \in \mathbb{N})
-	\forall(n' > n_1)
-	\forall(m' \in \mathbb{N})
+	\forall(n_2 > n_1)
+	\forall(m_2 \in \mathbb{N})
 	\left[
 		\frac{1}{n}\sum_{k=m+1}^{m+n} y_k < \varepsilon_1
 	\right]
@@ -376,7 +393,7 @@ $A_{\varepsilon/2} x \in ac_0$.
 и отыщем $n_1$.
 Примем в \eqref{ac0_lambda_Lorencz_neg_epsilon}
 $n_0 = n_1$ и отыщем $n$ и $m$.
-Положим в \eqref{ac0_lambda_Lorencz} $n' = n$, $m' = m$.
+Положим в \eqref{ac0_lambda_Lorencz} $n_2 = n$, $m_2 = m$.
 Тогда по \eqref{ac0_lambda_Lorencz_neg_epsilon} и \eqref{ac0_lambda_Lorencz}
 соответственно
 \begin{equation}
@@ -405,23 +422,23 @@ $
 $
 Следовательно, требуемого индекса $k$ не существует,
 и \eqref{ac0_lambda_Lorencz_neg} не выполнено.
-Полученное противоречие завершает доказательство.
+Полученное противоречие завершает доказательство теоремы~\ref{thm:lambda_prelim}.
 %\endproof
 
 Сформулируем теперь этот критерий в терминах функций $M_{\lambda}(j)$.
 
 \begin{theorem}
-Пусть $x\in\ell_\infty$, $x \geq 0$, $\lambda>0$.
-Обозначим через $n(\lambda,i)$ возрастающую последовательность
-индексов таких элементов $x$, что $x_k \geq \lambda$ тогда и только тогда,
-когда $k=n(\lambda,i)$ для некоторого $i$.
+Пусть $x\in\ell_\infty$, $x \geq 0$,
+\begin{equation*}
+	0<\lambda < \limsup_{k\to\infty} x_k
+	.
+\end{equation*}
+Пусть $\{k: x_k \geq \lambda \} = \{n(\lambda,1),n(\lambda,2),...\}$.
 Обозначим
 \begin{equation}
 	M_{\lambda}(j) = \liminf_{i\to\infty} n(\lambda,i+j) - n(\lambda,i)
 	.
 \end{equation}
-
-
 Для того, чтобы $x\in ac_0$, необходимо и достаточно, чтобы
 для любого $\lambda>0$
 \begin{equation}
@@ -437,12 +454,6 @@ $
 но $x\notin ac_0$.
 \end{remark}
 
-Рассмотрим на $\ell_\infty$ функцию, определяемую как
-\begin{equation}
-	\alpha(x) = \limsup_{i\to\infty} \max_{i \leq j \leq 2i} |x_i-x_j|
-	.
-\end{equation}
-
 Пусть $\rho(x,c)$ и $\rho(x,c_0)$~--- расстояния от $x$ до пространств $c$
 и $c_0$ соотв.
 Легко видеть, что функция $\alpha(x)$ удовлетворяет условию Липшица с константой 2
@@ -452,7 +463,7 @@ $\alpha(x)=0$.
 \begin{lemma}
 \label{thm:alpha_x_leq_2_rho_x_c}
 	Для любого $x\in\ell_\infty$
-	выполнено
+	выполнено неравенство
 	$
 		\alpha(x) \leq 2\rho(x, c)
 	$.
@@ -468,7 +479,7 @@ $\alpha(x)=0$.
 	$
 		\forall(\varepsilon > 0)
 		\exists(y_\varepsilon \in c)
-		[\|x-y_\varepsilon\| < \beta + \varepsilon]
+		\bigl[\|x-y_\varepsilon\| < \beta + \varepsilon\bigr]
 		.
 	$
 	Поскольку $y_\varepsilon \in c$, то $\alpha(y_\varepsilon)=0$.
@@ -519,6 +530,7 @@ $\alpha(x)=0$.
 
 Так как
 \begin{equation}
+	\label{eq:alpha_Ts_x}
 	\alpha(T^s x) = \limsup_{k\to\infty} \max_{k<j\leq 2k-s} |x_k-x_j| = \varepsilon
 	,
 \end{equation}
@@ -555,7 +567,7 @@ $.
 \end{proof}
 
 
-Нетрудно заметить, что последовательность $\alpha(T^s x)$ монотонно убывает по $s$,
+В силу~\eqref{eq:alpha_Ts_x} последовательность $\alpha(T^s x)$ монотонно невозрастает по $s$,
 оставаясь при этом неотрицательной, следовательно, имеет предел.
 Из этого наблюдения, а также лемм \ref{thm:alpha_x_leq_2_rho_x_c} и \ref{thm:rho_x_c_leq_alpha_t_s_x}
 незамедлительно следует
