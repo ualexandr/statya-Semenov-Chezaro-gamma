@@ -1,0 +1,105 @@
+В зависимости от выбора $x$ последовательность $\left\{\frac{\alpha(T^n x)}{\alpha(x)}\right\}$
+может монотонно сходиться к любому числу из отрезка $\left[\frac{1}{2}; 1\right]$ с любой скоростью
+(в том числе и сколь угодно медленно).
+Говоря строже, верна следующая
+
+\begin{theorem}
+	Пусть $\beta_k$~--- монотонная невозрастающая последовательность,
+	$\beta_k \to \beta$, $\beta\in\left[\frac{1}{2}; 1\right]$, $\beta_1 \leq 1$.
+	Тогда существует такой $x\in\ell_\infty$, что для любого натурального $n$
+	\begin{equation}
+		\frac{\alpha(T^n x)}{\alpha(x)} = \beta_n.
+	\end{equation}
+\end{theorem}
+
+\paragraph{Доказательство.}
+Для удобства обозначим $\beta_0 = 1$.
+Это логично, так как
+\begin{equation}
+	\frac{\alpha(T^0 x)}{\alpha(x)} = \frac{\alpha(x)}{\alpha(x)} = 1
+	.
+\end{equation}
+
+Пусть $m\geq 3$, $m\in\mathbb{N}$.
+Положим
+\begin{equation}
+	x_k = \begin{cases}
+		0,  & \mbox{если } k = 2^{2m}     \\
+		\beta_l,  & \mbox{если } 2^{2m} < k = 2^{2m+1}-l, l\in\mathbb{N}\cup\{0\}     \\
+		\dfrac{1}{2}                    & \mbox{иначе.}
+	\end{cases}
+\end{equation}
+
+Тогда $\alpha(x) = 1$.
+Действительно, $\left| x_{2^{2m}} - x_{2^{2m+1}} \right| =1$,
+а по свойству \ref{thm:alpha_x_leq_limsup_minus_liminf} $\alpha(x) \leq 1$.
+
+Пусть
+\begin{equation}
+	\alpha_{i,n}(x)= \max_{i< j \leq 2i - n} |x_i - x_j|
+	,
+	\quad
+	i>n
+	,
+\end{equation}
+тогда
+\begin{equation}
+	\alpha(T^n x) = \varlimsup_{i \to \infty} \alpha_{i,n}(x)
+	.
+\end{equation}
+
+Вычислим теперь все $\alpha_{i,n}(x)$.
+Заметим, что
+\begin{multline}
+	\alpha_{2^{2m}, n} (x)
+	=
+	\max_{2^{2m}< j \leq 2^{2m+1} - n} |0 - x_j|
+	=
+	\max_{2^{2m}< j \leq 2^{2m+1} - n} x_j
+	=
+	\\=
+	\mbox{(замена: $q = 2^{2m+1} - j$, тогда $j = 2^{2m+1} - q$)}
+	=
+	\\=
+	\max_{2^{2m}< 2^{2m+1} - q \leq 2^{2m+1} - n} x_{2^{2m+1} - q}
+	=
+	\max_{0< 2^{2m} - q \leq 2^{2m} - n} x_{2^{2m+1} - q}
+	=
+	\max_{n \leq q < 2^{2m}} x_{2^{2m+1} - q}
+	=
+	\\=
+	\max_{n \leq q < 2^{2m}} \beta_q
+	=
+	%\\=
+	\mbox{(в силу невозрастания $\beta_q$)}
+	=
+	\beta_n
+	\geq
+	\frac{1}{2}
+	.
+\end{multline}
+
+Пусть теперь $i$ таково, что $2^{2m+1}<i<2^{2m+2}$,
+то $x_i = \frac{1}{2}$.
+Т.к.
+$\forall(j)\left[x_j\in[0;1]\right]$,
+то
+$|x_i - x_j| \leq \frac{1}{2}$
+и, следовательно,
+$\alpha_{i,n}(x)  \leq \frac{1}{2}$.
+
+Пусть, наконец, $i$ таково, что $2^{2m}<i \leq 2^{2m+2}$,
+тогда
+$x_i = \beta_k \in [1/2;1]$.
+Для таких $j$, что $i<j\leq 2i-n$ и, более того,
+для любых таких $j$, что $2^{2m}<j<{2m+2}$
+выполнено $x_j\in[1/2; 1]$
+и, значит, снова $|x_i - x_j| \leq \frac{1}{2}$.
+
+Таким образом, получаем, что
+\begin{equation}
+	\alpha(T^n x) = \varlimsup_{i \to \infty} \alpha_{i,n}(x) = \beta_n
+	.
+\end{equation}
+
+Теорема доказана.
