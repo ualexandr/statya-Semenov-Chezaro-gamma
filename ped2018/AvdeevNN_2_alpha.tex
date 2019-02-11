@@ -1,0 +1,243 @@
+\documentclass[11pt]{article}
+\usepackage[left=20mm, right=20mm, top=20mm, bottom=20mm, includefoot, a5paper]{geometry}
+\usepackage[cp1251]{inputenc}
+\usepackage[russian]{babel}
+\usepackage[intlimits]{amsmath}
+\interdisplaylinepenalty=2500
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\pagestyle{empty}
+
+
+\begin{document}
+
+\addcontentsline{toc}{section}{
+	Авдеев Н.\,Н.
+	О суперпозиции оператора сдвига и одной функции на пространстве ограниченных последовательностей
+}
+
+\small УДК 517.521.2
+\begin{center}
+\bf
+О СУПЕРПОЗИЦИИ ОПЕРАТОРА СДВИГА И ОДНОЙ ФУНКЦИИ НА ПРОСТРАНСТВЕ ОГРАНИЧЕННЫХ ПОСЛЕДОВАТЕЛЬНОСТЕЙ%
+\footnote{Работа поддержана грантом РНФ, проект 16-11-10125}\\
+\small Авдеев Н.\,Н.\\
+\small Воронежский государственный университет\\
+\small avdeev@math.vsu.ru, nickkolok@mail.ru\\
+\end{center}
+
+% Обнуляю счётчик на всякий случай
+\setcounter{equation}{0}
+
+Через $\ell_\infty$ будем обозначать пространство ограниченных последовательностей,
+через $T$~--- оператор сдвига на $\ell_\infty$: $T(x_1, x_2, x_3, ...) = (x_2, x_3, x_4, ...)$.
+На $\ell_\infty$ введём функцию
+\begin{equation*}
+	\alpha(x) = \varlimsup_{i\to\infty} \max_{i<j\leqslant 2i} |x_i - x_j|
+	.
+\end{equation*}
+
+
+В работе [1] изучается суперпозиция функции $\alpha(x)$ и оператора Чезаро $C$ [2].
+Настоящая работа посвящена суперпозиции функции $\alpha(x)$ и оператора сдвига $T$.
+
+\textbf{Теорема 1.}
+\begin{equation}\label{est_alpha_Tn_x}
+	\frac{1}{2}\alpha(x) \leq \alpha(T^n x) \leq \alpha(x)
+	.
+\end{equation}
+
+\textbf{Доказательство верхней оценки.}
+Докажем для $n=1$, применим индукцию.
+\begin{multline*}
+	\alpha(Tx)
+	=
+	%\varlimsup_{i\to\infty}~\max_{i < j \leqslant 2i} |(Tx)_i - (Tx)_j|
+	%=
+	\varlimsup_{i\to\infty}~\max_{i < j \leqslant 2i} |x_{i+1} - x_{j+1}|
+	=
+	%\\=
+	%(\mbox{замена}~k:=i+1, m:=j+1)
+	%=
+	%\\=
+	%\varlimsup_{k\to\infty}~~\max_{k-1 < m-1 \leqslant 2k-2} |x_k - x_m|
+	%=
+	\varlimsup_{k\to\infty}~~\max_{k < m \leqslant 2k-1} |x_k - x_m|
+	\leq
+	%\\ \leq
+	%\mbox{(переход к максимуму по большему множеству)}
+	%\leq
+	\\ \leq
+	\varlimsup_{k\to\infty}~~\max_{k < m \leqslant 2k} |x_k - x_m|
+	=
+	\alpha(x)
+	.
+\end{multline*}
+
+\textbf{Доказательство нижней оценки.}
+Зафиксируем $n$.
+Тогда
+\begin{equation*}
+	\alpha(x) = \varlimsup_{i\to\infty} \alpha_i(x),
+%$, где $
+~~\mbox{где}~~
+	\alpha_i(x) = \max_{i < j \leqslant 2i} |x_i - x_j|.
+\end{equation*}
+Рассмотрим $\alpha_i(x)$ при некотором фиксированном $i$, $i>2n$.
+Если
+%\begin{equation}
+$
+	\max_{i < j \leqslant 2i} |x_i - x_j|
+	=
+	\max_{i < j \leqslant 2i-n} |x_i - x_j|
+$,
+%\end{equation}
+то
+\begin{multline}\label{alpha_i(x)_leq_alpha_{i-n}(T_n x)}
+	\alpha_i(x)
+	%=
+	%\max_{i < j \leqslant 2i} |x_i - x_j|
+	=
+	\max_{i < j \leqslant 2i-n} |x_i - x_j|
+	=
+%	\\=
+%	\mbox{(замена $k=i-n$, $m=j-n$)}
+%	=
+	%\\=
+	\max_{k+n < m+n \leqslant 2k+n} |x_{k+n} - x_{m+n}|
+	=
+	\\=
+	\max_{k < m \leqslant 2k} |(T^n x)_k - (T^n x)_m|
+	=
+	\alpha_{i-n}(T^n x)
+	.
+\end{multline}
+Иначе
+%\begin{equation}
+$
+	\max_{i < j \leqslant 2i} |x_i - x_j|
+	=
+	\max_{2i-n < j \leqslant 2i} |x_i - x_j|
+$
+%\end{equation}
+и %можно записать, что
+
+\begin{multline}\label{alpha_i(x)_leq_alpha_{i-n}(T_n x) + alpha_{2i-2n}(T_n x)}
+	\alpha_i(x)
+	=
+	\max_{2i-n < j \leqslant 2i} |x_i - x_j|
+	=
+	\max_{2i-n < j \leqslant 2i} |x_i - x_{2i-n} + x_{2i-n} - x_j|
+	\leq
+	\\\leq
+	%\max_{2i-n < j \leqslant 2i} \left( |x_i - x_{2i-n}| + |x_{2i-n} - x_j| \right)
+	%=
+	%\\=
+	%|x_i - x_{2i-n}| + \max_{2i-n < j \leqslant 2i} |x_{2i-n} - x_j|
+	%=
+	%\\=
+	%|x_{i-n+n} - x_{2(i-n)+n}| + \max_{2i-n < j \leqslant 2i} |x_{2i-n} - x_j|
+	%=
+	%\\=
+	|(T^n x)_{i-n} - (T^n x)_{2(i-n)}| + \max_{2i-n < j \leqslant 2i} |x_{2i-n} - x_j|
+	\leq
+	%\\ \leq
+	%\alpha_{i-n}(T^n x) + \max_{2i-n < j \leqslant 2i} |x_{2i-n} - x_j|
+	%\leq
+	\\ \leq
+	\alpha_{i-n}(T^n x) + \max_{2i-n < j \leqslant 2i} |(T^n x)_{2i-2n} - (T^n x)_{j-n}|
+	=
+	%\\=
+	%(\mbox{замена}~ m:=j-n ~)
+	%=
+	\\=
+	\alpha_{i-n}(T^n x) + \max_{2i-2n < m \leqslant 2i-n} |(T^n x)_{2i-2n} - (T^n x)_m|
+	\leq
+	\\ \leq
+	\mbox{(т.к. $i>2n$, то $4i-4n > 2i+4n-4n = 2i > 2i-n$)}
+	\leq
+	\\ \leq
+	\alpha_{i-n}(T^n x) + \max_{2i-2n < m \leqslant 4i-4n} |(T^n x)_{2i-2n} - (T^n x)_m|
+	=
+	\\ =
+	\alpha_{i-n}(T^n x) + \alpha_{2i-2n}(T^n x)
+	.
+\end{multline}
+%
+Сравнивая \eqref{alpha_i(x)_leq_alpha_{i-n}(T_n x)} и \eqref{alpha_i(x)_leq_alpha_{i-n}(T_n x) + alpha_{2i-2n}(T_n x)},
+делаем вывод, что
+\begin{equation*}
+	\alpha_i(x) \leq \alpha_{i-n}(T^n x) + \alpha_{2i-2n}(T^n x)
+	.
+\end{equation*}
+Переходя к верхнему пределу, имеем
+\begin{equation*}
+%\begin{multline*}
+	\alpha(x)
+	=
+	\varlimsup_{i\to\infty} \alpha_i(x)
+	\leq
+	\varlimsup_{i\to\infty} (\alpha_{i-n}(T^n x) + \alpha_{2i-2n}(T^n x))
+	\leq
+	%\\ \leq
+	%\varlimsup_{i\to\infty} \alpha_{i-n}(T^n x) + \varlimsup_{i\to\infty} \alpha_{2i-2n}(T^n x)
+	%=
+	%\\=
+	%\varlimsup_{j=i-n, j\to\infty} \alpha_{j}(T^n x) + \varlimsup_{i\to\infty} \alpha_{2i-2n}(T^n x)
+	%=
+	%\\=
+	%\alpha(T^n x) + \varlimsup_{i\to\infty} \alpha_{2i-2n}(T^n x)
+	%\leq
+%	\\ \leq
+%	\mbox{(верхний предел по индексам специального вида
+%	} \\ \mbox{
+%	заменим на верхний предел по всем индексам)}
+%	\leq
+	%\\ \leq
+	%\alpha(T^n x) + \varlimsup_{k\to\infty} \alpha_{k}(T^n x)
+	%=
+	%\alpha(T^n x) + \alpha(T^n x)
+	%=
+	%\leq
+	2 \alpha(T^n x)
+	.
+%\end{multline*}
+\end{equation*}
+%Таким образом, $\alpha(T^n x) \geq \frac{1}{2} \alpha(x)$,
+%что и требовалось доказать.
+Только что доказанная нижняя оценка точна.
+%\textbf{Пример.}
+	Пусть
+	\begin{equation}
+		x_k = \begin{cases}
+			(-1)^n, & \mbox{~если~} k = 2^n;
+			\\
+			0 & \mbox{~иначе.~}
+		\end{cases}
+	\end{equation}
+Тогда $\alpha(x)=2$, однако $\alpha(Tx) = 1$.
+
+
+
+ \centerline{\bf Литература}
+
+1.
+Авдеев Н. Н., Семенов Е. М. Об асимптотических свойствах оператора Чезаро
+//Воронежская зимняя математическая школа С.Г. Крейна–2018. – 2018. – С. 107-109.
+
+2.
+Semenov E. M., Sukochev F. A. Invariant Banach limits and applications
+//Journal of Functional Analysis. – 2010. – Т. 259. – №. 6. – С. 1517-1541.
+
+
+{\bf Авдеев Николай Николаевич},
+магистрант каф. функционального анализа и операторных уравнений математического факультета ФГБОУ ВО <<ВГУ>>
+
+% Обнуляю счётчик за собой
+\setcounter{equation}{0}
+
+
+
+\end{document}
+
