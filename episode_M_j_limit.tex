@@ -1,0 +1,87 @@
+\begin{theorem}
+	Пусть $M(j)$~--- последовательность, определённая в~\eqref{eq:definition_M_j}.
+	Тогда последовательность $M(j)/j$ имеет предел (конечный или бесконечный).
+\end{theorem}
+
+\paragraph{Доказательство.}
+Предположим противное.
+Пусть
+\begin{equation}
+	\varliminf_{j\to\infty}\frac{M(j)}{j} = A,
+\end{equation}
+\begin{equation}
+	\varlimsup_{j\to\infty}\frac{M(j)}{j} \geq B
+\end{equation}
+(неравенство используется для охвата случая, когда верхний предел равен бесконечности)
+и
+\begin{equation}
+	B > A
+	.
+\end{equation}
+
+Положим $\varepsilon = \frac{B-A}{4}$.
+По определению верхнего предела существует такое натуральное $j_0$,
+что
+\begin{equation}
+	\frac{M(j_0)}{j_0} > B - \varepsilon
+	.
+\end{equation}
+По определению нижнего предела существует $\{j_i\}$~--- возрастающая последовательность таких индексов, что
+\begin{equation}
+	\label{eq:lim_Mj_inf_lim_seq}
+	\forall(i\in\mathbb{N})\left[ \frac{M(j_i)}{j_i} < A + \varepsilon \right]
+	.
+\end{equation}
+Определим для каждого $i\in\mathbb{N}$ целое число $C_i$ такое, что
+\begin{equation}
+	\label{eq:lim_Mj_inf_lim_Ci}
+	C_i j_0 \leq j_i < (C_i+1)j_0
+	.
+\end{equation}
+Легко заметить, что последовательность $\{C_i\}$ является возрастающей.
+
+Очевидно, что
+\begin{equation}
+	M(Cj) \geq C \cdot M(j)
+	.
+\end{equation}
+Таким образом,
+\begin{equation}
+	M(j_i) \geq M(C_i j_0) \geq C_i M(j_0) > C_i j_0 (B-\varepsilon)
+\end{equation}
+и
+\begin{multline}
+	\frac{M(j_i)}{j_i} > \frac{C_i j_0 (B-\varepsilon)}{j_i}
+	> \frac{C_i j_0 (B-\varepsilon)}{(C_i+1)j_0}
+	=
+	\\=
+	\frac{C_i}{C_i+1}(B-\varepsilon)
+	= B-\varepsilon - \frac{1}{C_i+1}(B-\varepsilon)
+	.
+\end{multline}
+Выберем $i$ настолько большим, что
+\begin{equation}
+	\frac{1}{C_i+1}(B-\varepsilon) < \varepsilon
+	.
+\end{equation}
+Тогда
+\begin{equation}
+	\frac{M(j_i)}{j_i} > B - 2 \varepsilon = A + 2 \varepsilon > A + \varepsilon
+	,
+\end{equation}
+что противоречит~\eqref{eq:lim_Mj_inf_lim_seq}.
+Полученное противоречие завершает доказательство.
+
+\begin{hypothesis}
+	Пусть $M(j)$~--- последовательность натуральных чисел, такая, что существует предел
+	\begin{equation}
+		\lim_{j\to\infty} \frac{M(j)}{j} \leq +\infty
+	\end{equation}
+	и для любых $i,j\in\mathbb{N}$ выполнено
+	\begin{equation}
+		M(i)+M(j) \leq M(i+j)
+		.
+	\end{equation}
+	Тогда существует последовательность $\{x_k\}$,
+	удовлетворяющая условию~\eqref{eq:definition_M_j}.
+\end{hypothesis}
