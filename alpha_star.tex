@@ -1,0 +1,45 @@
+Как мы выяснили, $\alpha$--функция не инвариантна относительно сдвига.
+Чтобы избавиться от этого недостатка, введём функционалы
+\begin{equation}
+	\alpha^* = \lim_{n\to\infty} U^n x
+\end{equation}
+и
+\begin{equation}
+	\alpha_* = \lim_{n\to\infty} T^n x
+\end{equation}
+(оба пределы существуют как пределы монотонных ограниченных последовательностей).
+Тогда верны следующие соотношения.
+\begin{lemma}
+	\begin{equation}
+		\alpha^*(x) = \alpha^*(\sigma_n x) = \alpha^*(Tx) = \alpha^*(Ux)
+		,
+		%TODO: \sigma_{1/n}
+	\end{equation}
+	\begin{equation}
+		\alpha_*(x) = \alpha_*(\sigma_n x) = \alpha_*(Tx) = \alpha_*(Ux)
+		.
+		%TODO: \sigma_{1/n}
+	\end{equation}
+\end{lemma}
+
+\begin{lemma}
+	\begin{equation}
+		\frac{1}{2} \alpha(x) \leq \alpha_*(x) \leq \alpha(x) \leq \alpha^*(x) \leq 2 \alpha(x)
+		.
+	\end{equation}
+\end{lemma}
+
+Кроме того, для учёта обоих функционалов и сохранения однородности предлагается ввести функционал
+\begin{equation}
+	\alpha_*^*(x) = \sqrt{\alpha_*(x)\alpha^*(x)}
+	.
+\end{equation}
+
+\begin{hypothesis}
+	Функционал $\alpha_*^*(x)$ удовлетворяет неравенству треугольника.
+\end{hypothesis}
+
+\begin{hypothesis}
+	Аналог теоремы~\ref{thm:alpha_Cx_no_gamma} верен для функционалов
+	$\alpha^*(x)$, $\alpha_*(x)$ и $\alpha_*^*(x)$
+\end{hypothesis}
