@@ -1,0 +1,52 @@
+Из свойства~\ref{thm:alpha_x_triangle_ineq} и однородности $\alpha$--функции немедленно вытекает
+\begin{theorem}
+	Множество $\alpha c = \{x: \alpha(x) = 0\}$
+	является пространством.
+\end{theorem}
+Изучим свойства этого пространства.
+\begin{property}
+	Пространство $\alpha c$ замкнуто.
+\end{property}
+\begin{proof}
+	Прообраз замкнутого множества $\{0\}$
+	при непрерывном отображении $\alpha : \ell_\infty \to \mathbb{R}$
+	замкнут.
+\end{proof}
+\begin{theorem}
+	Включение $c \subset \alpha c$ собственное.
+\end{theorem}
+\begin{proof}
+	Рассмотрим
+	\begin{equation}
+		x=\left(
+			0,1,
+			0,\frac{1}{2},1,\frac{1}{2},
+			0,\frac{1}{3},\frac{2}{3},1,\frac{2}{3},\frac{1}{3},
+			0,
+			...
+		\right)
+		.
+	\end{equation}
+	Тогда по лемме~\ref{thm:alpha_S} (при определённом тем же образом операторе $S$) имеем
+	\begin{equation}
+		\alpha(Sx) = \varlimsup_{k\to\infty} |x_{k+1} - x_{k}| = 0
+		,
+	\end{equation}
+	однако, очевидно, $Sx\notin c$.
+\end{proof}
+Очевидно следующее
+\begin{property}
+	Если периодическая последовательность принадлежит $\alpha c$,
+	то эта последовательность~--- константа.
+\end{property}
+
+Из результатов предыдущих пунктов вытекает
+\begin{theorem}
+	Пространство $\alpha c$ замкнуто относительно операторов $T$, $U$, $C$, $\sigma_n$, $S$.
+	%TODO: \sigma_{1/n}
+\end{theorem}
+
+Из теоремы~\ref{thm:rho_x_c_leq_alpha_t_s_x} (см. ниже) следует
+\begin{theorem}
+	$ac \cap\alpha c = c$.
+\end{theorem}
