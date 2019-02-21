@@ -74,19 +74,39 @@
 %Не всякая биекция сохраняет меру,
 %но тут вроде как спасает то, что мы интерпретируем ту же самую последовательность бросков двумя разными способами.
 
-Заметим теперь, что из равномерного стремления~\ref{eq:lim_j_n_kj_measure}
-следует, что
+Равномерное стремление~\eqref{eq:lim_j_n_kj_measure}
+буквально означает, что
 \begin{equation}
-	\lim_{j\to\infty} \liminf_{k\to\infty} \frac{n_{k+j} - n_k}{j} = \infty
+	\forall(A>0)\exists(j_A\in\mathbb{N})\forall(j > j_A)\forall(k\in\mathbb{N})
+	\left[
+		\frac{n_{k+j}-n_k}{j}>A
+	\right]
+	.
+\end{equation}
+Так как последнее неравенство выполнено для любого $k$,
+то оно верно и для нижнего предела по $k$:
+\begin{equation}
+	\forall(A>0)\exists(j_A\in\mathbb{N})\forall(j > j_A)
+	\left[
+		\liminf_{k\to\infty}\frac{n_{k+j}-n_k}{j}>A
+	\right]
+	.
+\end{equation}
+<<Свернув>> определение предела по $j$ из кванторной записи, получаем:
+\begin{equation}
+	\lim_{j\to\infty}\liminf_{k\to\infty}\frac{n_{k+j}-n_k}{j} = \infty
 	,
 \end{equation}
 
-TODO: очевиден ли переход выше или расписать в кванторах?
 
-откуда по лемме~\ref{thm:lim_M(j)/j_dost} получаем $QW \subset \Omega\cap ac_0$.
+откуда по лемме~\ref{thm:lim_M(j)/j_dost} немедленно имеем $QW \subset \Omega\cap ac_0$.
 Тогда
 \begin{equation}
 	0 \leq \mu(W) = \mu(QW) \leq \mu(\Omega\cap ac_0) \leq \mu(\Omega\cap ac) = 0
 	,
 \end{equation}
 откуда $\mu(W)=0$.
+
+\begin{hypothesis}
+	Включение $QW\subset \Omega\cap ac_0$ собственное.
+\end{hypothesis}
