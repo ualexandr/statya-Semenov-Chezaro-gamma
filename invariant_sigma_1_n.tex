@@ -1,0 +1,45 @@
+Введём, вслед за~\cite[p. 131, prop. 2.b.2]{lindenstrauss1979classical},
+на $\ell_\infty$ оператор
+\begin{equation}
+	\sigma_{1/n} x = n^{-1}
+	\left(
+		\sum_{i=1}^{n} x_i,
+		\sum_{i=n+1}^{2n} x_i,
+		\sum_{i=2n+1}^{3n} x_i,
+		...
+	\right).
+\end{equation}
+
+Из критерия Лоренца немедленно следует
+\begin{lemma}
+	$\sigma_n \sigma_{1/n} - I : \ell_\infty \to ac_0$.
+\end{lemma}
+
+\begin{theorem}
+	Для любого $n\in\mathbb{N}$ выполнено $\mathfrak{B}(\sigma_n) = \mathfrak{B}(\sigma_{1/n})$.
+\end{theorem}
+
+\begin{proof}
+	Пусть сначала $B \in \mathfrak{B}(\sigma_{1/n})$.
+	Тогда
+	\begin{equation}
+		B(x) = B(Ix) = B(\sigma_{1/n} \sigma_n x) = B(\sigma_n x)
+		.
+	\end{equation}
+	Пусть теперь $B \in \mathfrak{B}(\sigma_n)$.
+	Тогда
+	\begin{equation}
+		B(x) = B(Ix) = B((I+(\sigma_n \sigma_{1/n} - I)) x) = B(\sigma_n \sigma_{1/n} x) = B(\sigma_{1/n} x)
+		.
+	\end{equation}
+\end{proof}
+
+\begin{remark}
+	Мы видим, что множество банаховых пределов, инвариантных относительно суперпозиции операторов,
+	может быть шире, чем объединение множеств банаховых пределов,
+	инвариантных относительно каждого из операторов:
+	\begin{equation}
+		\mathfrak{B}(\sigma_n) \cup \mathfrak{B}(\sigma_{1/n}) = \mathfrak{B}(\sigma_n) \subsetneq \mathfrak{B}(\sigma_{1/n}\sigma_n) = \mathfrak{B}(I)
+		.
+	\end{equation}
+\end{remark}
