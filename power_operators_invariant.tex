@@ -1,0 +1,50 @@
+Очевидна следующая
+\begin{lemma}
+	Пусть $A:\ell_\infty\to\ell_\infty$,
+	\begin{equation}
+		(Ax)_k=\begin{cases}
+			x_n, & \mbox{если~} k=2^n,
+			\\
+			0    & \mbox{иначе.}
+		\end{cases}
+	\end{equation}
+	Тогда $A:\ell_\infty\to ac_0$.
+\end{lemma}
+
+\begin{corollary}
+	$|L(\ell_\infty,\ell_\infty)|=|L(\ell_\infty,ac_0)|$.
+\end{corollary}
+
+\begin{proof}
+	Пусть $Q\in L(\ell_\infty,\ell_\infty)$.
+	Тогда $AQ\in L(\ell_\infty,ac_0)$.
+	Из того, что отображение $Q\mapsto AQ$~--- инъекция,
+	следует, что $|L(\ell_\infty,ac_0)|\geq|L(\ell_\infty,\ell_\infty)|$.
+	Из того, что $ L(\ell_\infty,ac_0) \subsetneq L(\ell_\infty,\ell_\infty)$,
+	следует, что $|L(\ell_\infty,ac_0)|\leq|L(\ell_\infty,\ell_\infty)|$.
+	Значит, $|L(\ell_\infty,ac_0)|=|L(\ell_\infty,\ell_\infty)|$,
+	что и требовалось доказать.
+\end{proof}
+
+\begin{corollary}
+	Пусть $P:\ell_\infty \to \ell_\infty$ и $\mathfrak{B}(P)\neq\varnothing$.
+	Пусть $G = \{Q: \mathfrak{B}(P)= \mathfrak{B}(Q)\}$.
+	Тогда $|G| = |L(\ell_\infty,\ell_\infty)|$.
+\end{corollary}
+
+\begin{proof}
+	Действительно,
+	$(P+\ell_\infty,ac_0) \subset \mathfrak{B}(P)$ по лемме~\ref{thm:linear_op_equiv_ac0}.
+	Значит,
+	\begin{equation}
+		|\mathfrak{B}(P)| \geq |L(\ell_\infty,ac_0)|=|L(\ell_\infty,\ell_\infty)|
+		.
+	\end{equation}
+	Из того, что $\mathfrak{B}(P)\subsetneq|L(\ell_\infty,\ell_\infty)|$,
+	следует, что $|\mathfrak{B}(P)|\leq|L(\ell_\infty,\ell_\infty)|$.
+	Значит, $|\mathfrak{B}(P)|=|L(\ell_\infty,\ell_\infty)|$,
+	что и требовалось доказать.
+\end{proof}
+
+
+
