@@ -50,3 +50,33 @@
 \begin{theorem}
 	$ac \cap\alpha c = c$.
 \end{theorem}
+
+Некоторый интерес представляет следующая теормема,
+основанная на идеях
+[TODO: ссылка на дисер Усачёва].
+
+\begin{theorem}
+	$\alpha c$ несепарабельно.
+\end{theorem}
+
+\begin{proof}
+	Пусть $\Omega = \{0;1\}^{\mathbb{N}}$.
+	Для каждого $\omega\in\Omega$ положим
+	\begin{multline}
+		x(\omega)=\left(
+			0, 1\omega_1,
+			0, \frac{1}{2}\omega_2, 1\omega_2, \frac{1}{2}\omega_2,
+			0, \frac{1}{3}\omega_3, \frac{2}{3}\omega_3, 1\omega_3, \frac{2}{3}\omega_3, \frac{1}{3}\omega_3,
+			0, ...,
+		\right. \\ \left.
+			0, \frac{1}{p}\omega_p, \frac{2}{p}\omega_p, ..., \frac{p-1}{p}\omega_p, 1\omega_p,
+				\frac{p-1}{p}\omega_p, ..., \frac{2}{p}\omega_p, \frac{1}{p}\omega_p,
+			0, \frac{1}{p+1}\omega_{p+1}, ...
+		\right).
+	\end{multline}
+	Тогда по лемме~\ref{thm:alpha_S} (при определённом тем же образом операторе $S$) имеем
+	$\alpha(Sx(\omega)) = 0$.
+	Заметим, что при $\omega,\omega^* \in \Omega$ и $\omega\neq\omega^*$ выполнено
+	$\|Sx(\omega)-Sx(\omega^*)\|=1$ и $|Sx(\omega)|=\mathfrak{c}$.
+	Следовательно, $\alpha c$ несепарабельно.
+\end{proof}
