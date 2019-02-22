@@ -57,3 +57,79 @@ TODO: надо ссылку на классиков?
 		.
 	\end{multline}
 \end{proof}
+
+\begin{example}
+	Покажем, что нижнюю оценку на $\alpha(x\cdot y)$ дать нельзя.
+	В самом деле,
+	пусть $x_k = (-1)^k$.
+	Тогда $\alpha(x) = 2$, $\|x\|_* = 1$,
+	но $\alpha(x\cdot x) = 0$.
+\end{example}
+
+\begin{example}
+	\label{ex:alpha-c_not_ideal}
+	Покажем, что оценка теоремы~\ref{thm:alpha_xy} точна в том смысле,
+	что равенство достижимо.
+	В самом деле,
+	пусть $x_k = (-1)^k$, $y_k = 1$.
+	Тогда $\alpha(x) = 2$, $\alpha(y) = 0$,
+	но $\alpha(x\cdot y) = 2$.
+\end{example}
+
+\begin{example}
+	Пусть
+	\begin{equation}\label{y_construction}
+		y = \left(
+			0, \frac{1}{p}, \frac{2}{p}, \frac{3}{p},
+			...,
+			\frac{p-1}{p}, 1, \frac{p-1}{p},
+			...,
+			\frac{1}{p},
+			0,
+			\frac{1}{p}, \frac{2}{p}, ...
+		\right)
+	\end{equation}
+	Тогда $\alpha(Sy) = \frac{1}{p}$, $\|Sy\|_* = 1$,
+	\begin{equation}
+		\alpha((Sy)\cdot(Sy)) =
+		\left| \frac{(p-1)^2}{p^2} - 1 \right| =
+		\frac{2}{p}-\frac{1}{p^2}
+		.
+	\end{equation}
+\end{example}
+
+\begin{example}
+	Для того же $y$ и любого $k>0$ имеем
+	$\alpha(kSy) = \frac{k}{p}$, $\|kSy\|_* = k$,
+	\begin{equation}
+		\alpha((kSy)\cdot(kSy)) =
+		\left| \frac{k^2(p-1)^2}{p^2} - k^2 \right| =
+		\frac{2k^2}{p}-\frac{k^2}{p^2}
+		.
+	\end{equation}
+	Оценка теоремы~\ref{thm:alpha_xy} даёт
+	\begin{equation}
+		\alpha((kSy)\cdot(kSy)) \leq
+		\frac{2k^2}{p}
+		.
+	\end{equation}
+\end{example}
+
+
+% Увы, неверна - контрпример выше, k=2
+%\begin{hypothesis}
+%	$\alpha(x\cdot y)\leq \alpha(x)\cdot \|y\|_* + \alpha(y)\cdot \|x\|_* - \alpha(x)\alpha(y) \cdot \|y\|_* \cdot \|x\|_*$.
+%\end{hypothesis}
+% Убрать фактор-нормы тоже нельзя:
+
+\begin{example}
+	Пусть $x_k = (-1)^k$.
+	Тогда $\alpha(x) = \alpha(\sigma_2 x) = 2$, $\|x\|_* = \|\sigma_2 x\|_* = 1$,
+	но $\alpha(x\cdot \sigma_2 x) = 2 < 4$.
+\end{example}
+
+Исходя из построенных примеров может быть выдвинута
+\begin{hypothesis}
+	Если $\alpha(x\cdot y)= \alpha(x)\cdot \|y\|_* + \alpha(y)\cdot \|x\|_*$,
+	то $\alpha(x) = 0$ или $\alpha(y) = 0$.
+\end{hypothesis}
