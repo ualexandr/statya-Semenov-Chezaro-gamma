@@ -1,0 +1,194 @@
+Введём, следуя~\cite[p. 131, prop. 2.b.2]{lindenstrauss1979classical},
+на $\ell_\infty$ оператор
+\begin{equation}
+	\sigma_{1/n} x = n^{-1}
+	\left(
+		\sum_{i=1}^{n} x_i,
+		\sum_{i=n+1}^{2n} x_i,
+		\sum_{i=2n+1}^{3n} x_i,
+		...
+	\right).
+\end{equation}
+
+Понятно, что если последовательность $x$~--- периодическая с периодом $n$,
+то $\alpha(\sigma_{1/n}x)=0$.
+Значит, оценить $\alpha(\sigma_{1/n}x)$ снизу через $\alpha(x)$ не удастся.
+
+Для построения верхней оценки нам потребуется следующая
+
+\begin{lemma}
+	\label{thm:distance_from_average}
+	Пусть $a=\frac{a_1+...+a_n}{n}$, $a_1 \leq ... \leq a_n$.
+	Тогда $a_n - a \leq \frac{n-1}{n} (a_n - a_1)$.
+\end{lemma}
+
+\begin{proof}
+	\begin{multline}
+		a_n - a = a_n - \frac{a_1+...+a_n}{n}
+		=
+		\frac{n-1}{n}a_n - \frac{a_1+...+a_{n-1}}{n}
+		\leq
+		\\\leq
+		\frac{n-1}{n}a_n - \frac{(n-1)a_1}{n}
+		=
+		\frac{n-1}{n}(a_n - a_1)
+		.
+	\end{multline}
+\end{proof}
+
+\begin{theorem}
+	\label{thm:alpha_sigma_1_n}
+	Для любого $n\in\mathbb{N}$ и любого $x\in\ell_\infty$ выполнено
+	\begin{equation}
+		\alpha(\sigma_{1/n} x) \leq \left( 2- \frac{1}{n} \right) \alpha(x)
+		.
+	\end{equation}
+\end{theorem}
+
+\begin{proof}
+	Положим
+	\begin{equation}
+		\alpha_i(x) =
+		\max_{i<j\leqslant 2i} |x_i - x_j| =
+		\max_{i\leqslant j\leqslant 2i} |x_i - x_j|
+		.
+	\end{equation}
+	Тогда
+	\begin{equation}
+		\alpha(x) = \varlimsup_{i\to\infty} \alpha_i(x)
+		.
+	\end{equation}
+	Пусть $y=\sigma_n \sigma_{1/n} x$.
+	Из теоремы~\ref{thm:alpha_sigma_n} следует, что $\alpha(\sigma_{1/n} x)=\alpha(y)$.
+	Сосредоточим наши усилия на оценке $\alpha(y)$.
+
+	Пусть $1\leq j \leq n$.
+	Заметим, что
+	\begin{multline}
+		\alpha_{kn+j}(y)
+		=
+		\max_{kn+j \leq i \leq 2kn+2j } |y_{kn+j} - y_i|
+		=
+		\\=
+		\mbox{(т.к. $y_{kn+j}=y_{kn+1}=y_{kn+n} = (\sigma_{1/n}x)_k$)}
+		=
+		\\=
+		\max_{kn+n \leq i \leq 2kn+2j } |y_{kn+n} - y_i|
+		\leq
+		\\\leq
+		\mbox{(переходим к максимуму по не меньшему множеству)}
+		\leq
+		\\\leq
+		\max_{kn+n \leq i \leq 2kn+2n } |y_{kn+n} - y_i|
+		=
+		\alpha_{kn+n}(y)
+		.
+	\end{multline}
+
+	Итак, $\alpha_{kn+j}(y) \leq \alpha_{kn+n}(y)$,
+	значит,
+	\begin{equation}
+		\label{eq:alpha_sigma_1_n_subseq_limsup}
+		\alpha(\sigma_{1/n}x) = \alpha(y) = \varlimsup_{i\to\infty} \alpha_i(y)
+		=
+		\varlimsup_{k\to\infty} \alpha_{kn+n}(y)
+		.
+	\end{equation}
+
+	По лемме~\ref{thm:distance_from_average} имеем
+	\begin{multline}
+		\label{eq:alpha_sigma_1_n_distance}
+		|x_{kn+n}-y_{kn+n}|
+		\leq
+		\frac{n-1}{n}\max_{1\leq i<j \leq n}|x_{kn+i}-x_{kn+j}|
+		\leq
+		\\\leq
+		\frac{n-1}{n} \max_{1\leq i \leq n} \alpha_{kn+i}(x)
+		=
+		\frac{n-1}{n}\alpha_{kn+i_k}(x)
+		.
+	\end{multline}
+
+	Из того, что $y_j = \frac{1}{n}(x_{kn+1}+...+x_{kn+n})$,
+	следует, что
+	\begin{equation}
+		\label{eq:alpha_sigma_1_n_alpha_x}
+		\max_{kn+n \leq i \leq 2kn+2n } |x_{kn+n} - y_i|
+		\leq
+		\max_{kn+n \leq i \leq 2kn+2n } |x_{kn+n} - x_i|
+		=
+		\alpha_{kn+n}(x)
+		.
+	\end{equation}
+
+	Оценим:
+	\begin{multline}
+		\alpha_{kn+n}(y)
+		=
+		\max_{kn+n \leq i \leq 2kn+2n } |y_{kn+n} - y_i|
+		=
+		\\=
+		\max_{kn+n \leq i \leq 2kn+2n } |y_{kn+n} - x_{kn+n} + x_{kn+n} - y_i|
+		\leq
+		\\\leq
+		|y_{kn+n} - x_{kn+n}| + \max_{kn+n \leq i \leq 2kn+2n } |x_{kn+n} - y_i|
+		\mathop{\leq}^{\eqref{eq:alpha_sigma_1_n_distance}}
+		\\\leq
+		\frac{n-1}{n} \alpha_{kn+i_k}(x) + \max_{kn+n \leq i \leq 2kn+2n } |x_{kn+n} - y_i|
+		\mathop{\leq}^{\eqref{eq:alpha_sigma_1_n_alpha_x}}
+		\frac{n-1}{n} \alpha_{kn+i_k}(x)+\alpha_{kn+n}(x)
+		.
+	\end{multline}
+
+	С учётом~\eqref{eq:alpha_sigma_1_n_subseq_limsup} имеем
+	\begin{multline}
+		\alpha(\sigma_{1/n}x)
+		=
+		\varlimsup_{k\to\infty} \alpha_{kn+n}(y)
+		\leq
+		\\\leq
+		\varlimsup_{k\to\infty} \left( \frac{n-1}{n} \alpha_{kn+i_k}(x)+\alpha_{kn+n}(x) \right)
+		=
+		\left(2-\frac{1}{n}\right)\alpha(x)
+		.
+	\end{multline}
+\end{proof}
+
+Точность теоремы~\ref{thm:alpha_sigma_1_n} для $n=1$ очевидна.
+Для $n=2$ её показывает
+\begin{example}
+	Положим для всех $p\in\mathbb{N}$:
+	\begin{equation}
+		x_k=\begin{cases}
+			0, & k \leq 2^3, \\
+			0, & k = 2^{3p}+1, \\
+			1, & k = 2^{3p}+2, \\
+			1, & 2^{3p}+3 \leq k \leq 2^{3p+1}+2, \\
+			2, & 2^{3p+1}+3 \leq k \leq 2^{3p+1}+4, \\
+			1, & 2^{3p+1}+5 \leq k \leq 2^{3(p+1)},
+		\end{cases}
+	\end{equation}
+	тогда
+	\begin{equation}
+		(\sigma_{1/2}x)_k=\begin{cases}
+			0, & k \leq 2^3, \\
+			1/2, & k = 2^{3p}+1, \\
+			1/2, & k = 2^{3p}+2, \\
+			1, & 2^{3p}+3 \leq k \leq 2^{3p+1}+2, \\
+			2, & 2^{3p+1}+3 \leq k \leq 2^{3p+1}+4, \\
+			1, & 2^{3p+1}+5 \leq k \leq 2^{3(p+1)}.
+		\end{cases}
+	\end{equation}
+	%\begin{table}
+	%	\begin{tabular}{c||c|c|c|c|c|c|}
+	%		\hline
+	%		$k$     & $0..2^3$ & $2^{3p}+1$ & $2^{3p}+2$ & $2^{3p}+3 .. 2^{3p+1}+2$ & $2^{3p+1}+3 .. 2^{3p+1}+4 $ & $2^{3p+1}+5 .. 2^{3(p+1)}$ \\
+	%	\end{tabular}
+	%\end{table}
+	Очевидно, что $\alpha(x)=1$, но $\alpha(\sigma_{1/2}x)=3/2$
+	(достигается на $i=2^{3p}+2$, $j=2^{3p+1}+4$).
+\end{example}
+
+\begin{hypothesis}
+	Оценка теоремы~\ref{thm:alpha_sigma_1_n} точна для любого $n\in\mathbb{N}$.
+\end{hypothesis}
