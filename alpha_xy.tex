@@ -1,0 +1,58 @@
+Введём на пространстве $\ell_\infty$ фактор-норму по $c_0$:
+
+TODO: надо ссылку на классиков?
+
+\begin{equation}
+	\|x\|_* = \limsup_{k\to\infty} |x_k|
+	.
+\end{equation}
+
+\begin{theorem}
+	Пусть $(x\cdot y)_k = x_k\cdot y_k$.
+	Тогда
+	$\alpha(x\cdot y)\leq \alpha(x)\cdot \|y\|_* + \alpha(y)\cdot \|x\|_*$.
+\end{theorem}
+
+\begin{proof}
+	\begin{multline}
+		\alpha(x\cdot y)
+		=
+		\limsup_{i\to\infty} \max_{i\leq j \leq 2i} |x_i y_i - x_j y_j|
+		=
+		\limsup_{i\to\infty} \max_{i\leq j \leq 2i} |x_i y_i - x_j y_i + x_j y_i - x_j y_j|
+		\leq
+		\\ \leq
+		\limsup_{i\to\infty} \max_{i\leq j \leq 2i} \left(|x_i y_i - x_j y_i| + |x_j y_i - x_j y_j| \right)
+		=
+		\\=
+		\limsup_{i\to\infty} \max_{i\leq j \leq 2i} \left(|y_i|\cdot|x_i - x_j| + |x_j|\cdot|y_i - y_j| \right)
+		\leq
+		\\ \leq
+		\limsup_{i\to\infty} \max_{i\leq j \leq 2i} |y_i|\cdot|x_i - x_j| + \limsup_{i\to\infty} \max_{i\leq j \leq 2i}|x_j|\cdot|y_i - y_j|
+		=
+		\\ =
+		\limsup_{i\to\infty} |y_i| \max_{i\leq j \leq 2i} \cdot|x_i - x_j| + \limsup_{i\to\infty} \max_{i\leq j \leq 2i}|x_j|\cdot|y_i - y_j|
+		\leq
+		\\ \leq
+		\limsup_{i\to\infty} |y_i| \cdot \limsup_{i\to\infty} \max_{i\leq j \leq 2i} \cdot|x_i - x_j| + \limsup_{i\to\infty} \max_{i\leq j \leq 2i}|x_j|\cdot|y_i - y_j|
+		=
+		\\ =
+		\|y\|_* \cdot \limsup_{i\to\infty} \max_{i\leq j \leq 2i} \cdot|x_i - x_j| + \limsup_{i\to\infty} \max_{i\leq j \leq 2i}|x_j|\cdot|y_i - y_j|
+		=
+		\\ =
+		\|y\|_* \cdot \alpha(x) + \limsup_{i\to\infty} \max_{i\leq j \leq 2i}|x_j|\cdot|y_i - y_j|
+		\leq
+		\\ \leq
+		\|y\|_* \cdot \alpha(x) + \limsup_{i\to\infty} \max_{i\leq j \leq 2i}|x_j|\cdot\limsup_{i\to\infty} \max_{i\leq j \leq 2i}|y_i - y_j|
+		=
+		\\ =
+		\|y\|_* \cdot \alpha(x) + \limsup_{i\to\infty} \max_{i\leq j \leq 2i}|x_j|\cdot \alpha(y)
+		\leq
+		\\ \leq
+		\|y\|_* \cdot \alpha(x) + \limsup_{j\to\infty} |x_j|\cdot \alpha(y)
+		=
+		%\\ =
+		\|y\|_* \cdot \alpha(x) + \|x\|_* \cdot \alpha(y)
+		.
+	\end{multline}
+\end{proof}
