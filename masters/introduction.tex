@@ -63,23 +63,24 @@ $T$~--- оператор сдвига: $T(x_1, x_2, x_3, ...) = (x_2, x_3, ...)$
 Обобщая критерий Лоренца, Сачестон \cite{sucheston1967banach} доказал, что для любого $x\in\ell_\infty$
 и любого $B\in\mathfrak{B}$
 \begin{equation*}
-	p(x) = \varliminf_{n\to\infty} \frac{1}{n} \sum_{k=m+1}^{k=m+n} x_k
+	q(x) =
+	\lim_{n\to\infty} \sup_{m\in\mathbb{N}} \frac{1}{n} \sum_{k=m+1}^{k=m+n} x_k
 	\leq
 	Bx
 	\leq
-	\varlimsup_{n\to\infty} \frac{1}{n} \sum_{k=m+1}^{k=m+n} x_k
-	= q(x)
+	\lim_{n\to\infty} \inf_{m\in\mathbb{N}} \frac{1}{n} \sum_{k=m+1}^{k=m+n} x_k
+	= p(x)
 \end{equation*}
 и, более того,
 \begin{equation*}
-	\mathfrak{B}x = [p(x), q(x)]
+	\mathfrak{B}x = [q(x), p(x)]
 	.
 \end{equation*}
 
 Таким образом, на вопрос: <<Насколько не сходится последовательность?>>~---
 можно давать ответ в терминах почти сходимости, т.е. принадлежности пространству $ac$,
 а на вопрос: <<Насколько почти не сходится последовательность?>>~---
-назвать длину отрезка $[p(x), q(x)]$.
+назвать длину отрезка $[q(x), p(x)]$.
 В дальнейшем пространство почти сходящихся последовательностей неоднократно становилось предметом
 различных исследований
 \cite{semenov2006space,usachev2008transformations}.
