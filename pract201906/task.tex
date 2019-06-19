@@ -1,0 +1,79 @@
+\documentclass[a4paper,openbib]{report}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{amsfonts,amssymb}
+\usepackage{latexsym}
+\usepackage{euscript}
+\usepackage{enumerate}
+\usepackage{graphics}
+\usepackage[dvips]{graphicx}
+\usepackage{geometry}
+\usepackage{wrapfig}
+\usepackage[colorlinks=true,allcolors=black]{hyperref}
+
+
+
+\righthyphenmin=2
+
+\usepackage[14pt]{extsizes}
+
+\geometry{left=3cm}% левое поле
+\geometry{right=1cm}% правое поле
+\geometry{top=2cm}% верхнее поле
+\geometry{bottom=2cm}% нижнее поле
+
+\renewcommand{\baselinestretch}{1.3}
+
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant} % И делись оно всё нулём!
+
+\newcommand{\longcomment}[1]{}
+
+\usepackage[backend=biber,style=gost-numeric,sorting=none]{biblatex}
+\addbibresource{../bib/Semenov.bib}
+\addbibresource{../bib/my.bib}
+\addbibresource{../bib/ext.bib}
+
+\begin{document}
+\clubpenalty=10000
+\widowpenalty=10000
+
+\centering{
+	{\large\bf Программа}
+	\\
+	производственной практики студента Авдеева Н.Н.
+}
+
+\begin{enumerate}
+	\item
+		Изучить статью~\cite{connor1990almost}.
+	\item
+		Изучить \S 5 статьи~\cite{Semenov2014geomprops}.
+	\item
+		Обобщить методы, предложенные в~\cite{connor1990almost},
+		для нахождения вероятностной меры множества
+		$F=\{x\in\Omega : q(x) = 0 \wedge p(x)= 1\}$,
+		где $p(x)$ и $q(x)$~--- верхний и нижний функционалы Сачестона~\cite{sucheston1967banach} соответственно,
+		$\Omega=\{0,1\}^\mathbb{N}$.
+	\item
+		Выяснить условия существования предела (3) в лемме 1 статьи~\cite{our-mz2019ac0}.
+	\item
+		Пусть для $x\in\ell_\infty$
+		$$
+			\alpha(x) = \varlimsup_{i\to\infty} \max_{i < j \leq 2i} |x_i-x_j|
+			.
+		$$
+
+		Получить оценки на $\alpha(\sigma_{1/n} x)$
+		(в обозначениях \cite{Semenov2010invariant},~\cite[p. 131, prop. 2.b.2]{lindenstrauss1979classical})
+		через $\alpha(x)$ и исследовать их точность.
+\end{enumerate}
+
+\vspace{-3em}
+\begingroup
+	\let\clearpage\relax
+	\printbibliography[title={\large Список литературы}]
+\endgroup
+
+\end{document}

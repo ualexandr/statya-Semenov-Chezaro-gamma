@@ -1,0 +1,87 @@
+\documentclass[a4paper,openbib]{report}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{amsfonts,amssymb}
+\usepackage{latexsym}
+\usepackage{euscript}
+\usepackage{enumerate}
+\usepackage{graphics}
+\usepackage[dvips]{graphicx}
+\usepackage{geometry}
+\usepackage{wrapfig}
+\usepackage[colorlinks=true,allcolors=black]{hyperref}
+
+
+
+\righthyphenmin=2
+
+\usepackage[14pt]{extsizes}
+
+\geometry{left=3cm}% левое поле
+\geometry{right=1cm}% правое поле
+\geometry{top=2cm}% верхнее поле
+\geometry{bottom=2cm}% нижнее поле
+
+\renewcommand{\baselinestretch}{1.3}
+
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant} % И делись оно всё нулём!
+
+\newcommand{\longcomment}[1]{}
+
+\usepackage[backend=biber,style=gost-numeric,sorting=none]{biblatex}
+\addbibresource{../bib/Semenov.bib}
+\addbibresource{../bib/my.bib}
+\addbibresource{../bib/ext.bib}
+
+\begin{document}
+\clubpenalty=10000
+\widowpenalty=10000
+
+\begin{center}
+	\begin{tabular}{|c|l|}
+		\hline
+		\textbf{Дни практики} & \textbf{Содержание} \\
+		\hline
+		24.04--26.04 & Изучение статьи~\cite{connor1990almost} \\
+		29.04--30.04 & \\
+		\hline
+		06.05--08.05 & Доказательство равенства \\
+		             & $\mu (\{x\in\{0;1\}^\mathbb{N} : q(x) = 0 \wedge p(x)= 1\})=1$ \\
+		\hline
+		13.05--17.05 & Изучение \S 5 статьи~\cite{Semenov2014geomprops}, а также необходимых определений и\\
+		             &  утверждений из \S\S 1--4 статьи~\cite{Semenov2014geomprops} \\
+		\hline
+		20.05--24.05 & Доказательство существования предела (3) \\
+		             & в лемме 1 статьи~\cite{our-mz2019ac0} \\
+		\hline
+		27.05--31.05 & Доказательство оценки $\alpha(\sigma_{1/n} x) \leq \left( 2- \frac{1}{n} \right) \alpha(x)$ \\
+		\hline
+		03.06--06.06 & Построение примера, показывающего точность оценки \\
+					 & $\alpha(\sigma_{1/n} x) \leq \left( 2- \frac{1}{n} \right) \alpha(x)$
+					   для $n=2$ \\
+		\hline
+	\end{tabular}
+\end{center}
+
+\begingroup
+	\let\clearpage\relax
+	\printbibliography[title={\large Список литературы}]
+\endgroup
+
+\vspace{1em}
+
+Студент \underline{~~~~~~~~~} Авдеев Н.Н.
+
+\vspace{2em}
+
+По результатам практики рекомендую оценку <<отлично>>.
+
+\vspace{1em}
+
+Научный руководитель \underline{~~~~~~~~~} д.ф.-м.н., проф. Каменский М.И.
+
+
+
+\end{document}
