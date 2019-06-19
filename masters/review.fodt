@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <office:document xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rpt="http://openoffice.org/2005/report" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:officeooo="http://openoffice.org/2009/office" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:drawooo="http://openoffice.org/2010/draw" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:loext="urn:org:documentfoundation:names:experimental:office:xmlns:loext:1.0" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:css3t="http://www.w3.org/TR/css3-text/" office:version="1.2" office:mimetype="application/vnd.oasis.opendocument.text">
- <office:meta><meta:initial-creator>Долгополов Игорь Владимирович</meta:initial-creator><meta:creation-date>2018-10-04T09:21:00</meta:creation-date><dc:creator>Хальзов Сергей Алексеевич</dc:creator><dc:date>2018-10-04T09:21:00</dc:date><meta:editing-cycles>2</meta:editing-cycles><meta:generator>LibreOffice/5.1.6.2$Linux_X86_64 LibreOffice_project/10m0$Build-2</meta:generator><meta:template xlink:type="simple" xlink:actuate="onRequest" xlink:title="Normal.dotm" xlink:href=""/></office:meta>
+ <office:meta><meta:initial-creator>Долгополов Игорь Владимирович</meta:initial-creator><meta:creation-date>2018-10-04T09:21:00</meta:creation-date><dc:date>2019-06-19T16:43:13.279671014</dc:date><meta:editing-cycles>3</meta:editing-cycles><meta:generator>LibreOffice/5.1.6.2$Linux_X86_64 LibreOffice_project/10m0$Build-2</meta:generator><meta:editing-duration>PT55M</meta:editing-duration><meta:document-statistic meta:table-count="0" meta:image-count="0" meta:object-count="0" meta:page-count="2" meta:paragraph-count="18" meta:word-count="139" meta:character-count="1293" meta:non-whitespace-character-count="1145"/><meta:template xlink:type="simple" xlink:actuate="onRequest" xlink:title="Normal.dotm" xlink:href=""/></office:meta>
  <office:settings>
   <config:config-item-set config:name="ooo:view-settings">
-   <config:config-item config:name="ViewAreaTop" config:type="long">0</config:config-item>
+   <config:config-item config:name="ViewAreaTop" config:type="long">5198</config:config-item>
    <config:config-item config:name="ViewAreaLeft" config:type="long">0</config:config-item>
    <config:config-item config:name="ViewAreaWidth" config:type="long">29251</config:config-item>
-   <config:config-item config:name="ViewAreaHeight" config:type="long">12846</config:config-item>
+   <config:config-item config:name="ViewAreaHeight" config:type="long">12845</config:config-item>
    <config:config-item config:name="ShowRedlineChanges" config:type="boolean">true</config:config-item>
    <config:config-item config:name="InBrowseMode" config:type="boolean">false</config:config-item>
    <config:config-item-map-indexed config:name="Views">
     <config:config-item-map-entry>
      <config:config-item config:name="ViewId" config:type="string">view2</config:config-item>
-     <config:config-item config:name="ViewLeft" config:type="long">14115</config:config-item>
-     <config:config-item config:name="ViewTop" config:type="long">2501</config:config-item>
+     <config:config-item config:name="ViewLeft" config:type="long">22846</config:config-item>
+     <config:config-item config:name="ViewTop" config:type="long">6893</config:config-item>
      <config:config-item config:name="VisibleLeft" config:type="long">0</config:config-item>
-     <config:config-item config:name="VisibleTop" config:type="long">0</config:config-item>
+     <config:config-item config:name="VisibleTop" config:type="long">5198</config:config-item>
      <config:config-item config:name="VisibleRight" config:type="long">29249</config:config-item>
-     <config:config-item config:name="VisibleBottom" config:type="long">12845</config:config-item>
+     <config:config-item config:name="VisibleBottom" config:type="long">18041</config:config-item>
      <config:config-item config:name="ZoomType" config:type="short">0</config:config-item>
      <config:config-item config:name="ViewLayoutColumns" config:type="short">0</config:config-item>
      <config:config-item config:name="ViewLayoutBookMode" config:type="boolean">false</config:config-item>
@@ -316,6 +316,7 @@
   </style:style>
   <style:style style:name="P2" style:family="paragraph" style:parent-style-name="Standard">
    <style:paragraph-properties fo:margin-left="0.353cm" fo:margin-right="0.353cm" fo:margin-top="0.494cm" fo:margin-bottom="0.494cm" loext:contextual-spacing="false" fo:line-height="120%" fo:text-align="justify" style:justify-single-word="false" fo:text-indent="0cm" style:auto-text-indent="false"/>
+   <style:text-properties officeooo:paragraph-rsid="001b8522"/>
   </style:style>
   <style:style style:name="P3" style:family="paragraph" style:parent-style-name="Standard">
    <style:paragraph-properties fo:margin-left="0.353cm" fo:margin-right="0.353cm" fo:margin-top="0.494cm" fo:margin-bottom="0.494cm" loext:contextual-spacing="false" fo:line-height="120%" fo:text-indent="0cm" style:auto-text-indent="false"/>
@@ -323,7 +324,7 @@
   </style:style>
   <style:style style:name="P4" style:family="paragraph" style:parent-style-name="Standard">
    <style:paragraph-properties fo:margin-left="0.353cm" fo:margin-right="0.353cm" fo:margin-top="0.494cm" fo:margin-bottom="0.494cm" loext:contextual-spacing="false" fo:line-height="120%" fo:text-align="center" style:justify-single-word="false" fo:text-indent="0cm" style:auto-text-indent="false"/>
-   <style:text-properties fo:color="#000000" style:font-name="Times New Roman" fo:font-size="14pt" style:font-name-asian="Times New Roman" style:font-size-asian="14pt" style:language-asian="ru" style:country-asian="RU" style:font-name-complex="Times New Roman" style:font-size-complex="14pt"/>
+   <style:text-properties fo:color="#000000" style:font-name="Times New Roman" fo:font-size="14pt" officeooo:paragraph-rsid="001b8522" style:font-name-asian="Times New Roman" style:font-size-asian="14pt" style:language-asian="ru" style:country-asian="RU" style:font-name-complex="Times New Roman" style:font-size-complex="14pt"/>
   </style:style>
   <style:style style:name="P5" style:family="paragraph" style:parent-style-name="Standard" style:master-page-name="Standard">
    <style:paragraph-properties fo:margin-left="0.353cm" fo:margin-right="0.353cm" fo:margin-top="0cm" fo:margin-bottom="0.282cm" loext:contextual-spacing="false" fo:line-height="120%" fo:text-align="center" style:justify-single-word="false" fo:text-indent="0cm" style:auto-text-indent="false" style:page-number="auto"/>
@@ -374,10 +375,22 @@
    <style:text-properties fo:color="#000000" style:font-name="Times New Roman" fo:font-size="14pt" style:font-name-asian="Times New Roman" style:font-size-asian="14pt" style:language-asian="ru" style:country-asian="RU" style:font-name-complex="Times New Roman" style:font-size-complex="14pt"/>
   </style:style>
   <style:style style:name="T3" style:family="text">
-   <style:text-properties fo:color="#000000" style:font-name="Times New Roman" fo:font-size="14pt" fo:font-style="italic" style:font-name-asian="Times New Roman" style:font-size-asian="14pt" style:language-asian="ru" style:country-asian="RU" style:font-style-asian="italic" style:font-name-complex="Times New Roman" style:font-size-complex="14pt"/>
+   <style:text-properties fo:color="#000000" style:font-name="Times New Roman" fo:font-size="14pt" officeooo:rsid="0006c7c6" style:font-name-asian="Times New Roman" style:font-size-asian="14pt" style:language-asian="ru" style:country-asian="RU" style:font-name-complex="Times New Roman" style:font-size-complex="14pt"/>
   </style:style>
   <style:style style:name="T4" style:family="text">
+   <style:text-properties fo:color="#000000" style:font-name="Times New Roman" fo:font-size="14pt" fo:font-style="italic" style:font-name-asian="Times New Roman" style:font-size-asian="14pt" style:language-asian="ru" style:country-asian="RU" style:font-style-asian="italic" style:font-name-complex="Times New Roman" style:font-size-complex="14pt"/>
+  </style:style>
+  <style:style style:name="T5" style:family="text">
    <style:text-properties fo:color="#000000" style:font-name="Times New Roman" fo:font-size="14pt" style:font-name-asian="Arial Unicode MS" style:font-size-asian="14pt" style:language-asian="ru" style:country-asian="RU" style:font-name-complex="Times New Roman" style:font-size-complex="14pt"/>
+  </style:style>
+  <style:style style:name="T6" style:family="text">
+   <style:text-properties fo:color="#000000" style:font-name="Times New Roman" fo:font-size="14pt" fo:font-style="normal" style:font-name-asian="Times New Roman" style:font-size-asian="14pt" style:language-asian="ru" style:country-asian="RU" style:font-style-asian="normal" style:font-name-complex="Times New Roman" style:font-size-complex="14pt" style:font-style-complex="normal"/>
+  </style:style>
+  <style:style style:name="T7" style:family="text">
+   <style:text-properties fo:color="#000000" style:font-name="Times New Roman" fo:font-size="14pt" style:font-name-asian="Times New Roman" style:font-size-asian="14pt" style:language-asian="ru" style:country-asian="RU" style:font-name-complex="Times New Roman" style:font-size-complex="14pt"/>
+  </style:style>
+  <style:style style:name="T8" style:family="text">
+   <style:text-properties officeooo:rsid="001b8522"/>
   </style:style>
   <style:page-layout style:name="pm1">
    <style:page-layout-properties fo:page-width="21.001cm" fo:page-height="29.7cm" style:num-format="1" style:print-orientation="portrait" fo:margin-top="2cm" fo:margin-bottom="2cm" fo:margin-left="2.501cm" fo:margin-right="0.998cm" style:writing-mode="lr-tb" style:layout-grid-color="#c0c0c0" style:layout-grid-lines="40" style:layout-grid-base-height="0.635cm" style:layout-grid-ruby-height="0cm" style:layout-grid-mode="none" style:layout-grid-ruby-below="false" style:layout-grid-print="false" style:layout-grid-display="false" style:layout-grid-base-width="0.388cm" style:layout-grid-snap-to="true" style:footnote-max-height="0cm">
@@ -400,8 +413,8 @@
     <text:sequence-decl text:display-outline-level="0" text:name="Drawing"/>
    </text:sequence-decls>
    <text:p text:style-name="P5">рецензия</text:p>
-   <text:p text:style-name="P2"><text:span text:style-name="T2">на ВКР &lt;</text:span><text:span text:style-name="T3">дипломную работу, магистерскую диссертацию&gt;</text:span><text:span text:style-name="T2"> &lt;</text:span><text:span text:style-name="T3">фамилия, имя, отчество обучающегося</text:span><text:span text:style-name="T2">&gt;, обучающегося по направлению подготовки / специальности &lt;</text:span><text:span text:style-name="T3">код, наименование направления подготовки / специальности</text:span><text:span text:style-name="T2">&gt; на факультете &lt;</text:span><text:span text:style-name="T3">название факультета</text:span><text:span text:style-name="T2">&gt; Воронежского государственного университета на тему </text:span></text:p>
-   <text:p text:style-name="P4">«__________________________________________________________»</text:p>
+   <text:p text:style-name="P2"><text:span text:style-name="T2">на </text:span><text:span text:style-name="T6">магистерскую диссертацию</text:span><text:span text:style-name="T2"> </text:span><text:span text:style-name="T3">Авдеева Николая Николаевича</text:span><text:span text:style-name="T2">, обучающегося по направлению подготовки </text:span><text:span text:style-name="T2">02.04.01 Математика и компьютерные науки</text:span><text:span text:style-name="T2"> на </text:span><text:span text:style-name="T3">математическом </text:span><text:span text:style-name="T2">факультете Воронежского государственного университета на тему </text:span></text:p>
+   <text:p text:style-name="P4">«<text:span text:style-name="T8">Асимптотические характеристики ограниченных последовательностей</text:span>»</text:p>
    <text:p text:style-name="P3">В рецензии должны быть отражены:</text:p>
    <text:list xml:id="list5262819703074130463" text:style-name="WW8Num1">
     <text:list-item>
@@ -432,15 +445,15 @@
    <text:p text:style-name="P6">Рецензент <text:tab/>_____________________________________________________________</text:p>
    <text:p text:style-name="P9">должность, ученая степень, ученое звание</text:p>
    <text:p text:style-name="P8"/>
-   <text:p text:style-name="P13"><text:span text:style-name="T3">_______________________ <text:s text:c="23"/><text:tab/><text:tab/> <text:s/>__</text:span><text:span text:style-name="T2">.__.20__</text:span></text:p>
+   <text:p text:style-name="P13"><text:span text:style-name="T4">_______________________ <text:s text:c="23"/><text:tab/><text:tab/> <text:s/>__</text:span><text:span text:style-name="T2">.__.20__</text:span></text:p>
    <text:p text:style-name="P14">подпись, расшифровка подписи</text:p>
    <text:p text:style-name="P1"/>
    <text:p text:style-name="Standard"/>
    <text:p text:style-name="Standard"/>
    <text:p text:style-name="Standard"/>
    <text:p text:style-name="Standard"/>
-   <text:p text:style-name="P15"><text:soft-page-break/>Примечание 1. Рецензия дается только на дипломную работу специалиста или магистерскую диссертацию.</text:p>
-   <text:p text:style-name="P15">Примечание 2. Для рецензентов сторонних организаций необходимо заверить подпись рецензента по основному месту работы.</text:p>
+   <text:p text:style-name="P15">Примечание 1. Рецензия дается только на дипломную работу специалиста или магистерскую диссертацию.</text:p>
+   <text:p text:style-name="P15"><text:soft-page-break/>Примечание 2. Для рецензентов сторонних организаций необходимо заверить подпись рецензента по основному месту работы.</text:p>
   </office:text>
  </office:body>
 </office:document>
