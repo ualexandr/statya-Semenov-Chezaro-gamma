@@ -1,0 +1,339 @@
+\documentclass[10pt,pdf,hyperref={unicode}]{beamer}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{amsfonts}
+\usepackage{amsfonts,amssymb}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{euscript}
+\usepackage{enumerate}
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{wrapfig}
+
+\usepackage{bbm}
+
+\righthyphenmin=2
+
+
+
+\usepackage[backend=biber,style=gost-numeric,sorting=none]{biblatex}
+\addbibresource{../bib/Semenov.bib}
+\addbibresource{../bib/my.bib}
+\addbibresource{../bib/ext.bib}
+
+\input{../bib/ext.hyphens.bib}
+
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{llemma}{Лемма}
+\newtheorem{ttheorem}[llemma]{Теорема}
+\newtheorem{eexample}[llemma]{Пример}
+\newtheorem{property}[llemma]{Свойство}
+\newtheorem{remark}[llemma]{Замечание}
+\newtheorem{ccorollary}{Следствие}[llemma]
+
+
+%\usetheme{Antibes}
+\usefonttheme{professionalfonts} % using non standard fonts for beamer
+\usefonttheme[onlymath]{serif} % default family is serif
+%\usepackage{fontspec}
+%\setmainfont{Liberation Serif}
+\begin{document}
+
+
+\title{Асимптотические характеристики \\ ограниченных последовательностей}
+\author{Выполнил: Авдеев Н.Н. \\ Научный руководитель: д.ф.-м.н., проф. Каменский М.И.}
+\institute{ Воронежский Государственный Университет \\ Кафедра функционального анализа и операторных уравнений}
+\date{Воронеж 2019}
+
+\maketitle
+
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{navigation symbols}{}
+
+\begin{frame}
+	\frametitle{Пространство $\ell_\infty$}
+	$\ell_\infty$~--- пространство всех ограниченных последовательностей
+	$x=(x_1, x_2, ..., x_n, ...)$
+	с нормой
+	$$
+		\|x\|_{\ell_\infty} = \sup_{k\in\mathbb{N}} |x_k|
+	$$
+	{Свойства:}
+
+	\begin{itemize}
+		\item
+			$\ell_\infty$~--- линейное пространство над полем $\mathbb{R}$
+		\item
+			$\ell_\infty$  несепарабельно
+		\item
+			$\ell_1 \subset \ell_2 \subset \dots \subset \ell_\infty$
+		\item
+			$\ell_1^* = \ell_\infty$
+		\item
+			$\ell_\infty^* \neq \ell_1$
+	\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Банаховы пределы}
+	Банаховым пределом называется функционал $B\in \ell_\infty^*$ такой, что:
+	\begin{enumerate}
+		\item
+			$B \geqslant 0$
+		\item
+			$B\mathbbm{1} = 1$
+		\item
+			$B=BT$
+	\end{enumerate}
+	Здесь $\mathbbm{1}=(1,1,1,1,1,...)$,
+	$T$~--- оператор сдвига: $T(x_1, x_2, x_3, ...) = (x_2, x_3, ...)$.
+
+	Простейшие свойства:
+	\begin{itemize}
+		\item
+			$\|B\|_{\ell_\infty^*} = 1$
+		\item
+			$Bx = \lim_{n\to\infty} x_n$ для любого $x=(x_1, x_2, ...) \in c$,
+			\\
+			где $c$~--- множество сходящихся последовательностей.
+
+			Таким образом,
+			банахов предел~--- естественное обобщение понятия предела сходящейся последовательности
+			на все ограниченные последовательности.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Теорема Лоренца}
+	Для заданного $r\in\mathbb{R}$ равенство $Bx=r$ выполнено для всех $B\in\mathfrak{B}$
+	тогда и только тогда, когда
+	\begin{equation*}
+		\lim_{n\to\infty} \frac{1}{n} \sum_{k=m+1}^{m+n} x_k = r
+	\end{equation*}
+	сходится равномерно по всем $m\in\mathbb{N}$.
+
+	Множество всех таких $x \in \ell_\infty$ обозначается $ac$.
+\end{frame}
+
+
+
+\begin{frame}
+	\frametitle{Критерий принадлежности $ac_0$~\cite{our-mz2019ac0}}
+
+
+	\begin{llemma}
+		Пусть $n_i$~--- строго возрастающая последовательность чисел из $\mathbb{N}$,
+		\begin{equation*}
+			x_k = \left\{\begin{array}{ll}
+				1, & \mbox{~если~} k = n_i
+				\\
+				0  & \mbox{~иначе.~}
+			\end{array}\right.
+		\end{equation*}
+		Для того, чтобы $x\in ac_0$,
+		необходимо и достаточно, чтобы
+		\begin{equation}\label{lim_M(j)/j}
+			\lim_{j \to \infty} \frac{M(j)}{j} = \infty
+			,
+		\end{equation}
+		где
+		\begin{equation*}
+			%\quad\mbox{~где~\quad}
+			M(j) = \liminf_{i\to\infty} (n_{i+j} - n_i)
+			.
+		\end{equation*}
+	\end{llemma}
+
+
+\end{frame}
+
+
+
+\begin{frame}
+	\frametitle{Критерий принадлежности $ac_0$~\cite{our-mz2019ac0}}
+
+
+	Определим нелинейный оператор $\lambda$--срезки $A_\lambda$
+	для $x = (x_1, x_2, ...)\in\ell_\infty$ как
+	\begin{equation*}
+		(A_\lambda x)_k = \begin{cases}
+			1, & \mbox{~если~} x_k \geq \lambda
+			\\
+			0  & \mbox{~иначе.~}
+		\end{cases}
+	\end{equation*}
+
+	\begin{ttheorem}
+		\label{thm:lambda_prelim}
+		Пусть $x\in\ell_\infty$, $x\geq 0$.
+		Тогда
+		$
+			x\in ac_0
+		$
+		если и только если
+		для любого $\lambda > 0$
+		выполнено
+		$
+			A_\lambda x \in ac_0
+		$
+		.
+	\end{ttheorem}
+
+\end{frame}
+
+
+
+\begin{frame}
+	\frametitle{Критерий принадлежности $ac_0$~\cite{our-mz2019ac0}}
+
+
+
+	\begin{ttheorem}
+		Пусть $x\in\ell_\infty$, $x \geq 0$,
+		\begin{equation*}
+			0<\lambda < \limsup_{k\to\infty} x_k
+			.
+		\end{equation*}
+		Пусть $\{k: x_k \geq \lambda \} = \{n(\lambda,1),n(\lambda,2),...\}$.
+		Обозначим
+		\begin{equation*}
+			M_{\lambda}(j) = \liminf_{i\to\infty} n(\lambda,i+j) - n(\lambda,i)
+			.
+		\end{equation*}
+		Для того, чтобы $x\in ac_0$, необходимо и достаточно, чтобы
+		для любого $\lambda>0$
+		\begin{equation*}
+			\lim_{j \to \infty} \frac{M_{\lambda}(j)}{j} = \infty
+			.
+		\end{equation*}
+	\end{ttheorem}
+
+
+	\begin{remark}
+		Требование произвольности $\lambda$ существенно.
+		Например, для $x_k = 1$ и $\lambda = 2$ имеем $A_\lambda x = 0 \in ac_0$,
+		но $x\notin ac_0$.
+	\end{remark}
+
+
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Функция $\alpha(x)$ и пространство $ac$~\cite{our-mz2019ac0}}
+	Пусть $\rho(x,c)$ и $\rho(x,c_0)$~--- расстояния от $x$ до пространств $c$
+	и $c_0$ соотв.
+	Легко видеть, что функция
+	\begin{equation*}
+		\alpha(x) = \limsup_{i\to\infty} \max_{i \leq j \leq 2i} |x_i-x_j|
+	\end{equation*}
+	удовлетворяет условию Липшица с константой 2
+	и для $x\in c$ выполнено
+	$\alpha(x)=0$.
+
+	\begin{llemma}
+	\label{thm:alpha_x_leq_2_rho_x_c}
+		Для любого $x\in\ell_\infty$
+		выполнено неравенство
+		$
+			\alpha(x) \leq 2\rho(x, c)
+		$.
+	\end{llemma}
+
+
+	\begin{llemma}
+	\label{thm:rho_x_c_leq_alpha_t_s_x}
+		Для любого $x\in ac$ и для любого натурального $s$ верно
+		$
+			\rho(x,c)\leq \alpha(T^s x)
+		$,
+	%	где $T$~--- оператор сдвига влево, т.е.
+	%	$T(x_1,x_2,...) = (x_2,x_3,...)$.
+	\end{llemma}
+
+	Обе оценки точны.
+	Условие $x\in ac$ существенно.
+
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Функция $\alpha(x)$ и пространство $ac$~\cite{our-mz2019ac0}}
+	\begin{ttheorem}
+	%\label{thm:rho_x_c_leq_alpha_t_s_x}
+		Для любого $x\in ac$
+		\begin{equation*}
+			\frac{1}{2} \alpha(x) \leq \rho(x,c)\leq \lim_{s\to\infty} \alpha(T^s x) \leq \alpha(x)
+			.
+		\end{equation*}
+	\end{ttheorem}
+
+	\begin{ccorollary}
+		Для любого $x\in ac_0$
+		\begin{equation*}
+			\frac{1}{2} \alpha(x) \leq \rho(x,c_0)\leq \lim_{s\to\infty} \alpha(T^s x) \leq \alpha(x)
+			.
+		\end{equation*}
+	\end{ccorollary}
+
+	Обе оценки точны~\cite{our-ped-2018-alpha-Tx}.
+
+	\begin{ccorollary}
+		Пусть $x\in ac$.
+		Тогда $x\in c$ если и только если $\alpha(x) = 0$.
+	\end{ccorollary}
+
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Инвариантные банаховы пределы~\cite{our-ped-2018-inf-dim-ker}}
+	\begin{llemma}
+		Пусть $Q:\ell_\infty \to \ell_\infty$.
+		Для того, чтобы для любого банахова предела $B$
+		было выполнено $BQ = B$,
+		необходимо и достаточно, чтобы
+		\begin{equation}\label{Avdeev_1_ac0}
+			I-Q : \ell_\infty \to ac_0,
+		\end{equation}
+		где $I$~--- тождественный оператор на $\ell_\infty$.
+	\end{llemma}
+
+	\begin{eexample}
+		\begin{equation*}
+			(Qx)_k =
+			\begin{cases}
+				0,~\mbox{если}~ k = 2^n, n \in\mathbb{N},
+				\\
+				x_k~\mbox{иначе.}
+			\end{cases}
+		\end{equation*}
+
+		Выполнено $\dim \ker Q = \infty$ и $Q$ удовлетворяет условию (\ref{Avdeev_1_ac0}).
+	\end{eexample}
+
+
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Опубликованные работы}
+	\printbibliography{}
+\end{frame}
+
+
+\begin{frame}
+	\huge\centering
+	Спасибо за внимание
+\end{frame}
+
+%%%%  ОФОРМЛЕНИЕ СПИСКА ЛИТЕРАТУРЫ %%%
+%\smallskip \centerline{\bf Литература}\nopagebreak
+
+%1. {\it Semenov E. M., Sukochev F. A.}
+% Invariant Banach limits and applications //Journal of Functional Analysis. – 2010. – Т. 259. – №. 6. – С. 1517-1541.
+
+\end{document}
