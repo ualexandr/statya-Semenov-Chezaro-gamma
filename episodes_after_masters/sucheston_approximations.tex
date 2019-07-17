@@ -1,0 +1,89 @@
+Определим на пространстве $\ell_\infty$ функционал
+\begin{equation}
+	F_{i,j} (x) =\frac{1}{i} \sum_{k=j+1}^{j+i} x_k
+	.
+\end{equation}
+
+Можно легко доказать следующее утверждение:
+
+\begin{lemma}
+	Для любых $x\in\ell_\infty$, $B\in\mathfrak{B}$ и $\varepsilon>0$ существуют такие $i$ и $j$,
+	что
+	\begin{equation}
+		\label{eq:sucheston_approx_epsilon}
+		|Bx - F_{i,j}(x)| < \varepsilon
+		.
+	\end{equation}
+\end{lemma}
+
+TODO: А надо ли это доказывать в свете того, что написано ниже?
+
+Однако, как выясняется, можно найти такие две последовательности $x$ и $y$,
+банахов предел $B$ и число $\varepsilon>0$, что <<общих>> индексов в предыдущей лемме найти не удастся.
+
+\begin{example}
+	Пусть
+	\begin{equation}
+		x_k = \begin{cases}
+			1, \mbox{~если~} 2^{2m} \leq k < 2^{2m} + m, m > 6
+			\\
+			0 \mbox{~иначе,~}
+		\end{cases}
+	\end{equation}
+	\begin{equation}
+		y_k = \begin{cases}
+			1, \mbox{~если~} 2^{2m+1} \leq k < 2^{2m+1} + m, m > 6
+			\\
+			0 \mbox{~иначе.}
+		\end{cases}
+	\end{equation}
+	Пусть $L = B|_{ac}$, где $B\in\mathfrak{B}$ ($L$, очевидно, не зависит от выбора $B$).
+	Непосредственно используя конструкции из доказательства теоремы Сачестона~\cite{sucheston1967banach},
+	можно последовательно продлить $L$ сначала на $A_1 = \operatorname{Lin}(ac, x)$
+	так, что $L(x) = 1 = p(x)$,
+	а затем и на $A_2 = \operatorname{Lin}(ac, x,y)$
+	так, что $L(y) = 1 = p(y)$
+	(это возможно, так как $y\notin A_1$).
+	Продлив $L$ на всё $\ell_\infty$ с сохранением неравенства $Lx\leq p(x)$,
+	мы получим банахов предел.
+	(Здесь мы обозначаем все продолжения функционала и полученный в результате банахов предел одной и той же буквой
+	для краткости.)
+
+	Пусть теперь $\varepsilon = 1/2$.
+	Попробуем найти общие $i$ и $j$.
+	Для $x$ условие~\eqref{eq:sucheston_approx_epsilon} принимает вид
+	\begin{equation}
+		|1 - F_{i,j}(x)| < 1/2
+		,
+	\end{equation}
+	или, с учётом неравенства $0 \leq F_{i,j}(x) \leq 1$,
+	\begin{equation}
+		\label{eq:suchecton_approx_x_1_2}
+		F_{i,j}(x) > 1/2
+		.
+	\end{equation}
+	Для выполнения условия~\eqref{eq:suchecton_approx_x_1_2} необходимо (хотя и не достаточно),
+	чтобы выполнялись неравенства
+	\begin{equation}
+		\label{eq:sucheston_approx_cases_j_x}
+		\begin{cases}
+			 2^{2m} - m \leq j < 2^{2m} + m,
+			 \\
+			 i \leq 2m
+			 .
+		\end{cases}
+	\end{equation}
+	Аналогично для $y$ получаем условия
+	\begin{equation}
+		\label{eq:sucheston_approx_cases_j_y}
+		\begin{cases}
+			 2^{2n+1} - n \leq j < 2^{2n+1} + n,
+			 \\
+			 i \leq 2n
+			 .
+		\end{cases}
+	\end{equation}
+	Легко видеть, что требования, накладываемые на $j$ в~\eqref{eq:sucheston_approx_cases_j_x} и~\eqref{eq:sucheston_approx_cases_j_y},
+	несовместимы.
+	Следовательно, <<общих>> индексов действительно не существует.
+\end{example}
