@@ -1,0 +1,107 @@
+Оказывается, что теорему~\ref{thm:Lin_Omega_Sucheston} можно записать и для всего пространства $\ell_\infty$,
+причём конструкция потребует минимальной модификации.
+
+\begin{theorem}
+	Пусть $S^a_b = \{x\in\Omega : 1 \geq p(x) = a > q(x) = b \geq 0\}$,
+	где $p(x)$ и $q(x)$~--- верхний и нижний функционалы Сачестона~\cite{sucheston1967banach} соответственно.
+	Тогда $\ell_\infty = \operatorname{Lin} S^a_b$.
+\end{theorem}
+
+\begin{proof}
+	Пусть $x\in\ell_\infty$.
+	Очевидно, что мы можем ограничиться случаем $\|x\| \leq 1$.
+	Учитывая представление $x = ky - mz$,
+	где $0\leq y \leq 1$, $0\leq z \leq 1$, $k>0$, $m>0$,
+	будем, не теряя общности, считать, что $0\leq x \leq 1$.
+
+	Более того, мы можем считать, что $0 < a \leq 1$ и $-1 < b < a < 1$.
+	Если $b < 0$, то положим $\gamma = -1$, иначе положим $\gamma = 1$.
+
+
+	Выберем $n\in\mathbb{N}$ таким образом, что
+	\begin{equation}
+		\label{eq:S_a_b_gap}
+		a - |b| > \frac{3}{2^n}
+		.
+	\end{equation}
+	Определим теперь двоичные приближения к числам $a$ и $|b|$:
+	\begin{equation}
+		\label{eq:binary_approximations_for_number}
+		\frac{a_k}{2^k} \leq a < \frac{a_k+1}{2^k}
+		,
+		~~~a_k>0
+	\end{equation}
+	(и аналогично $b_k$ для $|b|$).
+
+	Определим <<блоки>> из нулей и единиц так же, как и в доказательстве теоремы~\ref{thm:Lin_Omega_Sucheston}.
+	Нам нужно представление для произвольного $x\in\ell_\infty$ в виде линейной комбинации.
+	Снова рассмотрим разложение
+	\begin{equation}
+		x = \sum_{i=0}^{k-1} T^i x_i
+		,
+	\end{equation}
+	где $k\in\mathbb{N}$~--- любое, $T$~--- оператор сдвига, а все элементы последовательностей $x_i$,
+	кроме имеющих индексы $km+1$, $m\in\mathbb{N}_0$, являются нулевыми.
+	Пусть $k=2^n$; зафиксируем $i$ и в дальнейшем для удобства записи положим $w=x_i$.
+	Наша задача~--- построить конечную линейную комбинацию элементов из $S^a_b$, равную $w$.
+
+	Положим
+	\begin{equation}
+		u_j = \begin{cases}
+			w_j,  & \mbox{~если~} j \leq 2^n,
+			\\
+			(\operatorname{Br}(2^{2k  },a))_{j-2^{2k}},  & \mbox{~если~} 2^{2k} < j \leq 2^{2k+1}, 2k \geq n,
+			\\
+			\gamma\cdot(\operatorname{Br}(2^{4k+1},b))_{j-2^{4k+1}},  & \mbox{~если~} 2^{4k+1} < j \leq 2^{4k+2}, 4k + 1 \geq n,
+			\\
+			\gamma\cdot(\operatorname{Br}(2^{4k+3},b))_{j-2^{4k+3}} + w_j,  & \mbox{~если~} 2^{4k+3} < j \leq 2^{4k+4}, 4k + 3 \geq n
+			;
+		\end{cases}
+	\end{equation}
+	\begin{equation}
+		v_j = \begin{cases}
+			0,  & \mbox{~если~} j \leq 2^n,
+			\\
+			(\operatorname{Br}(2^{2k  },a))_{j-2^{2k  }},  & \mbox{~если~} 2^{2k  } < j \leq 2^{2k+1}, 2k   \geq n,
+			\\
+			\gamma\cdot(\operatorname{Br}(2^{2k+1},b))_{j-2^{2k+1}},  & \mbox{~если~} 2^{2k+1} < j \leq 2^{2k+2}, 2k+1 \geq n
+			.
+		\end{cases}
+	\end{equation}
+	Заметим, что все элементы, к которым прибавляются ненулевые элементы $w_j$, равны нулю.
+	Кроме того, $p(u)=p(w)=a$ и $q(u)=q(w)=b$.
+	(На <<подпорченном>> блоке $u$ сумма, соответствующая функционалу $q$,
+	увеличивается не настолько cильно, чтобы <<испортить>> $p$,
+	благодаря условию~\eqref{eq:S_a_b_gap}.)
+	Следовательно, $u,v\in S^a_b$.
+	Заметим теперь, что
+	\begin{equation}
+		(u-v)_j = \begin{cases}
+			w_j,  & \mbox{~если~} j \leq 2^n,
+			\\
+			%(\operatorname{Br}(2^{2k  },a))_{j-2^{2k  }} - (\operatorname{Br}(2^{2k  },a))_{j-2^{2k  }} = 0,  & \mbox{~если~} 2^{2k  } < j \leq 2^{2k+1}, 2k    \geq n,
+			0,  & \mbox{~если~} 2^{2k  } < j \leq 2^{2k+1}, 2k    \geq n,
+			\\
+			%(\operatorname{Br}(2^{4k+1},b))_{j-2^{4k+1}} - (\operatorname{Br}(2^{4k+1},b))_{j-2^{4k+1}} = 0,  & \mbox{~если~} 2^{4k+1} < j \leq 2^{4k+2}, 4k + 1 \geq n,
+			0,  & \mbox{~если~} 2^{4k+1} < j \leq 2^{4k+2}, 4k + 1 \geq n,
+			\\
+			%(\operatorname{Br}(2^{4k+3},b))_{j-2^{4k+3}} + w_j - (\operatorname{Br}(2^{4k+3},b))_{j-2^{4k+3}} = w_j,  & \mbox{~если~} 2^{4k+3} < j \leq 2^{4k+4}, 4k + 3 \geq n
+			w_j,  & \mbox{~если~} 2^{4k+3} < j \leq 2^{4k+4}, 4k + 3 \geq n
+			.
+		\end{cases}
+	\end{equation}
+
+	Аналогично строятся пары элементов, разность которых равна $w_j$ на $2^{4k+i} < j \leq 2^{4k+i+1}, 4k + i \geq n$ для $i=0,1,2$
+	(требуется только обнулить первые $2^n$ элементов).
+	Складывая полученные таким образом $4\cdot 2^n$ разностей элементов из $S^a_b$, получаем требуемый элемент $x$.
+
+\end{proof}
+
+\begin{corollary}
+	Множество $S^a_b$ является разделяющим.
+\end{corollary}
+
+\begin{hypothesis}
+	Для пространства $\{x\in\ell_\infty : \alpha(x) = 0\}$
+	верна аналогичная теорема.
+\end{hypothesis}
