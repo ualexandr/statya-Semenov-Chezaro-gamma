@@ -1,0 +1,484 @@
+\documentclass[a4paper,14pt]{article} %размер бумаги устанавливаем А4, шрифт 12пунктов
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel} %используем русский и английский языки с переносами
+\usepackage{amssymb,amsfonts,amsmath,mathtext,enumerate,float,amsthm} %подключаем нужные пакеты расширений
+\usepackage[unicode,colorlinks=true,citecolor=black,linkcolor=black]{hyperref}
+%\usepackage[pdftex,unicode,colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{indentfirst} % включить отступ у первого абзаца
+\usepackage[dvips]{graphicx} %хотим вставлять рисунки?
+\graphicspath{{illustr/}}%путь к рисункам
+
+\makeatletter
+\renewcommand{\@biblabel}[1]{#1.} % Заменяем библиографию с квадратных скобок на точку:
+\makeatother %Смысл этих трёх строчек мне непонятен, но поверим "Запискам дебианщика"
+
+\usepackage{geometry} % Меняем поля страницы.
+\geometry{left=2cm}% левое поле
+\geometry{right=1cm}% правое поле
+\geometry{top=2cm}% верхнее поле
+\geometry{bottom=2cm}% нижнее поле
+
+\renewcommand{\theenumi}{\arabic{enumi}}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\labelenumi}{\arabic{enumi}}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\theenumii}{.\arabic{enumii}}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}.}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\theenumiii}{.\arabic{enumiii}}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}.}% Меняем везде перечисления на цифра.цифра
+
+\sloppy
+
+
+
+
+\renewcommand\normalsize{\fontsize{14}{25.2pt}\selectfont}
+
+\usepackage[backend=biber,style=gost-numeric,sorting=none]{biblatex}
+\addbibresource{../bib/ext.bib}
+\addbibresource{../bib/my.bib}
+\addbibresource{../bib/Semenov.bib}
+\input{../bib/ext.hyphens.bib}
+
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{construction}[theorem]{Construction}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{problem}[theorem]{Problem}
+
+\usepackage{bbm}
+
+
+\begin{document}
+
+%\renewcommand{\bibname}{Список цитированной литературы}
+%\renewcommand\refname{\bibname}
+% !!!
+% The text starts here
+
+\title{
+	О разделяющих множествах меры нуль и линейных оболочках
+	\footnote{
+		This work was carried out at Voronezh State University and supported by the Russian Science
+		Foundation grant 19-11-00197.
+	}
+}
+
+\author{
+	Н.Н. Авдеев
+	\footnote{nickkolok@mail.ru, avdeev@math.vsu.ru}
+}
+
+\maketitle
+
+\section{Введение}
+
+Рассмотрим пространство ограниченных последовательностей с обычной нормой
+\begin{equation*}
+	\|x\| = \sup_{k} |x_k|
+	.
+\end{equation*}
+Естестевенным обобщением предела с простанства сходящихся последовательностей $c$ на пространство $\ell_\infty$
+является понятие банахова предела.
+Банаховым пределом называется функционал $B\in \ell_\infty^*$ такой, что:
+\begin{enumerate}
+	\item
+		$B \geqslant 0$
+	\item
+		$B\mathbbm{1} = 1$
+	\item
+		$B=BT$
+\end{enumerate}
+Здесь $\mathbbm{1}=(1,1,1,1,1,...)$,
+а $T$~--- оператор сдвига: $T(x_1, x_2, x_3, ...) = (x_2, x_3, ...)$.
+Множество всех банаховых пределов обозначим через $\mathfrak{B}$.
+
+Сачестон~\cite{sucheston1967banach} установил, что
+для любых $x\in l_\infty$ и $B\in\mathfrak{B}$
+\begin{equation}\label{Sucheston}
+	q(x) \leqslant Bx \leqslant p(x)
+	,
+\end{equation}
+где
+\begin{equation*}
+	q(x) = \lim_{n\to\infty} \inf_{m\in\mathbb{N}}  \frac{1}{n} \sum_{k=m+1}^{m+n} x_k
+	~~~~\mbox{и}~~~~
+	p(x) = \lim_{n\to\infty} \sup_{m\in\mathbb{N}}  \frac{1}{n} \sum_{k=m+1}^{m+n} x_k
+	.
+\end{equation*}
+называют нижним и верхним функционалом Сачестона соотвественно.
+Неравенства (\ref{Sucheston}) точны:
+для данного $x$ для любого $r\in[q(x); p(x)]$ найдётся банахов предел
+$B\in\mathfrak{B}$ такой, что $Bx = r$.
+
+При исследовании банаховых пределов особый интерес представляют разделяющие множества.
+[TODO:cite]
+Множество $Q\in\ell_\infty$ называют разделяющим, если
+для любых неравных $B_1,B_2\in\mathfrak{B}$ существует такая последовательность $x\in Q$,
+что $B_1 x \neq B_2 x$.
+В частности, разделяющим является множество всех последовательностей из 0 и 1, т.е.
+$\Omega=\{0;1\}^\mathbb{N}$.
+На множестве $\Omega$ можно ввести меру <<честной монетки>> (см., напр.,~\cite{connor1990almost}).
+Оказывается, что из $\Omega$ можно выделить некоторые подмножества, которые также будут разделяющими,
+например,
+
+TODO: пример из статьи Семёнова и ссылка
+
+Однако множество (TODO:буква) имеет меру 1.
+В настоящей статье строится пример разделяющего множества,
+являющегося подмножеством $\Omega$ и имеющего меру нуль.
+Для построения таких множества используется следующий факт.
+[TODO: ссылка].
+\begin{lemma}
+	Пусть $X$~--- разделяющее множество и $X \subset \operatorname{Lin} Y$,
+	где $\operatorname{Lin} Y$ обоначает линейную оболочку $Y$.
+	Тогда $Y$ также является разделяющим множеством.
+\end{lemma}
+Затем в статье обсуждаются свойства линейных оболочек множеств,определённыхс помощью функционалов Сачестона.
+
+\section{Разделяющее множество нулевой меры}
+
+\begin{theorem}
+	\label{thm:Lin_Omega_Sucheston}
+	Пусть $\Omega = \{0;1\}^\mathbb{N}$,
+	$\Omega^a_b = \{x\in\Omega : 1 \geq p(x) = a > q(x) = b \geq 0\}$,
+	где $p(x)$ и $q(x)$~--- верхний и нижний функционалы Сачестона~\cite{sucheston1967banach} соответственно.
+	Тогда $\Omega \subset \operatorname{Lin} \Omega^a_b$.
+\end{theorem}
+
+\begin{proof}
+	Выберем $n\in\mathbb{N}$ таким образом, что
+	\begin{equation}
+		\label{eq:Omega_a_b_gap}
+		a - b > \frac{3}{2^n}
+		.
+	\end{equation}
+	Определим теперь двоичные приближения к числам $a$ и $b$:
+	\begin{equation}
+		\label{eq:binary_approximations_for_number}
+		\frac{a_k}{2^k} \leq a < \frac{a_k+1}{2^k}
+		,
+		~~~a_k>0
+	\end{equation}
+	(и аналогично для $b$).
+
+
+	Теперь определим <<блоки>> из нулей и единиц, соответствующие числу $c\in[0;1]$ для $k \geq n$.
+	Пусть определены $c_k$ аналогично~\eqref{eq:binary_approximations_for_number}.
+	Тогда $\operatorname{Br}(k,c) \in \ell_\infty$.
+	Дальнейшее определение построим рекурсивно.
+	\begin{equation}
+		(\operatorname{Br}(n,c))_j = \begin{cases}
+			0, & \mbox{~если~} j \leq 2^n - c_n,
+			\\
+			1  & \mbox{~иначе}
+			.
+		\end{cases}
+	\end{equation}
+	Для каждого $k > n$ положим
+	\begin{equation}
+		(\operatorname{Br}(k+1,c))_j = \begin{cases}
+			(\operatorname{Br}(k,c))_j, &  \mbox{~если~} j \leq 2^k,
+			\\
+			(\operatorname{Br}(k,c))_{j-2^k}, &  \mbox{~если~} 2^k < j \leq 2^{k+1} \mbox{~и~} j \neq 2^k + 2^n - c_n,
+			\\
+			1, & \mbox{~если~} j = 2^k + 2^n - c_n \mbox{~и~} c_{k+1} = 2 c_k + 1,
+			\\
+			0, & \mbox{~если~} j = 2^k + 2^n - c_n \mbox{~и~} c_{k+1} = 2 c_k,
+			\\
+			0  & \mbox{~иначе (т.е. для $j > 2^{k+1}$)}
+			.
+		\end{cases}
+	\end{equation}
+	(В силу построения перечисленные условия покрывают все возможные варианты.)
+
+	Иначе говоря, $(k+1)$-й блок получается из $k$-го добавлением сдвинутой на $2^k$ <<копии>> $k$-го блока,
+	в котором первый отрезок единиц при необходимости предварён единицей.
+
+	Нетрудно заметить, что для любого таких $m$, что $n \leq m \leq k$, и $ i \leq 2^k - 2^m + 1$
+	выполнено
+	\begin{equation}
+		c_m \leq \sum_{j=i}^{i+2^m-1} (\operatorname{Br}(k,c))_j \leq c_{m}+1
+		.
+	\end{equation}
+
+
+	Так, например, для $n=2$ и $c=1/3$ имеем:
+	\begin{equation*}
+		\begin{array}{ll}
+			\operatorname{Br}(2,1/3) = (&0,0,0,1,0,0,...)
+			\\
+			\operatorname{Br}(3,1/3) = (&0,0,0,1,0,0,0,1,0,0,...)
+			\\
+			\operatorname{Br}(4,1/3) = (&0,0,0,1, 0,0,0,1,   0,0,1,1, 0,0,0,1,  0,0,...)
+			\\
+			\operatorname{Br}(5,1/3) = (&
+			                             0,0,0,1, 0,0,0,1,   0,0,1,1, 0,0,0,1,\\
+			                           & 0,0,0,1, 0,0,0,1,   0,0,1,1, 0,0,0,1,
+			0,0,...)
+			\\
+			\operatorname{Br}(6,1/3) = (&
+			                             0,0,0,1, 0,0,0,1,   0,0,1,1, 0,0,0,1,\\
+			                           & 0,0,0,1, 0,0,0,1,   0,0,1,1, 0,0,0,1,\\
+			                           & 0,0,1,1, 0,0,0,1,   0,0,1,1, 0,0,0,1,\\
+			                           & 0,0,0,1, 0,0,0,1,   0,0,1,1, 0,0,0,1,
+			0,0,...)
+		\end{array}
+	\end{equation*}
+
+	Однако напомним, что нам нужно представление для произвольного $x\in\Omega$ в виде линейной комбинации.
+	Очевидно, что существует разложение
+	\begin{equation}
+		x = \sum_{i=0}^{k-1} T^i x_i
+		,
+	\end{equation}
+	где $k\in\mathbb{N}$~--- любое, $T$~--- оператор сдвига, а все элементы последовательностей $x_i$,
+	кроме имеющих индексы $km+1$, $m\in\mathbb{N}_0$, являются нулевыми.
+	Пусть $k=2^n$; зафиксируем $i$ и в дальнейшем для удобства записи положим $w=x_i$.
+	Наша задача~--- построить конечную линейную комбинацию элементов из $\Omega^a_b$, равную $w$.
+
+	Положим
+	\begin{equation}
+		u_j = \begin{cases}
+			w_j,  & \mbox{~если~} j \leq 2^n,
+			\\
+			(\operatorname{Br}(2^{2k  },a))_{j-2^{2k}},  & \mbox{~если~} 2^{2k} < j \leq 2^{2k+1}, 2k \geq n,
+			\\
+			(\operatorname{Br}(2^{4k+1},b))_{j-2^{4k+1}},  & \mbox{~если~} 2^{4k+1} < j \leq 2^{4k+2}, 4k + 1 \geq n,
+			\\
+			(\operatorname{Br}(2^{4k+3},b))_{j-2^{4k+3}} + w_j,  & \mbox{~если~} 2^{4k+3} < j \leq 2^{4k+4}, 4k + 3 \geq n
+			;
+		\end{cases}
+	\end{equation}
+	\begin{equation}
+		v_j = \begin{cases}
+			0,  & \mbox{~если~} j \leq 2^n,
+			\\
+			(\operatorname{Br}(2^{2k  },a))_{j-2^{2k  }},  & \mbox{~если~} 2^{2k  } < j \leq 2^{2k+1}, 2k   \geq n,
+			\\
+			(\operatorname{Br}(2^{2k+1},b))_{j-2^{2k+1}},  & \mbox{~если~} 2^{2k+1} < j \leq 2^{2k+2}, 2k+1 \geq n
+			.
+		\end{cases}
+	\end{equation}
+	Заметим, что все элементы, к которым прибавляются ненулевые элементы $w_j$, равны нулю.
+	Кроме того, $p(u)=p(w)=a$ и $q(u)=q(w)=b$.
+	(На <<подпорченном>> блоке $u$ сумма, соответствующая функционалу $q$,
+	увеличивается не настолько cильно, чтобы <<испортить>> $p$,
+	благодаря условию~\eqref{eq:Omega_a_b_gap}.)
+	Следовательно, $u,v\in\Omega^a_b$.
+	Заметим теперь, что
+	\begin{equation}
+		(u-v)_j = \begin{cases}
+			w_j,  & \mbox{~если~} j \leq 2^n,
+			\\
+			0,  & \mbox{~если~} 2^{2k  } < j \leq 2^{2k+1}, 2k    \geq n,
+			\\
+			0,  & \mbox{~если~} 2^{4k+1} < j \leq 2^{4k+2}, 4k + 1 \geq n,
+			\\
+			w_j,  & \mbox{~если~} 2^{4k+3} < j \leq 2^{4k+4}, 4k + 3 \geq n
+			.
+		\end{cases}
+	\end{equation}
+
+	Аналогично строятся пары элементов, разность которых равна $w_j$ на $2^{4k+i} < j \leq 2^{4k+i+1}, 4k + i \geq n$ для $i=0,1,2$
+	(требуется только обнулить первые $2^n$ элементов).
+	Складывая полученные таким образом $4\cdot 2^n$ разностей элементов из $\Omega^a_b$, получаем требуемый элемент $x$.
+
+\end{proof}
+
+\begin{corollary}
+	Множество $\Omega^a_b$ является разделяющим.
+	Т.к. при $a\neq 1$ или $b\neq 0$ множество $\Omega^a_b$ имеет меру нуль,
+	[TODO: ссылка на свежую статью в матзаметках]
+	то оно является разделяющим множеством нулевой меры.
+\end{corollary}
+
+\section{Линейные оболочки множеств, определяемых функционалами Сачестона}
+
+Итак, $\Omega \subset \operatorname{Lin}\{x\in\Omega : p(x) = a > q(x) = b\}$.
+Оказывается, аналогичным свойством обладает и всё пространство $\ell_\infty$.
+Пусть $X^a_b = \{x\in\ell_\infty : p(x) = a > q(x) = b\}$.
+
+\begin{lemma}
+	\label{lem:const_Lin_ell_infty}
+	Выполнено включение
+	$\mathbbm{1}\in \operatorname{Lin} X^a_b$.
+\end{lemma}
+
+\begin{proof}
+	В самом деле,
+	$\Omega^a_b \subset X^a_b$
+	и, следовательно,
+	\begin{equation}
+		\mathbbm{1} \in \Omega \subset \operatorname{Lin} \Omega^a_b \subset \operatorname{Lin} X^a_b
+		.
+	\end{equation}
+\end{proof}
+
+\begin{theorem}
+	\label{thm:Lin_ell_infty}
+	Выполнено равенство $\operatorname{Lin} X^a_b = \ell_\infty$.
+\end{theorem}
+
+\begin{proof}
+	Зафиксируем $x \in \ell_\infty$ и представим его в виде линейной комбинации последовательностей из $X^a_b$.
+
+	Не теряя общности, положим $x\geq 0$
+	(иначе представим сначала $x$ в виде $x = y - z$, где $y \geq 0$, $z \geq 0$.
+	и найдём представления для $y$ и $z$).
+
+	Если $p(x) = q(x)$, то возьмём некоторый $y\in\ell_\infty$,
+	такой, что $p(y) > p(x) > q(x)  > q(y) \geq 0$.
+	Тогда в силу выпуклости функционала $p$ имеем
+	\begin{equation}
+		p(x+y) \geq p(y) > p(x) = q(x)
+		,
+	\end{equation}
+
+
+	\begin{equation}
+		q(x+y) = -p(-x-y) \leq -p(-x) -p(-y) = q(x) + q(y)
+		.
+	\end{equation}
+
+	Таким образом, рассматриваемый случай $p(x) = q(x)$ можно исключить,
+	и, не теряя общности, рассматривать только такие $x$, что $p(x) > q(x)$.
+
+	Положим $y=k\cdot x + C\cdot\mathbbm{1}$,
+	где $k=\frac{a-b}{p(x)-q(x)}$, $C=\frac{bp(x)-aq(x)}{p(x)-q(x)}$.
+	Тогда, очевидно,
+	\begin{equation}
+		\label{eq:x_representation}
+		x=(y-C\cdot\mathbbm{1})/k
+		.
+	\end{equation}
+	Представление~\eqref{eq:x_representation} искомое.
+	Действительно, в силу леммы~\ref{lem:const_Lin_ell_infty} выполнено
+	$C\cdot\mathbbm{1}\in X^a_b$; кроме того,
+	\begin{equation}
+		p(y) = k\cdot p(x) + C
+		=
+		%\\=
+		\frac{ap(x)-bp(x)+bp(x)-aq(x)}{p(x)-q(x)}
+		=
+		a
+		,
+	\end{equation}
+	\begin{equation}
+		q(y) = k\cdot q(x) + C
+		=
+		%\\=
+		\frac{aq(x)-bq(x)+bp(x)-aq(x)}{p(x)-q(x)}
+		=
+		b
+		.
+	\end{equation}
+\end{proof}
+
+Факт, аналогичный теоремам~\ref{thm:omega_lin} и~\ref{thm:ell_infty_lin}, верен и для подпространства
+$A_0 c = \{ x \in \ell_\infty : \alpha(x) =0 \}$,
+где~[TODO:VZMS]
+\begin{equation*}
+	\alpha(x) = \varlimsup_{i\to\infty} \max_{i<j\leqslant 2i} |x_i - x_j|
+	.
+\end{equation*}
+В~[TODO:ped2018] показано, что, хотя сама функция $\alpha(x)$ не инвариантна относительно оператора сдвига $T$,
+пространство $A_0 c$ такой инвариантностью обладает.
+
+Пусть $Y^a_b = \{x\in A_0 c : p(x) = a > q(x) = b\}$.
+Следуя той же схеме доказательства, что и для $\ell_\infty$,
+подготовим сначала вспомогательную лемму о константе.
+
+\begin{lemma}
+	\label{lem:const_Lin_alpha_0}
+	Выполнено включение
+	$\mathbbm{1}\in \operatorname{Lin} Y^a_b$.
+\end{lemma}
+
+\begin{proof}
+	Не теряя общности, будем полагать, что $b\geq 0$, тогда $a>0$.
+
+	Определим оператор $S:\ell_\infty \to \ell_\infty$ следующим образом:
+	\begin{equation}\label{operator_S}
+		(Sy)_k = y_{i+2}, \mbox{ где } 2^i < k \leq 2^i+1
+		.
+	\end{equation}
+	\begin{lemma}[TODO:VZMS]
+		Для любого $x\in \ell_\infty$ выполнено равенство
+		\begin{equation}\label{alpha_S}
+			\alpha(Sx) = \varlimsup_{k\to\infty} |x_{k+1} - x_{k}|
+			.
+		\end{equation}
+	\end{lemma}
+	Положим
+	\begin{equation}
+		\label{eq:y_for_s_alpha}
+		y = \left(0,1,0,\frac{1}{2},1,\frac{1}{2},0,\frac{1}{3},\frac{2}{3},1,\frac{2}{3},\frac{1}{3},0,...\right)
+		,
+	\end{equation}
+	тогда $Sy\in A_0 c$ и $\mathbbm{1}-Sy = S(\mathbbm{1}-y)\in A_0 c$.
+
+	Пусть $x=(a-b)Sy+b\mathbbm{1}$, $z=(a-b)(\mathbbm{1}-Sy)+b\mathbbm{1}$.
+	Тогда $p(x)=p(z)=a$, $q(x)=q(z)=b$.
+	Кроме того, заметим, что
+	\begin{equation}
+		x+z = (a-b)Sy+b\mathbbm{1} + (a-b)(\mathbbm{1}-Sy)+b\mathbbm{1}
+		=
+		(a-b)(Sy-Sy+\mathbbm{1}) + 2 b\mathbbm{1} = (a+b)\mathbbm{1}
+		,
+	\end{equation}
+	откуда и следует, что $\mathbbm{1}\in Y^a_b$.
+\end{proof}
+
+\begin{lemma}
+	\label{lem:c_0_Lin_alpha_0}
+	Выполнено включение $c_0 \subset Y^a_b$.
+\end{lemma}
+
+\begin{proof}
+	Зафиксируем $z\in c_0$.
+	Определим $y$ согласно~\eqref{eq:y_for_s_alpha} и положим
+	$x=(a-b)Sy+b\mathbbm{1}$.
+	Тогда $x, x+z\in Y^a_b$ и, очевидно, $z=(x+z)-x$.
+\end{proof}
+
+\begin{theorem}
+	Выполнено равенство $\operatorname{Lin} Y^a_b = A_0 c$.
+\end{theorem}
+
+\begin{proof}
+	Зафиксируем $x \in A_0 c$.
+
+	Пусть сначала $p(x) = q(x)$.
+	Тогда, согласно
+	[TODO: ссылка на матзаметки],
+	$x\in c$
+	и может быть представлен в виде суммы константы и последовательности из $c_0$.
+	Утверждение теоремы следует из лемм~\ref{lem:const_Lin_alpha_0} и~\ref{lem:c_0_Lin_alpha_0}.
+
+	Пусть теперь $p(x) > q(x)$.
+	Снова, как и в доказательстве теоремы~\ref{thm:Lin_ell_infty},
+	положим $y=k\cdot x + C\cdot\mathbbm{1}$,
+	где $k=\frac{a-b}{p(x)-q(x)}$, $C=\frac{bp(x)-aq(x)}{p(x)-q(x)}$.
+	Дальнейшее доказательство переносится дословно.
+\end{proof}
+
+
+
+\section{Заключительные замечания}
+Подмножество $\Omega$ нулевой меры, не являющееся разделяющим, сконструировать очень легко
+(например, можно взять конечное множество или множество ортов).
+Однако пока неясно, существует ли измеримое подмножество $\Omega$ ненулевой меры,
+не являющееся разделяющим множеством.
+
+
+\printbibliography
+
+\end{document}
