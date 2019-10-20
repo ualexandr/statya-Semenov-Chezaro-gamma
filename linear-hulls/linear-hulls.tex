@@ -94,8 +94,6 @@
 а $T$~--- оператор сдвига: $T(x_1, x_2, x_3, ...) = (x_2, x_3, ...)$.
 Множество всех банаховых пределов обозначим через $\mathfrak{B}$.
 
-TODO: Лоренц и $ac$.
-
 Сачестон~\cite{sucheston1967banach} установил, что
 для любых $x\in l_\infty$ и $B\in\mathfrak{B}$
 \begin{equation}\label{Sucheston}
@@ -114,6 +112,10 @@ TODO: Лоренц и $ac$.
 для данного $x$ для любого $r\in[q(x); p(x)]$ найдётся банахов предел
 $B\in\mathfrak{B}$ такой, что $Bx = r$.
 
+Множество таких $x\in\ell_\infty$, что $p(x)=q(x)$,
+образует подпространство почти сходящихся последовательностей $ac$~~\cite{lorentz1948contribution}.
+На почти сходящейся последовательности все банаховы пределы принимают одинаковые значения.
+
 При исследовании банаховых пределов особый интерес представляют разделяющие множества~\cite[\S 3]{Semenov2014geomprops}.
 Множество $Q\in\ell_\infty$ называют разделяющим, если
 для любых неравных $B_1, B_2\in\mathfrak{B}$ существует такая последовательность $x\in Q$,
@@ -128,7 +130,7 @@ $\Omega=\{0;1\}^\mathbb{N}$~\cite{semenov2010characteristic}.
 	.
 \end{equation}
 
-Однако множество $U$ имеет меру 1~\cite{semenov2010characteristic}
+Однако множество $U$ имеет меру 1~\cite{semenov2010characteristic}.
 
 В настоящей статье строится пример разделяющего множества,
 являющегося подмножеством $\Omega$ и имеющего меру нуль.
@@ -165,6 +167,9 @@ $\Omega=\{0;1\}^\mathbb{N}$~\cite{semenov2010characteristic}.
 		\frac{a_k}{2^k} \leq a < \frac{a_k+1}{2^k}
 		,
 		~~~a_k>0
+		,
+		~~~a_k\in\mathbb{Z}
+		.
 	\end{equation}
 	(и аналогично для $b$).
 
@@ -175,13 +180,16 @@ $\Omega=\{0;1\}^\mathbb{N}$~\cite{semenov2010characteristic}.
 	Дальнейшее определение построим рекурсивно.
 	\begin{equation}
 		(\operatorname{Br}(n,c))_j = \begin{cases}
-			0, & \mbox{~если~} j \leq 2^n - c_n,
+			1, & \mbox{~если~} 2^n - c_n < j \leq 2^n,
 			\\
-			1  & \mbox{~иначе}
+			0  & \mbox{~иначе}
 			.
 		\end{cases}
 	\end{equation}
-	Для каждого $k > n$ положим
+
+	TODO: расхтонить!
+
+	Для каждого $k \geq n$ положим
 	\begin{equation}
 		(\operatorname{Br}(k+1,c))_j = \begin{cases}
 			(\operatorname{Br}(k,c))_j, &  \mbox{~если~} j \leq 2^k,
@@ -201,7 +209,7 @@ $\Omega=\{0;1\}^\mathbb{N}$~\cite{semenov2010characteristic}.
 	Иначе говоря, $(k+1)$-й блок получается из $k$-го добавлением сдвинутой на $2^k$ <<копии>> $k$-го блока,
 	в котором первый отрезок единиц при необходимости предварён единицей.
 
-	Нетрудно заметить, что для любого таких $m$, что $n \leq m \leq k$, и $ i \leq 2^k - 2^m + 1$
+	Нетрудно заметить, что для любых таких $m$, $k$ и $i$, что $n \leq m \leq k$ и  $ i + 2^m - 1 \leq 2^k$,
 	выполнено
 	\begin{equation}
 		c_m \leq \sum_{j=i}^{i+2^m-1} (\operatorname{Br}(k,c))_j \leq c_{m}+1
@@ -266,6 +274,10 @@ $\Omega=\{0;1\}^\mathbb{N}$~\cite{semenov2010characteristic}.
 			.
 		\end{cases}
 	\end{equation}
+
+	TODO: расхтонить!
+
+
 	Заметим, что все элементы, к которым прибавляются ненулевые элементы $w_j$, равны нулю.
 	Кроме того, $p(u)=p(w)=a$ и $q(u)=q(w)=b$.
 	(На <<подпорченном>> блоке $u$ сумма, соответствующая функционалу $q$,
@@ -315,13 +327,14 @@ $\Omega=\{0;1\}^\mathbb{N}$~\cite{semenov2010characteristic}.
 
 \section{Линейные оболочки множеств, определяемых функционалами Сачестона}
 
-Итак, $\Omega \subset \operatorname{Lin}\{x\in\Omega : p(x) = a > q(x) = b\}$.
-Оказывается, аналогичным свойством обладает и всё пространство $\ell_\infty$.
-Пусть $X^a_b = \{x\in\ell_\infty : p(x) = a > q(x) = b\}$.
+Итак, $\Omega \subset \operatorname{Lin}\{x\in\Omega : p(x) = a, q(x) = b\}$, где $a>b$.
+Оказывается, аналогичным свойством обладает и всё пространство $\ell_\infty$:
+$\ell_\infty\subset \operatorname{Lin} X^a_b$, где
+$X^a_b = \{x\in\ell_\infty : p(x) = a > q(x) = b\}$, $a>b$.
 
 \begin{lemma}
 	\label{lem:const_Lin_ell_infty}
-	Выполнено включение
+	Справедливо включение
 	$\mathbbm{1}\in \operatorname{Lin} X^a_b$.
 \end{lemma}
 
@@ -337,7 +350,7 @@ $\Omega=\{0;1\}^\mathbb{N}$~\cite{semenov2010characteristic}.
 
 \begin{theorem}
 	\label{thm:Lin_ell_infty}
-	Выполнено равенство $\operatorname{Lin} X^a_b = \ell_\infty$.
+	Справедливо равенство $\operatorname{Lin} X^a_b = \ell_\infty$.
 \end{theorem}
 
 \begin{proof}
@@ -411,7 +424,7 @@ $A_0 c = \{ x \in \ell_\infty : \alpha(x) =0 \}$,
 
 \begin{lemma}
 	\label{lem:const_Lin_alpha_0}
-	Выполнено включение
+	Справедливо включение
 	$\mathbbm{1}\in \operatorname{Lin} Y^a_b$.
 \end{lemma}
 
@@ -441,7 +454,7 @@ TODO: доказательство не проходит при $a=-b$.
 	тогда $Sy\in A_0 c$ и $\mathbbm{1}-Sy = S(\mathbbm{1}-y)\in A_0 c$.
 
 	Пусть $x=(a-b)Sy+b\mathbbm{1}$, $z=(a-b)(\mathbbm{1}-Sy)+b\mathbbm{1}$.
-	Тогда $p(x)=p(z)=a$, $q(x)=q(z)=b$.
+	Тогда $p(x)=p(z)=a$, $q(x)=q(z)=b$ и, следовательно, $x,z\in Y^a_b$.
 	Кроме того, заметим, что
 	\begin{equation}
 		x+z = (a-b)Sy+b\mathbbm{1} + (a-b)(\mathbbm{1}-Sy)+b\mathbbm{1}
@@ -454,7 +467,7 @@ TODO: доказательство не проходит при $a=-b$.
 
 \begin{lemma}
 	\label{lem:c_0_Lin_alpha_0}
-	Выполнено включение $c_0 \subset Y^a_b$.
+	Справедливо включение $c_0 \subset Y^a_b$.
 \end{lemma}
 
 \begin{proof}
@@ -464,16 +477,22 @@ TODO: доказательство не проходит при $a=-b$.
 	Тогда $x, x+z\in Y^a_b$ и, очевидно, $z=(x+z)-x$.
 \end{proof}
 
+\begin{theorem}[{\cite[следствие 2]{our-mz2019ac0}}]
+	\label{thm:alpha_c_ac_c}
+	Пусть $x\in ac$, т.е. $p(x) = q(x)$.
+	Тогда $x\in c$ если и только если $\alpha(x) = 0$.
+\end{theorem}
+
 \begin{theorem}
 	\label{thm:A_0_c_infty_lin}
-	Выполнено равенство $\operatorname{Lin} Y^a_b = A_0 c$.
+	Справедливо равенство $\operatorname{Lin} Y^a_b = A_0 c$.
 \end{theorem}
 
 \begin{proof}
 	Зафиксируем $x \in A_0 c$.
 
 	Пусть сначала $p(x) = q(x)$.
-	Тогда, согласно~\cite[следствие 2]{our-mz2019ac0}, $x\in c$
+	Тогда, согласно теореме~\ref{thm:alpha_c_ac_c}, $x\in c$
 	и может быть представлен в виде суммы константы и последовательности из $c_0$.
 	Утверждение теоремы следует из лемм~\ref{lem:const_Lin_alpha_0} и~\ref{lem:c_0_Lin_alpha_0}.
 
