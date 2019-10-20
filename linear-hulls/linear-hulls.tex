@@ -19,11 +19,11 @@
 \geometry{top=2cm}% верхнее поле
 \geometry{bottom=2cm}% нижнее поле
 
-\renewcommand{\theenumi}{\arabic{enumi}}% Меняем везде перечисления на цифра.цифра
-\renewcommand{\labelenumi}{\arabic{enumi}}% Меняем везде перечисления на цифра.цифра
-\renewcommand{\theenumii}{.\arabic{enumii}}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\theenumi}{\arabic{enumi}.}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\labelenumi}{\arabic{enumi}.}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\theenumii}{\arabic{enumii}}% Меняем везде перечисления на цифра.цифра
 \renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}.}% Меняем везде перечисления на цифра.цифра
-\renewcommand{\theenumiii}{.\arabic{enumiii}}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\theenumiii}{\arabic{enumiii}}% Меняем везде перечисления на цифра.цифра
 \renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}.}% Меняем везде перечисления на цифра.цифра
 
 \sloppy
@@ -41,17 +41,12 @@
 
 
 \theoremstyle{plain}
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{conjecture}[theorem]{Conjecture}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{proposition}[theorem]{Proposition}
-
-\theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{construction}[theorem]{Construction}
-\newtheorem{remark}[theorem]{Remark}
-\newtheorem{problem}[theorem]{Problem}
+\newtheorem{lemma}{Лемма}[section]
+\newtheorem{theorem}[lemma]{Теорема}
+\newtheorem{example}[lemma]{Пример}
+\newtheorem{property}[lemma]{Свойство}
+\newtheorem{remark}[lemma]{Замечание}
+\newtheorem{corollary}{Следствие}[lemma]
 
 \usepackage{bbm}
 
@@ -114,34 +109,36 @@
 	.
 \end{equation*}
 называют нижним и верхним функционалом Сачестона соотвественно.
-Неравенства (\ref{Sucheston}) точны:
+Неравенства \eqref{Sucheston} точны:
 для данного $x$ для любого $r\in[q(x); p(x)]$ найдётся банахов предел
 $B\in\mathfrak{B}$ такой, что $Bx = r$.
 
-При исследовании банаховых пределов особый интерес представляют разделяющие множества.
-[TODO:cite]
+При исследовании банаховых пределов особый интерес представляют разделяющие множества~\cite[\S 3]{Semenov2014geomprops}.
 Множество $Q\in\ell_\infty$ называют разделяющим, если
-для любых неравных $B_1,B_2\in\mathfrak{B}$ существует такая последовательность $x\in Q$,
+для любых неравных $B_1, B_2\in\mathfrak{B}$ существует такая последовательность $x\in Q$,
 что $B_1 x \neq B_2 x$.
 В частности, разделяющим является множество всех последовательностей из 0 и 1, т.е.
-$\Omega=\{0;1\}^\mathbb{N}$.
+$\Omega=\{0;1\}^\mathbb{N}$~\cite{semenov2010characteristic}.
 На множестве $\Omega$ можно ввести меру <<честной монетки>> (см., напр.,~\cite{connor1990almost}).
 Оказывается, что из $\Omega$ можно выделить некоторые подмножества, которые также будут разделяющими,
-например,
+например \cite[\S 3, Теорема 11]{Semenov2014geomprops},
+\begin{equation}
+	U = \{ x\in\Omega: q(x) = 0, p(x) = 1 \}
+	.
+\end{equation}
 
-TODO: пример из статьи Семёнова и ссылка
+Однако множество $U$ имеет меру 1~\cite{semenov2010characteristic}
 
-Однако множество (TODO:буква) имеет меру 1.
 В настоящей статье строится пример разделяющего множества,
 являющегося подмножеством $\Omega$ и имеющего меру нуль.
 Для построения таких множества используется следующий факт.
-[TODO: ссылка].
-\begin{lemma}
+
+\begin{lemma}[{\cite[\S 3, замечание 6]{Semenov2014geomprops}}]
 	Пусть $X$~--- разделяющее множество и $X \subset \operatorname{Lin} Y$,
-	где $\operatorname{Lin} Y$ обоначает линейную оболочку $Y$.
+	где $\operatorname{Lin} Y$ обозначает линейную оболочку $Y$.
 	Тогда $Y$ также является разделяющим множеством.
 \end{lemma}
-Затем в статье обсуждаются свойства линейных оболочек множеств,определённыхс помощью функционалов Сачестона.
+Затем в статье обсуждаются свойства линейных оболочек множеств, определённых с помощью функционалов Сачестона.
 
 \section{Разделяющее множество нулевой меры}
 
@@ -295,8 +292,7 @@ TODO: пример из статьи Семёнова и ссылка
 
 \begin{corollary}
 	Множество $\Omega^a_b$ является разделяющим.
-	Т.к. при $a\neq 1$ или $b\neq 0$ множество $\Omega^a_b$ имеет меру нуль,
-	[TODO: ссылка на свежую статью в матзаметках]
+	Т.к. при $a\neq 1$ или $b\neq 0$ множество $\Omega^a_b$ имеет меру нуль~\cite{semenov2010characteristic},
 	то оно является разделяющим множеством нулевой меры.
 \end{corollary}
 
@@ -384,12 +380,12 @@ TODO: пример из статьи Семёнова и ссылка
 
 Факт, аналогичный теоремам~\ref{thm:omega_lin} и~\ref{thm:ell_infty_lin}, верен и для подпространства
 $A_0 c = \{ x \in \ell_\infty : \alpha(x) =0 \}$,
-где~[TODO:VZMS]
+где~\cite{our-vzms-2018}
 \begin{equation*}
 	\alpha(x) = \varlimsup_{i\to\infty} \max_{i<j\leqslant 2i} |x_i - x_j|
 	.
 \end{equation*}
-В~[TODO:ped2018] показано, что, хотя сама функция $\alpha(x)$ не инвариантна относительно оператора сдвига $T$,
+В~\cite{our-ped-2018-alpha-Tx} показано, что, хотя сама функция $\alpha(x)$ не инвариантна относительно оператора сдвига $T$,
 пространство $A_0 c$ такой инвариантностью обладает.
 
 Пусть $Y^a_b = \{x\in A_0 c : p(x) = a > q(x) = b\}$.
@@ -410,7 +406,7 @@ $A_0 c = \{ x \in \ell_\infty : \alpha(x) =0 \}$,
 		(Sy)_k = y_{i+2}, \mbox{ где } 2^i < k \leq 2^i+1
 		.
 	\end{equation}
-	\begin{lemma}[TODO:VZMS]
+	\begin{lemma}[{\cite{our-vzms-2018}}]
 		Для любого $x\in \ell_\infty$ выполнено равенство
 		\begin{equation}\label{alpha_S}
 			\alpha(Sx) = \varlimsup_{k\to\infty} |x_{k+1} - x_{k}|
@@ -450,6 +446,7 @@ $A_0 c = \{ x \in \ell_\infty : \alpha(x) =0 \}$,
 \end{proof}
 
 \begin{theorem}
+	\label{thm:A_0_c_infty_lin}
 	Выполнено равенство $\operatorname{Lin} Y^a_b = A_0 c$.
 \end{theorem}
 
@@ -457,9 +454,7 @@ $A_0 c = \{ x \in \ell_\infty : \alpha(x) =0 \}$,
 	Зафиксируем $x \in A_0 c$.
 
 	Пусть сначала $p(x) = q(x)$.
-	Тогда, согласно
-	[TODO: ссылка на матзаметки],
-	$x\in c$
+	Тогда, согласно~\cite[следствие 2]{our-mz2019ac0}, $x\in c$
 	и может быть представлен в виде суммы константы и последовательности из $c_0$.
 	Утверждение теоремы следует из лемм~\ref{lem:const_Lin_alpha_0} и~\ref{lem:c_0_Lin_alpha_0}.
 
@@ -477,6 +472,8 @@ $A_0 c = \{ x \in \ell_\infty : \alpha(x) =0 \}$,
 (например, можно взять конечное множество или множество ортов).
 Однако пока неясно, существует ли измеримое подмножество $\Omega$ ненулевой меры,
 не являющееся разделяющим множеством.
+Остаётся открытым и вопрос о том, какие множества (кроме $\Omega$, $A_0 c$ и самого $\ell_\infty$)
+обладают свойством, аналогичным установленному в теоремах~\ref{thm:omega_lin}--\ref{thm:A_0_c_infty_lin}.
 
 
 \printbibliography
