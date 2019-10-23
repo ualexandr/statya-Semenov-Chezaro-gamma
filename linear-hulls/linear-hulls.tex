@@ -159,8 +159,8 @@ $\Omega=\{0;1\}^\mathbb{N}$~\cite{semenov2010characteristic}.
 	\begin{equation}
 		\label{eq:Omega_a_b_gap}
 		a - b > \frac{3}{2^n}
-		.
 	\end{equation}
+	и $n$ чётно.
 	Определим теперь двоичные приближения к числам $a$ и $b$:
 	\begin{equation}
 		\label{eq:binary_approximations_for_number}
@@ -186,28 +186,35 @@ $\Omega=\{0;1\}^\mathbb{N}$~\cite{semenov2010characteristic}.
 			.
 		\end{cases}
 	\end{equation}
+	Заметим, что все элементы $\operatorname{Br}(n,c)$, начиная с $(2^n+1)$-го, равны нулю.
+
 
 	TODO: расхтонить!
 
 	Для каждого $k \geq n$ положим
 	\begin{equation}
-		(\operatorname{Br}(k+1,c))_j = \begin{cases}
-			(\operatorname{Br}(k,c))_j, &  \mbox{~если~} j \leq 2^k,
-			\\
-			(\operatorname{Br}(k,c))_{j-2^k}, &  \mbox{~если~} 2^k < j \leq 2^{k+1} \mbox{~и~} j \neq 2^k + 2^n - c_n,
-			\\
-			1, & \mbox{~если~} j = 2^k + 2^n - c_n \mbox{~и~} c_{k+1} = 2 c_k + 1,
-			\\
-			0, & \mbox{~если~} j = 2^k + 2^n - c_n \mbox{~и~} c_{k+1} = 2 c_k,
-			\\
-			0  & \mbox{~иначе (т.е. для $j > 2^{k+1}$)}
-			.
-		\end{cases}
+		\label{eq:Br(k+1,c)}
+		\operatorname{Br}(k+1,c) = \operatorname{Br}(k,c) + T^{2^k}\operatorname{Br}(k,c) + (c_{k+1}-2c_k)e_{2^k+2^n-c_n}
+		,
 	\end{equation}
-	(В силу построения перечисленные условия покрывают все возможные варианты.)
+	где через $e_j$ обозначен $j$-й орт.
+	Легко заметить (по индукции), что все элементы $\operatorname{Br}(k,c)$, начиная с $(2^k+1)$-го, равны нулю.
+	Следовательно, носители первых двух слагаемых в~\eqref{eq:Br(k+1,c)} не пересекаются.
+	Далее заметим, что третье слагаемое отлично от нуля тогда и только тогда,
+	когда переход между приближениями $с_k / 2^k$ и $c_{k+1}/2^{k+1}$
+	приводит к улучшению прилижения.
+	Более того,
+	\begin{equation}
+		(\operatorname{Br}(k,c) + T^{2^k}\operatorname{Br}(k,c))_{2^k+2^n-c_n}
+		=
+		(\operatorname{Br}(k,c))_{2^n-c_n}
+		=
+		0
+		,
+	\end{equation}
+	т.е. выражение~\eqref{eq:Br(k+1,c)} действительно задаёт последовательность из нулей и единиц.
+	Таким образом, в $k$-м блоке ровно $c_k$ единиц.
 
-	Иначе говоря, $(k+1)$-й блок получается из $k$-го добавлением сдвинутой на $2^k$ <<копии>> $k$-го блока,
-	в котором первый отрезок единиц при необходимости предварён единицей.
 
 	Нетрудно заметить, что для любых таких $m$, $k$ и $i$, что $n \leq m \leq k$ и  $ i + 2^m - 1 \leq 2^k$,
 	выполнено
@@ -253,17 +260,12 @@ $\Omega=\{0;1\}^\mathbb{N}$~\cite{semenov2010characteristic}.
 
 	Положим
 	\begin{equation}
-		u_j = \begin{cases}
-			w_j,  & \mbox{~если~} j \leq 2^n,
-			\\
-			(\operatorname{Br}(2^{2k  },a))_{j-2^{2k}},  & \mbox{~если~} 2^{2k} < j \leq 2^{2k+1}, 2k \geq n,
-			\\
-			(\operatorname{Br}(2^{4k+1},b))_{j-2^{4k+1}},  & \mbox{~если~} 2^{4k+1} < j \leq 2^{4k+2}, 4k + 1 \geq n,
-			\\
-			(\operatorname{Br}(2^{4k+3},b))_{j-2^{4k+3}} + w_j,  & \mbox{~если~} 2^{4k+3} < j \leq 2^{4k+4}, 4k + 3 \geq n
-			;
-		\end{cases}
+		v = T^{2^n} \operatorname{Br}(2^ n   ,a) + T^{2^{n+1}} \operatorname{Br}(2^{n+1},b) +
+		T^{2^{n+2}} \operatorname{Br}(2^{n+2},a) + T^{2^{n+3}} \operatorname{Br}(2^{n+3},b) + ...
 	\end{equation}
+	Эта сумма является формальной, т.е. не сходится в смысле ряда по норме,
+	однако носители слагаемых попарно не пересекаются.
+	Иначе говоря,
 	\begin{equation}
 		v_j = \begin{cases}
 			0,  & \mbox{~если~} j \leq 2^n,
@@ -274,15 +276,22 @@ $\Omega=\{0;1\}^\mathbb{N}$~\cite{semenov2010characteristic}.
 			.
 		\end{cases}
 	\end{equation}
-
-	TODO: расхтонить!
-
+	Положим теперь
+	\begin{equation}
+		u_j = \begin{cases}
+			v_j + w_j,  & \mbox{~если~} j \leq 2^n
+			\\
+			            & \mbox{~или~} 2^{4k+3} < j \leq 2^{4k+4} \mbox{~и~} 4k + 3 \geq n,
+			\\
+			v_j         & \mbox{~иначе.~}
+		\end{cases}
+	\end{equation}
 
 	Заметим, что все элементы, к которым прибавляются ненулевые элементы $w_j$, равны нулю.
 	Кроме того, $p(u)=p(w)=a$ и $q(u)=q(w)=b$.
-	(На <<подпорченном>> блоке $u$ сумма, соответствующая функционалу $q$,
-	увеличивается не настолько cильно, чтобы <<испортить>> $p$,
-	благодаря условию~\eqref{eq:Omega_a_b_gap}.)
+	(На <<возмущённом>> блоке $u$ сумма, соответствующая функционалу $q$,
+	увеличивается достаточно мало и не влияет на значение функционала $p$,
+	в силу условия~\eqref{eq:Omega_a_b_gap}.)
 	Следовательно, $u,v\in\Omega^a_b$.
 	Заметим теперь, что
 	\begin{equation}
@@ -327,10 +336,10 @@ $\Omega=\{0;1\}^\mathbb{N}$~\cite{semenov2010characteristic}.
 
 \section{Линейные оболочки множеств, определяемых функционалами Сачестона}
 
-Итак, $\Omega \subset \operatorname{Lin}\{x\in\Omega : p(x) = a, q(x) = b\}$, где $a>b$.
+Итак, $\Omega \subset \operatorname{Lin}\{x\in\Omega : p(x) = a,~ q(x) = b\}$, где $a>b$.
 Оказывается, аналогичным свойством обладает и всё пространство $\ell_\infty$:
 $\ell_\infty\subset \operatorname{Lin} X^a_b$, где
-$X^a_b = \{x\in\ell_\infty : p(x) = a > q(x) = b\}$, $a>b$.
+$X^a_b = \{x\in\ell_\infty : p(x) = a,~ q(x) = b\}$, $a>b$.
 
 \begin{lemma}
 	\label{lem:const_Lin_ell_infty}
@@ -361,7 +370,7 @@ $X^a_b = \{x\in\ell_\infty : p(x) = a > q(x) = b\}$, $a>b$.
 	и найдём представления для $y$ и $z$).
 
 	Если $p(x) = q(x)$, то возьмём некоторый $y\in\ell_\infty$,
-	такой, что $p(y) > p(x) > q(x)  > q(y) \geq 0$.
+	такой, что $p(y) > p(x) = q(x)  \geq q(y) \geq 0$.
 	Тогда в силу выпуклости функционала $p$ имеем
 	\begin{equation}
 		p(x+y) \geq p(y) > p(x) = q(x)
@@ -370,11 +379,11 @@ $X^a_b = \{x\in\ell_\infty : p(x) = a > q(x) = b\}$, $a>b$.
 
 
 	\begin{equation}
-		q(x+y) = -p(-x-y) \leq -p(-x) -p(-y) = q(x) + q(y)
-		.
+		q(x+y) = -p(-x-y) \leq -p(-x) -p(-y) = q(x) + q(y) \leq q(x) < p(x+y)
+		,
 	\end{equation}
-
-	Таким образом, рассматриваемый случай $p(x) = q(x)$ можно исключить,
+	и задача сведена к отысканию представлений для $y$ и $x+y$.
+	Таким образом, случай $p(x) = q(x)$ можно исключить,
 	и, не теряя общности, рассматривать только такие $x$, что $p(x) > q(x)$.
 
 	Положим $y=k\cdot x + C\cdot\mathbbm{1}$,
@@ -424,12 +433,14 @@ $A_0 c = \{ x \in \ell_\infty : \alpha(x) =0 \}$,
 
 \begin{lemma}
 	\label{lem:const_Lin_alpha_0}
-	Справедливо включение
+	Пусть $a\neq -b$.
+	Тогда справедливо включение
 	$\mathbbm{1}\in \operatorname{Lin} Y^a_b$.
 \end{lemma}
 
-TODO: доказательство не проходит при $a=-b$.
-Составить отдельное (есть в блокноте).
+%TODO: доказательство не проходит при $a=-b$.
+%Составить отдельное (есть в блокноте).
+
 \begin{proof}
 	Не теряя общности, будем полагать, что $b\geq 0$, тогда $a>0$.
 
@@ -485,7 +496,8 @@ TODO: доказательство не проходит при $a=-b$.
 
 \begin{theorem}
 	\label{thm:A_0_c_infty_lin}
-	Справедливо равенство $\operatorname{Lin} Y^a_b = A_0 c$.
+	Пусть $a\neq -b$.
+	Тогда справедливо равенство $\operatorname{Lin} Y^a_b = A_0 c$.
 \end{theorem}
 
 \begin{proof}
@@ -503,7 +515,8 @@ TODO: доказательство не проходит при $a=-b$.
 	Дальнейшее доказательство переносится дословно.
 \end{proof}
 
-
+%TODO: теорема с необходимыми (но не достаточными) условиями для того, чтобы множество было неразделяющим?
+%TODO: а разделяющее ли множество Кантора? Нулевой/ненулевой меры?
 
 \section{Заключительные замечания}
 Подмножество $\Omega$ нулевой меры, не являющееся разделяющим, сконструировать очень легко
