@@ -1,0 +1,327 @@
+\documentclass[a4paper,14pt]{article} %размер бумаги устанавливаем А4, шрифт 12пунктов
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel} %используем русский и английский языки с переносами
+\usepackage{amssymb,amsfonts,amsmath,mathtext,enumerate,float,amsthm} %подключаем нужные пакеты расширений
+\usepackage[unicode,colorlinks=true,citecolor=black,linkcolor=black]{hyperref}
+%\usepackage[pdftex,unicode,colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{indentfirst} % включить отступ у первого абзаца
+\usepackage[dvips]{graphicx} %хотим вставлять рисунки?
+\graphicspath{{illustr/}}%путь к рисункам
+
+\makeatletter
+\renewcommand{\@biblabel}[1]{#1.} % Заменяем библиографию с квадратных скобок на точку:
+\makeatother %Смысл этих трёх строчек мне непонятен, но поверим "Запискам дебианщика"
+
+\usepackage{geometry} % Меняем поля страницы.
+\geometry{left=2cm}% левое поле
+\geometry{right=1cm}% правое поле
+\geometry{top=2cm}% верхнее поле
+\geometry{bottom=2cm}% нижнее поле
+
+\renewcommand{\theenumi}{\arabic{enumi}.}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\labelenumi}{\arabic{enumi}.}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\theenumii}{\arabic{enumii}}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}.}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\theenumiii}{\arabic{enumiii}}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}.}% Меняем везде перечисления на цифра.цифра
+
+\sloppy
+
+
+
+
+\renewcommand\normalsize{\fontsize{14}{25.2pt}\selectfont}
+
+\usepackage[backend=biber,style=gost-numeric,sorting=none]{biblatex}
+\addbibresource{../bib/ext.bib}
+\addbibresource{../bib/my.bib}
+\addbibresource{../bib/Semenov.bib}
+\input{../bib/ext.hyphens.bib}
+
+
+\theoremstyle{plain}
+\newtheorem{lemma}{Лемма}%[section]
+\newtheorem{theorem}[lemma]{Теорема}
+\newtheorem{example}[lemma]{Пример}
+\newtheorem{property}[lemma]{Свойство}
+\newtheorem{remark}[lemma]{Замечание}
+\newtheorem{corollary}{Следствие}[lemma]
+\newtheorem{hypothesis}[lemma]{Гипотеза}
+
+\usepackage{bbm}
+
+
+\begin{document}
+
+% The text starts here
+
+В \cite{our-mz2019measure} была анонсирована следующая теорема.
+\begin{theorem}[{\cite[Теорема 2]{our-mz2019measure}}]
+	\label{thm:mes_W}
+	Пусть $W$~--- множество всех последовательностей $\chi_e$, где $e =\bigcup_{k=1}^{\infty} [n_{2k-1}, n_{2k} )$
+	и $\{n_k \}_{k=1}^{\infty}$
+	удовлетворяет условию
+	\begin{equation}
+		\label{eq:lim_j_n_kj_measure}
+		\lim_{j\to\infty}\frac{n_{k+j} - n_k}{j} = \infty
+	\end{equation}
+	равномерно по $k \in \mathbb{N}$.
+	Тогда $\operatorname{mes} W = 0$.
+\end{theorem}
+
+Для доказательства теоремы~\ref{thm:mes_W} нам потребуется ряд вспомогательных построений.
+
+
+Введём нелинейную биекцию $Q:\Omega\leftrightarrow\Omega$ по следующему правилу:
+\begin{equation}
+	(Qx)_k = \begin{cases}
+		x_k, &\mbox{если~} k = 1,
+		\\
+		|x_k-x_{k-1}|&\mbox{иначе}.
+	\end{cases}
+\end{equation}
+
+\begin{remark}
+	Может показаться, что оператор $Q$ очень сходен с оператором границы последовательности $\operatorname{bd}$
+	~\cite{keller1992invariant},
+	однако это не так.
+\end{remark}
+
+\begin{example}
+	\begin{equation}
+		\begin{array}{rl}
+			                   x &= (0,0,0,1,1,1,0,0,0,0,0,1,1,1,1,1,0,...)
+			\\
+			\operatorname{bd}(x) &= (0,0,0,1,0,1,0,0,0,0,0,1,0,0,0,1,0,...)
+			\\
+			                  Qx &= (0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,1,...)
+		\end{array}
+	\end{equation}
+\end{example}
+
+\begin{example}
+	Ситуация кардинально меняется, когда в последовательности достаточно часто встречаются блоки $(...,0,1,0,...)$
+	(а по закону больших чисел они будут встречаться с большой вероятностью).
+	\begin{equation}
+		\begin{array}{rl}
+			                   x &= (0,0,1,1,0,1,0,1,0,0,0,...)
+			\\
+			\operatorname{bd}(x) &= (0,0,1,1,0,1,0,1,0,0,0,...)
+			\\
+			                  Qx &= (0,0,1,0,1,1,1,1,1,0,0,...)
+		\end{array}
+	\end{equation}
+\end{example}
+
+
+\begin{lemma}
+	Биекция $Q$ сохраняет меру множества.
+\end{lemma}
+
+\begin{proof}
+	В рамках данного доказательства будем соотносить последовательности из нулей и единиц
+	с точками полуинтервала $[0;1)$, представленными в виде двоичных дробей.
+	Это соответствие почти биективно.
+	Назовём двоичным отрезком множество последовательностей из $\Omega$,
+	в котором первые $k$ координат зафиксированы, а остальные выбираются произвольно.
+	Двоичный отрезок действительно соответствует отрезку длины $1/2^k$,
+	состоящему из двоичных дробей, в которых первые $k$ цифр после запятой зафиксированы,
+	а остальные выбираются произвольно.
+
+	Заметим, что $Q$ отображает двоичный отрезок длины $1/2^k$ в двоичный отрезок длины $1/2^k$.
+	Так как любой отрезок может быть представлен в виде объединения не более чем счётного числа
+	двоичных отрезков, то $Q$ сохраняет меру любого отрезка.
+	В силу биективности $Q$ отсюда следует, что $Q$ сохраняет меру любого борелевского множества
+	(так как сигма-алгебра борелевских множеств порождается отрезками).
+\end{proof}
+
+Второй вариант доказательства:
+\begin{proof}
+	Доказательство из~\cite{connor1990almost} использует наименьшую $\sigma$--алгебру $\mathcal{S}$,
+	содержащую множества
+	\begin{equation}
+		\Omega_i = \{x\in\Omega: x_i = 1\}
+		.
+	\end{equation}
+	Очевидно, что $\mathcal{S}$~--- это также и наименьшая $\sigma$--алгебра, содержащая множества
+	$\Omega^*_{i,j}$ последовательностей, в которых зафиксированы первые $i$ координат.
+	Заметим, что $\mu(\Omega^*_{i,j}) = \mu(Q\Omega^*_{i,j})$.
+	Так как $Q$~--- биекция, то $\mu^*(A) = \mu(QA)$~--- мера.
+	Действтельно, неотрицательность $\mu^*(A)$ очевидна.
+	Покажем выполнение аксиомы счётной аддитивности.
+	Пусть $A_i \cap A_j = \varnothing$ при $i\neq j$,
+	тогда в силу биективности $Q$ имеем $QA_i \cap QA_j = \varnothing$ и
+	\begin{equation}
+		\mu^*\left( \bigcup_i A_i \right)
+		=
+		\mu\left( Q \bigcup_i A_i \right)
+		=
+		\mu\left( \bigcup_i QA_i \right)
+		=
+		\sum_i 	\mu( QA_i )
+		=
+		\sum_i 	\mu^*( A_i )
+		.
+	\end{equation}
+	Согласно теореме Каратеодори,
+	если две меры совпадают на некоторой системе подмножеств $\mathcal{S}^*$,
+	то они совпадают и на минимальной $\sigma$--алгебре, содержащей $\mathcal{S}^*$.
+	Следовательно, биекция $Q$ действительно сохраняет меру.
+\end{proof}
+
+\begin{theorem}[{\cite[Лемма 1]{our-mz2019ac0}}]
+	\label{thm:lim_M(j)/j}
+	Пусть $n_i$~--- строго возрастающая последовательность чисел из $\mathbb{N}$,
+	\begin{equation*}
+		x_k = \left\{\begin{array}{ll}
+			1, & \mbox{~если~} k = n_i
+			\\
+			0  & \mbox{~иначе.~}
+		\end{array}\right.
+	\end{equation*}
+	Для того, чтобы $x\in ac_0$,
+	необходимо и достаточно, чтобы
+	\begin{equation}\label{lim_M(j)/j}
+		\lim_{j \to \infty} \frac{M(j)}{j} = \infty
+		,
+	\end{equation}
+	где
+	\begin{equation}
+		\label{eq:definition_M_j}
+		M(j) = \liminf_{i\to\infty} (n_{i+j} - n_i)
+		.
+	\end{equation}
+\end{theorem}
+
+
+\begin{proof}[Доказательство теоремы~\ref{thm:mes_W}]
+	Равномерное стремление~\eqref{eq:lim_j_n_kj_measure}
+	буквально означает, что
+	\begin{equation}
+		\forall(A>0)\exists(j_A\in\mathbb{N})\forall(j > j_A)\forall(k\in\mathbb{N})
+		\left[
+			\frac{n_{k+j}-n_k}{j}>A
+		\right]
+		.
+	\end{equation}
+	Так как последнее неравенство выполнено для любого $k$,
+	то оно верно и для нижнего предела по $k$:
+	\begin{equation}
+		\forall(A>0)\exists(j_A\in\mathbb{N})\forall(j > j_A)
+		\left[
+			\liminf_{k\to\infty}\frac{n_{k+j}-n_k}{j}>A
+		\right]
+		.
+	\end{equation}
+	<<Свернув>> определение предела по $j$ из кванторной записи, получаем:
+	\begin{equation}
+		\lim_{j\to\infty}\liminf_{k\to\infty}\frac{n_{k+j}-n_k}{j} = \infty
+		,
+	\end{equation}
+	откуда по лемме~\ref{thm:lim_M(j)/j} немедленно имеем $QW \subset \Omega\cap ac_0$.
+	Тогда
+	\begin{equation}
+		0 \leq \operatorname{mes}(W) = \operatorname{mes}(QW) \leq \operatorname{mes}(\Omega\cap ac_0) \leq \operatorname{mes}(\Omega\cap ac) = 0
+		,
+	\end{equation}
+	откуда $\operatorname{mes}(W)=0$.
+\end{proof}
+
+Оказывается, что теорему~\ref{thm:lim_M(j)/j} можно в некотором смысле усилить.
+
+\begin{theorem}
+	Пусть $M(j)$~--- последовательность, определённая в~\eqref{thm:lim_M(j)/j}.
+	Тогда последовательность $M(j)/j$ имеет предел (конечный или бесконечный).
+\end{theorem}
+
+\begin{proof}
+	Предположим противное.
+	Пусть
+	\begin{equation}
+		\liminf_{j\to\infty}\frac{M(j)}{j} = A,
+	\end{equation}
+	\begin{equation}
+		\limsup_{j\to\infty}\frac{M(j)}{j} \geq B
+	\end{equation}
+	(неравенство используется для охвата случая, когда верхний предел равен бесконечности)
+	и
+	\begin{equation}
+		B > A
+		.
+	\end{equation}
+
+	Положим $\varepsilon = \frac{B-A}{4}$.
+	По определению верхнего предела существует такое натуральное $j_0$,
+	что
+	\begin{equation}
+		\frac{M(j_0)}{j_0} > B - \varepsilon
+		.
+	\end{equation}
+	По определению нижнего предела существует $\{j_i\}$~--- возрастающая последовательность таких индексов, что
+	\begin{equation}
+		\label{eq:lim_Mj_inf_lim_seq}
+		\forall(i\in\mathbb{N})\left[ \frac{M(j_i)}{j_i} < A + \varepsilon \right]
+		.
+	\end{equation}
+	Определим для каждого $i\in\mathbb{N}$ целое число $C_i$ такое, что
+	\begin{equation}
+		\label{eq:lim_Mj_inf_lim_Ci}
+		C_i j_0 \leq j_i < (C_i+1)j_0
+		.
+	\end{equation}
+	Легко заметить, что последовательность $\{C_i\}$ является неубывающей.
+
+	Очевидно, что
+	\begin{equation}
+		M(Cj) \geq C \cdot M(j)
+		.
+	\end{equation}
+	Таким образом,
+	\begin{equation}
+		M(j_i) \geq M(C_i j_0) \geq C_i M(j_0) > C_i j_0 (B-\varepsilon)
+	\end{equation}
+	и
+	\begin{multline}
+		\frac{M(j_i)}{j_i} > \frac{C_i j_0 (B-\varepsilon)}{j_i}
+		> \frac{C_i j_0 (B-\varepsilon)}{(C_i+1)j_0}
+		=
+		\\=
+		\frac{C_i}{C_i+1}(B-\varepsilon)
+		= B-\varepsilon - \frac{1}{C_i+1}(B-\varepsilon)
+		.
+	\end{multline}
+	Выберем $i$ настолько большим, что
+	\begin{equation}
+		\frac{1}{C_i+1}(B-\varepsilon) < \varepsilon
+		.
+	\end{equation}
+	Тогда
+	\begin{equation}
+		\frac{M(j_i)}{j_i} > B - 2 \varepsilon = A + 2 \varepsilon > A + \varepsilon
+		,
+	\end{equation}
+	что противоречит~\eqref{eq:lim_Mj_inf_lim_seq}.
+	Полученное противоречие завершает доказательство.
+\end{proof}
+
+\begin{hypothesis}
+	Включение $QW\subset \Omega\cap ac_0$ собственное.
+\end{hypothesis}
+
+\begin{hypothesis}
+	Пусть $M(j)$~--- последовательность натуральных чисел, такая,
+	что для любых $i,j\in\mathbb{N}$ выполнено
+	\begin{equation}
+		M(i)+M(j) \leq M(i+j)
+		.
+	\end{equation}
+	Тогда существует последовательность $\{x_k\}$,
+	удовлетворяющая условию~\eqref{eq:definition_M_j}.
+\end{hypothesis}
+TODO: думаю, что конструкцию выписать несложно.
+
+
+\printbibliography
+
+\end{document}
