@@ -188,9 +188,6 @@ $\Omega=\{0;1\}^\mathbb{N}$~\cite{semenov2010characteristic}.
 	\end{equation}
 	Заметим, что все элементы $\operatorname{Br}(n,c)$, начиная с $(2^n+1)$-го, равны нулю.
 
-
-	TODO: расхтонить!
-
 	Для каждого $k \geq n$ положим
 	\begin{equation}
 		\label{eq:Br(k+1,c)}
@@ -324,6 +321,7 @@ $\Omega=\{0;1\}^\mathbb{N}$~\cite{semenov2010characteristic}.
 	объединив разделяющее множество нулевой меры и произвольное неизмеримое множество.
 	Для полноты изложения, однако, приведём другую конструкцию, являющуюся близким аналогом классического множества Лузина.
 	%[TODO: ссылка?]
+	% Множество не Лузина, а Витали?
 
 	Две точки отрезка $x,y \in [0;1]$ назовём эквивалентными, если
 	$x - y = a/2^k$, где $k\in\mathbb{N}$, $a\in\mathbb{Z}$.
@@ -429,7 +427,7 @@ $A_0 c = \{ x \in \ell_\infty : \alpha(x) =0 \}$,
 
 Пусть $Y^a_b = \{x\in A_0 c : p(x) = a, q(x) = b\}$, где $a>b$.
 Следуя той же схеме доказательства, что и для $\ell_\infty$,
-подготовим сначала вспомогательную лемму о константе.
+подготовим сначала вспомогательные леммы о константе.
 
 \begin{lemma}
 	\label{lem:const_Lin_alpha_0}
@@ -475,6 +473,66 @@ $A_0 c = \{ x \in \ell_\infty : \alpha(x) =0 \}$,
 	\end{equation}
 	откуда и следует, что $\mathbbm{1}\in Y^a_b$.
 \end{proof}
+
+
+\begin{lemma}
+	\label{lem:const_Lin_alpha_0_a_eq_-b}
+	Справедливо включение
+	$\mathbbm{1}\in \operatorname{Lin} Y^a_{-a}$.
+\end{lemma}
+
+\begin{proof}
+	Определим линейный оператор $M:\ell_\infty \to \ell_\infty$ следующим образом:
+	\begin{multline}
+		M\omega=\left(
+			0, 1\omega_1,
+			0, \frac{1}{2}\omega_2, 1\omega_2, \frac{1}{2}\omega_2,
+			0, \frac{1}{3}\omega_3, \frac{2}{3}\omega_3, 1\omega_3, \frac{2}{3}\omega_3, \frac{1}{3}\omega_3,
+			0, ...,
+		\right. \\ \left.
+			0, \frac{1}{p}\omega_p, \frac{2}{p}\omega_p, ..., \frac{p-1}{p}\omega_p, 1\omega_p,
+				\frac{p-1}{p}\omega_p, ..., \frac{2}{p}\omega_p, \frac{1}{p}\omega_p,
+			0, \frac{1}{p+1}\omega_{p+1}, ...
+		\right)
+		.
+	\end{multline}
+	Тогда $SM: \ell_\infty \to A_0 c$.
+
+	Положим $x=aS(2M(\mathbbm{1})-\mathbbm{1})$,
+	$y=-aS(2M(1,0,1,0,1,0,1,0,...)-\mathbbm{1})$,
+	$z=-aS(2M(0,1,0,1,0,1,0,1,...)-\mathbbm{1})$.
+
+	TODO: расписать первые несколько координат?
+
+	Тогда, очевидно, каждая из последовательностей $x,y,z$ содержит отрезки сколь угодно большой длины,
+	состоящие из $a$ (равно как и из $-a$), при этом $-a \leq x,y,z \leq a$.
+	Следовательно, $p(x)=p(y)=p(z) = a$ и $q(x)=q(y)=q(z) = -a$,
+	откуда $x,y,z \in Y^a_{-a}$.
+
+	Заметим теперь, что
+	\begin{multline}
+		x + y + z
+		=
+		\\=
+		aS(2M(\mathbbm{1})-\mathbbm{1}) - aS(2M(1,0,1,0,1,0,...)-\mathbbm{1}) - aS(2M(0,1,0,1,0,1,...)-\mathbbm{1})
+		=
+		\\=
+		aS(2M(\mathbbm{1})-\mathbbm{1}  -    2M(1,0,1,0,1,0,...)+\mathbbm{1}  -    2M(0,1,0,1,0,1,...)+\mathbbm{1})
+		=
+		\\=
+		aS(2M(\mathbbm{1}) - 2M(1,0,1,0,1,0,...) - 2M(0,1,0,1,0,1,...)+\mathbbm{1}+\mathbbm{1}-\mathbbm{1})
+		=
+		\\=
+		aS(2M(\mathbbm{1}) - 2M(1,0,1,0,1,0,...) - 2M(0,1,0,1,0,1,...)+\mathbbm{1})
+		=
+		aS\mathbbm{1}
+		=
+		a\mathbbm{1}
+		,
+	\end{multline}
+	откуда $\mathbbm{1} \in \operatorname{Lin} Y^a_{-a}$.
+\end{proof}
+
 
 \begin{lemma}
 	\label{lem:c_0_Lin_alpha_0}
