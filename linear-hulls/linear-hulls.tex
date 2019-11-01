@@ -161,26 +161,31 @@ $\Omega=\{0;1\}^\mathbb{N}$~\cite{semenov2010characteristic}.
 		a - b > \frac{3}{2^n}
 	\end{equation}
 	и $n$ чётно.
-	Определим теперь двоичные приближения к числам $a$ и $b$:
+	На протяжении всего дальнейшего доказательства будем считать $a$, $b$ и $n$ фиксированными.
+	Пусть
 	\begin{equation}
-		\label{eq:binary_approximations_for_number}
-		\frac{a_k}{2^k} \leq a < \frac{a_k+1}{2^k}
-		,
-		~~~a_k>0
-		,
-		~~~a_k\in\mathbb{Z}
+		N = \{k\in\mathbb{N} : k \geq n\} = \{n, n+1, n+2, ...\}
 		.
 	\end{equation}
-	(и аналогично для $b$).
 
+	Определим теперь двоичные приближения к произвольному числу $c\in[0;1]$
+	(в дальнейшем в качестве $c$ будут выступать $a$ и $b$):
+	\begin{equation}
+		\label{eq:binary_approximations_for_number}
+		\frac{c_{(k)}}{2^k} \leq c < \frac{c_{(k)}+1}{2^k}
+		,
+		~~~c_{(k)}\in\mathbb{N}\cup\{0\}
+		.
+	\end{equation}
 
-	Теперь определим <<блоки>> из нулей и единиц, соответствующие числу $c\in[0;1]$ для $k \geq n$.
-	Пусть определены $c_k$ аналогично~\eqref{eq:binary_approximations_for_number}.
-	Тогда $\operatorname{Br}(k,c) \in \ell_\infty$.
-	Дальнейшее определение построим рекурсивно.
+	Далее нам потребуется вспомогательная функция $\operatorname{Br}:N\times [0;1] \to \ell_\infty$,
+	генерирующая <<блоки>> из нулей и единиц, соответствующие приближению $c_{(k)}$ к числу $c\in[0;1]$ для $k \geq n$.
+
+	Определение $\operatorname{Br}$ построим рекурсивно.
+	Сначала определим $\operatorname{Br}(k,c)$ для $k=n$ по следующему правилу:
 	\begin{equation}
 		(\operatorname{Br}(n,c))_j = \begin{cases}
-			1, & \mbox{~если~} 2^n - c_n < j \leq 2^n,
+			1, & \mbox{~если~} 2^n - c_{(n)} < j \leq 2^n,
 			\\
 			0  & \mbox{~иначе}
 			.
@@ -191,20 +196,21 @@ $\Omega=\{0;1\}^\mathbb{N}$~\cite{semenov2010characteristic}.
 	Для каждого $k \geq n$ положим
 	\begin{equation}
 		\label{eq:Br(k+1,c)}
-		\operatorname{Br}(k+1,c) = \operatorname{Br}(k,c) + T^{2^k}\operatorname{Br}(k,c) + (c_{k+1}-2c_k)e_{2^k+2^n-c_n}
+		\operatorname{Br}(k+1,c) = \operatorname{Br}(k,c) + T^{2^k}\operatorname{Br}(k,c) + (c_{(k+1)}-2c_{(k)})e_{2^k+2^n-c_{(n)}}
 		,
 	\end{equation}
 	где через $e_j$ обозначен $j$-й орт.
+
 	Легко заметить (по индукции), что все элементы $\operatorname{Br}(k,c)$, начиная с $(2^k+1)$-го, равны нулю.
 	Следовательно, носители первых двух слагаемых в~\eqref{eq:Br(k+1,c)} не пересекаются.
 	Далее заметим, что третье слагаемое отлично от нуля тогда и только тогда,
-	когда переход между приближениями $с_k / 2^k$ и $c_{k+1}/2^{k+1}$
-	приводит к улучшению прилижения.
+	когда переход между приближениями $с_{(k)} / 2^k$ и $c_{(k+1)}/2^{k+1}$
+	приводит к улучшению приближения.
 	Более того,
 	\begin{equation}
-		(\operatorname{Br}(k,c) + T^{2^k}\operatorname{Br}(k,c))_{2^k+2^n-c_n}
+		\left(\operatorname{Br}(k,c) + T^{2^k}\operatorname{Br}(k,c)\right)_{2^k+2^n-c_{(n)}}
 		=
-		(\operatorname{Br}(k,c))_{2^n-c_n}
+		(\operatorname{Br}(k,c))_{2^n-c_{(n)}}
 		=
 		0
 		,
@@ -212,11 +218,21 @@ $\Omega=\{0;1\}^\mathbb{N}$~\cite{semenov2010characteristic}.
 	т.е. выражение~\eqref{eq:Br(k+1,c)} действительно задаёт последовательность из нулей и единиц.
 	Таким образом, в $k$-м блоке ровно $c_k$ единиц.
 
+	Заметим, что $\operatorname{supp}\operatorname{Br}(k,c) \subset \operatorname{supp}\operatorname{Br}(k+1,c)$
+	и, более того, справедливо соотношение
+	\begin{equation}
+		(\operatorname{Br}(k,c))_j = \begin{cases}
+			(\operatorname{Br}(k+1,c))_j, & \mbox{~если~}  j \leq 2^k,
+			\\
+			0  & \mbox{~иначе}
+			.
+		\end{cases}
+	\end{equation}
 
 	Нетрудно заметить, что для любых таких $m$, $k$ и $i$, что $n \leq m \leq k$ и  $ i + 2^m - 1 \leq 2^k$,
 	выполнено
 	\begin{equation}
-		c_m \leq \sum_{j=i}^{i+2^m-1} (\operatorname{Br}(k,c))_j \leq c_{m}+1
+		c_{(m)} \leq \sum_{j=i}^{i+2^m-1} (\operatorname{Br}(k,c))_j \leq c_{(m)}+1
 		.
 	\end{equation}
 
