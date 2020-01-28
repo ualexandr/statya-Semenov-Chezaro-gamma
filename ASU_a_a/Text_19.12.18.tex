@@ -543,13 +543,13 @@ F(t)=F_B(t)=B(f_n(t)) \mbox{\quad измерима на $[0,1]$.}
  \begin{lem}\label{l1}
  Если $x\in\ell_\infty$, то
  \begin{equation}\label{f3}
- \left[\lim_{n\to\infty} \inf_{m\in\N} \frac1n \sum_{k=m+1}^{m+n} x_k, \lim_{n\to\infty} \sup_{m\in\N} \frac1n \sum_{k=m+1}^{m+n} x_k \right] \subset \bigcap_{m=1}^\infty \overline{{\rm conv} \{x_k\}_{k\ge m}}.
+ \left[ q(x), p(x) \right] \subset \bigcap_{m=1}^\infty \overline{{\rm conv} \{x_k\}_{k\ge m}}.
  \end{equation}
  \end{lem}
 
  \begin{proof}
  Так как
- $$\left[\inf_{m\in\N} \frac1n \sum_{k=m+1}^{m+n} x_k, \sup_{m\in\N} \frac1n \sum_{k=m+1}^{m+n} x_k \right] \subset \overline{{\rm conv} \{x_k\}_{k\ge m}} $$
+ $$\left[ q(x), p(x) \right] = \left[\inf_{m\in\N} \frac1n \sum_{k=m+1}^{m+n} x_k, \sup_{m\in\N} \frac1n \sum_{k=m+1}^{m+n} x_k \right] \subset \overline{{\rm conv} \{x_k\}_{k\ge m}} $$
  для любых $m,n\in\N$, то отсюда вытекает \eqref{f3}.
  \end{proof}
 
@@ -564,11 +564,11 @@ B(f_n(t)) \in \bigcap_{m=1}^\infty \overline{{\rm conv} \{f_k(s)\}_{k\ge m}}
 \begin{proof}
 Для любого $t\in[0,1]$, применяя теорему Сачестона \cite{S} к числовой последовательности $f_n(t)$, получаем
 \begin{equation}\label{f4}
-B(f_n(t)) \in \left[\lim_{n\to\infty} \inf_{m\in\N} \frac1n \sum_{k=m+1}^{m+n} f_k(t), \lim_{n\to\infty} \sup_{m\in\N} \frac1n \sum_{k=m+1}^{m+n} f_k(t) \right].
+B(f_n(t)) \in \left[ q(f_n(t)), p(f_n(t)) \right].
  \end{equation}
  В силу леммы \ref{l1},
  \begin{equation}\label{f5}
-\left[\lim_{n\to\infty} \inf_{m\in\N} \frac1n \sum_{k=m+1}^{m+n} f_k(t), \lim_{n\to\infty} \sup_{m\in\N} \frac1n \sum_{k=m+1}^{m+n} f_k(t) \right]\subset \overline{{\rm conv} \{f_k(t)\}_{k\ge m}}
+\left[ q(f_n(t)), p(f_n(t)) \right]\subset \overline{{\rm conv} \{f_k(t)\}_{k\ge m}}
  \end{equation}
  для каждого $t\in[0,1]$, где замыкание выпуклой оболочки берется поточечно, т. е. для каждого $t\in[0,1]$.
 \end{proof}
