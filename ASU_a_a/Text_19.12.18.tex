@@ -1,0 +1,809 @@
+\documentclass[12pt]{article}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{color}
+
+\usepackage{amssymb,latexsym,amsmath, amsfonts}
+\usepackage{amsthm,indentfirst}
+
+\renewcommand{\baselinestretch}{1.3}
+ \vbadness10000\hbadness10000
+ \textwidth=167mm \textheight=230mm
+\hoffset=-19mm \voffset=-20mm
+
+\newcommand{\emm}{\mathrm{1\hspace{-0.3em} I}}
+
+\newtheorem{thm}{Теорема}
+\newtheorem{lem}[thm]{Лемма}
+\newtheorem{prop}[thm]{Утверждение}
+\newtheorem{cor}[thm]{Следствие}
+\newtheorem{dfn}[thm]{Определение}
+
+\def\cC{{\mathfrak{C}}}
+\def\N{{\mathbb{N}}}
+\def\Z{{\mathbb{Z}}}
+\def\Rl{{\mathbb{R}}}
+\def\Cx{{\mathbb{C}}}
+\def\sH{{\mathcal{H}}}
+\def\tr{{\mathrm{Tr}\,}}
+\def\aM{{\mathcal{M}}}
+\def\id{{\mathbb{1}}}
+\def\sgn{{\mathrm{sgn}\,}}
+\def\Re{{\mathrm{Re}\,}}
+\def\mL{{\mathcal{L}}}
+
+\def\A{{\mathfrak{A}}}
+%\def\sH{{\mathbb{H}}}
+\def\W{{{W}}}
+\def\Pl{{{P}}}
+
+\def\B{{\mathfrak{B}}}
+\def\ext{{\mathrm{ext}\,}}
+\def\mes{{\mathrm{mes}}}
+
+\begin{document}
+
+\begin{center}
+{\Large Банаховы пределы: экстремальные свойства, инвариантность и теорема Фубини}
+
+Н. Н. Авдеев, Е. М. Семенов, А. С. Усачев
+\end{center}
+
+\begin{abstract}
+Банаховым пределом на пространстве всех ограниченных вещественнозначных последовательностей называется положительный, нормированный линейный функционал, инвариантный относительно сдвига. В работе изучаются необычные свойства банаховых пределов такие как мультипликативность и справедливость теоремы Фубини. Также изучается подмножество банаховых пределов, инвариантных относительно операторов растяжения.
+\end{abstract}
+
+
+\section{Введение}
+
+
+Через $l_\infty$ обозначается множество ограниченных
+последовательностей $x=(x_1,x_2,\ldots)$ с нормой
+\[
+ \|x\|_{l_\infty}=\sup_{n\in \mathbb N}|x_n|,
+\]
+ и обычной полуупорядоченностью, где ${\mathbb N}$~--- множество натуральных чисел.
+
+\begin{dfn}
+Линейный функционал $B\in l_\infty^*$ называется банаховым пределом,
+если
+\begin{enumerate}
+    \item $B\geq0$, т.~е. $Bx \geq 0$ для $x \geq 0$,
+    \item $B\emm=1$, где $\emm =(1,1,\ldots)$,
+    \item $B(Tx)=B(x)$ для всех $x\in l_\infty$, где $T$~---
+    оператор сдвига, т.~е. $T(x_1,x_2,\ldots)=(x_2,x_3,\ldots)$.
+\end{enumerate}
+\end{dfn}
+
+Существование банаховых пределов было анонсированно С. Мазуром \cite{Mazur} и позднее доказано в книге С.~Банаха~\cite{B}.
+Банаховы пределы зарекомендовали себя как удобный и полезный инструмент в различных областях математики, таких как некоммутативная геометрия и анализ~\cite{CS}, теория операторов \cite{Sem_Sht} и гармонический анализ \cite{Ast_Sem, SU, U2}. Применение банаховых пределов в этих и других областях подробно описано в недавнем обзоре \cite{SSU_survey}.
+
+Из определения сразу вытекает, что
+$$\liminf_{n\to\infty}x_n \le Bx \le \limsup_{n\to\infty}x_n,$$
+для всех $x\in l_\infty$ и, в частности,
+ $\displaystyle
+Bx=\lim_{n\to\infty}x_n$ для любой сходящейся
+последовательности $x\in l_\infty$ и $\|B\|_{l_\infty^*}=1$. Множество всех банаховых пределов обозначим
+ через $\mathfrak{B}$. Ясно, что $\mathfrak{B}$ есть замкнутое выпуклое
+множество на единичной сфере пространства $l_\infty^*$.
+
+В монографии~\cite{L} Г.~Г.~Лоренц ввел понятие почти сходящихся (к числу $a\in \mathbb R$) последовательностей, т.е. таких последовательностей $x\in l_\infty$, что $Bx=a$ для любого банахова предела $B$.
+
+Множество всех почти сходящихся последовательностей обозначим через $ac$,
+а множество всех последовательностей, почти сходящихся к нулю обозначим через $ac_0$.
+
+Следующий критерий почти сходимости был доказан в работе~\cite{L}.
+\begin{thm}\label{lorentz}
+Последовательность $x\in l_\infty$ почти сходится к числу $a\in \mathbb R$ тогда и только тогда, когда
+$$
+ \lim_{n\to\infty}\frac1n\sum_{k=m+1}^{m+n}x_k=a
+$$
+равномерно по $m\in{\mathbb N}$.
+\end{thm}
+
+Результат Лоренца был усилен Л.~Сачестоном~\cite{S} следующим образом.
+\begin{thm}\label{sucheston}
+Для любого $x\in l_\infty$
+$$\mathfrak B (x):=\{Bx: B\in \mathfrak B\}=[q(x),p(x)],$$
+где
+$$
+ q(x)=\lim_{n\to\infty}\inf_{m\in\mathbb N}
+  \frac1n \sum_{k=m+1}^{m+n} x_k \ ,
+\qquad
+ p(x)=\lim_{n\to\infty}\sup_{m\in\mathbb N}
+  \frac1n \sum_{k=m+1}^{m+n} x_k.
+$$
+\end{thm}
+
+Хорошо известно, что банаховы пределы не являются мультипликативными функционалами. Однако в работе \cite{Luxemburg} У. Люксембург ввел в рассмотрение стабилизатор пространства $ac_0$, на котором банаховы пределы мультипликативны. Это множество его обобщения в дальнейшем изучались в работах \cite{Alekhno, SSU2, ASSU4}. Раздел \ref{sec:W} данной работы посвящен дальнейшему изучению стабилизатора пространства $ac_0$. В частности, мы доказываем, что множество $W$, которое является пересечением стабилизатора с множеством $\{0,1\}^\N$ всех последовательностей из нулей и единиц, - максимальное (по включению) множество на котором банаховы пределы мультипликативны.
+
+Особый интерес (мотивированный теорией сингулярных следов) представляет изучение банаховых пределов с дополнительными свойствами инвариантности. В недавних работах изучалась связь между банаховы пределами инвариантными относительно операторов Чезаро и операторов растяжения (см. раздел \ref{sec:inv}). Так в работе \cite{SSUZ2} было показано, что банаховы пределы инвариантные относительно оператора Чезаро вложены во пересечение множеств  банаховых пределов инвариантных относительно операторов растяжения. В работе \cite{SSUZ3} было показано, что вложение строгое. Дальнейшему изучению банаховых пределов инвариантных относительно операторов растяжения посвящен раздел \ref{sec:inv} данной работы.
+
+В разделе \ref{sec:Fubini} мы рассматриваем аналоги теоремы Фубини для банаховых пределов.
+
+
+Некоторые результаты данной работы были анонсированы в~\cite{AvSU}.
+
+Исследования выполнены за счет гранта Российского научного
+фонда (проект № 19-11-00197).
+
+
+
+%\section{Предварительные результаты}
+
+
+
+\section{Подмножество $\ell_\infty$ с экстремальными свойствами}\label{sec:W}
+
+Пусть $\{n_k\}_{k=1}^\infty$ - строго возрастающая  последовательность целых чисел и
+\begin{equation}\label{e}
+e =\bigcup\limits_{k=1}^\infty[n_{2k-1},n_{2k}).
+\end{equation}
+
+Обозначим через $W$ множество всех последовательностей $\chi_e$, где множество  $e \subset \N$ указанного вида
+и выполнено условие
+\begin{equation}\label{growth_cond}
+    \lim\limits_{j\to\infty}\frac{n_{k+j}-n_k}j=\infty
+\end{equation}
+равномерно по $k\in \mathbb N$.
+
+Ради простоты обозначений мы будем отождествлять $e \subset \N$ и характеристическую функцию $\chi_e$. Множество $W$ впервые появилось в~\cite[\S 5]{SSU2} естественным образом. Для $B\in \B$ и $e\subset \N$ таких, что $B\chi_e\neq 0$, определим на $\ell_\infty$ функционал
+$$B_e(x)=\frac{B(x\chi_e)}{B\chi_e}.$$
+В \cite[Т. 25]{SSU2} доказано, что функционал $B_e$ принадлежит $\B$ для любого $B\in \B$, удовлетворяющему условию $B\chi_e\neq 0$, тогда и только тогда, когда $e\in W$. Оказалось, что множество $W$ играет важную роль и в других задачах.
+
+%Results in this section are motivated by the following question:
+%Let $F$ be the set of all $x\in \{0,1\}^\N$ such that $Bx=0$ or $1$ for all $B\in {\rm ext}\mathfrak B$. Does there exist such $F$ with $mes F>0$?
+%The results below answer this question in negative.
+
+%The next two simple results show that the set $W$, introduced in~\cite{SSU2}, is maximal by inclusion from the sets $F$ above.
+
+\begin{thm}\label{thm1}
+Пусть $e\subset \N$ имеет вид \eqref{e}. Следующие условия эквивалентны
+
+(i) $B\chi_e=0$ или $1$ для любого $B\in \ext\B$;
+
+(ii) $B(\chi_e x)= B\chi_e \cdot Bx$ для любых $x\in \ell_\infty$ и $B\in \ext\B$;
+
+(iii) $\chi_e\in W$.
+\end{thm}
+
+\begin{proof}
+(i) $\Longrightarrow$ (ii). Пусть $B\in \ext\B$. Рассмотрим 2 возможных случая.
+
+1. Пусть $B\chi_e=0$. Так как
+$$-\|x\|_{\ell_\infty}\chi_e \le x \chi_e \le \|x\|_{\ell_\infty}\chi_e,$$
+то
+$$0=B(-\|x\|_{\ell_\infty}\chi_e) \le B(x \chi_e) \le B(\|x\|_{\ell_\infty}\chi_e)=0$$
+и, следовательно, $B(\chi_e x)= B\chi_e \cdot Bx$.
+
+2. Пусть $B\chi_e=1$. Тогда $B\chi_{ce}=0$, где $ce=\N\setminus e$. Применяя только что доказанное утверждение, получаем $B(x\chi_{ce})=0$ и
+$$B(\chi_e x)= Bx - B(x\chi_{ce})= Bx,$$
+что и доказывает равенство $B(\chi_e x)= B\chi_e \cdot Bx$.
+
+
+(ii) $\Longrightarrow$ (iii). Е. А. Алехно \cite[Утверждение 2.3]{Alekhno} доказал, что (ii) влечет $\chi_e \in {\rm St}(ac_0)$. Отсюда, как показано в  \cite[Лемма 35]{SSU2}, вытекает $\chi_e\in W$.
+
+(iii) $\Longrightarrow$ (i). Эта импликация доказана \cite[Следствие 29]{SSU2}.
+\end{proof}
+
+Таким образом, $W$ (объединенное с множеством последовательностей, содержащих лишь конечное число и нулей и единиц) есть максимальное по включению подмножество $\{0,1\}^\N$, на котором каждый $B\in {\rm ext}\mathfrak B$ принимает только крайние значения $0$ или $1$.
+
+Каждой последовательности $(x_1, x_2, \dots)\in \{0,1\}^\N$ можно поставить в соответствие число
+$$\sum_{k=1}^\infty 2^{-k} x_k \in [0,1].$$
+С точностью до счетного множества это соответствие взаимно-однозначно и определяет на множестве $\{0,1\}^\N$ меру, которую мы как и меру Лебега на $[0,1]$ обозначаем символом $\mes$. В \cite{SS} доказано следующее утверждение
+$$ \mes \, \{x\in \{0,1\}^\N: q(x)=0, \ p(x)=1\}=1.$$ Отсюда сразу вытекает утверждение \cite{Connor} о том, что
+\begin{equation}\label{ac_meas}
+\mes \, \{x\in \{0,1\}^\N: x\in ac\}=0.
+\end{equation}
+
+Нашей ближайшей целью является нахождение меры множества $W$. С этой целью рассмотрим следующее преобразование множества $\{0,1\}^\N$ в себя
+$$(Qx)_1=x_1, \ (Qx)_k=|x_k-x_{k-1}|, \ k\ge2.$$
+
+\begin{lem}\label{Q}
+For every \textbf{Borel} set $A\subset \{0,1\}^\N$ one has $mes QA = mes A$.
+\end{lem}
+
+\begin{proof}
+For a word $\alpha$ (on the alphabet $\{0,1\}$) we denote by $[\alpha]$ the cylinder generated by $\alpha$, that is
+$$[\alpha]:= \{ x\in \{0,1\}^\N : x_i=\alpha_i \ \forall \ 1\le i \le |\alpha|\},$$
+where $|\alpha|$ stands for the length of the word $\alpha$.
+
+Since the Borel algebra of $\{0,1\}^\N$ is generated by cylinders, it is sufficient to prove the assertion for cylinders. Let $\alpha$ be the word of length $n\in \N$. It follows from the definition of $Q$ that
+
+$\bullet$ for every $x,y \in Q[\alpha]$ one has $x_i = y_i$, $1\le i \le n,$
+
+$\bullet$ there exist $x,y \in Q[\alpha]$ such that $x_{n+1} \neq y_{n+1}$.
+
+Since $Q$ is a bijection, it follows that $Q[\alpha]$ is a cylinder generated by a word of length $n$. Hence, the measure of both $[\alpha]$ and $Q[\alpha]$ is $2^{-n}$. Thus, $Q$ preserves the measure of cylinders.
+\end{proof}
+
+%$$x=\sum_{k=1}^\infty \chi_{[n_{2k-1}, n_{2k})}$$ belong
+%\begin{lem}\label{lemma2}
+%Let $e:=\{n_k\}_{k=1}^\infty \subset \N$ be a strictly increasing sequence.
+%If
+%$$\lim_{k\to\infty} \frac{n_{k+j}-n_k}{j}=\infty$$
+%uniformly in $k\in \N$, then $\chi_e\in ac_0$.
+%\end{lem}
+%
+%\begin{proof}
+%The condition on the sequence $\{n_k\}_{k=1}^\infty$ guarantees that for every $\varepsilon>0$ there exists $m\in \N$ such that for every $j>m$ and every $i\in \N$ one has $n_{i+j}-n_i > j/\varepsilon$. This means that the set
+%$$(k, k+\frac{j}{\varepsilon}\cap \{n_k\}_{k=1}^\infty$$
+%contains at most $j$ elements for every $k\in \N$. By definition of the Sucheston functional $p$ one immediately has that $p(\chi_e)\le \varepsilon$.
+%Since $\varepsilon$ is arbitrary and $\chi_e$ is non-negative, it follows that
+%$0\le q(\chi_e)\le p(\chi_e)=0.$ Thus, $\chi_e\in ac_0$.
+%\end{proof}
+
+
+
+
+
+
+
+\begin{thm}
+$\mes \, W=0$.
+\end{thm}
+
+\begin{proof}
+В силу леммы 2 достаточно показать, что $\mes \, QW=0$. Если $e\subset W$ имеет вид \eqref{e}, то
+$$(Qe)_m=\begin{cases}
+1, m=n_j, j\in\N, j>1,\\
+0, n_j<m<n_{j+1}.
+\end{cases}$$
+
+Это означает, что $Qe$ есть характеристическая функция множества $\{n_j: j\in \N, j>1\}$. Согласно \cite[Лемма 1]{Avdeev2019}, характеристическая функция множества $\{n_j: j\in \N, j>1\}$ принадлежит пространству $ac_0$ тогда и только тогда, когда
+\begin{equation}\label{2.4}
+    \lim\limits_{j\to\infty}\liminf_{k\to\infty}\frac{n_{k+j}-n_k}j=\infty.
+\end{equation}
+
+Т.к. условие~\eqref{growth_cond} влечет~\eqref{2.4}, то $QW \subset \{0,1\}^\N \cap ac_0$. Используя \eqref{ac_meas}, получаем
+$$0\le \mes \, W= \mes \, QW\le \mes \, \{x\in \{0,1\}^\N: x\in ac_0\}\le \mes \, \{x\in \{0,1\}^\N: x\in ac\}=0.$$
+Отсюда, $\mes \, W=0$.
+\end{proof}
+
+Доказанное в теореме включение $QW \subset \{0,1\}^\N \cap ac_0$ является собственным. Действительно, для $x=(1, 0, 0, \dots)$ получаем $Qx=(1,1, 0, 0, \dots)\in ac_0$. Однако, $x\notin W$. Отметим и другой интересный факт. Пусть $x=(1,0,1,0,\dots)$. Тогда $Qx=\emm$ и $Q^2x=(1,0,0, \dots)\in ac_0$. Таким образом, $Q^{-2}ac_0$ не вложено в $ac_0$.
+
+%С множеством $W$ тесно связано множество
+%$$R:= \left\{t\in (0,1) : t=\sum_{k=1}^\infty x_k 2^{-k}, \ (x_1, x_2,...)\in W\right\}.$$
+%By $t_x$ we denote an element of $R$ corresponding to a sequence $x\in W$.
+
+На множестве всех последовательностей из нулей и единиц определим метрику
+$$\rho_{1/2}(x,y)=2^{-k}, \ x,y\in\{0,1\}^\N,$$
+где $k=\max\{n\in\N : x_m=y_m \ \text{для всех} \ 1\le m\le n\}.$ Как показано в \cite[Утверждение 2.1.8]{Edgar}, пара $(\{0,1\}^\N, \rho_{1/2})$ действительно является метрическим пространством.
+
+\begin{thm}
+1. Множество $W$ не содержит нетривиальных шаров из $\{0,1\}^\N$.
+
+2. Множество $W$ и его дополнение плотны в $\{0,1\}^\N$.
+\end{thm}
+
+\begin{proof}
+1. Рассмотрим произвольный элемент
+$$x=\sum_{n=1}^\infty \chi_{[n_{2k-1},n_{2k})}$$
+множества $W$.
+
+Для любого $m\in \N$ найдем такое $k_0\in\N$, что $n_{2k_0}\ge m$ и положим
+$$y=\sum_{n=k_0}^\infty \chi_{[n_{2k},n_{2k+1})}.$$
+
+Имеем $(x+y)_i=1$ для любого $i\ge m$. Таким образом, $x+y\notin W$.
+
+С другой стороны, по крайней мере, первые $m$ координат у последовательностей $x$ и $x+y$ совпадают. Следовательно, $\rho_{1/2}(x,x+y)\le2^{-m}$, т.е. сколь угодно малый шар с центром в $x\in W$ содержит элементы не принадлежащие $W$, что и доказывает утверждение.
+
+2. Произвольная последовательность $x\in\{0,1\}^\N$ может быть записана в виде
+$$x=\sum_{n=1}^\infty \chi_{[n_{2k-1},n_{2k})},$$
+где $\{n_k\}_{k=1}^\infty$ - некоторая строго возрастающая последовательность.
+
+Зафиксируем возрастающую последовательность $\{m_k\}_{k=1}^\infty$, удовлетворяющую условию \eqref{growth_cond}. Для любого $j\in \N$ рассмотрим последовательность
+$$m_k^j:=
+\begin{cases}
+n_k, \ k=1,\dots 2j,\\
+m_{k-2j}, \ k\ge 2j+1
+\end{cases}$$
+и определим
+$$y^j=\sum_{n=1}^\infty \chi_{[m^j_{2k-1},m^j_{2k})}.$$
+
+Поскольку последовательности $m^j$ отличаются от последовательности $m$ лишь конечным числом членов, добавленных в начале, то для любого $j\in \N$ последовательность $m^j$ также удовлетворяет условию \eqref{growth_cond}. Следовательно, $y^j\in W$.
+
+Т.к. у последовательностей $x$ и $y^j$, по крайней мере, первые $n_{2j}-1$ координат совпадают, то
+$$\rho_{1/2}(x,y^j)\le2^{-(n_{2j}-1)}\le2^{1-2j}.$$
+для любого $j\in \N$. Полученное неравенство доказывает, что множество $W$ плотно в $\{0,1\}^\N$.
+
+
+Поскольку множество $W$ не содержит нетривиальных шаров из $\{0,1\}^\N$, то его дополнение плотно в $\{0,1\}^\N$.
+\end{proof}
+
+На множестве $\{0,1\}^\N$ стандартным образом определяется мера размерность Хаусдорфа (см. например \cite[Секция 6]{Edgar}).
+
+
+\begin{prop}
+Множество $W$ самоподобно и его размерность Хаусдорфа равна $1$.
+\end{prop}
+
+\begin{proof}
+Для $j=1,2$ определим функции $f_j : \{0,1\}^\N \to \{0,1\}^\N$ следующим образом:
+$$f_1(x_1, x_2, \dots)=(0, x_1, x_2, \dots), \quad f_2(x_1, x_2, \dots)=(1, x_1, x_2, \dots).$$
+
+Сначала мы докажем, что $W=f_1(W)\cup f_2(W).$
+
+Вложение $f_1(W)\cup f_2(W) \subset W$ следует из определения множества $W$.
+
+Пусть
+$$x=\sum_{n=1}^\infty \chi_{[n_{2k-1},n_{2k})}\in W.$$
+ Если $x_1=0$ (т.е. $n_1>1$), то положим
+ $$y=\sum_{n=1}^\infty \chi_{[n_{2k-1}-1,n_{2k}-1)}.$$
+ Ясно, что $y\in W$ и $x=f_1(y)$.
+
+ Если $x_1=1$ (т.е. $n_1=1$) мы рассмотрим 2 случая.
+
+ (i) Если $x_2=1$, положим $m_1=1$, $m_k=n_k-1$ для $k\ge2$ и
+ $$y=\sum_{n=1}^\infty \chi_{[m_{2k-1},m_{2k})}.$$
+ Тогда $y\in W$ и $x=f_2(y)$.
+
+ (ii) Если $x_2=0$, положим $m_k=n_k-1$ для $k\ge1$ и
+ $$y=\sum_{n=1}^\infty \chi_{[m_{2k-1},m_{2k})}.$$
+ Тогда $y\in W$ and $x=f_2(y)$.
+
+ Таким образом, $W=f_1(W)\cup f_2(W).$
+
+ Теперь мы покажем, что размерность Хаусдорфа множества $W$ is $1$.
+
+Т.к. для $j=1,2$ верно
+ $$\rho_{1/2}(f_j(x),f_j(y))=\frac12\rho_{1/2}(x,y), \ \forall \ x, y \in W,$$
+ то функции $f_j$ являются преобразованиями подобия с коэффициентами $r_j=1/2$ для $j=1,2$.
+
+% Clearly, $f_j(0,1)$, $j=1,2$ are pairwise disjoint and
+%$$f_1(0,1) \cup f_2(0,1) \subset (0,1).$$ This means, that the iterated function system  $\{f_1, f_2\}$ satisfies the open set condition.
+
+По~\cite[Теорема 9.3]{Edgar} размерность Хаусдорфа $d$ множества $W$ является решением уравнения:
+$$ r_1^d+r_2^d=1.$$
+Т.к. $r_j=1/2$, то
+$d=1.$
+\end{proof}
+
+\section{Инвариантные банаховы пределы}\label{sec:inv}
+
+Существование банаховых пределов инвариантных относительно регулярных преобразований Хаусдорфа, было доказано У. Эберлейном \cite{Eberlein}. Более общий результат в этом направлении был получен в \cite{SS_JFA}.
+Обозначим через $\Gamma$ множество линейных операторов $H$ в $\ell_\infty$, удовлетворяющих следующим условиям:
+\begin{enumerate}
+%\renewcommand{\labelenumi}{(\roman{enumi})}
+\item[(i)]
+$H\geq0$ и $H\emm=\emm$;
+
+\item[(ii)]
+$Hc_0\subset c_0$;
+
+\item[(iii)]
+$\limsup\limits_{j\to\infty} \ (A(I-T)x)_j\geq0$ для всех $x\in
+l_\infty$, $A\in
+R$, $R=R(H)={\rm conv} \{H^n,n\in\mathbb N\cup\{0\}\}$.
+\end{enumerate}
+
+В \cite{SS_JFA} доказано, что для любого $H\in \Gamma$ существует такой $B\in\B$, что  $Bx=BHx$ для всех $x\in \ell_\infty$. Множество таких банаховых пределов обозначим через $\B(H)$. Ясно, что $\B(H)$ есть замкнутое  подмножество $\B$. Нетрудно показать, что $\B(H)$ слабо$^*$ замкнуто. Условиям (i), (ii), (iii) удовлетворяют оператор Чезаро
+\begin{equation}\label{cesaro}
+(Cx)_n=\frac1n\sum_{k=1}^n x_k,
+\end{equation}
+где $x=(x_1, x_2, \dots)$,
+и оператор растяжения
+$$\sigma_n(x_1, x_2, \dots)=(\underbrace{x_1, x_1, \dots, x_1}_{n}, \underbrace{x_2, x_2, \dots, x_2}_{n}, \dots), \ n\in\N.$$
+
+Множества $\B(C)$ и $\mathfrak B(\sigma_m)$, $m\in \N$, $m\ge 2$ изучались в работах \cite{SS_JFA}, \cite{ASSU2} и других. Все множества $\mathfrak B(\sigma_m)$ попарно различны. Включение $\mathfrak B(\sigma_n) \subset \mathfrak B(\sigma_m)$ справедливо тогда и только тогда, когда $m=n^k$ для некоторого $k\in \N$.
+
+
+%We start with simple properties of the set of dilation invariant Banach limits.
+%
+% \begin{prop}
+%  For every $m\in \N$ the set $\mathfrak B(\sigma_m)$ is weak$^*$ closed.
+% \end{prop}
+%
+% \begin{proof}
+% Let $\{B_i\}_{i\in I}$ be a net in $\mathfrak B(\sigma_m)$, which is weak$^*$ convergent to some element $B \in \ell_\infty^*$. Since the set $\mathfrak B$ is weak$^*$ closed and, in particular, $\{B_i\}_{i\in I} \in \mathfrak B$, it follows that $B \in \mathfrak B$.
+%
+% Recall that  the weak$^*$ convergence is pointwise, that is $B_i(x)=B(x)$ for every $x\in \ell_\infty$. Since $B_i(\sigma_mx-x)=0$ for every $i\in I$ and every   $x\in \ell_\infty$, it follows that $B(\sigma_mx-x)=0$ for every   $x\in \ell_\infty$. Hence, $B \in \mathfrak B(\sigma_m)$ and $\mathfrak B(\sigma_m)$ is weak$^*$ closed.
+% \end{proof}
+
+Легко показать, что для любого $m\in \N$ множество $\mathfrak B(\sigma_m)$ выпукло. Однако, это неверно для объединения всех этих множеств.
+
+ \begin{thm}
+  Множество $\bigcup_{m=2}^\infty\mathfrak B(\sigma_m)$ невыпукло.
+ \end{thm}
+
+\begin{proof}
+В силу \cite[Теорема 10]{ASSU2} существуют такие $B_2\in \mathfrak B(\sigma_2)$ и $B_3\in \mathfrak B(\sigma_3)$, что для любого $B\in \mathfrak B(\sigma_p)$ и любого $B\in \mathfrak B(\sigma_q)$
+\begin{equation}\label{dl1}
+\|B_2-B\|_{\ell_\infty^*}=2,
+\end{equation}
+\begin{equation}\label{dl11}
+\|B_3-B\|_{\ell_\infty^*}=2,
+\end{equation}
+где $p\in \N \setminus \{1,2,4,8,\dots\}$, $q\in \N \setminus \{1,3,9,27,\dots\}$.
+
+В частности,
+\begin{equation}\label{dl2}
+B_2 \notin \mathfrak B(\sigma_{3^k}) \ \text{и} \ B_3 \notin \mathfrak B(\sigma_{2^k}) \ \text{для любых} \ k\in \N.
+\end{equation}
+
+Покажем, что
+$$B_1 = \frac12(B_2+B_3)$$
+не принадлежит $\mathfrak B(\sigma_m)$ для любого $m\in \N$, $m\ge 2$. Предположим противное, т.е. $B_1 \in\mathfrak B(\sigma_m)$ для некоторого $m\in \N$, $m\ge2$ и рассмотрим 3 возможных варианта:
+
+1. $m=2^k$ для некоторого $k\in \N$,
+
+2. $m=3^k$ для некоторого $k\in \N$,
+
+3. $m\neq 2^k$ и $m\neq 3^k$ для всех $k\in \N$.
+
+Рассмотрим первый случай, т.е. $B_1 \in\mathfrak B(\sigma_{2^k})$. Так как $B_2 \in\mathfrak B(\sigma_{2^k})$, то  $B_3=2B_1-B_2$ инвариантен относительно $\sigma_{2^k}$. Так как $B_3 \in\mathfrak B$, то $B_3 \in\mathfrak B(\sigma_{2^k})$, что противоречит \eqref{dl2}.
+
+Случай 2 рассматривается аналогично и мы снова приходим к противоречию.
+
+Случай 3. Так как
+$$\|B_2-B_1\|_{\ell_\infty^*}=\|B_3-B_1\|_{\ell_\infty^*}=2$$
+и $B_1-B_2=B_3-B_1$, то
+$$\|B_3-B_2\|_{\ell_\infty^*}=\|B_3-B_1+B_1-B_2\|_{\ell_\infty^*}=2\|B_3-B_1\|_{\ell_\infty^*}=4.$$
+Расстояние между любыми банаховыми пределами не превосходит 2. Поэтому полученное выше равенство невозможно. Полученные во всех трех случаях противоречия доказывают, что $\frac12(B_2+B_3)\notin \bigcup_{m=2}^\infty\mathfrak B(\sigma_m)$.
+\end{proof}
+
+\begin{thm}
+Пусть $m\in \N$, $m\ge2$. Существует такой $B\in \B(\sigma_m)$, что для любого $n\in \N\setminus\{1, m, m^2,\dots\}$ и для любого $B_1\in \B(\sigma_n)$ справедливо равенство
+\begin{equation*}\label{dl3}
+\|B-B_1\|_{\ell_\infty^*}=2,
+\end{equation*}
+\end{thm}
+
+\begin{proof}
+В \cite[T. 9]{ASSU2} доказано существование таких $B\in B(\sigma_m)$ и $e\subset \N$, что $B\chi_e =1$ и $B\chi_{\sigma_ne} =0$ для любого $n\in\N\setminus \{1, m, m^2, \dots\}$. Если $B_1\in B(\sigma_n)$, то $B_1\chi_e =B\chi_{\sigma_ne} =0$. Тогда $\|2\chi_e-\emm\|=1$ и
+$$(B-B_1)(2\chi_e-\emm)=B(2\chi_e)-B_1\chi_e+(B-B_1)\emm=2-0+1-1=2.$$
+Отсюда $\|B-B_1\|_{\ell_\infty^*}\ge2$. Противоположное неравенство $\|B-B_1\|_{\ell_\infty^*}\le2$ очевидно.
+\end{proof}
+
+\begin{cor}\label{dl_cor}
+Для любого $m\in \N$, $m\ge2$ существует такой $B\in \B(\sigma_{m^2})$, что
+$$\|B-B_1\|_{\ell_\infty^*}=2 $$
+ для любого $B_1\in \B(\sigma_m)$.
+\end{cor}
+
+\begin{thm}
+Пусть $m\in \N$, $m\ge2$. Множество
+\begin{equation}\label{dl4}
+\bigcup_{m=1}^\infty\mathfrak B(\sigma_{2^{2^m}})
+\end{equation}
+выпукло и не замкнуто в $\B$.
+\end{thm}
+
+\begin{proof}
+Выпуклость множества \eqref{dl4} вытекает непосредственно из выпуклости каждого множества $\mathfrak B(\sigma_{2^{2^m}})$ и включения
+\begin{equation}\label{dl5}
+\mathfrak B(\sigma_{2^{2^m}}) \subset \mathfrak B(\sigma_{2^{2^{m+1}}})
+\end{equation}
+для любого $m\in \N$.
+
+В силу следствия \ref{dl_cor} существует такая последовательность $\{B_m \in \mathfrak B(\sigma_{2^{2^m}})\}_{m=2}^\infty$, что
+\begin{equation}\label{dl6}
+\|B_m-B\|_{\ell_\infty^*}=2
+\end{equation}
+для любого $B \in \mathfrak B(\sigma_{2^{2^{m-1}}})$ и любого $m\in \N$, $m\ge2$. В частности для любых $k,n\in\N$ и $D\in \mathfrak B(\sigma_{2^{2^k}})$
+$$\left\|D-\sum_{m=k+1}^{k+n}B_m\right\|_{\ell_\infty^*}=n+1.$$
+Отсюда и из выпуклости функции
+$$(\alpha_{k+1}, \alpha_{k+2}, \dots, \alpha_{k+n}) \mapsto \left\|D-\sum_{m=k+1}^{k+n}\alpha_mB_m\right\|_{\ell_\infty^*}, \alpha_i \in[0,1]$$
+по каждой переменной следует, что
+$$\left\|D-\sum_{m=k+1}^{k+n}\alpha_mB_m\right\|_{\ell_\infty^*} = 1+ \sum_{m=k+1}^{k+n}|\alpha_m|. $$
+
+Переходя в этом равенстве к пределу при $n\to\infty$, получаем
+\begin{equation}\label{dl7}
+\left\|D-\sum_{m=k+1}^\infty\alpha_mB_m\right\|_{\ell_\infty^*} = 1+ \sum_{m=k+1}^\infty|\alpha_m|
+\end{equation}
+для любой последовательности $\{\alpha_m\}_{m=k+1}^\infty$ из $\ell_1$.
+
+Так как $\B$ есть замкнутое подмножество $\ell_\infty^*$, то функционал
+$$B_0=\sum_{m=1}^\infty 2^{-m}B_m$$
+есть банахов предел, принадлежащий замыканию множества \eqref{dl4} в $\ell_\infty^*$.
+
+Для любого $D\in \mathfrak B(\sigma_{2^{2^k}})$ имеем
+$$\left\|\sum_{m=1}^\infty 2^{-m}B_m-D\right\|_{\ell_\infty^*}\ge \left\|\sum_{m=k+1}^\infty 2^{-m}B_m-D\right\|_{\ell_\infty^*}-\left\|\sum_{m=1}^k 2^{-m}B_m\right\|_{\ell_\infty^*}.$$
+
+В силу \eqref{dl7}
+$$\left\|\sum_{m=k+1}^\infty 2^{-m}B_m-D\right\|_{\ell_\infty^*} = 1+ \sum_{m=k+1}^\infty 2^{-m}=1+2^{-k}.$$
+Отсюда
+$$\left\|\sum_{m=1}^\infty 2^{-m}B_m-D\right\|_{\ell_\infty^*}\ge 1+2^{-k} - \sum_{m=1}^k 2^{-m}= 2^{1-k}>0.$$
+Это доказывает, что $B_0\notin \mathfrak B(\sigma_{2^{2^k}})$ для любого $k\in\N$. Следовательно,
+$$B_0\notin \bigcup_{m=1}^\infty\mathfrak B(\sigma_{2^{2^m}}).$$
+\end{proof}
+
+
+\section{Банаховы пределы и последовательности ограниченных функций}\label{sec:Fubini}
+
+Пусть $B\in \B$, $f_n$ - последовательность измеримых функций на $[0,1]$ такая, что
+\begin{equation}\label{f1}
+\sup_{n\in\N, \ 0\le t\le 1} |f_n(t)|<\infty
+\end{equation}
+и функция
+\begin{equation}\label{f2}
+F(t)=F_B(t)=B(f_n(t))
+ \end{equation}
+ измерима на $[0,1]$. Нашей ближайшей целью является доказательство равенства
+\begin{equation}\label{Fubini}
+\int_0^1 B(f_n(t)) dt = B\left(\int_0^1 f_n(t) dt\right).
+ \end{equation}
+
+ Оно является аналогом теоремы Фубини для банаховых пределов и последовательностей функций, удовлетворяющих предположению \eqref{f2}. Функция $F_B$ может быть как измеримой, так и неизмеримой \cite{SS, FT}. Поэтому предположение \eqref{f2} необходимо для корректной постановки задачи.
+
+ \begin{lem}\label{l1}
+ Если $x\in\ell_\infty$, то
+ \begin{equation}\label{f3}
+ \left[\lim_{n\to\infty} \inf_{m\in\N} \frac1n \sum_{k=m+1}^{m+n} x_k, \lim_{n\to\infty} \sup_{m\in\N} \frac1n \sum_{k=m+1}^{m+n} x_k \right] \subset \bigcap_{m=1}^\infty \overline{{\rm conv} \{x_k\}_{k\ge m}}.
+ \end{equation}
+ \end{lem}
+
+ \begin{proof}
+ Так как
+ $$\left[\inf_{m\in\N} \frac1n \sum_{k=m+1}^{m+n} x_k, \sup_{m\in\N} \frac1n \sum_{k=m+1}^{m+n} x_k \right] \subset \overline{{\rm conv} \{x_k\}_{k\ge m}} $$
+ для любых $m,n\in\N$, то отсюда вытекает \eqref{f3}.
+ \end{proof}
+
+  \begin{lem}\label{l2}
+ Если $B\in \B$ и последовательность $f_n$  измеримых функций на $[0,1]$ удовлетворяет условию \eqref{f1}, то для любого $t\in[0,1]$ имеем
+ \begin{equation}
+B(f_n(t)) \in \bigcap_{m=1}^\infty \overline{{\rm conv} \{f_k(s)\}_{k\ge m}}
+ \end{equation}
+ где замыкание берется по норме $L_1[0,1]$.
+ \end{lem}
+
+\begin{proof}
+Для любого $t\in[0,1]$, применяя теорему Сачестона \cite{S} к числовой последовательности $f_n(t)$, получаем
+\begin{equation}\label{f4}
+B(f_n(t)) \in \left[\lim_{n\to\infty} \inf_{m\in\N} \frac1n \sum_{k=m+1}^{m+n} f_k(t), \lim_{n\to\infty} \sup_{m\in\N} \frac1n \sum_{k=m+1}^{m+n} f_k(t) \right].
+ \end{equation}
+ В силу леммы \ref{l1},
+ \begin{equation}\label{f5}
+\left[\lim_{n\to\infty} \inf_{m\in\N} \frac1n \sum_{k=m+1}^{m+n} f_k(t), \lim_{n\to\infty} \sup_{m\in\N} \frac1n \sum_{k=m+1}^{m+n} f_k(t) \right]\subset \overline{{\rm conv} \{f_k(t)\}_{k\ge m}}
+ \end{equation}
+ для каждого $t\in[0,1]$, где замыкание выпуклой оболочки берется поточечное, т. е. для каждого $t\in[0,1]$. Согласно  предположению \eqref{f1} последовательность $f_n(t)$ равномерно ограничена. Следовательно, по теореме Лебега из поточечной сходимости вытекает сходимость по норме $L_1[0,1]$. Отсюда и из \eqref{f4}, \eqref{f5} вытекает требуемое утверждение.
+\end{proof}
+
+Те же самые рассуждения показывают, что сходимость в $L_1$ можно заменить на сходимость в $L_p$, $1<p<\infty$. Поэтому замыкание выпуклой оболочки можно рассматривать в $L_p$, $1\le p<\infty$. Можно показать, что на $L_\infty$ это утверждение распространить невозможно.
+
+\begin{lem}\label{l3}
+Пусть $B\in \B$, последовательность $f_n$  измеримых функций на $[0,1]$  удовлетворяет условиям \eqref{f1}, \eqref{f2} и
+\begin{equation}\label{f6}
+\int_0^1 f_n(t) dt=0, \ \forall n\in \N.
+\end{equation}
+Тогда
+\begin{equation}\label{f7}
+\int_0^1 B(f_n(t)) dt=0.
+\end{equation}
+\end{lem}
+
+ \begin{proof}
+ Из предположения \eqref{f6} вытекает, что
+ \begin{equation}\label{f8}
+\int_0^1 x(t) dt=0
+\end{equation}
+для любого $x\in {\rm conv} \{f_k\}_{k\ge m}$ и для любого $m\in \N.$ В силу теоремы Лебега \eqref{f8} справедливо для любого $x\in \overline{{\rm conv} \{f_k\}_{k\ge m}}$ где замыкание берется по норме $L_1[0,1]$. Следовательно, \eqref{f8} справедливо для любого $x\in \bigcap_{m=1}^\infty\overline{{\rm conv} \{f_k\}_{k\ge m}}$. Отсюда и из леммы \ref{l2} вытекает \eqref{f7}.
+ \end{proof}
+
+Лемма \ref{l3} сохраняет силу при замене условия \eqref{f6} более слабым предположением
+$$ \lim_{n\to\infty} \int_0^1 f_n(t) dt=0.$$
+Действительно, достаточно применить лемму \ref{l3} к последовательности функций
+$$\left\{ t\mapsto f_n(t)-\int_0^1 f_n(s) ds\right\}_{n=1}^\infty$$
+и воспользоваться тем фактом, что банаховы пределы совпадают с обычным пределом на сходящихся последовательностях.
+
+ \begin{thm}\label{t1}
+Пусть $B\in \B$, последовательность $f_n$  измеримых функций на $[0,1]$  удовлетворяет условиям \eqref{f1} и  \eqref{f2}.
+Тогда
+\begin{equation*}
+\int_0^1 B(f_n(t)) dt = B\left(\int_0^1 f_n(t) dt\right).
+ \end{equation*}
+\end{thm}
+
+\begin{proof}
+В силу леммы \ref{l3} имеем
+\begin{align*}
+\int_0^1 B(f_n(t)) dt = \int_0^1 B\left(f_n(t)-\int_0^1 f_n(s) ds\right) dt +B\left(\int_0^1 f_n(t) dt\right)= B\left(\int_0^1 f_n(t) dt\right).
+\end{align*}
+\end{proof}
+
+Из теоремы \ref{t1} вытекает такое
+
+\begin{cor}
+Пусть $B\in \B$, последовательность $f_n$  измеримых функций на $[0,1]$  удовлетворяет условиям \eqref{f1} и  \eqref{f2}.
+Тогда
+$$\|Bf_n \|_{L_1[0,1]}\le \limsup_{n\to\infty} \|f_n \|_{L_1[0,1]}.$$
+В частности, если $\lim_{n\to\infty} \|f_n \|_{L_1[0,1]}$, то $B(f_n(t))=0$ для почти всех $t\in[0,1]$.
+\end{cor}
+
+В \cite{FT} было доказано существование такого $B\in \B$, что функция $t\mapsto Br_n(t)$ неизмерима, где $r_n(t)={\rm sign} \sin 2^n\pi t$ - функции Радемахера. Поэтому вопрос выполнения условия \eqref{f2} представляется естественным.
+
+\begin{lem}\label{l5}
+Если $B\in \B$ и последовательность $f_n$  измеримых функций на $[0,1]$ содержит лишь конечное число различных функций $g_1, ..., g_r$, то функция $F_B\in {\rm conv} \{g_k : 1\le k \le r\}$ и, следовательно, измерима.
+
+Более того,
+$$\{F_B: B\in \B\}= \left\{f : f=\sum_{k=1}^r g_k\lambda_k, \sum_{k=1}^r \lambda_k=1, \lambda_k \in [q(\chi_{Q_k}), p(\chi_{Q_k})],  1\le k \le r\right\},$$
+где $q$ и $p$  - функционалы Сачестона, а $Q_k =\{n\in\N : f_n=g_k\}.$
+\end{lem}
+
+\begin{proof}
+Для любого $t\in[0,1]$ имеем
+\begin{align*}
+B(f_n(t))= B\left(\sum_{k=1}^r g_k(t) \chi_{Q_k}\right)= \sum_{k=1}^r g_k(t) B\chi_{Q_k}= \sum_{k=1}^r g_k(t) \lambda_k,
+\end{align*}
+где $\lambda_k=B\chi_{Q_k}.$ Так как множества $Q_k$ попарно не пересекаются, то
+\begin{align*}
+\sum_{k=1}^r \lambda_k= \sum_{k=1}^r B\chi_{Q_k}= B\left(\sum_{k=1}^r \chi_{Q_k}\right)=B\emm=1.
+\end{align*}
+
+Следовательно, $F_B=Bf_n\in {\rm conv} \{g_k : 1\le k \le r\}$ и $F_B$ измерима.
+
+Вторая часть утверждения вытекает из равенства теоремы \ref{sucheston}. Заметим, если $p(\chi_{Q_n})=0$ для некоторого $n\in \{1, \dots, r\}$, то $\lambda_n=0$, т.е. индекс $n$ отсутствует в представлении $f=\sum_{k=1}^r g_k\lambda_k$.
+
+\end{proof}
+
+
+\begin{lem}\label{l6}
+Если $B\in \B$ и последовательность $\{f_n\}_{n=1}^\infty \subset C[0,1]$  относительно компактна, то функция $F_B$ измерима.
+\end{lem}
+
+\begin{proof}
+Так как пространство $C[0,1]$ полно, то последовательность $\{f_n\}_{n=1}^\infty$ вполне ограничена. Для любого $k\in\N$ положим $\varepsilon_k=1/k$ и рассмотрим конечную $\varepsilon_k$-сеть $A_k\subset C[0,1]$ для $\{f_n\}_{n=1}^\infty$. Таким образом, для любых $k, n\in\N$ существует элемент $g_{n,k}\in A_k$ такой, что $\|f_n-g_{n,k}\|_{C[0,1]}<\varepsilon_k.$ Рассмотрим последовательности $g_k:=\{g_{n,k}\}_{n=1}^\infty$ состоящие лишь из конечного числа различных  элементов. По лемме \ref{l5} функция $Bg_k:= B(n\mapsto \{g_{n,k}\}_{n=1}^\infty)$ измерима для любого $k\in \N.$ Используя положительность банаховых пределов, получаем
+$$\|F_B-Bg_{k}\|_{C[0,1]}\le\|f_n-g_{n,k}\|_{C[0,1]}<\varepsilon_k.$$
+Т.е. последовательность $Bg_k$ измеримых функций равномерно сходится к функции $F_B$. Следовательно, $F_B$ также измерима.
+\end{proof}
+
+Естественный подкласс банаховых пределов при рассмотрении аналогов теоремы Фубини был введен в \cite{Mokobodzki}.
+Зафиксируем некоторое вероятностное пространство $(\Omega, \mathcal A, P)$. Линейный функционал $B$ на $\ell_\infty$ называется пределом Мокобоцкого если он является банаховым пределом и для любой равномерно ограниченной последовательности $f_n$  $\mathcal A$-измеримых функций на $\Omega$ функция $\omega \mapsto B(f_n(\omega))$ $\mathcal A$-измерима и выполнено
+\begin{equation}\label{Fubini1}
+\int_\Omega B(f_n(\omega)) dP(\omega) = B\left(\int_\Omega f_n(\omega) dP(\omega)\right).
+ \end{equation}
+
+ В работе \cite{Bjorklund} было показано, что пределы Мокобоцкого являются подмножеством факторизованных банаховых пределов, т.е. функционалов вида
+$$\{ B\in \B : B=\gamma \circ C \ \text{для некоторого обобщенного предела} \ \gamma\}.$$
+
+Следующий результат является следствием теоремы \ref{t1}.
+
+\begin{thm}
+Пусть $\Omega=[0,1]$, $\mathcal A$ - семейство всех измеримых по Лебегу подмножеств отрезка $[0,1]$ и $P$ - мера Лебега. Банахов предел является пределом Мокобоцкого если и только если для любой последовательности $f_n$  измеримых функций на $[0,1]$,  удовлетворяющей условию \eqref{f1}, выполнено условие \eqref{f2}.
+\end{thm}
+
+
+
+%\bibliographystyle{acm} %alpha
+%\bibliography{Bibliography}
+
+
+\begin{thebibliography}{10}
+\bibitem{Avdeev2019}
+Н. Н. Авдеев, О пространстве почти сходящихся последовательностей,
+\textit{Матем. заметки}, \textbf{105}:3 (2019),  462--466.
+
+\bibitem{AvSU}
+Н. Н. Авдеев, Е. М. Семенов, А. С. Усачев, Банаховы пределы и мера на множестве последовательностей из 0 и 1,
+\textit{Матем. заметки}, \textbf{106}:5 (2019),  784--787.
+
+\bibitem{Alekhno}
+{ E.A. Alekhno}, {\it Superposition operator on the space of sequences almost  converging to zero}, Cent. Eur. J. Math. {10}
+ (2012), 619--645.
+
+\bibitem{ASSU2}
+{ E. Alekhno, E. Semenov, F. Sukochev, A. Usachev},
+\newblock  \textit{Order and geometric properties of the set of Banach
+limits},
+\newblock { St. Petersburg Math. J.}  (2016),  3--35.
+
+\bibitem{ASSU4}
+E. Alekhno, E. Semenov, F. Sukochev, A. Usachev \textit{Invariant Banach limits and their extreme points}, Studia Math., \textbf{242}:1 (2018), 79--107.
+
+\bibitem{Ast_Sem}
+С. В. Асташкин, Е. М. Семенов,  Константы Лебега системы Уолша и банаховы пределы, \emph{Сиб. матем. журн.}, \textbf{57}:3 (2016), 512--526.
+
+\bibitem{B}
+{\sc Banach, S.}
+\newblock {\em Th\'eorie des op\'erations lin\'eaires}.
+\newblock \'Editions Jacques Gabay, Sceaux, 1993.
+\newblock Reprint of the 1932 original.
+
+\bibitem{Bjorklund}
+Bj\"orklund, M., Hartnick, T., \textit{Biharmonic functions on groups and limit theorems for quasimorphisms along random walks}, Geom. Topol., \textbf{15}:1 (2011), 123--143.
+
+\bibitem{CS}
+{\sc Carey, A.~L., and Sukochev, F.~A.}
+\newblock Dixmier traces and some applications to noncommutative geometry.
+\newblock {\em Uspekhi Mat. Nauk 61}, 6(372) (2006), 45--110.
+
+\bibitem{Connor}
+J. Connor, Almost none of the sequences of 0's and 1's are almost
+convergent, \textit{Internat. J. Math. Math. Sci.}, \textbf{13} (1990), 775--777.
+
+\bibitem{Eberlein}
+{\sc Eberlein, W.~F.}
+\newblock Banach-{H}ausdorff limits.
+\newblock {\em Proc. Amer. Math. Soc. 1\/} (1950), 662--665.
+
+\bibitem{Edgar}
+G. Edgar, Measure, topology, and fractal geometry. Second edition. Undergraduate Texts in Mathematics. Springer, New York, 2008.
+
+\bibitem{FT}
+D. H. Fremlin, M. Talagrand,
+A decomposition theorem for additive set-functions, with applications to Pettis integrals and ergodic means,
+\textit{Math. Z.}, \textbf{168}:2 (1979), 117--142.
+
+\bibitem{L}
+{\sc Lorentz, G.~G.}
+\newblock A contribution to the theory of divergent sequences.
+\newblock {\em Acta Math. 80\/} (1948), 167--190.
+
+\bibitem{Luxemburg}
+{\sc Luxemburg, W. A.~J.}
+\newblock Nonstandard hulls, generalized limits and almost convergence.
+\newblock In {\em Analysis and geometry}. Bibliographisches Inst., Mannheim,
+  1992, pp.~19--45.
+
+  \bibitem{Mazur}
+S.~Mazur,
+\newblock O metodach sumowalno{\'{s}}ci,
+\newblock \textit{Ann. Soc. Polon.
+  Math. (Supplement)}, (1929), 102-107.
+
+  \bibitem{Mokobodzki}
+G. Mokobodzki, Ultrafiltres rapides sur $\N$. Construction d'une densit\'e relative de deux
+potentiels comparables. In S\'eminaire de Th\'eorie du Potentiel, dirig\'e par M. Brelot, G.
+Choquet et J. Deny: 1967/68, Exp. 12, page 22. Secr\'etariat math\'ematique, Paris, 1969.
+
+\bibitem{Sem_Sht}
+{ Е. М. Семенов, А. М. Штейнберг},
+{Оценки норм операторных блоков в банаховых решетках},
+\newblock \textit{ Мат. сборник}, \textbf{126(168)}:3 (1985), 327--343.
+
+\bibitem{SS}
+{ Е. М. Семенов, Ф. А. Сукочев},
+{ Характеристические функции банаховых пределов},
+\newblock {\it Сиб. матем. журн.}, \textbf{51}:4 (2010), 905--910.
+
+\bibitem{SS_JFA}
+{\sc Semenov, E.~M., and Sukochev, F.~A.}
+\newblock Invariant {B}anach limits and applications.
+\newblock {\em J. Funct. Anal. 259}, 6 (2010), 1517--1541.
+
+\bibitem{SSU2}
+{\sc Semenov, E.~M., Sukochev, F.~A., and Usachev, A.~S.}
+\newblock Geometric properties of the set of {B}anach limits.
+\newblock {\em Izv. Ross. Akad. Nauk Ser. Mat. 78}, 3 (2014), 177--204.
+
+ \bibitem{SSU_survey}
+{ Е. М. Семенов, Ф. А. Сукочев, А. С. Усачев},
+{Геометрия банаховых пределов и их приложения},
+\newblock \textit{Успехи матем. наук}, в печати.
+
+\bibitem{SSUZ2}
+ E. Semenov, F. Sukochev, A. Usachev, D. Zanin \textit{Invariant Banach limits and applications to noncommutative geometry}, Pacific Math. J., in press.
+
+ \bibitem{SSUZ3}
+ E. Semenov, F. Sukochev, A. Usachev, D. Zanin \textit{Dilation invariant Banach limits}, special issue in the memory of W. A. J. Luxemburg, Indag. Math., in press.
+
+ \bibitem{SU}
+{ Е. М. Семенов, А. С. Усачев},
+{Коэффициенты Фурье-Хаара и банаховы пределы},
+\newblock \textit{ Докл. РАН}, \textbf{425}:2 (2009), 172--173.
+
+\bibitem{S}
+{\sc Sucheston, L.}
+\newblock Banach limits.
+\newblock {\em Amer. Math. Monthly 74\/} (1967), 308--311.
+
+\bibitem{U2}
+{A. Usachev},
+{On Fourier-Haar coefficients of the function from the Marcinkiewicz space},
+\newblock \textit{J. Math. Anal. Appl.}, \textbf{414}:1 (2014), 110--124.
+
+
+
+%\bibitem{SS_JFA}
+%{ E.M. Semenov, F.A. Sukochev}, \textit{Invariant Banach limits and applications}, J. Funct. Anal. {256} (2010), 1517--1541.
+%
+%\bibitem{SSU2}
+%{ E.~M. Semenov, F.~A. Sukochev, A.~S. Usachev},
+%\textit{ Geometric properties of the set of {B}anach limits},
+%\newblock { Izv. Ross. Akad. Nauk Ser. Mat. } {78} (2014), 177--204.
+
+
+
+\end{thebibliography}
+\end{document}
