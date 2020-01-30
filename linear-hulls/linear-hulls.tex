@@ -178,6 +178,7 @@ $B\in\mathfrak{B}$ такой, что $Bx = r$.
 		~~~c_{(k)}\in\mathbb{N}\cup\{0\}
 		.
 	\end{equation}
+	Заметим, что $c_{(k+1)}\in\{2c_{(k)},2c_{(k)}+1\}$.
 
 	Далее нам потребуется вспомогательная функция $\operatorname{Br}:K\times [0;1] \to \ell_\infty$,
 	генерирующая <<блоки>> из нулей и единиц, соответствующие приближению $c_{(k)}$ к числу $c\in[0;1]$ для $k \geq n$.
@@ -188,11 +189,12 @@ $B\in\mathfrak{B}$ такой, что $Bx = r$.
 		(\operatorname{Br}(n,c))_j = \begin{cases}
 			1, & \mbox{~если~} 2^n - c_{(n)} < j \leq 2^n,
 			\\
-			0  & \mbox{~иначе}
+			0  & \mbox{~для остальных~} j
 			.
 		\end{cases}
 	\end{equation}
-	Заметим, что все элементы $\operatorname{Br}(n,c)$, начиная с $(2^n+1)$-го, равны нулю.
+	Заметим, что все элементы $\operatorname{Br}(n,c)$, начиная с $(2^n+1)$-го, равны нулю;
+	кроме того, в $\operatorname{Br}(n,c)$ ровно $c_{(n)}$ единиц.
 
 	Для каждого $k \geq n$ положим
 	\begin{equation}
@@ -208,16 +210,23 @@ $B\in\mathfrak{B}$ такой, что $Bx = r$.
 	когда переход между приближениями $c_{(k)} / 2^k$ и $c_{(k+1)}/2^{k+1}$
 	приводит к улучшению приближения.
 	Более того,
-	\begin{equation}
+	\begin{multline}
 		\left(\operatorname{Br}(k,c) + T^{2^k}\operatorname{Br}(k,c)\right)_{2^k+2^n-c_{(n)}}
 		=
 		(\operatorname{Br}(k,c))_{2^n-c_{(n)}}
 		=
+		(\operatorname{Br}(k-1,c))_{2^n-c_{(n)}}
+		=
+		\\=
+		...
+		=
+		(\operatorname{Br}(n,c))_{2^n-c_{(n)}}
+		=
 		0
 		,
-	\end{equation}
+	\end{multline}
 	т.е. выражение~\eqref{eq:Br(k+1,c)} действительно задаёт последовательность из нулей и единиц.
-	Таким образом, в $k$-м блоке ровно $c_k$ единиц.
+	Таким образом, в $k$-м блоке ровно $c_{(k)}$ единиц.
 
 	Заметим, что $\operatorname{supp}\operatorname{Br}(k,c) \subset \operatorname{supp}\operatorname{Br}(k+1,c)$
 	и, более того, справедливо соотношение
