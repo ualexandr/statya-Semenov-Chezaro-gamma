@@ -246,6 +246,31 @@ $B\in\mathfrak{B}$ такой, что $Bx = r$.
 		.
 	\end{equation}
 
+	Действительно,
+	представление~\eqref{eq:Br(k+1,c)} может быть переписано в виде:
+	\begin{equation}
+		\operatorname{Br}(m+1,c) = \sum_{j=0}^{1} T^{j2^m} \operatorname{Br}(m,c) + \sum_{j=0}^{1} \gamma_{j} e_{j 2^m+2^n-c_{(n)}}
+		,
+	\end{equation}
+	где $\gamma_{j} \in \{0,1\}$.
+	Продолжая по индукции, получаем
+	\begin{equation}
+		\operatorname{Br}(k,c) = \sum_{j=0}^{2^{k-m}-1} T^{j2^m} \operatorname{Br}(m,c) +
+		\sum_{j=0}^{2^{k-m}-1} T^{j2^m} \gamma_{j} e_{j2^m+2^n-c_{(n)}}
+		.
+	\end{equation}
+	Тогда
+	\begin{equation}
+		\sum_{j=i}^{i+2^m-1} (\operatorname{Br}(k,c))_j
+		=
+		\sum_{j=1}^{2^m-1} (\operatorname{Br}(m,c))_j
+		+ \gamma_h
+		=
+		c_{(m)} + \gamma_h
+		\in \{c_{(m)}, c_{(m)}+1\}
+		.
+	\end{equation}
+
 
 	Так, например, для $n=2$ и $c=1/3$ имеем:
 	\begin{equation*}
