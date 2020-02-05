@@ -1,0 +1,212 @@
+\documentclass[a4paper,11pt]{article} %размер бумаги устанавливаем А4, шрифт 12пунктов
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel} %используем русский и английский языки с переносами
+\usepackage{amssymb,amsfonts,amsmath,mathtext,enumerate,float,amsthm} %подключаем нужные пакеты расширений
+\usepackage[unicode,colorlinks=true,citecolor=black,linkcolor=black]{hyperref}
+%\usepackage[pdftex,unicode,colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{indentfirst} % включить отступ у первого абзаца
+\usepackage[dvips]{graphicx} %хотим вставлять рисунки?
+\graphicspath{{illustr/}}%путь к рисункам
+
+\makeatletter
+\renewcommand{\@biblabel}[1]{#1.} % Заменяем библиографию с квадратных скобок на точку:
+\makeatother %Смысл этих трёх строчек мне непонятен, но поверим "Запискам дебианщика"
+
+\usepackage{geometry} % Меняем поля страницы.
+\geometry{left=2cm}% левое поле
+\geometry{right=1cm}% правое поле
+\geometry{top=2cm}% верхнее поле
+\geometry{bottom=2cm}% нижнее поле
+
+\renewcommand{\theenumi}{\arabic{enumi}.}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\labelenumi}{\arabic{enumi}.}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\theenumii}{\arabic{enumii}}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}.}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\theenumiii}{\arabic{enumiii}}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}.}% Меняем везде перечисления на цифра.цифра
+
+\sloppy
+
+
+
+
+\renewcommand\normalsize{\fontsize{14}{25.2pt}\selectfont}
+
+\usepackage[backend=biber,style=gost-numeric,sorting=none]{biblatex}
+\addbibresource{../bib/ext.bib}
+\addbibresource{../bib/my.bib}
+\addbibresource{../bib/Semenov.bib}
+\input{../bib/ext.hyphens.bib}
+
+
+\theoremstyle{plain}
+\newtheorem{lemma}{Лемма}[section]
+\newtheorem{theorem}[lemma]{Теорема}
+\newtheorem{example}[lemma]{Пример}
+\newtheorem{property}[lemma]{Свойство}
+\newtheorem{remark}[lemma]{Замечание}
+\newtheorem{corollary}{Следствие}[lemma]
+
+\usepackage{bbm}
+
+
+\begin{document}
+
+Через $\ell_\infty$ будем обозначать пространство ограниченных последовательностей с обычной нормой
+$
+	\|x\| = \sup_{k} |x_k|
+$,
+через $c$ и $c_0$~--- пространства сходящихся и сходящихся к нулю последовательностей соотв.,
+через $\mathbb{N}$~--- множество натуральных чисел,
+через $T$~--- оператор сдвига влево, т.е.
+$T(x_1,x_2,...) = (x_2,x_3,...)$.
+
+
+Изучая множество банаховых пределов, Лоренц \cite{lorentz1948contribution}
+ввёл пространство почти сходящихся последовательностей $ac$.
+Последовательность $x\in\ell_\infty$ называется почти сходящейся,
+если существует такое число $t$, что
+\begin{equation}
+\label{eq:intro_ac}
+	\lim_{n\to\infty} \frac{1}{n} \sum_{k=m+1}^{m+n} x_k = t
+\end{equation}
+равномерно по $m$.
+Если $t=0$, то говорят, что последовательность
+принадлежит пространству $ac_0$ почти сходящихся к нулю последовательностей.
+Свойства пространства $ac$ изучались, в частности, в~\cite{alekhno2006propertiesII,usachev2009_phd_vsu}.
+
+Ниже приводится краткое изложение результатов, полученных в~\cite{our-mz2019ac0}.
+
+\begin{lemma}
+Пусть $n_i$~--- строго возрастающая последовательность чисел из $\mathbb{N}$,
+\begin{equation*}
+	x_k = \left\{\begin{array}{ll}
+		1, & \mbox{~если~} k = n_i
+		\\
+		0  & \mbox{~иначе.~}
+	\end{array}\right.
+\end{equation*}
+Для того, чтобы $x\in ac_0$,
+необходимо и достаточно, чтобы
+\begin{equation}\label{lim_M(j)/j}
+	\lim_{j \to \infty} \frac{1}{j} \liminf_{i\to\infty} (n_{i+j} - n_i) = \infty
+	.
+\end{equation}
+\end{lemma}
+
+
+Определим нелинейный оператор $\lambda$--срезки $A_\lambda$
+для $x = (x_1, x_2, ...)\in\ell_\infty$ как
+\begin{equation*}
+	(A_\lambda x)_k = \begin{cases}
+		1, & \mbox{~если~} x_k \geq \lambda
+		\\
+		0  & \mbox{~иначе.~}
+	\end{cases}
+\end{equation*}
+
+\begin{theorem}
+\label{thm:lambda_prelim}
+Пусть $x\in\ell_\infty$, $x\geq 0$.
+Тогда
+$
+	x\in ac_0
+$
+если и только если
+для любого $\lambda > 0$
+выполнено
+$
+	A_\lambda x \in ac_0
+$
+.
+\end{theorem}
+
+
+\begin{theorem}
+Пусть $x\in\ell_\infty$, $x \geq 0$,
+$
+	0<\lambda < \limsup_{k\to\infty} x_k
+$.
+Пусть $\{k: x_k \geq \lambda \} = \{n(\lambda,1),n(\lambda,2),...\}$.
+Обозначим
+$
+	M_{\lambda}(j) = \liminf_{i\to\infty} n(\lambda,i+j) - n(\lambda,i)
+$.
+Для того, чтобы $x\in ac_0$, необходимо и достаточно, чтобы
+для любого $\lambda>0$ было выполнено
+$
+	\lim_{j \to \infty} \frac{M_{\lambda}(j)}{j} = \infty
+$.
+\end{theorem}
+
+Требование произвольности $\lambda$ существенно.
+
+
+
+Пусть $\rho(x,c)$ и $\rho(x,c_0)$~--- расстояния от $x$ до пространств $c$
+и $c_0$ соотв.
+Легко видеть, что функция
+\begin{equation*}
+	\alpha(x) = \limsup_{i\to\infty} \max_{i \leq j \leq 2i} |x_i-x_j|
+\end{equation*}
+удовлетворяет условию Липшица с константой 2
+и для $x\in c$ выполнено
+$\alpha(x)=0$.
+
+\begin{lemma}
+\label{thm:alpha_x_leq_2_rho_x_c}
+	Для любого $x\in\ell_\infty$
+	выполнено неравенство
+	$
+		\alpha(x) \leq 2\rho(x, c)
+	$.
+\end{lemma}
+
+
+\begin{lemma}
+\label{thm:rho_x_c_leq_alpha_t_s_x}
+	Для любых $x\in ac$ и $s\in\mathbb{N}$ верно
+	$
+		\rho(x,c)\leq \alpha(T^s x)
+	$.
+%	где $T$~--- оператор сдвига влево, т.е.
+%	$T(x_1,x_2,...) = (x_2,x_3,...)$.
+\end{lemma}
+
+
+Последовательность $\alpha(T^s x)$ монотонно невозрастает по $s$,
+оставаясь при этом неотрицательной, следовательно, имеет предел.
+Из этого наблюдения, а также лемм \ref{thm:alpha_x_leq_2_rho_x_c} и \ref{thm:rho_x_c_leq_alpha_t_s_x}
+незамедлительно следует
+\begin{theorem}
+%\label{thm:rho_x_c_leq_alpha_t_s_x}
+	Если $x\in ac$, то
+	$
+		\frac{1}{2} \alpha(x) \leq \rho(x,c)\leq \lim_{s\to\infty} \alpha(T^s x) \leq \alpha(x)
+	$.
+\end{theorem}
+
+\begin{corollary}
+	Если $x\in ac_0$, то
+	$
+		\frac{1}{2} \alpha(x) \leq \rho(x,c_0)\leq \lim_{s\to\infty} \alpha(T^s x) \leq \alpha(x)
+	$.
+\end{corollary}
+Все оценки точны, т.е. на некоторых элементах достигается равенство.
+\begin{corollary}
+	Пусть $x\in ac$.
+	Тогда $x\in c$ если и только если $\alpha(x) = 0$.
+\end{corollary}
+
+\begin{remark}
+	Условие $x\in ac$ в лемме \ref{thm:rho_x_c_leq_alpha_t_s_x} существенно.
+	Так, в \cite{our-vzms-2018} для любого $p\in\mathbb{N}$ строится элемент $x=Sy\notin ac$,
+	для которого $\alpha(x) = 1/p$ и $\rho(x,c)=1/2$.
+\end{remark}
+
+
+\printbibliography
+
+
+\end{document}
