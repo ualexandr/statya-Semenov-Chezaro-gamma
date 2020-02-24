@@ -42,6 +42,15 @@
 \def\ext{{\mathrm{ext}\,}}
 \def\mes{{\mathrm{mes}}}
 
+\usepackage[backend=biber,style=gost-numeric,sorting=none]{biblatex}
+\addbibresource{../bib/ext.bib}
+\addbibresource{../bib/my.bib}
+\addbibresource{../bib/Semenov.bib}
+\addbibresource{../bib/Bibliography_from_Usachev.bib}
+
+\input{../bib/ext.hyphens.bib}
+
+
 \begin{document}
 
 \begin{center}
@@ -683,146 +692,7 @@ $$\{ B\in \B : B=\gamma \circ C \ \text{для некоторого обобще
 \end{thm}
 
 
-
-%\bibliographystyle{acm} %alpha
-%\bibliography{Bibliography}
+\printbibliography
 
 
-\begin{thebibliography}{10}
-\bibitem{Avdeev2019}
-Н. Н. Авдеев, О пространстве почти сходящихся последовательностей,
-\textit{Матем. заметки}, \textbf{105}:3 (2019),  462--466.
-
-\bibitem{AvSU}
-Н. Н. Авдеев, Е. М. Семенов, А. С. Усачев, Банаховы пределы и мера на множестве последовательностей из 0 и 1,
-\textit{Матем. заметки}, \textbf{106}:5 (2019),  784--787.
-
-\bibitem{Alekhno}
-{ E.A. Alekhno}, {\it Superposition operator on the space of sequences almost  converging to zero}, Cent. Eur. J. Math. {10}
- (2012), 619--645.
-
-\bibitem{ASSU2}
-{ E. Alekhno, E. Semenov, F. Sukochev, A. Usachev},
-\newblock  \textit{Order and geometric properties of the set of Banach
-limits},
-\newblock { St. Petersburg Math. J.}  (2016),  3--35.
-
-\bibitem{ASSU4}
-E. Alekhno, E. Semenov, F. Sukochev, A. Usachev \textit{Invariant Banach limits and their extreme points}, Studia Math., \textbf{242}:1 (2018), 79--107.
-
-\bibitem{Ast_Sem}
-С. В. Асташкин, Е. М. Семенов,  Константы Лебега системы Уолша и банаховы пределы, \emph{Сиб. матем. журн.}, \textbf{57}:3 (2016), 512--526.
-
-\bibitem{B}
-{\sc Banach, S.}
-\newblock {\em Th\'eorie des op\'erations lin\'eaires}.
-\newblock \'Editions Jacques Gabay, Sceaux, 1993.
-\newblock Reprint of the 1932 original.
-
-\bibitem{Bjorklund}
-Bj\"orklund, M., Hartnick, T., \textit{Biharmonic functions on groups and limit theorems for quasimorphisms along random walks}, Geom. Topol., \textbf{15}:1 (2011), 123--143.
-
-\bibitem{CS}
-{\sc Carey, A.~L., and Sukochev, F.~A.}
-\newblock Dixmier traces and some applications to noncommutative geometry.
-\newblock {\em Uspekhi Mat. Nauk 61}, 6(372) (2006), 45--110.
-
-\bibitem{Connor}
-J. Connor, Almost none of the sequences of 0's and 1's are almost
-convergent, \textit{Internat. J. Math. Math. Sci.}, \textbf{13} (1990), 775--777.
-
-\bibitem{Eberlein}
-{\sc Eberlein, W.~F.}
-\newblock Banach-{H}ausdorff limits.
-\newblock {\em Proc. Amer. Math. Soc. 1\/} (1950), 662--665.
-
-\bibitem{Edgar}
-G. Edgar, Measure, topology, and fractal geometry. Second edition. Undergraduate Texts in Mathematics. Springer, New York, 2008.
-
-\bibitem{FT}
-D. H. Fremlin, M. Talagrand,
-A decomposition theorem for additive set-functions, with applications to Pettis integrals and ergodic means,
-\textit{Math. Z.}, \textbf{168}:2 (1979), 117--142.
-
-\bibitem{L}
-{\sc Lorentz, G.~G.}
-\newblock A contribution to the theory of divergent sequences.
-\newblock {\em Acta Math. 80\/} (1948), 167--190.
-
-\bibitem{Luxemburg}
-{\sc Luxemburg, W. A.~J.}
-\newblock Nonstandard hulls, generalized limits and almost convergence.
-\newblock In {\em Analysis and geometry}. Bibliographisches Inst., Mannheim,
-  1992, pp.~19--45.
-
-  \bibitem{Mazur}
-S.~Mazur,
-\newblock O metodach sumowalno{\'{s}}ci,
-\newblock \textit{Ann. Soc. Polon.
-  Math. (Supplement)}, (1929), 102-107.
-
-  \bibitem{Mokobodzki}
-G. Mokobodzki, Ultrafiltres rapides sur $\N$. Construction d'une densit\'e relative de deux
-potentiels comparables. In S\'eminaire de Th\'eorie du Potentiel, dirig\'e par M. Brelot, G.
-Choquet et J. Deny: 1967/68, Exp. 12, page 22. Secr\'etariat math\'ematique, Paris, 1969.
-
-\bibitem{Sem_Sht}
-{ Е. М. Семенов, А. М. Штейнберг},
-{Оценки норм операторных блоков в банаховых решетках},
-\newblock \textit{ Мат. сборник}, \textbf{126(168)}:3 (1985), 327--343.
-
-\bibitem{SS}
-{ Е. М. Семенов, Ф. А. Сукочев},
-{ Характеристические функции банаховых пределов},
-\newblock {\it Сиб. матем. журн.}, \textbf{51}:4 (2010), 905--910.
-
-\bibitem{SS_JFA}
-{\sc Semenov, E.~M., and Sukochev, F.~A.}
-\newblock Invariant {B}anach limits and applications.
-\newblock {\em J. Funct. Anal. 259}, 6 (2010), 1517--1541.
-
-\bibitem{SSU2}
-{\sc Semenov, E.~M., Sukochev, F.~A., and Usachev, A.~S.}
-\newblock Geometric properties of the set of {B}anach limits.
-\newblock {\em Izv. Ross. Akad. Nauk Ser. Mat. 78}, 3 (2014), 177--204.
-
- \bibitem{SSU_survey}
-{ Е. М. Семенов, Ф. А. Сукочев, А. С. Усачев},
-{Геометрия банаховых пределов и их приложения},
-\newblock \textit{Успехи матем. наук}, в печати.
-
-\bibitem{SSUZ2}
- E. Semenov, F. Sukochev, A. Usachev, D. Zanin \textit{Invariant Banach limits and applications to noncommutative geometry}, Pacific Math. J., in press.
-
- \bibitem{SSUZ3}
- E. Semenov, F. Sukochev, A. Usachev, D. Zanin \textit{Dilation invariant Banach limits}, special issue in the memory of W. A. J. Luxemburg, Indag. Math., in press.
-
- \bibitem{SU}
-{ Е. М. Семенов, А. С. Усачев},
-{Коэффициенты Фурье-Хаара и банаховы пределы},
-\newblock \textit{ Докл. РАН}, \textbf{425}:2 (2009), 172--173.
-
-\bibitem{S}
-{\sc Sucheston, L.}
-\newblock Banach limits.
-\newblock {\em Amer. Math. Monthly 74\/} (1967), 308--311.
-
-\bibitem{U2}
-{A. Usachev},
-{On Fourier-Haar coefficients of the function from the Marcinkiewicz space},
-\newblock \textit{J. Math. Anal. Appl.}, \textbf{414}:1 (2014), 110--124.
-
-\bibitem{NatansonTF}
-Натансон И. П. Теория функций действительной переменной //  М.: Гостехиздат. – 1957.
-%\bibitem{SS_JFA}
-%{ E.M. Semenov, F.A. Sukochev}, \textit{Invariant Banach limits and applications}, J. Funct. Anal. {256} (2010), 1517--1541.
-%
-%\bibitem{SSU2}
-%{ E.~M. Semenov, F.~A. Sukochev, A.~S. Usachev},
-%\textit{ Geometric properties of the set of {B}anach limits},
-%\newblock { Izv. Ross. Akad. Nauk Ser. Mat. } {78} (2014), 177--204.
-
-
-
-\end{thebibliography}
 \end{document}
